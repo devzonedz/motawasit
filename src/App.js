@@ -62,85 +62,53 @@ function App(props) {
       <ScrollToTop></ScrollToTop>
       <Navbar></Navbar>
       <Switch>
-        <TransitionGroup>
-          <ReactTransition
-            key={location.pathname}
-            timeout={{
-              enter: TIMEOUT,
-              exit: TIMEOUT,
-            }}
-          >
-            {status => (
-              <>
-                <div
-                  style={{
-                    ...getTransitionStyles[status],
-                  }}
-                >
-                  <Route title="index" exact path="/">
-                    <Index />
-                  </Route>
-                  <Route title="home" exact path="/home">
-                    <Home />
-                  </Route>
-                  <Route title="about" exact path="/about">
-                    <About />
-                  </Route>
-                  <Route title="blog" exact path="/blog">
-                    <Blog />
-                  </Route>
-                  <Route title="single-post" exact path="/singlePost">
-                    <SinglePost />
-                  </Route>
-                  <Route title="in the press" exact path="/inThePress">
-                    <InThePress />
-                  </Route>
-                  <Route title="book" exact path="/book">
-                    <Book />
-                  </Route>
-                  <Route title="events" exact path="/events">
-                    <Events />
-                  </Route>
-                  <Route
-                    title="arab culture"
-                    exact
-                    path="/ourProjects/divineComedy"
-                  >
-                    <DivineComedy />
-                  </Route>
-                  <Route
-                    title="Translation"
-                    exact
-                    path="/ourProjects/translationForum"
-                  >
-                    <Translation />
-                  </Route>
-                  <Route
-                    title="events"
-                    exact
-                    path="/ourProjects/arabCultureFestivalInMilan"
-                  >
-                    <ArabCulture />
-                  </Route>
-                  <Route
-                    title="Stronger"
-                    exact
-                    path="/ourProjects/literatureIsStronger"
-                  >
-                    <Stronger />
-                  </Route>
-                  <Route
-                    title="publish conditions"
-                    exact
-                    path="/ourWriters/publishConditions"
-                  >
-                    <PublishConditions />
-                  </Route>
-                </div>
-              </>
-            )}
-          </ReactTransition>
-        </TransitionGroup>
+        <Route title="index" exact path="/">
+          <Index />
+        </Route>
+        <Route title="home" exact path="/home">
+          <Home />
+        </Route>
+        <Route title="about" exact path="/about">
+          <About />
+        </Route>
+        <Route title="blog" exact path="/blog">
+          <Blog />
+        </Route>
+        <Route title="single-post" exact path="/singlePost">
+          <SinglePost />
+        </Route>
+        <Route title="in the press" exact path="/inThePress">
+          <InThePress />
+        </Route>
+        <Route title="book" exact path="/book">
+          <Book />
+        </Route>
+        <Route title="events" exact path="/events">
+          <Events />
+        </Route>
+        <Route title="arab culture" exact path="/ourProjects/divineComedy">
+          <DivineComedy />
+        </Route>
+        <Route title="Translation" exact path="/ourProjects/translationForum">
+          <Translation />
+        </Route>
+        <Route
+          title="events"
+          exact
+          path="/ourProjects/arabCultureFestivalInMilan"
+        >
+          <ArabCulture />
+        </Route>
+        <Route title="Stronger" exact path="/ourProjects/literatureIsStronger">
+          <Stronger />
+        </Route>
+        <Route
+          title="publish conditions"
+          exact
+          path="/ourWriters/publishConditions"
+        >
+          <PublishConditions />
+        </Route>
       </Switch>
       <Up></Up>
       <Footer></Footer>
