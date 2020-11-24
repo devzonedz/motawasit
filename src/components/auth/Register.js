@@ -13,6 +13,7 @@ import {
   Stack,
   InputGroup,
   InputRightElement,
+  InputLeftElement,
   Text,
   Divider,
 } from '@chakra-ui/core';
@@ -35,41 +36,52 @@ export default function Signup(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     props.Register(login);
     // setLogin({ name: '', phone: null, email: '', password: '', confirm_password: '' });
   };
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     e.persist();
-    setLogin((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
+    setLogin(prevState => ({ ...prevState, [e.target.name]: e.target.value }));
   };
 
   return (
     <Box
-      mt={{ base: '10px', md: '0' }}
-      width={[
-        '100%', // base
-        '50%', // 480px upwards
-        '25%', // 768px upwards
-        '7%', // 992px upwards
-      ]}
+    //   mt={{ base: '10px', md: '0' }}
+    //   width={[
+    //     '100%', // base
+    //     '50%', // 480px upwards
+    //     '25%', // 768px upwards
+    //     '7%', // 992px upwards
+    //   ]}
     >
       <Text
-        fontSize="xl"
-        fontWeight="bold"
-        cursor="pointer"
-        ref={btnRef}
-        variantColor="red"
+        // fontSize="xl"
+        // fontWeight="bold"
+        // cursor="pointer"
+        // ref={btnRef}
+        // variantColor="red"
         onClick={onOpen}
       >
         تسجيل
       </Text>
 
-      <Drawer size="lg" isOpen={isOpen} placement="right" onClose={onClose} finalFocusRef={btnRef}>
+      <Drawer
+        size="lg"
+        isOpen={isOpen}
+        placement="right"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
         <DrawerOverlay />
         <DrawerContent bg="black" color="white">
-          <DrawerCloseButton position="absolute" top="10px" left="10px" right="none" />
+          <DrawerCloseButton
+            position="absolute"
+            top="10px"
+            left="10px"
+            right="none"
+          />
           <DrawerHeader>تسجيل</DrawerHeader>
 
           <DrawerBody>
@@ -80,14 +92,19 @@ export default function Signup(props) {
             )} */}
             <Stack spacing={4}>
               <InputGroup>
-                <Input onChange={handleChange} name="name" type="name" placeholder="Username" />
+                <Input
+                  onChange={handleChange}
+                  name="name"
+                  type="name"
+                  placeholder="اسم المستخدم"
+                />
               </InputGroup>
               <InputGroup>
                 <Input
                   onChange={handleChange}
                   name="phone"
                   type="number"
-                  placeholder="Phone Number"
+                  placeholder="رقم الهاتف"
                 />
               </InputGroup>
               <InputGroup>
@@ -95,7 +112,7 @@ export default function Signup(props) {
                   onChange={handleChange}
                   name="email"
                   type="email"
-                  placeholder="Email Adress"
+                  placeholder="البريد الالكتروني"
                 />
               </InputGroup>
 
@@ -104,26 +121,38 @@ export default function Signup(props) {
                   onChange={handleChange}
                   name="password"
                   type={show ? 'text' : 'password'}
-                  placeholder="Enter password"
+                  placeholder="كلمة السر"
                 />
-                <InputRightElement width="4.5rem">
-                  <Button h="1.75rem" size="sm" onClick={handleClick}>
-                    {show ? 'Hide' : 'Show'}
+                <InputLeftElement width="4.5rem">
+                  <Button
+                    bg="white"
+                    color="black"
+                    h="1.75rem"
+                    size="sm"
+                    onClick={handleClick}
+                  >
+                    {show ? 'إخفاء' : 'عرض'}
                   </Button>
-                </InputRightElement>
+                </InputLeftElement>
               </InputGroup>
               <InputGroup>
                 <Input
                   onChange={handleChange}
                   name="confirm_password"
                   type={show ? 'text' : 'password'}
-                  placeholder="Confirm password"
+                  placeholder="تاكيد كلمة السر"
                 />
-                <InputRightElement width="4.5rem">
-                  <Button h="1.75rem" size="sm" onClick={handleClick}>
-                    {show ? 'Hide' : 'Show'}
+                <InputLeftElement width="4.5rem">
+                  <Button
+                    bg="white"
+                    color="black"
+                    h="1.75rem"
+                    size="sm"
+                    onClick={handleClick}
+                  >
+                    {show ? 'إخفاء' : 'عرض'}
                   </Button>
-                </InputRightElement>
+                </InputLeftElement>
               </InputGroup>
               <Button
                 // isLoading={props.auth.loading}

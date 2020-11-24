@@ -7,6 +7,7 @@ import {
   TransitionGroup,
   Transition as ReactTransition,
 } from 'react-transition-group';
+import nprogress from 'nprogress';
 
 //?pages
 import Index from './pages/index';
@@ -32,6 +33,7 @@ import SocialButtons from './util/SocialButtons';
 import ScrollToTop from './util/ScrollToTop';
 
 import './styles/globals.css';
+import './styles/fancyroutes.css';
 const TIMEOUT = 300;
 const getTransitionStyles = {
   entering: {
@@ -52,8 +54,13 @@ const getTransitionStyles = {
 };
 
 function App(props) {
-  const location = useLocation();
-  console.log(location);
+  React.useEffect(() => {
+    nprogress.done();
+
+    return () => {
+      nprogress.start();
+    };
+  }, []);
   return (
     <ChakraProvider theme={theme}>
       <CSSReset />

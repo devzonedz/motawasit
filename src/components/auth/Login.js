@@ -13,7 +13,9 @@ import {
   Stack,
   InputGroup,
   InputRightElement,
+  InputLeftElement,
   Divider,
+  Text,
 } from '@chakra-ui/core';
 
 import { connect } from 'react-redux';
@@ -42,25 +44,27 @@ export default function Signin(props) {
 
   return (
     <Box
-      mt={{ base: '10px', md: '0' }}
-      width={[
-        '100%', // base
-        '50%', // 480px upwards
-        '25%', // 768px upwards
-        '13%', // 992px upwards
-      ]}
+      //   mt={{ base: '10px', md: '0' }}
+      //   width={[
+      //     '100%', // base
+      //     '50%', // 480px upwards
+      //     '25%', // 768px upwards
+      //     '13%', // 992px upwards
+      //   ]}
+      w="100%"
     >
-      <Button
-        fontSize="xl"
-        fontWeight="bold"
-        ref={btnRef}
-        bg="white"
-        color="blue.500"
-        rounded="20px"
+      <Text
+        // fontSize="xl"
+        // fontWeight="bold"
+        // ref={btnRef}
+        // bg="white"
+        // color="blue.500"
+        // rounded="20px"
+        w="100%"
         onClick={onOpen}
       >
         تسجيل الدخول
-      </Button>
+      </Text>
       <Drawer
         size="lg"
         // isOpen={!props.auth.loading && !props.auth.error ? false : isOpen}
@@ -71,7 +75,12 @@ export default function Signin(props) {
       >
         <DrawerOverlay />
         <DrawerContent bg="black" color="white">
-          <DrawerCloseButton position="absolute" top="10px" left="10px" right="none" />
+          <DrawerCloseButton
+            position="absolute"
+            top="10px"
+            left="10px"
+            right="none"
+          />
           <DrawerHeader>تسجيل الدخول</DrawerHeader>
 
           <DrawerBody>
@@ -86,7 +95,7 @@ export default function Signin(props) {
                   //   onChange={handleChange}
                   name="email"
                   type="email"
-                  placeholder="Username or Email Adress"
+                  placeholder="البريد الالكتروني"
                 />
               </InputGroup>
 
@@ -95,13 +104,19 @@ export default function Signin(props) {
                   //   onChange={handleChange}
                   name="password"
                   type={show ? 'text' : 'password'}
-                  placeholder="Enter password"
+                  placeholder="كلمة السر"
                 />
-                <InputRightElement width="4.5rem">
-                  <Button h="1.75rem" size="sm" onClick={handleClick}>
-                    {show ? 'Hide' : 'Show'}
+                <InputLeftElement width="4.5rem">
+                  <Button
+                    bg="white"
+                    color="black"
+                    h="1.75rem"
+                    size="sm"
+                    onClick={handleClick}
+                  >
+                    {show ? 'إخفاء' : 'عرض'}
                   </Button>
-                </InputRightElement>
+                </InputLeftElement>
               </InputGroup>
               <Button
                 // isLoading={props.auth.loading}

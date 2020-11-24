@@ -482,8 +482,42 @@ export default function Navbar(props) {
             عن المتوسط
           </Link>
         </Text>
-        <Register></Register>
-        <Login></Login>
+        <Menu>
+          <MenuButton
+            // px={4}
+            // py={2}
+            mt={{ base: 4, md: 0 }}
+            ml={8}
+            fontSize="xl"
+            fontWeight="bold"
+            transition="all 0.2s"
+            // _hover={{ bg: 'gray.100' }}
+            // _focus={{ outline: 0, boxShadow: 'outline' }}
+          >
+            الحساب
+            <FaChevronUp style={{ display: 'inline' }}></FaChevronUp>{' '}
+          </MenuButton>
+          <MenuList bg={bg[colorMode]} shadow="xl">
+            <MenuItem
+              _focus={{ bg: 'white', color: 'black' }}
+              _hover={{ bg: 'white', color: 'black' }}
+              fontSize="xl"
+            >
+              <Box display="flex">
+                <Register></Register>
+              </Box>
+            </MenuItem>
+            <MenuItem
+              _focus={{ bg: 'white', color: 'black' }}
+              _hover={{ bg: 'white', color: 'black' }}
+              fontSize="xl"
+            >
+              <Box display="flex">
+                <Login></Login>
+              </Box>
+            </MenuItem>
+          </MenuList>
+        </Menu>
 
         {/* <ShopBadge></ShopBadge> */}
         <Box

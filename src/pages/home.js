@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Button,
   ButtonGroup,
@@ -12,6 +13,7 @@ import {
 } from '@chakra-ui/core';
 import { BsArrowUpLeft } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+// import fx from 'money';
 
 export default function Home() {
   return (
