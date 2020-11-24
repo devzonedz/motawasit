@@ -15,6 +15,7 @@ import Home from './pages/home';
 import About from './pages/about';
 import Blog from './pages/blog';
 import Book from './pages/book';
+import Books from './pages/books';
 import Events from './pages/events';
 import InThePress from './pages/inThePress';
 import SinglePost from './pages/singlePost';
@@ -87,8 +88,11 @@ function App(props) {
         <Route title="in the press" exact path="/inThePress">
           <InThePress />
         </Route>
-        <Route title="book" exact path="/book">
+        <Route title="book" exact path="/book/:id">
           <Book />
+        </Route>
+        <Route title="books" exact path="/books/:category">
+          <Books />
         </Route>
         <Route title="events" exact path="/events">
           <Events />
