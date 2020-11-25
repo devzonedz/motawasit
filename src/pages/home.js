@@ -1,16 +1,5 @@
 import React from 'react';
-import {
-  Button,
-  ButtonGroup,
-  Heading,
-  Box,
-  Text,
-  Image,
-  Divider,
-  SimpleGrid,
-  Input,
-  Flex,
-} from '@chakra-ui/core';
+import { Heading, Box, Divider, useColorMode } from '@chakra-ui/core';
 import { BsArrowUpLeft } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 // import fx from 'money';
@@ -20,12 +9,12 @@ import { getBooks } from '../redux/actions/booksActions';
 import CatBooks from '../components/books/catBooks';
 
 function Home(props) {
-  //   React.useEffect(() => {
-  //     props.getBooks();
-  //   }, []);
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  const color = { light: 'black', dark: 'white' };
   return (
     <Box mt="100px" mb="100px">
-      <Box m="8" position="relative">
+      <Box m="8">
         <Box mr="80px">
           <Link to={`/books/الدراسات`}>
             <Heading cursor="pointer" m="2">
@@ -34,9 +23,9 @@ function Home(props) {
           </Link>
           <Divider
             w="20%"
-            border="3px solid black"
+            // border="4px solid black"
             opacity="1"
-            borderColor="black"
+            borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
             <Heading size="md" m="2">
@@ -59,9 +48,9 @@ function Home(props) {
           </Link>
           <Divider
             w="20%"
-            border="3px solid black"
+            // border="2px solid black"
             opacity="1"
-            borderColor="black"
+            borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
             <Heading size="md" m="2">
@@ -84,9 +73,9 @@ function Home(props) {
           </Link>
           <Divider
             w="20%"
-            border="3px solid black"
+            // border="2px solid black"
             opacity="1"
-            borderColor="black"
+            borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
             <Heading size="md" m="2">
@@ -109,9 +98,9 @@ function Home(props) {
           </Link>
           <Divider
             w="20%"
-            border="3px solid black"
+            // border="2px solid black"
             opacity="1"
-            borderColor="black"
+            borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
             <Heading size="md" m="2">
@@ -134,9 +123,9 @@ function Home(props) {
           </Link>
           <Divider
             w="20%"
-            border="3px solid black"
+            // border="2px solid black"
             opacity="1"
-            borderColor="black"
+            borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
             <Heading size="md" m="2">
@@ -159,9 +148,9 @@ function Home(props) {
           </Link>
           <Divider
             w="20%"
-            border="3px solid black"
+            // border="2px solid black"
             opacity="1"
-            borderColor="black"
+            borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
             <Heading size="md" m="2">
@@ -184,9 +173,9 @@ function Home(props) {
           </Link>
           <Divider
             w="20%"
-            border="3px solid black"
+            // border="2px solid black"
             opacity="1"
-            borderColor="black"
+            borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
             <Heading size="md" m="2">
@@ -209,9 +198,9 @@ function Home(props) {
           </Link>
           <Divider
             w="20%"
-            border="3px solid black"
+            // border="2px solid black"
             opacity="1"
-            borderColor="black"
+            borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
             <Heading size="md" m="2">
@@ -234,9 +223,9 @@ function Home(props) {
           </Link>
           <Divider
             w="20%"
-            border="3px solid black"
+            // border="2px solid black"
             opacity="1"
-            borderColor="black"
+            borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
             <Heading size="md" m="2">

@@ -266,8 +266,16 @@ function Writers({ getAuthors }) {
       <Flex flexWrap="wrap">
         {data &&
           data.map(author => (
-            <Link>
-              <Text m="2" fontSize="2xl">
+            <Link key={author.id} to={`/author/${author.id}`}>
+              <Text
+                _hover={{
+                  bg: 'yellow.300',
+                  color: 'black',
+                  textDecoration: 'underline',
+                }}
+                m="2"
+                fontSize="2xl"
+              >
                 {author.name}
               </Text>
             </Link>

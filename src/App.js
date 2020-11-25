@@ -11,6 +11,7 @@ import nprogress from 'nprogress';
 
 //?pages
 import Index from './pages/index';
+import Four from './pages/404';
 import Home from './pages/home';
 import About from './pages/about';
 import Blog from './pages/blog';
@@ -25,6 +26,7 @@ import Stronger from './pages/ourProjects/literatureIsStronger';
 import Translation from './pages/ourProjects/translationForum';
 import PublishConditions from './pages/ourWriters/publishConditions';
 import Writers from './pages/ourWriters/writers';
+import Author from './pages/ourWriters/Author';
 
 import Navbar from './components/layout/Navbar';
 import TopNavbar from './components/layout/TopNavbar';
@@ -95,6 +97,9 @@ function App(props) {
         <Route title="books" exact path="/books/:category">
           <Books />
         </Route>
+        <Route title="author" exact path="/author/:id">
+          <Author />
+        </Route>
         <Route title="events" exact path="/events">
           <Events />
         </Route>
@@ -123,6 +128,9 @@ function App(props) {
         </Route>
         <Route title="writers" exact path="/ourWriters/writers">
           <Writers />
+        </Route>
+        <Route title="404">
+          <Four />
         </Route>
       </Switch>
       <Up></Up>
