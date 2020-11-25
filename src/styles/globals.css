@@ -30,11 +30,14 @@ body {
   direction: rtl;
   text-align: right !important;
   /* background-color: #edf2f7; */
-  /* overflow-y: hidden !important;
-  overflow-x: scroll !important; */
-  scrollbar-width: none;
-  position: relative;
+  /* overflow-y: hidden !important; */
+  /* overflow-x: hidden !important; */
+  /* scrollbar-width: none;
+  position: relative; */
   /* float: left; */
+}
+#root {
+  overflow-x: hidden !important;
 }
 body::-webkit-scrollbar {
   width: 1em;
@@ -51,13 +54,13 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid slategrey;
 }
 
-input::placeholder {
+/* input::placeholder {
   color: #ddd;
 }
 input {
   border: 1px solid #eee !important;
   border-color: #eee !important;
-}
+} */
 
 a {
   color: inherit;

@@ -15,6 +15,10 @@ import {
 
 export default function SocialButtons() {
   const { colorMode, toggleColorMode } = useColorMode();
+  const [url, setUrl] = React.useState();
+  React.useEffect(() => {
+    setUrl(window.location.href);
+  }, []);
 
   const bg = { light: '#fff', dark: '#1a202c' };
   const bgIcon = { light: '#000', dark: '#fff' };
@@ -25,7 +29,7 @@ export default function SocialButtons() {
         <FacebookShareButton
           //   className="social-href "
           style={{ backgroundColor: bgIcon[colorMode] }}
-          url="https://www.tutorialrepublic.com/faq/how-to-get-the-current-url-with-javascript.php"
+          url={url}
         >
           <Box
             className="facebook"
@@ -40,7 +44,7 @@ export default function SocialButtons() {
         <TwitterShareButton
           //   className="social-href"
           style={{ backgroundColor: bgIcon[colorMode] }}
-          url="https://www.tutorialrepublic.com/faq/how-to-get-the-current-url-with-javascript.php"
+          url={url}
         >
           <Box
             className="twitter"
@@ -55,7 +59,7 @@ export default function SocialButtons() {
         <LinkedinShareButton
           //   className="social-href"
           style={{ backgroundColor: bgIcon[colorMode] }}
-          url="https://www.tutorialrepublic.com/faq/how-to-get-the-current-url-with-javascript.php"
+          url={url}
         >
           <Box
             className="linkedin"
@@ -71,7 +75,7 @@ export default function SocialButtons() {
         <WhatsappShareButton
           //   className="social-href"
           style={{ backgroundColor: bgIcon[colorMode] }}
-          url="https://www.tutorialrepublic.com/faq/how-to-get-the-current-url-with-javascript.php"
+          url={url}
         >
           <Box
             className="whatsapp"

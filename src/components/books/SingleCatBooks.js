@@ -17,18 +17,21 @@ function CatBooks({ category, getBooks }) {
       }
     }
     getData();
-  }, []);
+  }, [category]);
 
   return (
     <SimpleGrid columns={[1, 2, 3, 5]}>
       {data &&
-        data.map(book => (
+        data.books &&
+        data.books.length !== 0 &&
+        data.books.map(book => (
           <Link key={book.id} to={`/book/${book.id}`}>
             <Box mb="4" cursor="pointer">
               <Image
+                w="225px"
+                h="350px"
                 m="0 auto"
-                src={`${process.env.REACT_APP_STORAGE}/${book.image}`}
-                src={`http://elmutawassit.devzone-dz.com/storage/${book.image}`}
+                src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
               ></Image>
               <Box mt="4" textAlign="center">
                 <Text fontWeight="500" fontSize="xl">

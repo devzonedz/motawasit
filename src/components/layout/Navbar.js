@@ -142,7 +142,7 @@ export default function Navbar(props) {
               <Link
                 style={{ margin: '50px !important' }}
                 onClick={handleToggle}
-                to="/publications/publish-list"
+                to="/books/الدراسات"
               >
                 <Box m="4">
                   <MenuItem
@@ -162,7 +162,7 @@ export default function Navbar(props) {
               <Link
                 style={{ margin: '50px !important' }}
                 onClick={handleToggle}
-                to="/publications/distribution"
+                to="/books/الرواية"
               >
                 <Box m="4">
                   <MenuItem
@@ -182,7 +182,7 @@ export default function Navbar(props) {
               <Link
                 style={{ margin: '50px !important' }}
                 onClick={handleToggle}
-                to="/publications/publish-list"
+                to="/books/الشعر"
               >
                 <Box m="4">
                   <MenuItem
@@ -202,7 +202,7 @@ export default function Navbar(props) {
               <Link
                 style={{ margin: '50px !important' }}
                 onClick={handleToggle}
-                to="/publications/distribution"
+                to="/books/القصة القصيرة"
               >
                 <Box m="4">
                   <MenuItem
@@ -221,7 +221,7 @@ export default function Navbar(props) {
               <Link
                 style={{ margin: '50px !important' }}
                 onClick={handleToggle}
-                to="/publications/publish-list"
+                to="/books/الفلسفة"
               >
                 <Box m="4">
                   <MenuItem
@@ -241,7 +241,7 @@ export default function Navbar(props) {
               <Link
                 style={{ margin: '50px !important' }}
                 onClick={handleToggle}
-                to="/publications/distribution"
+                to="/books/سير ذاتية"
               >
                 <Box m="4">
                   <MenuItem
@@ -261,7 +261,7 @@ export default function Navbar(props) {
               <Link
                 style={{ margin: '50px !important' }}
                 onClick={handleToggle}
-                to="/publications/publish-list"
+                to="/books/يوميات عربية"
               >
                 <Box m="4">
                   <MenuItem
@@ -281,7 +281,7 @@ export default function Navbar(props) {
               <Link
                 style={{ margin: '50px !important' }}
                 onClick={handleToggle}
-                to="/publications/distribution"
+                to="/books/وكلاء وموزعون"
               >
                 <Box m="4">
                   <MenuItem
@@ -301,7 +301,7 @@ export default function Navbar(props) {
               <Link
                 style={{ margin: '50px !important' }}
                 onClick={handleToggle}
-                to="/publications/publish-list"
+                to="/books/المعاجم والقواميس"
               >
                 <Box m="4">
                   <MenuItem
@@ -320,7 +320,7 @@ export default function Navbar(props) {
               <Link
                 style={{ margin: '50px !important' }}
                 onClick={handleToggle}
-                to="/publications/distribution"
+                to="/books/منوعات"
               >
                 <Box m="4">
                   <MenuItem
@@ -341,36 +341,17 @@ export default function Navbar(props) {
           </MenuList>
         </Menu>
 
-        <Menu>
-          <MenuButton
-            display="block"
-            // px={4}
-            // py={2}
-            mt={{ base: 4, md: 0 }}
-            ml={8}
-            fontSize="xl"
-            fontWeight="bold"
-            transition="all 0.2s"
-            // _hover={{ bg: 'gray.100' }}
-            // _focus={{ outline: 0, boxShadow: 'outline' }}
-          >
+        <Text
+          mt={{ base: 4, md: 0 }}
+          ml={6}
+          display="block"
+          fontWeight="bold"
+          fontSize="xl"
+        >
+          <Link onClick={handleToggle} to="/ourWriters/writers">
             كتّاب المتوسط
-            <FaChevronUp style={{ display: 'inline' }}></FaChevronUp>{' '}
-          </MenuButton>
-          <MenuList bg={bg[colorMode]} shadow="xl">
-            <Link onClick={handleToggle} to="/ourWriters/publishConditions">
-              <MenuItem
-                _focus={{ bg: 'white', color: 'black' }}
-                _hover={{ bg: 'white', color: 'black' }}
-                fontSize="xl"
-              >
-                <Box display="flex">
-                  <Text> شروط النشر</Text>
-                </Box>
-              </MenuItem>
-            </Link>
-          </MenuList>
-        </Menu>
+          </Link>
+        </Text>
 
         <Menu>
           <MenuButton
@@ -387,54 +368,71 @@ export default function Navbar(props) {
             مشاريعنا
             <FaChevronUp style={{ display: 'inline' }}></FaChevronUp>{' '}
           </MenuButton>
-          <MenuList bg={bg[colorMode]} shadow="xl">
-            <Link onClick={handleToggle} to="/ourProjects/divineComedy">
-              <MenuItem
-                _focus={{ bg: 'white', color: 'black' }}
-                _hover={{ bg: 'white', color: 'black' }}
-                fontSize="xl"
+          <MenuList w="100vw" bg={bg[colorMode]} shadow="xl">
+            <SimpleGrid pl="5%" pr="5%" columns={4}>
+              <Link onClick={handleToggle} to="/ourProjects/divineComedy">
+                <MenuItem
+                  _focus={{ bg: 'white', color: 'black' }}
+                  _hover={{ bg: 'white', color: 'black' }}
+                  fontSize="xl"
+                >
+                  <Box display="flex">
+                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                      {' '}
+                      الكوميديا الإلهية
+                    </Heading>
+                  </Box>
+                </MenuItem>
+              </Link>
+              <Link onClick={handleToggle} to="/ourProjects/translationForum">
+                <MenuItem
+                  _focus={{ bg: 'white', color: 'black' }}
+                  _hover={{ bg: 'white', color: 'black' }}
+                  fontSize="xl"
+                >
+                  <Box display="flex">
+                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                      {' '}
+                      ملتقى الترجمة
+                    </Heading>
+                  </Box>
+                </MenuItem>
+              </Link>
+              <Link
+                onClick={handleToggle}
+                to="/ourProjects/arabCultureFestivalInMilan"
               >
-                <Box display="flex">
-                  <Text>الكوميديا الإلهية</Text>
-                </Box>
-              </MenuItem>
-            </Link>
-            <Link onClick={handleToggle} to="/ourProjects/translationForum">
-              <MenuItem
-                _focus={{ bg: 'white', color: 'black' }}
-                _hover={{ bg: 'white', color: 'black' }}
-                fontSize="xl"
+                <MenuItem
+                  _focus={{ bg: 'white', color: 'black' }}
+                  _hover={{ bg: 'white', color: 'black' }}
+                  fontSize="xl"
+                >
+                  <Box display="flex">
+                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                      {' '}
+                      مهرجان الثقافة العربية في ميلانو
+                    </Heading>
+                  </Box>
+                </MenuItem>
+              </Link>
+              <Link
+                onClick={handleToggle}
+                to="/ourProjects/literatureIsStronger"
               >
-                <Box display="flex">
-                  <Text>ملتقى الترجمة</Text>
-                </Box>
-              </MenuItem>
-            </Link>
-            <Link
-              onClick={handleToggle}
-              to="/ourProjects/arabCultureFestivalInMilan"
-            >
-              <MenuItem
-                _focus={{ bg: 'white', color: 'black' }}
-                _hover={{ bg: 'white', color: 'black' }}
-                fontSize="xl"
-              >
-                <Box display="flex">
-                  <Text>مهرجان الثقافة العربية في ميلانو</Text>
-                </Box>
-              </MenuItem>
-            </Link>
-            <Link onClick={handleToggle} to="/ourProjects/literatureIsStronger">
-              <MenuItem
-                _focus={{ bg: 'white', color: 'black' }}
-                _hover={{ bg: 'white', color: 'black' }}
-                fontSize="xl"
-              >
-                <Box display="flex">
-                  <Text>الأدب أقوى</Text>
-                </Box>
-              </MenuItem>
-            </Link>
+                <MenuItem
+                  _focus={{ bg: 'white', color: 'black' }}
+                  _hover={{ bg: 'white', color: 'black' }}
+                  fontSize="xl"
+                >
+                  <Box display="flex">
+                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                      {' '}
+                      الأدب أقوى
+                    </Heading>
+                  </Box>
+                </MenuItem>
+              </Link>
+            </SimpleGrid>
           </MenuList>
         </Menu>
 
@@ -482,42 +480,17 @@ export default function Navbar(props) {
             عن المتوسط
           </Link>
         </Text>
-        <Menu>
-          <MenuButton
-            // px={4}
-            // py={2}
-            mt={{ base: 4, md: 0 }}
-            ml={8}
-            fontSize="xl"
-            fontWeight="bold"
-            transition="all 0.2s"
-            // _hover={{ bg: 'gray.100' }}
-            // _focus={{ outline: 0, boxShadow: 'outline' }}
-          >
-            الحساب
-            <FaChevronUp style={{ display: 'inline' }}></FaChevronUp>{' '}
-          </MenuButton>
-          <MenuList bg={bg[colorMode]} shadow="xl">
-            <MenuItem
-              _focus={{ bg: 'white', color: 'black' }}
-              _hover={{ bg: 'white', color: 'black' }}
-              fontSize="xl"
-            >
-              <Box display="flex">
-                <Register></Register>
-              </Box>
-            </MenuItem>
-            <MenuItem
-              _focus={{ bg: 'white', color: 'black' }}
-              _hover={{ bg: 'white', color: 'black' }}
-              fontSize="xl"
-            >
-              <Box display="flex">
-                <Login></Login>
-              </Box>
-            </MenuItem>
-          </MenuList>
-        </Menu>
+        <Text
+          mt={{ base: 4, md: 0 }}
+          ml={6}
+          display="block"
+          fontWeight="bold"
+          fontSize="xl"
+        >
+          <Link onClick={handleToggle} to="/ourWriters/publishConditions">
+            انشر معنا
+          </Link>
+        </Text>
 
         {/* <ShopBadge></ShopBadge> */}
         <Box

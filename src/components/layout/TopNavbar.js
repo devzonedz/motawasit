@@ -26,10 +26,12 @@ import {
   FaShoppingCart,
   FaDollarSign,
   FaSearch,
+  FaNewspaper,
   FaMoon,
   FaSun,
 } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import Newsletter from './NewsLetter';
 
 function ShopBadge(props) {
   return (
@@ -129,6 +131,7 @@ export default function Navbar(props) {
         >
           <FaShoppingCart></FaShoppingCart>
         </Box>
+        <Newsletter></Newsletter>
         <Box
           rounded="5px"
           bg={bgIcon[colorMode]}

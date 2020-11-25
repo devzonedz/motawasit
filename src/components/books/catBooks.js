@@ -17,31 +17,38 @@ function CatBooks({ category, getBooks }) {
     }
     getData();
   }, []);
+  console.log(data && data.books);
 
   return (
-    <SimpleGrid columns={[1, 2, 3, 5]}>
+    <SimpleGrid mr="80px" columns={[1, 2, 3, 5]}>
       {data &&
-        data.map(book => (
-          <Link key={book.id} to={`/book/${book.id}`}>
-            <Box mb="4" cursor="pointer">
-              <Image
-                m="0 auto"
-                src={`${process.env.REACT_APP_STORAGE}/${book.image}`}
-              ></Image>
-              <Box mt="4" textAlign="center">
-                <Text fontWeight="500" fontSize="xl">
-                  {book.title}
-                </Text>
-                <Text fontSize="md" color="gray.600">
-                  {book.sub_title}
-                </Text>
-                <Text fontSize="sm" color="gray.500">
-                  {book.author}
-                </Text>
-                <Text fontWeight="bold">${book.price}</Text>
+        data.books &&
+        data.books.length !== 0 &&
+        data.books.map(book => (
+          <>
+            <Link key={book.id} to={`/book/${book.id}`}>
+              <Box mb="4" cursor="pointer">
+                <Image
+                  w="225px"
+                  h="350px"
+                  m="0 auto"
+                  src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
+                ></Image>
+                <Box mt="4" textAlign="center">
+                  <Text fontWeight="500" fontSize="xl">
+                    {book.title}
+                  </Text>
+                  <Text fontSize="md" color="gray.600">
+                    {book.sub_title}
+                  </Text>
+                  <Text fontSize="sm" color="gray.500">
+                    {book.author}
+                  </Text>
+                  <Text fontWeight="bold">${book.price}</Text>
+                </Box>
               </Box>
-            </Box>
-          </Link>
+            </Link>
+          </>
         ))}
     </SimpleGrid>
   );

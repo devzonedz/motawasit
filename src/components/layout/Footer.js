@@ -12,12 +12,17 @@ import {
   SimpleGrid,
   Text,
 } from '@chakra-ui/core';
-import { FaFacebookF, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedin,
+  FaInstagram,
+} from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <Box color="gray.600" bg="gray.300">
-      <SimpleGrid mb="60px" p="30px" columns={3} spacing="8">
+    <Box pb="60px" color="white" bg="black">
+      <SimpleGrid mb="100px" p="30px" columns={3} spacing="8">
         <Flex direction="column">
           <Heading size="lg">المتوسط</Heading>
           <Text>حول المتوسط</Text>

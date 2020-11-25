@@ -24,6 +24,7 @@ import DivineComedy from './pages/ourProjects/divineComedy';
 import Stronger from './pages/ourProjects/literatureIsStronger';
 import Translation from './pages/ourProjects/translationForum';
 import PublishConditions from './pages/ourWriters/publishConditions';
+import Writers from './pages/ourWriters/writers';
 
 import Navbar from './components/layout/Navbar';
 import TopNavbar from './components/layout/TopNavbar';
@@ -119,6 +120,9 @@ function App(props) {
           path="/ourWriters/publishConditions"
         >
           <PublishConditions />
+        </Route>
+        <Route title="writers" exact path="/ourWriters/writers">
+          <Writers />
         </Route>
       </Switch>
       <Up></Up>
