@@ -14,6 +14,7 @@ import {
   TabPanel,
   List,
   ListItem,
+  Flex,
 } from '@chakra-ui/core';
 import Carousel from 'react-elastic-carousel';
 import { useParams } from 'react-router-dom';
@@ -64,6 +65,13 @@ function Book({ getBook }) {
               <Box m="4">
                 <Heading m="4">{data.title}</Heading>
                 {/* <Text fontSize="xl">{data.author}</Text> */}
+                <Flex>
+                  {data.author.map(author => (
+                    <Text m="2" fontSize="2xl" color="gray.500">
+                      {author.name}
+                    </Text>
+                  ))}
+                </Flex>
                 <Divider></Divider>
                 <Text m="4" fontSize="xl">
                   {data.description}
@@ -85,13 +93,14 @@ function Book({ getBook }) {
                       </Text>
                     </TabPanel>
                     <TabPanel>
-                      <Text fontSize="xl" mt="4">
-                        يوتام جيدرون باحث تركز كتاباته على الهجرة والعلاقات بين
-                        الدولة والمجتمع والثقافة الشعبية في إفريقيا وإسرائيل /
-                        فلسطين. عمل مع منظمات حقوق الإنسان في إسرائيل وشرق
-                        إفريقيا ، ويسعى حاليًا للحصول على درجة الدكتوراه في
-                        التاريخ الأفريقي في جامعة دورهام.
-                      </Text>
+                      {data.author.map(author => (
+                        <Box>
+                          <Heading size="lg">{author.name}</Heading>
+                          <Text m="2" fontSize="2xl">
+                            {author.author_bio}
+                          </Text>
+                        </Box>
+                      ))}
                     </TabPanel>
                     <TabPanel fontSize="xl" whiteSpace="pre-line">
                       {data.index}
@@ -148,6 +157,7 @@ function Book({ getBook }) {
                           تاريخ النشر:{' '}
                           {moment(data.publish_date).format('DD/MM/yyyy')}{' '}
                         </ListItem>
+                        <ListItem>دار النشر: {data.publisher} </ListItem>
                         <ListItem>عدد الصفحات: {data.page_number} </ListItem>
                         <ListItem>السعر: {data.price}$</ListItem>
                         <ListItem>أرقام ISBN للمنتج: {data.isbn}</ListItem>

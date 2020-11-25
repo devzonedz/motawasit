@@ -49,7 +49,7 @@ export default function BasicUsage() {
             left="10px"
             right="none"
           />
-          <ModalBody mt="8">
+          <ModalBody mt="50px">
             <Box textAlign="center">
               <Text mb="4" fontSize="2xl">
                 ابق على اطلاع دائم مع المتوسط من خلال الاشتراك في النشرة
