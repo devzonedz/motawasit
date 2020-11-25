@@ -39,19 +39,25 @@ function Book({ getBook }) {
     <Box mt="100px">
       <Box mt="100px">
         <Grid
-          pr="10%"
-          pl="10%"
+          pr={['2%', '2%', '10%', '10%']}
+          pl={['2%', '2%', '10%', '10%']}
           templateColumns={['1fr', '1fr', '1fr 2fr', '1fr 2fr']}
           gap="10px"
         >
           {data && (
             <>
               <Box m="4">
-                {/* <Image
-                  w="400px"
-                  src={`${process.env.REACT_APP_STORAGE}/${data.image}`}
-                ></Image> */}
-                <Button rounded="20px" mt="4" w="400px" colorScheme="red">
+                <Image
+                  shadow="lg"
+                  w={['300px', '300px', '400px', '400px']}
+                  src={`${process.env.REACT_APP_STORAGE}/${data.cover}`}
+                ></Image>
+                <Button
+                  rounded="20px"
+                  mt="4"
+                  w={['300px', '300px', '400px', '400px']}
+                  colorScheme="red"
+                >
                   اذهب الى المتجر
                 </Button>
               </Box>

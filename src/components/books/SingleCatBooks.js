@@ -31,6 +31,7 @@ function CatBooks({ category, getBooks }) {
                 w="225px"
                 h="350px"
                 m="0 auto"
+                shadow="lg"
                 src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
               ></Image>
               <Box mt="4" textAlign="center">

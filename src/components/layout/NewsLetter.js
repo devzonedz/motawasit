@@ -39,7 +39,7 @@ export default function BasicUsage() {
 
       <Modal size="xl" isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bg="black" color="white">
           {/* <ModalHeader>
             ابق على اطلاع دائم مع المتوسط من خلال الاشتراك في النشرة الإخبارية
           </ModalHeader> */}

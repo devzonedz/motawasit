@@ -7,75 +7,69 @@ import {
   InputRightElement,
   Input,
   Icon,
-  Link,
   Image,
   SimpleGrid,
   Text,
 } from '@chakra-ui/core';
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedin,
-  FaInstagram,
-} from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
     <Box pb="60px" color="white" bg="black">
-      <SimpleGrid mb="100px" p="30px" columns={3} spacing="8">
+      <SimpleGrid mb="100px" p="30px" columns={[1, 1, 3, 3]} spacing="8">
         <Flex direction="column">
           <Heading size="lg">المتوسط</Heading>
-          <Text>حول المتوسط</Text>
-          <Text>اتصل</Text>
-          <Text>الأحكام والشروط</Text>
-          <Text>سياسة خاصة</Text>
-          <Text>أسئلة وأجوبة</Text>
-          <Text>النشرة الإخبارية</Text>
+          <Text fontSize="2xl">حول المتوسط</Text>
+          <Text fontSize="2xl">اتصل</Text>
+          <Text fontSize="2xl">الأحكام والشروط</Text>
+          <Text fontSize="2xl">سياسة خاصة</Text>
+          <Text fontSize="2xl">أسئلة وأجوبة</Text>
+          <Text fontSize="2xl">النشرة الإخبارية</Text>
           <Heading size="lg" mt="12">
             للمؤلفين
           </Heading>
-          <Text>النشر مع المتوسط</Text>
-          <Text>للمؤلفين المتعاقد معهم</Text>
+          <Text fontSize="2xl">النشر مع المتوسط</Text>
+          <Text fontSize="2xl">للمؤلفين المتعاقد معهم</Text>
         </Flex>
 
         <Flex direction="column">
           <Heading size="lg">المواضيع</Heading>
-          <Text>أفريقيا</Text>
-          <Text>الأمريكتان</Text>
-          <Text>آسيا</Text>
-          <Text>أوروبا</Text>
-          <Text>الشرق الأوسط</Text>
-          {/* <Text>الأنثروبولوجيا</Text>
-          <Text>السيرة الذاتية والمذكرات</Text>
-          <Text>اعمال</Text>
-          <Text>المدن والعمارة</Text>
-          <Text>الثقافة والإعلام</Text>
-          <Text>الشؤون الحالية</Text>
-          <Text>تطوير</Text>
-          <Text>اقتصاديات</Text>
-          <Text>التعليم</Text>
-          <Text>بيئة</Text>
-          <Text>خيال</Text>
-          <Text>الجنس والجنس والهويات المثلية</Text>
-          <Text>الصحة والطب</Text>
-          <Text>التاريخ</Text>
-          <Text>حقوق الانسان</Text>
-          <Text>السياسة والعلاقات الدولية</Text>
-          <Text>فلسفة</Text>
-          <Text>العرق وسياسة السكان الأصليين</Text>
-          <Text>علم الاجتماع</Text> */}
+          <Text fontSize="2xl">أفريقيا</Text>
+          <Text fontSize="2xl">الأمريكتان</Text>
+          <Text fontSize="2xl">آسيا</Text>
+          <Text fontSize="2xl">أوروبا</Text>
+          <Text fontSize="2xl">الشرق الأوسط</Text>
+          {/* <Text fontSize="2xl">الأنثروبولوجيا</Text>
+          <Text fontSize="2xl">السيرة الذاتية والمذكرات</Text>
+          <Text fontSize="2xl">اعمال</Text>
+          <Text fontSize="2xl">المدن والعمارة</Text>
+          <Text fontSize="2xl">الثقافة والإعلام</Text>
+          <Text fontSize="2xl">الشؤون الحالية</Text>
+          <Text fontSize="2xl">تطوير</Text>
+          <Text fontSize="2xl">اقتصاديات</Text>
+          <Text fontSize="2xl">التعليم</Text>
+          <Text fontSize="2xl">بيئة</Text>
+          <Text fontSize="2xl">خيال</Text>
+          <Text fontSize="2xl">الجنس والجنس والهويات المثلية</Text>
+          <Text fontSize="2xl">الصحة والطب</Text>
+          <Text fontSize="2xl">التاريخ</Text>
+          <Text fontSize="2xl">حقوق الانسان</Text>
+          <Text fontSize="2xl">السياسة والعلاقات الدولية</Text>
+          <Text fontSize="2xl">فلسفة</Text>
+          <Text fontSize="2xl">العرق وسياسة السكان الأصليين</Text>
+          <Text fontSize="2xl">علم الاجتماع</Text> */}
         </Flex>
         <Flex direction="column">
           <Heading size="lg">الحساب</Heading>
-          <Text>تسجيل الدخول</Text>
-          <Text>اتصل</Text>
+          <Text fontSize="2xl">تسجيل الدخول</Text>
+          <Text fontSize="2xl">اتصل</Text>
 
           <Heading size="lg" mt="12">
             وسائل التواصل الاجتماعي
           </Heading>
-          <Text>تويتر</Text>
-          <Text>الفيسبوك</Text>
-          <Text>انستغرام</Text>
+          <Text fontSize="2xl">تويتر</Text>
+          <Text fontSize="2xl">الفيسبوك</Text>
+          <Text fontSize="2xl">انستغرام</Text>
         </Flex>
       </SimpleGrid>
     </Box>
