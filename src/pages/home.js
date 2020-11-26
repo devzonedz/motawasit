@@ -28,10 +28,10 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               عربي
             </Heading>
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               مترجم
             </Heading>
           </Box>
@@ -53,10 +53,10 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               عربي
             </Heading>
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               مترجم
             </Heading>
           </Box>
@@ -78,10 +78,10 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               عربي
             </Heading>
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               مترجم
             </Heading>
           </Box>
@@ -103,10 +103,10 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               عربي
             </Heading>
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               مترجم
             </Heading>
           </Box>
@@ -128,10 +128,10 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               عربي
             </Heading>
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               مترجم
             </Heading>
           </Box>
@@ -153,10 +153,10 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               عربي
             </Heading>
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               مترجم
             </Heading>
           </Box>
@@ -178,10 +178,10 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               عربي
             </Heading>
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               مترجم
             </Heading>
           </Box>
@@ -203,10 +203,10 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               عربي
             </Heading>
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               مترجم
             </Heading>
           </Box>
@@ -228,10 +228,10 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               عربي
             </Heading>
-            <Heading size="md" m="2">
+            <Heading fontWeight="normal" size="md" m="2">
               مترجم
             </Heading>
           </Box>

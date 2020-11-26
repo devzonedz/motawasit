@@ -141,35 +141,35 @@ h6 {
 }
 
 .facebook:hover {
-  transform: translate(-30px, 0);
+  transform: translate(30px, 0);
 }
 .twitter {
   transition: transform 0.3s ease-out;
 }
 
 .twitter:hover {
-  transform: translate(-30px, 0);
+  transform: translate(30px, 0);
 }
 .youtube {
   transition: transform 0.3s ease-out;
 }
 
 .youtube:hover {
-  transform: translate(-30px, 0);
+  transform: translate(30px, 0);
 }
 .linkedin {
   transition: transform 0.3s ease-out;
 }
 
 .linkedin:hover {
-  transform: translate(-30px, 0);
+  transform: translate(30px, 0);
 }
 .whatsapp {
   transition: transform 0.3s ease-out;
 }
 
 .whatsapp:hover {
-  transform: translate(-30px, 0);
+  transform: translate(30px, 0);
 }
 
 .main:hover {

@@ -17,7 +17,7 @@ import {
   Flex,
 } from '@chakra-ui/core';
 import Carousel from 'react-elastic-carousel';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import { getBook } from '../redux/actions/booksActions';
@@ -67,9 +67,20 @@ function Book({ getBook }) {
                 {/* <Text fontSize="xl">{data.author}</Text> */}
                 <Flex>
                   {data.author.map(author => (
-                    <Text m="2" fontSize="2xl" color="gray.500">
-                      {author.name}
-                    </Text>
+                    <Link key={author.id} to={`/author/${author.id}`}>
+                      <Text
+                        _hover={{
+                          bg: 'yellow.300',
+                          color: 'black',
+                          textDecoration: 'underline',
+                        }}
+                        m="2"
+                        fontSize="2xl"
+                        color="gray.500"
+                      >
+                        {author.name}
+                      </Text>
+                    </Link>
                   ))}
                 </Flex>
                 <Divider></Divider>

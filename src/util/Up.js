@@ -34,13 +34,17 @@ export default class Up extends Component {
           backgroundColor: '#eee',
           position: 'fixed',
           bottom: 70,
-          left: 30,
+          right: 30,
           zIndex: 997,
           padding: 10,
           cursor: 'pointer',
         }}
       >
-        <FaChevronUp onClick={this.scrollToTop} fontSize="24px" color="black"></FaChevronUp>
+        <FaChevronUp
+          onClick={this.scrollToTop}
+          fontSize="24px"
+          color="black"
+        ></FaChevronUp>
       </div>
     );
   }

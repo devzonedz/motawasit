@@ -1,13 +1,18 @@
 import React from 'react';
 import { Box, Flex, useColorMode } from '@chakra-ui/core';
-import { FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import {
+  FaFacebook,
+  FaTwitter,
+  FaLinkedin,
+  FaPinterest,
+  FaSoundcloud,
+  FaYoutube,
+} from 'react-icons/fa';
 import { IoLogoWhatsapp } from 'react-icons/io';
 
 import {
   FacebookShareButton,
-  FacebookIcon,
-  TwitterIcon,
-  WhatsappIcon,
+  PinterestShareButton,
   TwitterShareButton,
   WhatsappShareButton,
   LinkedinShareButton,
@@ -24,7 +29,7 @@ export default function SocialButtons() {
   const bgIcon = { light: '#000', dark: '#fff' };
   const color = { light: 'white', dark: 'black' };
   return (
-    <Box style={{ position: 'fixed', zIndex: '99', top: '30%', right: 0 }}>
+    <Box style={{ position: 'fixed', zIndex: '99', top: '20%', left: 0 }}>
       <Flex direction="column">
         <FacebookShareButton
           //   className="social-href "
@@ -87,6 +92,51 @@ export default function SocialButtons() {
             <IoLogoWhatsapp></IoLogoWhatsapp>
           </Box>
         </WhatsappShareButton>
+        <PinterestShareButton
+          //   className="social-href"
+          style={{ backgroundColor: bgIcon[colorMode] }}
+          url={url}
+        >
+          <Box
+            className="whatsapp"
+            bg={bgIcon[colorMode]}
+            color={color[colorMode]}
+            p="20px"
+            fontSize="28px"
+          >
+            <FaPinterest></FaPinterest>
+          </Box>
+        </PinterestShareButton>
+        <PinterestShareButton
+          //   className="social-href"
+          style={{ backgroundColor: bgIcon[colorMode] }}
+          url={url}
+        >
+          <Box
+            className="whatsapp"
+            bg={bgIcon[colorMode]}
+            color={color[colorMode]}
+            p="20px"
+            fontSize="28px"
+          >
+            <FaYoutube></FaYoutube>
+          </Box>
+        </PinterestShareButton>
+        <PinterestShareButton
+          //   className="social-href"
+          style={{ backgroundColor: bgIcon[colorMode] }}
+          url={url}
+        >
+          <Box
+            className="whatsapp"
+            bg={bgIcon[colorMode]}
+            color={color[colorMode]}
+            p="20px"
+            fontSize="28px"
+          >
+            <FaSoundcloud></FaSoundcloud>
+          </Box>
+        </PinterestShareButton>
       </Flex>
     </Box>
   );

@@ -369,7 +369,8 @@ export default function Navbar(props) {
             <FaChevronUp style={{ display: 'inline' }}></FaChevronUp>{' '}
           </MenuButton>
           <MenuList w="100vw" bg={bg[colorMode]} shadow="xl">
-            <SimpleGrid pl="5%" pr="5%" columns={4}>
+            {/* <SimpleGrid pl="5%" pr="5%" columns={4}> */}
+            <Flex p="4" h="400px" flexWrap="wrap" direction="column">
               <Link onClick={handleToggle} to="/ourProjects/divineComedy">
                 <MenuItem
                   _focus={{ bg: 'white', color: 'black' }}
@@ -432,7 +433,8 @@ export default function Navbar(props) {
                   </Box>
                 </MenuItem>
               </Link>
-            </SimpleGrid>
+            </Flex>
+            {/* </SimpleGrid> */}
           </MenuList>
         </Menu>
 
