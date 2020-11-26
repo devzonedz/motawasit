@@ -29,7 +29,7 @@ export default function SocialButtons() {
   const bgIcon = { light: '#000', dark: '#fff' };
   const color = { light: 'white', dark: 'black' };
   return (
-    <Box style={{ position: 'fixed', zIndex: '99', top: '20%', left: 0 }}>
+    <Box style={{ position: 'fixed', zIndex: '99', top: '15%', left: 0 }}>
       <Flex direction="column">
         <FacebookShareButton
           //   className="social-href "
