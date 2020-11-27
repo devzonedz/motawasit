@@ -29,7 +29,7 @@ body {
   font-family: 'bahij', 'Cairo', sans-serif !important;
   direction: rtl;
   text-align: right !important;
-  /* background-color: #edf2f7; */
+  /* background-color: #f5f2ef; */
   /* overflow-y: hidden !important; */
   /* overflow-x: hidden !important; */
   /* scrollbar-width: none;
@@ -38,6 +38,7 @@ body {
 }
 #root {
   overflow-x: hidden !important;
+  /* background-color: #f5f2ef; */
 }
 body::-webkit-scrollbar {
   width: 1em;
@@ -141,37 +142,37 @@ h6 {
 }
 
 .facebook:hover {
-  transform: translate(30px, 0);
+  transform: translate(-30px, 0);
 }
 .twitter {
   transition: transform 0.3s ease-out;
 }
 
 .twitter:hover {
-  transform: translate(30px, 0);
+  transform: translate(-30px, 0);
 }
 .youtube {
   transition: transform 0.3s ease-out;
 }
 
 .youtube:hover {
-  transform: translate(30px, 0);
+  transform: translate(-30px, 0);
 }
 .linkedin {
   transition: transform 0.3s ease-out;
 }
 
 .linkedin:hover {
-  transform: translate(30px, 0);
+  transform: translate(-30px, 0);
 }
 .whatsapp {
   transition: transform 0.3s ease-out;
 }
 
 .whatsapp:hover {
-  transform: translate(30px, 0);
+  transform: translate(-30px, 0);
 }
-
+/*
 .main:hover {
   background-color: white;
 
@@ -195,7 +196,7 @@ h6 {
 
   color: black;
   transition: background-color 0.5s, color 0.5s;
-}
+} */
 
 .quote {
   margin: 0;
@@ -217,5 +218,17 @@ h6 {
   .main-logo {
     width: 500px !important;
     margin-right: 50px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .padding {
+    padding-left: 20% !important;
+    padding-right: 20% !important;
+  }
+}
+@media only screen and (max-width: 1600px) {
+  .padding {
+    padding-left: 10% !important;
+    padding-right: 10% !important;
   }
 }

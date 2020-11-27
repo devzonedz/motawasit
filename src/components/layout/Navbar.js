@@ -116,7 +116,7 @@ export default function Navbar(props) {
             الرئيسية
           </Link>
         </Text> */}
-        <Menu>
+        {/* <Menu>
           <MenuButton
             display="block"
             // px={4}
@@ -339,8 +339,19 @@ export default function Navbar(props) {
               </Link>
             </SimpleGrid>
           </MenuList>
-        </Menu>
+        </Menu> */}
 
+        <Text
+          mt={{ base: 4, md: 0 }}
+          ml={6}
+          display="block"
+          fontWeight="bold"
+          fontSize="xl"
+        >
+          <Link onClick={handleToggle} to="/books">
+            كتب المتوسط
+          </Link>
+        </Text>
         <Text
           mt={{ base: 4, md: 0 }}
           ml={6}

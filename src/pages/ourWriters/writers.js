@@ -35,9 +35,9 @@ function Writers({ getAuthors }) {
   };
 
   return (
-    <Box pl="10%" pr="10%" mt="100px" mb="100px" textAlign="center">
+    <Box className="padding" mt="100px" mb="100px" textAlign="center">
       <Heading size="xl">كتابنا</Heading>
-      <Flex flexWrap="wrap">
+      <Flex mt="8" flexWrap="wrap">
         <Button
           onClick={() => getFiltredAuthors('ا')}
           fontWeight="normal"
@@ -263,7 +263,7 @@ function Writers({ getAuthors }) {
           ي
         </Button>
       </Flex>{' '}
-      <Flex flexWrap="wrap">
+      <Flex mt="8" flexWrap="wrap">
         {data &&
           data.map(author => (
             <Link key={author.id} to={`/author/${author.id}`}>

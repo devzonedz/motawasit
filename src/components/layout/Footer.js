@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <Box pb="60px" color="white" bg="black">
+    <Box pb="60px" pl="10%" pr="10%" color="white" bg="black">
       <SimpleGrid mb="100px" p="30px" columns={[1, 1, 3, 3]} spacing="8">
         <Flex direction="column">
           <Heading size="lg">المتوسط</Heading>

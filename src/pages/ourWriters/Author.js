@@ -30,7 +30,7 @@ function Author({ getAuthor }) {
     getData();
   }, []);
   return (
-    <Box mt="100px" mb="100px" pr="10%" pl="10%">
+    <Box mt="100px" mb="100px" className="padding">
       {data && (
         <>
           <Grid
@@ -38,7 +38,7 @@ function Author({ getAuthor }) {
             // pr={['2%', '2%', '10%', '10%']}
             // pl={['2%', '2%', '10%', '10%']}
             templateColumns={['1fr', '1fr', '1fr 2fr', '1fr 2fr']}
-            gap="10px"
+            // gap="10px"
           >
             <Image
               //   borderRadius="50%"
@@ -48,7 +48,9 @@ function Author({ getAuthor }) {
               src={`${process.env.REACT_APP_STORAGE}/${data.image}`}
             ></Image>
             <Box>
-              <Heading m="4">{data.name}</Heading>
+              <Heading size="lg" m="4">
+                {data.name}
+              </Heading>
               <Divider
                 // border="4px solid black"
                 opacity="1"
@@ -57,7 +59,9 @@ function Author({ getAuthor }) {
               <Text fontSize="2xl" m="4">
                 {data.author_bio}
               </Text>
-              <Heading m="4">صدر له في المتوسط</Heading>
+              <Heading size="lg" m="4">
+                صدر له في المتوسط
+              </Heading>
               <Divider
                 // border="4px solid black"
                 opacity="1"

@@ -17,7 +17,7 @@ import ReactPaginate from 'react-paginate';
 
 export default function blog() {
   return (
-    <Box mt="100px">
+    <Box m="10%">
       {/* <h1>hdjkqsdhjqhdjk</h1> */}
 
       <SimpleGrid m="8" columns={[1, 1, 3, 3]} spacing="8">

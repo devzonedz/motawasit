@@ -29,7 +29,7 @@ export default function SocialButtons() {
   const bgIcon = { light: '#000', dark: '#fff' };
   const color = { light: 'white', dark: 'black' };
   return (
-    <Box style={{ position: 'fixed', zIndex: '99', top: '15%', left: 0 }}>
+    <Box style={{ position: 'fixed', zIndex: '99', top: '23%', right: 0 }}>
       <Flex direction="column">
         <FacebookShareButton
           //   className="social-href "
@@ -41,7 +41,7 @@ export default function SocialButtons() {
             bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
-            fontSize="24px"
+            fontSize="18px"
           >
             <FaFacebook></FaFacebook>
           </Box>
@@ -56,7 +56,7 @@ export default function SocialButtons() {
             bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
-            fontSize="28px"
+            fontSize="18px"
           >
             <FaTwitter></FaTwitter>
           </Box>
@@ -71,7 +71,7 @@ export default function SocialButtons() {
             bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
-            fontSize="28px"
+            fontSize="18px"
           >
             <FaLinkedin></FaLinkedin>
           </Box>
@@ -87,7 +87,7 @@ export default function SocialButtons() {
             bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
-            fontSize="28px"
+            fontSize="18px"
           >
             <IoLogoWhatsapp></IoLogoWhatsapp>
           </Box>
@@ -102,7 +102,7 @@ export default function SocialButtons() {
             bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
-            fontSize="28px"
+            fontSize="18px"
           >
             <FaPinterest></FaPinterest>
           </Box>
@@ -117,7 +117,7 @@ export default function SocialButtons() {
             bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
-            fontSize="28px"
+            fontSize="18px"
           >
             <FaYoutube></FaYoutube>
           </Box>
@@ -132,7 +132,7 @@ export default function SocialButtons() {
             bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
-            fontSize="28px"
+            fontSize="18px"
           >
             <FaSoundcloud></FaSoundcloud>
           </Box>

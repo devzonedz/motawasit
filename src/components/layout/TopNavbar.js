@@ -59,6 +59,8 @@ export default function Navbar(props) {
 
   return (
     <Flex
+      h="70px"
+      borderBottom="1px solid #ddd"
       style={{ position: 'fixed', width: '100%', zIndex: '99', top: 0 }}
       as="nav"
       align="center"

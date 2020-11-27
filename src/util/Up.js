@@ -34,7 +34,7 @@ export default class Up extends Component {
           backgroundColor: '#eee',
           position: 'fixed',
           bottom: 70,
-          right: 30,
+          left: 30,
           zIndex: 997,
           padding: 10,
           cursor: 'pointer',
