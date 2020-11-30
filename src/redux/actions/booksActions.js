@@ -6,13 +6,16 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-export const getBooks = (category, translate) => async (dispatch, getState) => {
+export const getBooks = (category, translate, featured) => async (
+  dispatch,
+  getState
+) => {
   console.log(translate);
   let data;
   if (translate) {
     data = await axios
       .get(
-        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&category=${category}&translate=${translate}`,
+        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&category=${category}&translate=${translate}&featured=${featured}`,
         //   { website: 'المتوسط' },
         { headers }
       )

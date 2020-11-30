@@ -56,7 +56,7 @@ export default function Navbar(props) {
       bg={bg[colorMode]}
     >
       <Text fontWeight="bold" mr="8" ml="8" fontSize="2xl">
-        متميز
+        صدر حديثا
       </Text>
       <Text fontWeight="bold" ml="8" fontSize="2xl">
         الكل
