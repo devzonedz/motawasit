@@ -113,8 +113,11 @@ function Book({ getBook }) {
                         </Box>
                       ))}
                     </TabPanel>
-                    <TabPanel fontSize="xl" whiteSpace="pre-line">
-                      {data.index}
+                    <TabPanel fontSize="xl">
+                      <div
+                        className="content"
+                        dangerouslySetInnerHTML={{ __html: data.index }}
+                      ></div>
                     </TabPanel>
                     <TabPanel>
                       <Text fontSize="xl" mt="4">
