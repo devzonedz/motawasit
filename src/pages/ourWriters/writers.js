@@ -39,12 +39,20 @@ function Writers({ getAuthors }) {
       <Heading size="xl">كتابنا</Heading>
       <Flex mt="8" flexWrap="wrap">
         <Button
-          onClick={() => getFiltredAuthors('ا')}
+          onClick={() => getFiltredAuthors('أ')}
           fontWeight="normal"
           fontSize="2xl"
           m="2"
         >
-          ا
+          أ
+        </Button>
+        <Button
+          onClick={() => getFiltredAuthors('إ')}
+          fontWeight="normal"
+          fontSize="2xl"
+          m="2"
+        >
+          إ
         </Button>
         <Button
           onClick={() => getFiltredAuthors('ب')}
@@ -265,7 +273,7 @@ function Writers({ getAuthors }) {
       </Flex>{' '}
       <Flex mt="8" flexWrap="wrap">
         {data &&
-          data.map(author => (
+          Object.values(data).map(author => (
             <Link key={author.id} to={`/author/${author.id}`}>
               <Text
                 _hover={{

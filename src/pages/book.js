@@ -85,7 +85,7 @@ function Book({ getBook }) {
                 </Flex>
                 <Divider></Divider>
                 <Text m="4" fontSize="xl">
-                  {data.description}
+                  {data.sub_title}
                 </Text>
                 <Divider></Divider>
                 <Tabs>
@@ -100,7 +100,7 @@ function Book({ getBook }) {
                   <TabPanels>
                     <TabPanel>
                       <Text fontSize="xl" mt="4">
-                        {data.overview}
+                        {data.description}
                       </Text>
                     </TabPanel>
                     <TabPanel>

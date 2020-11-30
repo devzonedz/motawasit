@@ -87,7 +87,7 @@ export default function Navbar(props) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books/الدراسات"
+              to="/books_by_category/الدراسات"
             >
               <Box m="4">
                 <MenuItem
@@ -107,7 +107,7 @@ export default function Navbar(props) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books/الرواية"
+              to="/books_by_category/الرواية"
             >
               <Box m="4">
                 <MenuItem
@@ -127,7 +127,7 @@ export default function Navbar(props) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books/الشعر"
+              to="/books_by_category/الشعر"
             >
               <Box m="4">
                 <MenuItem
@@ -147,7 +147,7 @@ export default function Navbar(props) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books/القصة القصيرة"
+              to="/books_by_category/القصة القصيرة"
             >
               <Box m="4">
                 <MenuItem
@@ -166,7 +166,7 @@ export default function Navbar(props) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books/الفلسفة"
+              to="/books_by_category/الفلسفة"
             >
               <Box m="4">
                 <MenuItem
@@ -186,7 +186,7 @@ export default function Navbar(props) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books/سير ذاتية"
+              to="/books_by_category/سير ذاتية"
             >
               <Box m="4">
                 <MenuItem
@@ -206,7 +206,7 @@ export default function Navbar(props) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books/يوميات عربية"
+              to="/books_by_category/يوميات عربية"
             >
               <Box m="4">
                 <MenuItem
@@ -226,7 +226,7 @@ export default function Navbar(props) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books/وكلاء وموزعون"
+              to="/books_by_category/وكلاء وموزعون"
             >
               <Box m="4">
                 <MenuItem
@@ -246,7 +246,7 @@ export default function Navbar(props) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books/المعاجم والقواميس"
+              to="/books_by_category/المعاجم والقواميس"
             >
               <Box m="4">
                 <MenuItem
@@ -265,7 +265,7 @@ export default function Navbar(props) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books/منوعات"
+              to="/books_by_category/منوعات"
             >
               <Box m="4">
                 <MenuItem

@@ -24,7 +24,7 @@ function Home(props) {
     <Box pr="10%" pl="10%" mt="100px" mb="100px">
       <Image src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/06/black_lives_matter_in_charlotte1800x675-1600x600.jpg"></Image>
       <SimpleGrid mt="8" spacing={4} columns={[1, 2, 2, 3]}>
-        <Box>
+        <Box p="8">
           <Heading>
             هل يمكن أن تكون حالات الطوارئ الوطنية مهد الديمقراطية؟
           </Heading>
@@ -38,7 +38,7 @@ function Home(props) {
             src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/06/dan_blog_hero_16-9-640x360.jpg"
           ></Image>
         </Box>
-        <Box>
+        <Box p="8">
           <Heading>الحرب على المعوقين الحرب على المعوقين</Heading>
           <Text fontSize="xl">الرأسمالية والرفاهية وصنع كارثة بشرية</Text>
           <Text fontSize="xl" bg="gray.30">
@@ -53,7 +53,7 @@ function Home(props) {
             src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2019/12/P-1592532741-The-War-on-Disabled-People-219x350.jpg"
           ></Image>
         </Box>
-        <Box>
+        <Box p="8">
           <Heading>
             هل يمكن أن تكون حالات الطوارئ الوطنية مهد الديمقراطية؟
           </Heading>
@@ -67,7 +67,7 @@ function Home(props) {
             src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/06/dan_blog_hero_16-9-640x360.jpg"
           ></Image>
         </Box>
-        <Box>
+        <Box p="8">
           <Heading>الحرب على المعوقين الحرب على المعوقين</Heading>
           <Text fontSize="xl">الرأسمالية والرفاهية وصنع كارثة بشرية</Text>
           <Text fontSize="xl" bg="gray.30">
@@ -82,7 +82,7 @@ function Home(props) {
             src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2019/12/P-1592532741-The-War-on-Disabled-People-219x350.jpg"
           ></Image>
         </Box>
-        <Box>
+        <Box p="8">
           <Heading>
             هل يمكن أن تكون حالات الطوارئ الوطنية مهد الديمقراطية؟
           </Heading>
@@ -96,7 +96,7 @@ function Home(props) {
             src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/06/dan_blog_hero_16-9-640x360.jpg"
           ></Image>
         </Box>
-        <Box>
+        <Box p="8">
           <Heading>الحرب على المعوقين الحرب على المعوقين</Heading>
           <Text fontSize="xl">الرأسمالية والرفاهية وصنع كارثة بشرية</Text>
           <Text fontSize="xl" bg="gray.30">
@@ -111,7 +111,7 @@ function Home(props) {
             src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2019/12/P-1592532741-The-War-on-Disabled-People-219x350.jpg"
           ></Image>
         </Box>
-        <Box>
+        <Box p="8">
           <Heading>
             هل يمكن أن تكون حالات الطوارئ الوطنية مهد الديمقراطية؟
           </Heading>
@@ -125,7 +125,7 @@ function Home(props) {
             src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/06/dan_blog_hero_16-9-640x360.jpg"
           ></Image>
         </Box>
-        <Box>
+        <Box p="8">
           <Heading>الحرب على المعوقين الحرب على المعوقين</Heading>
           <Text fontSize="xl">الرأسمالية والرفاهية وصنع كارثة بشرية</Text>
           <Text fontSize="xl" bg="gray.30">

@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 
 import { getBooks } from '../../redux/actions/booksActions';
 
-function CatBooks({ category, getBooks }) {
+function CatBooks({ category, translate, getBooks }) {
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
     async function getData() {
-      const res = await getBooks(category);
+      const res = await getBooks(category, translate);
       console.log(category);
       console.log(res);
       if (res) {
@@ -39,7 +39,7 @@ function CatBooks({ category, getBooks }) {
                   {book.title}
                 </Text>
                 <Text fontSize="md" color="gray.600">
-                  {book.description}
+                  {book.sub_title}
                 </Text>
                 <Text fontSize="sm" color="gray.500">
                   {book.author}
@@ -54,7 +54,9 @@ function CatBooks({ category, getBooks }) {
 }
 
 const mapDispatchToProps = dispatch => {
-  return { getBooks: category => dispatch(getBooks(category)) };
+  return {
+    getBooks: (category, translate) => dispatch(getBooks(category, translate)),
+  };
 };
 
 export default connect(null, mapDispatchToProps)(CatBooks);

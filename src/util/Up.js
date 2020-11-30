@@ -33,7 +33,7 @@ export default class Up extends Component {
         style={{
           backgroundColor: '#eee',
           position: 'fixed',
-          bottom: 70,
+          bottom: 100,
           left: 30,
           zIndex: 997,
           padding: 10,

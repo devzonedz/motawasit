@@ -18,7 +18,7 @@ function Home(props) {
       <BooksFilter></BooksFilter>
       <Box m="8">
         <Box mr="80px">
-          <Link to={`/books_by_category/الدراسات`}>
+          <Link to={`/books_by_category/دراسات المتوسط`}>
             <Heading cursor="pointer" m="2">
               الدراسات
             </Heading>
@@ -30,20 +30,24 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading fontWeight="normal" size="md" m="2">
-              عربي
-            </Heading>
-            <Heading fontWeight="normal" size="md" m="2">
-              مترجم
-            </Heading>
+            <Link to={`/books_by_category/دراسات المتوسط?translate=0`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                عربي
+              </Heading>
+            </Link>
+            <Link to={`/books_by_category/دراسات المتوسط?translate=1`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                مترجم
+              </Heading>
+            </Link>
           </Box>
         </Box>
-        <CatBooks category="الدراسات"></CatBooks>
+        <CatBooks category="دراسات المتوسط"></CatBooks>
       </Box>
       <Divider></Divider>
       <Box m="4">
         <Box mr="80px">
-          <Link to={`/books_by_category/الرواية`}>
+          <Link to={`/books_by_category/روايات المتوسط`}>
             <Heading cursor="pointer" m="2">
               الرواية
             </Heading>
@@ -55,20 +59,24 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading fontWeight="normal" size="md" m="2">
-              عربي
-            </Heading>
-            <Heading fontWeight="normal" size="md" m="2">
-              مترجم
-            </Heading>
+            <Link to={`/books_by_category/روايات المتوسط?translate=0`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                عربي
+              </Heading>
+            </Link>
+            <Link to={`/books_by_category/روايات المتوسط?translate=1`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                مترجم
+              </Heading>
+            </Link>
           </Box>
         </Box>
-        <CatBooks category="الرواية"></CatBooks>
+        <CatBooks category="روايات المتوسط"></CatBooks>
       </Box>
       <Divider></Divider>
       <Box m="4">
         <Box mr="80px">
-          <Link to={`/books_by_category/الشعر`}>
+          <Link to={`/books_by_category/شعر المتوسط`}>
             <Heading cursor="pointer" m="2">
               الشعر
             </Heading>
@@ -80,20 +88,24 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading fontWeight="normal" size="md" m="2">
-              عربي
-            </Heading>
-            <Heading fontWeight="normal" size="md" m="2">
-              مترجم
-            </Heading>
+            <Link to={`/books_by_category/شعر المتوسط?translate=0`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                عربي
+              </Heading>
+            </Link>
+            <Link to={`/books_by_category/شعر المتوسط?translate=1`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                مترجم
+              </Heading>
+            </Link>
           </Box>
         </Box>
-        <CatBooks category="الشعر"></CatBooks>
+        <CatBooks category="شعر المتوسط"></CatBooks>
       </Box>
       <Divider></Divider>
       <Box m="4">
         <Box mr="80px">
-          <Link to={`/books_by_category/القصة القصيرة`}>
+          <Link to={`/books_by_category/قصص المتوسط`}>
             <Heading cursor="pointer" m="2">
               القصة القصيرة
             </Heading>
@@ -105,20 +117,24 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading fontWeight="normal" size="md" m="2">
-              عربي
-            </Heading>
-            <Heading fontWeight="normal" size="md" m="2">
-              مترجم
-            </Heading>
+            <Link to={`/books_by_category/قصص المتوسط?translate=0`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                عربي
+              </Heading>
+            </Link>
+            <Link to={`/books_by_category/قصص المتوسط?translate=1`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                مترجم
+              </Heading>
+            </Link>
           </Box>
         </Box>
-        <CatBooks category="القصة القصيرة"></CatBooks>
+        <CatBooks category="قصص المتوسط"></CatBooks>
       </Box>
       <Divider></Divider>
       <Box m="4">
         <Box mr="80px">
-          <Link to={`/books_by_category/الفلسفة`}>
+          <Link to={`/books_by_category/فلسفة المتوسط`}>
             <Heading cursor="pointer" m="2">
               الفلسفة
             </Heading>
@@ -130,20 +146,24 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading fontWeight="normal" size="md" m="2">
-              عربي
-            </Heading>
-            <Heading fontWeight="normal" size="md" m="2">
-              مترجم
-            </Heading>
+            <Link to={`/books_by_category/فلسفة المتوسط?translate=0`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                عربي
+              </Heading>
+            </Link>
+            <Link to={`/books_by_category/فلسفة المتوسط?translate=1`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                مترجم
+              </Heading>
+            </Link>
           </Box>
         </Box>
-        <CatBooks category="الفلسفة"></CatBooks>
+        <CatBooks category="فلسفة المتوسط"></CatBooks>
       </Box>
       <Divider></Divider>
       <Box m="4">
         <Box mr="80px">
-          <Link to={`/books_by_category/سير ذاتية`}>
+          <Link to={`/books_by_category/كتب السيرة`}>
             <Heading cursor="pointer" m="2">
               سير ذاتية
             </Heading>
@@ -155,20 +175,24 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading fontWeight="normal" size="md" m="2">
-              عربي
-            </Heading>
-            <Heading fontWeight="normal" size="md" m="2">
-              مترجم
-            </Heading>
+            <Link to={`/books_by_category/كتب السيرة?translate=0`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                عربي
+              </Heading>
+            </Link>
+            <Link to={`/books_by_category/كتب السيرة?translate=1`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                مترجم
+              </Heading>
+            </Link>
           </Box>
         </Box>
-        <CatBooks category="سير ذاتية"></CatBooks>
+        <CatBooks category="كتب السيرة"></CatBooks>
       </Box>
       <Divider></Divider>
       <Box m="4">
         <Box mr="80px">
-          <Link to={`/books_by_category/يوميات عربية`}>
+          <Link to={`/books_by_category/يوميات المتوسط`}>
             <Heading cursor="pointer" m="2">
               يوميات عربية
             </Heading>
@@ -180,20 +204,24 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading fontWeight="normal" size="md" m="2">
-              عربي
-            </Heading>
-            <Heading fontWeight="normal" size="md" m="2">
-              مترجم
-            </Heading>
+            <Link to={`/books_by_category/يوميات المتوسط?translate=0`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                عربي
+              </Heading>
+            </Link>
+            <Link to={`/books_by_category/يوميات المتوسط?translate=1`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                مترجم
+              </Heading>
+            </Link>
           </Box>
         </Box>
-        <CatBooks category="يوميات عربية"></CatBooks>
+        <CatBooks category="يوميات المتوسط"></CatBooks>
       </Box>
       <Divider></Divider>
       <Box m="4">
         <Box mr="80px">
-          <Link to={`/books_by_category/المعاجم والقواميس`}>
+          <Link to={`/books_by_category/معاجم وقواميس المتوسط`}>
             <Heading cursor="pointer" m="2">
               المعاجم والقواميس
             </Heading>
@@ -205,20 +233,24 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading fontWeight="normal" size="md" m="2">
-              عربي
-            </Heading>
-            <Heading fontWeight="normal" size="md" m="2">
-              مترجم
-            </Heading>
+            <Link to={`/books_by_category/معاجم وقواميس المتوسط?translate=0`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                عربي
+              </Heading>
+            </Link>
+            <Link to={`/books_by_category/معاجم وقواميس المتوسط?translate=1`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                مترجم
+              </Heading>
+            </Link>
           </Box>
         </Box>
-        <CatBooks category=" المعاجم والقواميس"></CatBooks>
+        <CatBooks category="معاجم وقواميس المتوسط"></CatBooks>
       </Box>
       <Divider></Divider>
       <Box m="4">
         <Box mr="80px">
-          <Link to={`/books_by_category/منوعات`}>
+          <Link to={`/books_by_category/منوعات المتوسط`}>
             <Heading cursor="pointer" m="2">
               منوعات
             </Heading>
@@ -230,15 +262,19 @@ function Home(props) {
             borderColor={color[colorMode]}
           ></Divider>
           <Box d="flex" m="4">
-            <Heading fontWeight="normal" size="md" m="2">
-              عربي
-            </Heading>
-            <Heading fontWeight="normal" size="md" m="2">
-              مترجم
-            </Heading>
+            <Link to={`/books_by_category/منوعات المتوسط?translate=0`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                عربي
+              </Heading>
+            </Link>
+            <Link to={`/books_by_category/منوعات المتوسط?translate=1`}>
+              <Heading fontWeight="normal" size="md" m="2">
+                مترجم
+              </Heading>
+            </Link>
           </Box>
         </Box>
-        <CatBooks category="منوعات"></CatBooks>
+        <CatBooks category="منوعات المتوسط"></CatBooks>
       </Box>
     </Box>
   );
