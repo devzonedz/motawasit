@@ -78,7 +78,7 @@ export default function Home() {
           h={['25vh', '25vh', '50vh', '50vh']}
         >
           <Center>
-            <Image w="50%" h="40%" src={medium}></Image>
+            <Image w="90%" src={medium}></Image>
           </Center>
 
           {/* <Flex justify="center" direction="column">
@@ -119,7 +119,7 @@ export default function Home() {
           h={['25vh', '25vh', '50vh', '50vh']}
         >
           <Center>
-            <Image w="50%" h="40%" src={shope}></Image>
+            <Image w="60%" src={shope}></Image>
           </Center>
           {/* <Flex justify="center" direction="column">
             <Flex justifyContent="center">
@@ -160,7 +160,7 @@ export default function Home() {
           h={['25vh', '25vh', '50vh', '50vh']}
         >
           <Center>
-            <Image w="50%" h="40%" src={braat}></Image>
+            <Image w="50%" src={braat}></Image>
           </Center>
           {/* <Flex justify="center" direction="column">
             <Flex justifyContent="center">
@@ -201,7 +201,7 @@ export default function Home() {
           h={['25vh', '25vh', '50vh', '50vh']}
         >
           <Center>
-            <Image w="50%" h="40%" src={center}></Image>
+            <Image w="90%" src={center}></Image>
           </Center>
           {/* <Flex justify="center" direction="column">
             <Flex justifyContent="center">

@@ -55,12 +55,17 @@ export default function Navbar(props) {
       //   color={color[colorMode]}
       bg={bg[colorMode]}
     >
-      <Text fontWeight="bold" mr="8" ml="8" fontSize="2xl">
-        صدر حديثا
-      </Text>
-      <Text fontWeight="bold" ml="8" fontSize="2xl">
-        الكل
-      </Text>
+      <Link to="/books">
+        <Text fontWeight="bold" mr="8" ml="8" fontSize="2xl">
+          الكل
+        </Text>
+      </Link>
+      <Link to="/featured?featured=1">
+        <Text fontWeight="bold" ml="8" fontSize="2xl">
+          صدر حديثا
+        </Text>
+      </Link>
+
       <Menu>
         <MenuButton
           display="block"
@@ -76,7 +81,14 @@ export default function Navbar(props) {
           // _focus={{ outline: 0, boxShadow: 'outline' }}
         >
           مواضيع
-          <FaChevronDown style={{ display: 'inline' }}></FaChevronDown>{' '}
+          <FaChevronDown
+            style={{
+              display: 'inline',
+              fontSize: 15,
+              marginRight: 3,
+              marginTop: 5,
+            }}
+          ></FaChevronDown>{' '}
         </MenuButton>
         <MenuList w="100vw" color="white" bg={filter[colorMode]} shadow="xl">
           <SimpleGrid
@@ -266,12 +278,16 @@ export default function Navbar(props) {
           </SimpleGrid>
         </MenuList>
       </Menu>
-      <Text fontWeight="bold" ml="8" fontSize="2xl">
-        سلاسل
-      </Text>
-      <Text fontWeight="bold" ml="8" fontSize="2xl">
-        على قدوم
-      </Text>
+      <Link>
+        <Text fontWeight="bold" ml="8" fontSize="2xl">
+          سلاسل
+        </Text>
+      </Link>
+      <Link to="furthercoming?furthercoming=1">
+        <Text fontWeight="bold" ml="8" fontSize="2xl">
+          يصدر قريبا
+        </Text>
+      </Link>
     </Flex>
   );
 }

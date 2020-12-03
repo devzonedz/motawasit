@@ -10,133 +10,126 @@ import {
 } from 'react-icons/fa';
 import { IoLogoWhatsapp } from 'react-icons/io';
 
-import {
-  FacebookShareButton,
-  PinterestShareButton,
-  TwitterShareButton,
-  WhatsappShareButton,
-  LinkedinShareButton,
-} from 'react-share';
+import { Link } from 'react-router-dom';
 
 export default function SocialButtons() {
   const { colorMode, toggleColorMode } = useColorMode();
-  const [url, setUrl] = React.useState();
-  React.useEffect(() => {
-    setUrl(window.location.href);
-  }, []);
 
   const bg = { light: '#fff', dark: '#1a202c' };
   const bgIcon = { light: '#000', dark: '#fff' };
-  const color = { light: 'white', dark: 'black' };
+  const color = { light: 'black', dark: 'white' };
+  const bgcolor = { light: 'white', dark: 'black' };
   return (
-    <Box style={{ position: 'fixed', zIndex: '99', top: '23%', right: 0 }}>
+    <Box style={{ position: 'absolute', top: '23%', right: 0 }}>
       <Flex direction="column">
-        <FacebookShareButton
-          //   className="social-href "
-          style={{ backgroundColor: bgIcon[colorMode] }}
-          url={url}
+        <Link
+        //   className="social-href "
+
+        //   style={{ border: `1px solid ${bgIcon[colorMode]}` }}
         >
           <Box
+            _hover={{ bg: bgIcon[colorMode], color: bgcolor[colorMode] }}
+            style={{ border: `1px solid ${bgIcon[colorMode]}` }}
             className="facebook"
-            bg={bgIcon[colorMode]}
+            // bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
             fontSize="18px"
           >
             <FaFacebook></FaFacebook>
           </Box>
-        </FacebookShareButton>
-        <TwitterShareButton
+        </Link>
+        <Link
           //   className="social-href"
-          style={{ backgroundColor: bgIcon[colorMode] }}
-          url={url}
+          style={{ border: `1px solid ${bgIcon[colorMode]}` }}
         >
           <Box
+            _hover={{ bg: bgIcon[colorMode], color: bgcolor[colorMode] }}
             className="twitter"
-            bg={bgIcon[colorMode]}
+            // bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
             fontSize="18px"
           >
             <FaTwitter></FaTwitter>
           </Box>
-        </TwitterShareButton>
-        <LinkedinShareButton
+        </Link>
+        <Link
           //   className="social-href"
-          style={{ backgroundColor: bgIcon[colorMode] }}
-          url={url}
+          style={{ border: `1px solid ${bgIcon[colorMode]}` }}
         >
           <Box
+            _hover={{ bg: bgIcon[colorMode], color: bgcolor[colorMode] }}
             className="linkedin"
-            bg={bgIcon[colorMode]}
+            // bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
             fontSize="18px"
           >
             <FaLinkedin></FaLinkedin>
           </Box>
-        </LinkedinShareButton>
-
-        <WhatsappShareButton
+        </Link>
+        {/*
+        <Link
           //   className="social-href"
-          style={{ backgroundColor: bgIcon[colorMode] }}
-          url={url}
+          style={{ border: `1px solid ${bgIcon[colorMode]}` }}
         >
           <Box
+          _hover={{ bg: bgIcon[colorMode], color: bgcolor[colorMode] }}
             className="whatsapp"
-            bg={bgIcon[colorMode]}
+            // bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
             fontSize="18px"
           >
             <IoLogoWhatsapp></IoLogoWhatsapp>
           </Box>
-        </WhatsappShareButton>
-        <PinterestShareButton
+        </Link> */}
+        <Link
           //   className="social-href"
-          style={{ backgroundColor: bgIcon[colorMode] }}
-          url={url}
+          style={{ border: `1px solid ${bgIcon[colorMode]}` }}
         >
           <Box
+            _hover={{ bg: bgIcon[colorMode], color: bgcolor[colorMode] }}
             className="whatsapp"
-            bg={bgIcon[colorMode]}
+            // bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
             fontSize="18px"
           >
             <FaPinterest></FaPinterest>
           </Box>
-        </PinterestShareButton>
-        <PinterestShareButton
+        </Link>
+        <Link
           //   className="social-href"
-          style={{ backgroundColor: bgIcon[colorMode] }}
-          url={url}
+          style={{ border: `1px solid ${bgIcon[colorMode]}` }}
         >
           <Box
+            _hover={{ bg: bgIcon[colorMode], color: bgcolor[colorMode] }}
             className="whatsapp"
-            bg={bgIcon[colorMode]}
+            // bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
             fontSize="18px"
           >
             <FaYoutube></FaYoutube>
           </Box>
-        </PinterestShareButton>
-        <PinterestShareButton
+        </Link>
+        <Link
           //   className="social-href"
-          style={{ backgroundColor: bgIcon[colorMode] }}
-          url={url}
+          style={{ border: `1px solid ${bgIcon[colorMode]}` }}
         >
           <Box
+            _hover={{ bg: bgIcon[colorMode], color: bgcolor[colorMode] }}
             className="whatsapp"
-            bg={bgIcon[colorMode]}
+            // bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
             fontSize="18px"
           >
             <FaSoundcloud></FaSoundcloud>
           </Box>
-        </PinterestShareButton>
+        </Link>
       </Flex>
     </Box>
   );

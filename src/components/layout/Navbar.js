@@ -265,6 +265,17 @@ export default function Navbar(props) {
           fontWeight="bold"
           fontSize="xl"
         >
+          <Link onClick={handleToggle} to="/podcast">
+            بودكاست
+          </Link>
+        </Text>
+        <Text
+          mt={{ base: 4, md: 0 }}
+          ml={6}
+          display="block"
+          fontWeight="bold"
+          fontSize="xl"
+        >
           <Link onClick={handleToggle} to="/about">
             عن المتوسط
           </Link>

@@ -137,12 +137,16 @@ h6 {
 .pagination > li:last-child > span {
   border-radius: unset;
 }
-.facebook {
-  transition: transform 0.3s ease-out;
+/* .facebook {
+  transition: width 0.3s ease-out;
+  position: relative;
 }
 
 .facebook:hover {
   transform: translate(-30px, 0);
+  transition: width 0.3s ease-out;
+
+  width: 100px;
 }
 .twitter {
   transition: transform 0.3s ease-out;
@@ -171,7 +175,7 @@ h6 {
 
 .whatsapp:hover {
   transform: translate(-30px, 0);
-}
+} */
 /*
 .main:hover {
   background-color: white;

@@ -17,6 +17,9 @@ import About from './pages/about';
 import Blog from './pages/blog';
 import Book from './pages/book';
 import Books from './pages/books';
+import Podcast from './pages/Podcast';
+import FeaturedBooks from './pages/FeaturedBooks';
+import FurtherComing from './pages/FurtherComing';
 import BooksByCategory from './pages/BooksByCategory';
 import Events from './pages/events';
 import InThePress from './pages/inThePress';
@@ -77,6 +80,15 @@ function App(props) {
       <Switch>
         <Route title="index" exact path="/">
           <Index />
+        </Route>
+        <Route title="podcast" exact path="/podcast">
+          <Podcast />
+        </Route>
+        <Route title="featured" exact path="/featured">
+          <FeaturedBooks />
+        </Route>
+        <Route title="further" exact path="/furthercoming">
+          <FurtherComing />
         </Route>
         <Route title="home" exact path="/home">
           <Home />

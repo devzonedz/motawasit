@@ -22,6 +22,8 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import { getBook } from '../redux/actions/booksActions';
 
+import GlobalShare from '../util/GlobalShare';
+
 function Book({ getBook }) {
   let { id } = useParams();
   console.log(id);
@@ -40,9 +42,9 @@ function Book({ getBook }) {
     <Box mt="100px">
       <Box mt="100px">
         <Grid
-          pr={['2%', '2%', '10%', '10%']}
-          pl={['2%', '2%', '10%', '10%']}
-          templateColumns={['1fr', '1fr', '1fr 2fr', '1fr 2fr']}
+          pr={['2%', '2%', '7%', '7%']}
+          pl={['2%', '2%', '7%', '7%']}
+          templateColumns={['1fr', '1fr', '0.5fr 2fr', '0.5fr 2fr']}
           gap="10px"
         >
           {data && (
@@ -53,18 +55,38 @@ function Book({ getBook }) {
                   w={['300px', '300px', '400px', '400px']}
                   src={`${process.env.REACT_APP_STORAGE}/${data.cover}`}
                 ></Image>
-                <Button
-                  rounded="20px"
-                  mt="4"
-                  w={['300px', '300px', '400px', '400px']}
-                  colorScheme="red"
-                >
-                  اذهب الى المتجر
-                </Button>
+                <Link>
+                  <Button
+                    rounded="20px"
+                    mt="4"
+                    w={['300px', '300px', '400px', '400px']}
+                    colorScheme="red"
+                  >
+                    لشراء الكتاب إلمس هنا
+                  </Button>
+                </Link>
+                <Box mt="4" w={['300px', '300px', '400px', '400px']}>
+                  <GlobalShare></GlobalShare>
+                </Box>
+                <Box w={['300px', '300px', '400px', '400px']}>
+                  {data.podcast && (
+                    <iframe
+                      title={data.title}
+                      width="100%"
+                      height="100"
+                      scrolling="no"
+                      frameborder="no"
+                      allow="autoplay"
+                      src={data.podcast}
+                    ></iframe>
+                  )}
+                </Box>
               </Box>
               <Box m="4">
                 <Heading m="4">{data.title}</Heading>
-                {/* <Text fontSize="xl">{data.author}</Text> */}
+                <Divider></Divider>
+                <Text fontSize="xl">{data.sub_title}</Text>
+                <Divider></Divider>
                 <Flex>
                   {data.author.map(author => (
                     <Link key={author.id} to={`/author/${author.id}`}>
@@ -85,7 +107,7 @@ function Book({ getBook }) {
                 </Flex>
                 <Divider></Divider>
                 <Text m="4" fontSize="xl">
-                  {data.sub_title}
+                  {data.overview}
                 </Text>
                 <Divider></Divider>
                 <Tabs>
@@ -93,6 +115,7 @@ function Book({ getBook }) {
                     <Tab fontSize="18px"> عن الكتاب</Tab>
                     <Tab fontSize="18px">عن المؤلف</Tab>
                     <Tab fontSize="18px"> فهرس الكتاب</Tab>
+                    <Tab fontSize="18px"> من الكتاب</Tab>
                     <Tab fontSize="18px"> في الصحافة</Tab>
                     <Tab fontSize="18px">معلومات الكتاب</Tab>
                   </TabList>
@@ -118,6 +141,9 @@ function Book({ getBook }) {
                         className="content"
                         dangerouslySetInnerHTML={{ __html: data.index }}
                       ></div>
+                    </TabPanel>
+                    <TabPanel fontSize="xl">
+                      <Heading>from book</Heading>
                     </TabPanel>
                     <TabPanel>
                       <Text fontSize="xl" mt="4">
@@ -167,14 +193,15 @@ function Book({ getBook }) {
                     </TabPanel>
                     <TabPanel fontSize="xl">
                       <List mt="4">
+                        <ListItem>الناشر: {data.publisher} </ListItem>
                         <ListItem>
                           تاريخ النشر:{' '}
                           {moment(data.publish_date).format('DD/MM/yyyy')}{' '}
                         </ListItem>
-                        <ListItem>دار النشر: {data.publisher} </ListItem>
                         <ListItem>عدد الصفحات: {data.page_number} </ListItem>
+                        <ListItem dir="ltr"> {data.isbn} : ISBN </ListItem>
                         <ListItem>السعر: {data.price}$</ListItem>
-                        <ListItem>أرقام ISBN للمنتج: {data.isbn}</ListItem>
+                        <ListItem>hashtags:</ListItem>
                       </List>
                     </TabPanel>
                   </TabPanels>
@@ -183,76 +210,90 @@ function Book({ getBook }) {
             </>
           )}
         </Grid>
-        <Box mt="100px" bg="black" color="white">
-          <Heading p="4" size="lg">
-            المحتوى ذو الصلة
-          </Heading>
-        </Box>
-        {/* <Carousel
-            style={{
-              //   marginTop: 100,
-              backgroundColor: 'black',
-              borderBottom: '1px solid white',
-              paddingBottom: 10,
-            }}
-            itemsToScroll={3}
-            itemsToShow={3}
-          >
-            <Box p="8" color="white">
-              <Text>25.03.20</Text>
-              <Heading>أفضل 7 كتب للينسي ماكجوي عن الجهل</Heading>
-              <Text m="2">
-                عالق بالداخل؟ فيما يلي سبع قراءات جيدة عن الجهل والغياب وعدم
-                المعرفة - من مؤلف The Unknowers.
-              </Text>
-              <Image src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/03/zed_blog_linseytop7_featured-640x444.jpg"></Image>
+        {data && data.books[0] && (
+          <Box bg="black" borderBottom="1px solid white">
+            <Box mt="100px" mb="4" color="white">
+              <Heading p="4" size="lg">
+                كتب ذات صلة
+              </Heading>
             </Box>
-            <Box p="8" color="white">
-              <Text>متجر | كتاب الاسبوع</Text>
-              <Heading>الحرب على المعوقين: ملخص سهل القراءة</Heading>
-              <Text m="2">
-                التاريخ المثير للشغب لجبهة تحرير المثليين وإرثها لثقافة LGBT +
-                اليوم ، من مبتكر "A mince عبر الزمن" Queer Tour of London.
-              </Text>
-              <Image src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2019/12/F-1592359950-United-Queerdom-219x350.jpg"></Image>
+            <Carousel
+              style={{
+                //   marginTop: 100,
+
+                paddingBottom: 10,
+              }}
+              itemsToScroll={3}
+              itemsToShow={3}
+            >
+              {data.books.map(book => (
+                <Link key={book.id} to={`/book/${book.id}`}>
+                  <Box color="white" mb="4" cursor="pointer">
+                    <Image
+                      w="225px"
+                      h="350px"
+                      m="0 auto"
+                      shadow="lg"
+                      src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
+                    ></Image>
+                    <Box mt="4" textAlign="center">
+                      <Text fontWeight="500" fontSize="xl">
+                        {book.title}
+                      </Text>
+                      <Text fontSize="md">{book.sub_title}</Text>
+                      <Text fontSize="sm">{book.author}</Text>
+                      <Text fontWeight="bold">${book.price}</Text>
+                    </Box>
+                  </Box>
+                </Link>
+              ))}
+            </Carousel>
+          </Box>
+        )}
+        {data && data.articles[0] && (
+          <Box bg="black" borderBottom="1px solid white">
+            <Box mb="4" color="white">
+              <Heading p="4" size="lg">
+                مقالات ذات صلة
+              </Heading>
             </Box>
-            <Box p="8" color="white">
-              <Text>25.03.20</Text>
-              <Heading>أفضل 7 كتب للينسي ماكجوي عن الجهل</Heading>
-              <Text m="2">
-                عالق بالداخل؟ فيما يلي سبع قراءات جيدة عن الجهل والغياب وعدم
-                المعرفة - من مؤلف The Unknowers.
-              </Text>
-              <Image src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/03/zed_blog_linseytop7_featured-640x444.jpg"></Image>
-            </Box>
-            <Box p="8" color="white">
-              <Text>متجر | كتاب الاسبوع</Text>
-              <Heading>الحرب على المعوقين: ملخص سهل القراءة</Heading>
-              <Text m="2">
-                التاريخ المثير للشغب لجبهة تحرير المثليين وإرثها لثقافة LGBT +
-                اليوم ، من مبتكر "A mince عبر الزمن" Queer Tour of London.
-              </Text>
-              <Image src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2019/12/F-1592359950-United-Queerdom-219x350.jpg"></Image>
-            </Box>
-            <Box p="8" color="white">
-              <Text>25.03.20</Text>
-              <Heading>أفضل 7 كتب للينسي ماكجوي عن الجهل</Heading>
-              <Text m="2">
-                عالق بالداخل؟ فيما يلي سبع قراءات جيدة عن الجهل والغياب وعدم
-                المعرفة - من مؤلف The Unknowers.
-              </Text>
-              <Image src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/03/zed_blog_linseytop7_featured-640x444.jpg"></Image>
-            </Box>
-            <Box p="8" color="white">
-              <Text>متجر | كتاب الاسبوع</Text>
-              <Heading>الحرب على المعوقين: ملخص سهل القراءة</Heading>
-              <Text m="2">
-                التاريخ المثير للشغب لجبهة تحرير المثليين وإرثها لثقافة LGBT +
-                اليوم ، من مبتكر "A mince عبر الزمن" Queer Tour of London.
-              </Text>
-              <Image src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2019/12/F-1592359950-United-Queerdom-219x350.jpg"></Image>
-            </Box>
-          </Carousel> */}
+            <Carousel
+              style={{
+                //   marginTop: 100,
+
+                paddingBottom: 10,
+              }}
+              itemsToScroll={3}
+              itemsToShow={3}
+            >
+              {data.articles.map(article => (
+                <Link key={article.id} to={`/article/${article.id}`}>
+                  <Box mb="4" cursor="pointer">
+                    <Image
+                      w="225px"
+                      h="350px"
+                      m="0 auto"
+                      shadow="lg"
+                      src={`${process.env.REACT_APP_STORAGE}/${article.cover}`}
+                    ></Image>
+                    <Box mt="4" textAlign="center">
+                      <Text fontWeight="500" fontSize="xl">
+                        {article.title}
+                      </Text>
+                      <Text fontSize="md" color="gray.600">
+                        {article.sub_title}
+                      </Text>
+                      <Text fontSize="sm" color="gray.500">
+                        {article.author}
+                      </Text>
+                      <Text fontWeight="bold">${article.price}</Text>
+                    </Box>
+                  </Box>
+                </Link>
+              ))}
+            </Carousel>
+          </Box>
+        )}
       </Box>
     </Box>
   );

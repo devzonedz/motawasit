@@ -6,16 +6,46 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-export const getBooks = (category, translate, featured) => async (
-  dispatch,
-  getState
-) => {
-  console.log(translate);
+export const getBooks = (
+  category,
+  featured,
+  translate,
+  furthercoming
+) => async (dispatch, getState) => {
+  console.log(category, featured, translate, furthercoming);
   let data;
-  if (translate) {
+  if (furthercoming) {
     data = await axios
       .get(
-        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&category=${category}&translate=${translate}&featured=${featured}`,
+        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&furthercoming=${furthercoming}`,
+        //   { website: 'المتوسط' },
+        { headers }
+      )
+      .then(res => {
+        console.log(res);
+        return res;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  } else if (featured && !category && !translate) {
+    data = await axios
+      .get(
+        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&featured=${featured}`,
+        //   { website: 'المتوسط' },
+        { headers }
+      )
+      .then(res => {
+        console.log(res);
+        return res;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  } else if (translate) {
+    data = await axios
+      .get(
+        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&category=${category}&translate=${translate}`,
         //   { website: 'المتوسط' },
         { headers }
       )
@@ -34,7 +64,7 @@ export const getBooks = (category, translate, featured) => async (
         { headers }
       )
       .then(res => {
-        //   console.log(res);
+        console.log(res);
         return res;
       })
       .catch(err => {
@@ -43,6 +73,7 @@ export const getBooks = (category, translate, featured) => async (
   }
   return data;
 };
+
 export const getBook = id => async (dispatch, getState) => {
   const data = await axios
     .get(
