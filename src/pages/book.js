@@ -15,6 +15,7 @@ import {
   List,
   ListItem,
   Flex,
+  Skeleton,
 } from '@chakra-ui/core';
 import Carousel from 'react-elastic-carousel';
 import { useParams, Link } from 'react-router-dom';
@@ -28,6 +29,10 @@ function Book({ getBook }) {
   let { id } = useParams();
   console.log(id);
   const [data, setData] = React.useState(null);
+  const [loaded, setLoaded] = React.useState(false);
+  const imageLoaded = () => {
+    setLoaded(true);
+  };
   React.useEffect(() => {
     async function getData() {
       const res = await getBook(id);
@@ -50,11 +55,17 @@ function Book({ getBook }) {
           {data && (
             <>
               <Box m="4">
-                <Image
-                  shadow="lg"
+                <Skeleton
                   w={['300px', '300px', '400px', '400px']}
-                  src={`${process.env.REACT_APP_STORAGE}/${data.cover}`}
-                ></Image>
+                  isLoaded={loaded}
+                >
+                  <Image
+                    onLoad={imageLoaded}
+                    shadow="lg"
+                    w={['300px', '300px', '400px', '400px']}
+                    src={`${process.env.REACT_APP_STORAGE}/${data.cover}`}
+                  ></Image>
+                </Skeleton>
                 <Link>
                   <Button
                     rounded="20px"
@@ -143,65 +154,37 @@ function Book({ getBook }) {
                       ></div>
                     </TabPanel>
                     <TabPanel fontSize="xl">
-                      <Heading>from book</Heading>
+                      <div
+                        className="content"
+                        dangerouslySetInnerHTML={{ __html: data.from_book }}
+                      ></div>
                     </TabPanel>
+
                     <TabPanel>
-                      <Text fontSize="xl" mt="4">
-                        "إسرائيل في إفريقيا مثيرة للاهتمام وغنية بالمعلومات
-                        ومكتوبة جيدًا وتستند إلى مجموعة واسعة بشكل مثير للإعجاب
-                        من المصادر ، تقدم إسرائيل في إفريقيا تحليلًا أصليًا
-                        ومحفزًا للفكر وإبداعًا لعلاقات إسرائيل المتطورة مع الدول
-                        الأفريقية. سوف يترك العديد من قرائه غاضبين أو متفاجئين ،
-                        ولكن بالتأكيد ، مع رؤى أصلية وحث قوي على استكشاف هذا
-                        الموضوع بشكل أكبر. غاليا صبار ، مركز روبين الأكاديمي
-                      </Text>
-                      <Text fontSize="xl">
-                        إن إسرائيل تعود إلى إفريقيا بطريقة مهمة ، وسياسة
-                        إسرائيلية نشطة تجاه إفريقيا آخذة في الظهور ، وتبحث عن
-                        حلفاء جدد ، وفرص تجارية جديدة وتعاونات أمنية جديدة. يقدم
-                        كتاب يوتام جيدرون وصفًا دقيقًا لهذه التطورات ، ووضعها في
-                        سياقها في كل من التاريخ والسياسة الإسرائيلية المعاصرة.
-                        مساهمة كبيرة في موضوع تم التغاضي عنه. إيان تايلور ،
-                        جامعة سانت أندروز
-                      </Text>
-                      <Text fontSize="xl">
-                        دراسة علمية بارزة عن بُعد مهمل لنهج إسرائيل في العلاقات
-                        خارج الشرق الأوسط. تسلط هذه الدراسة الضوء بشكل رسمي على
-                        السياق المتطور والطابع المعقد لانخراط إسرائيل مع
-                        إفريقيا. محتوياته موثقة جيدًا ، ومتوازنة سياسيًا ،
-                        ومكتوبة بوضوح ، ومحللة بوضوح. ريتشارد فولك ، المقرر
-                        الخاص السابق للأمم المتحدة المعني بحالة حقوق الإنسان في
-                        الأراضي الفلسطينية المحتلة منذ عام 1967
-                      </Text>
-                      <Text fontSize="xl">
-                        يروي هذا الكتاب الجذاب قصة مهمة ، ولكن لا يزال يساء
-                        فهمها ، عن تورط إسرائيل في إفريقيا على مدى العقود
-                        الماضية. من الدفاع والصناعات الاستخراجية إلى الهجرة ،
-                        بالإضافة إلى الطريقة التي يلعب بها الصراع الدبلوماسي على
-                        فلسطين والتنافس في كل مكان مع إيران في القارة ، إسرائيل
-                        في رؤى إفريقيا تستحق قراءًا واسعًا. ريكاردو سواريس دي
-                        أوليفيرا ، جامعة أكسفورد
-                      </Text>
-                      <Text fontSize="xl">
-                        قصة تحالفات إسرائيل الجديدة في القارة الأفريقية غير
-                        مروية إلى حد كبير. يقدم لنا جيدرون خدمة بجعلهم موضوع
-                        كتابه. تأخذ إسرائيل في إفريقيا مكانها في موجة جديدة من
-                        المنح الدراسية التي لا غنى عنها لتقييم مكانة الدول
-                        الأفريقية سريعة التغير في العلاقات الدولية. جوني
-                        شتاينبرغ ، جامعة أكسفورد
-                      </Text>
+                      <div
+                        className="content"
+                        dangerouslySetInnerHTML={{
+                          __html: data.press_external_link,
+                        }}
+                      ></div>
                     </TabPanel>
                     <TabPanel fontSize="xl">
                       <List mt="4">
-                        <ListItem>الناشر: {data.publisher} </ListItem>
+                        <ListItem>الناشر : {data.publisher} </ListItem>
                         <ListItem>
-                          تاريخ النشر:{' '}
+                          تاريخ النشر :{' '}
                           {moment(data.publish_date).format('DD/MM/yyyy')}{' '}
                         </ListItem>
-                        <ListItem>عدد الصفحات: {data.page_number} </ListItem>
+                        <ListItem>عدد الصفحات : {data.page_number} </ListItem>
                         <ListItem dir="ltr"> {data.isbn} : ISBN </ListItem>
-                        <ListItem>السعر: {data.price}$</ListItem>
-                        <ListItem>hashtags:</ListItem>
+                        <ListItem>السعر : {data.price}$</ListItem>
+                        <ListItem>
+                          هاشتاغ :{' '}
+                          <div
+                            className="content"
+                            dangerouslySetInnerHTML={{ __html: data.hashtag }}
+                          ></div>
+                        </ListItem>
                       </List>
                     </TabPanel>
                   </TabPanels>
@@ -267,27 +250,28 @@ function Book({ getBook }) {
               itemsToShow={3}
             >
               {data.articles.map(article => (
-                <Link key={article.id} to={`/article/${article.id}`}>
-                  <Box mb="4" cursor="pointer">
-                    <Image
-                      w="225px"
-                      h="350px"
-                      m="0 auto"
-                      shadow="lg"
-                      src={`${process.env.REACT_APP_STORAGE}/${article.cover}`}
-                    ></Image>
-                    <Box mt="4" textAlign="center">
-                      <Text fontWeight="500" fontSize="xl">
-                        {article.title}
-                      </Text>
-                      <Text fontSize="md" color="gray.600">
-                        {article.sub_title}
-                      </Text>
-                      <Text fontSize="sm" color="gray.500">
-                        {article.author}
-                      </Text>
-                      <Text fontWeight="bold">${article.price}</Text>
-                    </Box>
+                <Link to={`/singlePost?id=${article.id}`}>
+                  <Box color="white" shadow="lg" p="2" cursor="pointer">
+                    <Box
+                      style={{
+                        background: `
+    url('${process.env.REACT_APP_STORAGE}/${article.image}')`,
+                      }}
+                      className="detail-image"
+                      h="200px"
+                    ></Box>
+                    <Heading color="white" m="2" size="lg">
+                      {article.title}
+                    </Heading>
+                    <Heading> {article.author} </Heading>
+
+                    <Box
+                      fontSize="lg"
+                      className="event-body"
+                      dangerouslySetInnerHTML={{
+                        __html: article.body,
+                      }}
+                    ></Box>
                   </Box>
                 </Link>
               ))}

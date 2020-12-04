@@ -6,12 +6,17 @@ import {
   Text,
   Heading,
   Divider,
+  Skeleton,
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getBooks } from '../../redux/actions/booksActions';
 
 function CatBooks({ featured, category, getBooks, name }) {
+  const [loaded, setLoaded] = React.useState(false);
+  const imageLoaded = () => {
+    setLoaded(true);
+  };
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
     async function getData() {
@@ -63,13 +68,16 @@ function CatBooks({ featured, category, getBooks, name }) {
                 <>
                   <Link key={book.id} to={`/book/${book.id}`}>
                     <Box mb="4" cursor="pointer">
-                      <Image
-                        w="225px"
-                        h="350px"
-                        m="0 auto"
-                        shadow="lg"
-                        src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
-                      ></Image>
+                      <Skeleton w="225px" h="350px" isLoaded={loaded}>
+                        <Image
+                          onLoad={imageLoaded}
+                          w="225px"
+                          h="350px"
+                          m="0 auto"
+                          shadow="lg"
+                          src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
+                        ></Image>
+                      </Skeleton>
                       <Box mt="4" textAlign="center">
                         <Text fontWeight="500" fontSize="xl">
                           {book.title}

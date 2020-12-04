@@ -49,14 +49,14 @@ function CatBooks({ featured, getBooks }) {
                     ></Divider>
                     <Box d="flex" m="4">
                       <Link
-                        to={`/books_by_category/دراسات المتوسط?translate=0`}
+                        to={`/books_by_category/${bookcat.key}?translate=0`}
                       >
                         <Heading fontWeight="normal" size="md" m="2">
                           عربي
                         </Heading>
                       </Link>
                       <Link
-                        to={`/books_by_category/دراسات المتوسط?translate=1`}
+                        to={`/books_by_category/${bookcat.key}?translate=1`}
                       >
                         <Heading fontWeight="normal" size="md" m="2">
                           مترجم

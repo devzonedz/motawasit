@@ -81,6 +81,30 @@ h6 {
   font-family: inherit !important;
 }
 
+.detail-image {
+  /* Location of the image */
+
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center !important;
+
+  /* Background image doesn't tile */
+  background-repeat: no-repeat !important;
+
+  /* Background image is fixed in the viewport so that it doesn't move when
+     the content's height is greater than the image's height */
+  /* background-attachment: fixed !important; */
+
+  /* This is what makes the background image rescale based
+     on the container's size */
+  background-size: cover !important;
+
+  /* Set a background color that will be displayed
+     while the background image is loading */
+  background-color: #464646 !important;
+  /* border-bottom-left-radius: 70% 60px;
+  border-bottom-right-radius: 30% 10px; */
+}
+
 ::selection {
   background: rgb(239, 252, 2);
   color: #000000;
@@ -137,6 +161,20 @@ h6 {
 .pagination > li:last-child > span {
   border-radius: unset;
 }
+
+.event-body {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.book-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 /* .facebook {
   transition: width 0.3s ease-out;
   position: relative;
@@ -226,13 +264,13 @@ h6 {
 }
 @media only screen and (min-width: 1600px) {
   .padding {
-    padding-left: 20% !important;
-    padding-right: 20% !important;
+    padding-left: 25% !important;
+    padding-right: 25% !important;
   }
 }
 @media only screen and (max-width: 1600px) {
   .padding {
-    padding-left: 10% !important;
-    padding-right: 10% !important;
+    padding-left: 20% !important;
+    padding-right: 20% !important;
   }
 }
