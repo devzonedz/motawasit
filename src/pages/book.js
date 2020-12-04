@@ -133,9 +133,14 @@ function Book({ getBook }) {
 
                   <TabPanels>
                     <TabPanel>
-                      <Text fontSize="xl" mt="4">
+                      {/* <Text fontSize="xl" mt="4">
                         {data.description}
-                      </Text>
+                      </Text> */}
+                      <Box
+                        fontSize="xl"
+                        className="content"
+                        dangerouslySetInnerHTML={{ __html: data.description }}
+                      ></Box>
                     </TabPanel>
                     <TabPanel>
                       {data.author.map(author => (
@@ -148,25 +153,28 @@ function Book({ getBook }) {
                       ))}
                     </TabPanel>
                     <TabPanel fontSize="xl">
-                      <div
+                      <Box
+                        fontSize="xl"
                         className="content"
                         dangerouslySetInnerHTML={{ __html: data.index }}
-                      ></div>
+                      ></Box>
                     </TabPanel>
                     <TabPanel fontSize="xl">
-                      <div
+                      <Box
+                        fontSize="xl"
                         className="content"
                         dangerouslySetInnerHTML={{ __html: data.from_book }}
-                      ></div>
+                      ></Box>
                     </TabPanel>
 
                     <TabPanel>
-                      <div
+                      <Box
+                        fontSize="xl"
                         className="content"
                         dangerouslySetInnerHTML={{
                           __html: data.press_external_link,
                         }}
-                      ></div>
+                      ></Box>
                     </TabPanel>
                     <TabPanel fontSize="xl">
                       <List mt="4">

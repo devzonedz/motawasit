@@ -38,7 +38,7 @@ function Author({ getAuthor }) {
             // pr={['2%', '2%', '10%', '10%']}
             // pl={['2%', '2%', '10%', '10%']}
             templateColumns={['1fr', '1fr', '1fr 2fr', '1fr 2fr']}
-            // gap="10px"
+            gap="10px"
           >
             <Image
               //   borderRadius="50%"
@@ -73,7 +73,7 @@ function Author({ getAuthor }) {
                     <Box mb="4" cursor="pointer">
                       <Image
                         w="225px"
-                        h="350px"
+                        h="300px"
                         m="0 auto"
                         shadow="lg"
                         src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}

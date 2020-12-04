@@ -7,6 +7,7 @@ import {
   Heading,
   Divider,
   Skeleton,
+  Flex,
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -68,16 +69,20 @@ function CatBooks({ featured, category, getBooks, name }) {
                 <>
                   <Link key={book.id} to={`/book/${book.id}`}>
                     <Box mb="4" cursor="pointer">
-                      <Skeleton w="225px" h="350px" isLoaded={loaded}>
-                        <Image
-                          onLoad={imageLoaded}
-                          w="225px"
-                          h="350px"
-                          m="0 auto"
-                          shadow="lg"
-                          src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
-                        ></Image>
-                      </Skeleton>
+                      <Flex justifyContent="center">
+                        <Box>
+                          <Skeleton w="225px" h="350px" isLoaded={loaded}>
+                            <Image
+                              onLoad={imageLoaded}
+                              w="225px"
+                              h="350px"
+                              m="0 auto"
+                              shadow="lg"
+                              src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
+                            ></Image>
+                          </Skeleton>
+                        </Box>
+                      </Flex>
                       <Box mt="4" textAlign="center">
                         <Text fontWeight="500" fontSize="xl">
                           {book.title}
