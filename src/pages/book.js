@@ -42,7 +42,7 @@ function Book({ getBook }) {
       }
     }
     getData();
-  }, []);
+  }, [id]);
   return (
     <Box mt="100px">
       <Box mt="100px">

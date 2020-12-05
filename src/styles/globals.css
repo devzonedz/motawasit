@@ -110,6 +110,9 @@ h6 {
   color: #000000;
   text-shadow: none;
 }
+.search-box::placeholder {
+  color: black;
+}
 
 .rec-dot_active {
   background-color: rgb(255 255 255 / 50%) !important;

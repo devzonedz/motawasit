@@ -14,10 +14,24 @@ import {
   DrawerContent,
   DrawerCloseButton,
   Input,
+  Image,
+  SimpleGrid,
+  Heading,
 } from '@chakra-ui/core';
 // import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
+import { connect } from 'react-redux';
+import { getSearch } from '../../redux/actions/searchActions';
+
+import algoliasearch from 'algoliasearch/lite';
+import {
+  InstantSearch,
+  Index,
+  connectHits,
+  connectSearchBox,
+  connectStateResults,
+} from 'react-instantsearch-dom';
 
 import {
   FaGoogle,
@@ -33,6 +47,11 @@ import {
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Newsletter from './NewsLetter';
 
+const searchClient = algoliasearch(
+  process.env.REACT_APP_algoliaAppKey,
+  process.env.REACT_APP_algoliaAdminKey
+);
+
 function ShopBadge(props) {
   return (
     <Link href="/cart">
@@ -46,7 +65,7 @@ function ShopBadge(props) {
   );
 }
 
-export default function Navbar(props) {
+function Navbar({ getSearch }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
@@ -56,6 +75,103 @@ export default function Navbar(props) {
   const bg = { light: '#fff', dark: '#1a202c' };
   const bgIcon = { light: '#000', dark: '#fff' };
   const color = { light: 'white', dark: 'black' };
+
+  const [data, setData] = React.useState(null);
+  const [loaded, setLoaded] = React.useState(false);
+
+  //   React.useEffect(() => {
+  //     async function getData() {
+  //       const res = await getSearch('la');
+  //       console.log(res);
+  //       if (res) {
+  //         setData(res.data);
+  //       }
+  //     }
+  //     getData();
+  //   }, []);
+
+  const Books = ({ hits }) => (
+    <Box>
+      {hits[0] !== undefined && <Heading m="8">كتب</Heading>}
+
+      <SimpleGrid spacing={8} columns={[1, 2, 3, 8]}>
+        {hits &&
+          hits.map(hit => (
+            <Link onClick={onClose} key={hit.objectID} to={`/book/${hit.id}`}>
+              <Image
+                src={`${process.env.REACT_APP_STORAGE}/${hit.cover}`}
+              ></Image>
+              <Heading size="md" mt="2">
+                {hit.title}
+              </Heading>
+            </Link>
+          ))}
+      </SimpleGrid>
+    </Box>
+  );
+  const Authors = ({ hits }) => (
+    <Box>
+      {hits[0] !== undefined && <Heading m="8">كتاب</Heading>}
+
+      <SimpleGrid spacing={8} columns={[1, 2, 3, 8]}>
+        {hits &&
+          hits.map(hit => (
+            <Link onClick={onClose} key={hit.objectID} to={`/author/${hit.id}`}>
+              <Image
+                src={`${process.env.REACT_APP_STORAGE}/${hit.image}`}
+              ></Image>
+              <Heading size="md" mt="2">
+                {hit.name}
+              </Heading>
+            </Link>
+          ))}
+      </SimpleGrid>
+    </Box>
+  );
+  const Articles = ({ hits }) => (
+    <Box>
+      {hits[0] !== undefined && <Heading m="8">مقالات</Heading>}
+
+      <SimpleGrid spacing={8} columns={[1, 2, 3, 8]}>
+        {hits &&
+          hits.map(hit => (
+            <Link onClick={onClose} key={hit.objectID} to={`/book/${hit.id}`}>
+              <Image
+                src={`${process.env.REACT_APP_STORAGE}/${hit.cover}`}
+              ></Image>
+              <Heading size="md" mt="2">
+                {hit.title}
+              </Heading>
+            </Link>
+          ))}
+      </SimpleGrid>
+    </Box>
+  );
+  const CustomSearchBox = ({ currentRefinement, refine }) => (
+    <Input
+      className="search-box"
+      color="black"
+      bg="white"
+      placeholder=" ابحث عن الكتب,المقالات,الكتاب ..."
+      type="search"
+      value={currentRefinement}
+      onChange={event => refine(event.currentTarget.value)}
+    ></Input>
+  );
+
+  const BooksHits = connectHits(Books);
+  const BooksResults = connectStateResults(({ searchState }) =>
+    searchState && searchState.query ? <BooksHits></BooksHits> : null
+  );
+  const AuthorsHits = connectHits(Authors);
+  const AuthorsResults = connectStateResults(({ searchState }) =>
+    searchState && searchState.query ? <AuthorsHits></AuthorsHits> : null
+  );
+  const ArticlesHits = connectHits(Articles);
+  const ArticlesResults = connectStateResults(({ searchState }) =>
+    searchState && searchState.query ? <ArticlesHits></ArticlesHits> : null
+  );
+  const SearchBox = connectSearchBox(CustomSearchBox);
 
   return (
     <Flex
@@ -70,7 +186,6 @@ export default function Navbar(props) {
       //   shadow="lg"
       color={color[colorMode]}
       bg={bg[colorMode]}
-      {...props}
     >
       <Box
         ml="8%"
@@ -98,7 +213,7 @@ export default function Navbar(props) {
             placement="bottom"
             onClose={onClose}
             isOpen={isOpen}
-            size="xl"
+            size="full"
           >
             <DrawerOverlay>
               <DrawerContent bg="black" color="white">
@@ -109,15 +224,29 @@ export default function Navbar(props) {
                   right="none"
                 />
 
-                <DrawerHeader>بحث</DrawerHeader>
+                <DrawerHeader fontSize="36px">بحث</DrawerHeader>
                 <DrawerBody>
-                  <Input
+                  {/* <Input
                     color="black"
-                    placeholder=" ابحث عن الكتب او المقالات ..."
+                    placeholder=" ابحث عن الكتب,المقالات,الكتاب ..."
                   ></Input>
                   <Box h="400px">
                     <Text>هنا ستكون نتيجة البحث</Text>
-                  </Box>
+                  </Box> */}
+                  <InstantSearch indexName="books" searchClient={searchClient}>
+                    <SearchBox />
+                    <Index indexName="books">
+                      {/* <BooksHits></BooksHits> */}
+                      <BooksResults></BooksResults>
+                    </Index>
+
+                    <Index indexName="articles">
+                      <ArticlesResults />
+                    </Index>
+                    <Index indexName="authors">
+                      <AuthorsResults />
+                    </Index>
+                  </InstantSearch>
                 </DrawerBody>
               </DrawerContent>
             </DrawerOverlay>
@@ -148,3 +277,9 @@ export default function Navbar(props) {
     </Flex>
   );
 }
+
+const mapDispatchToProps = dispatch => {
+  return { getSearch: id => dispatch(getSearch(id)) };
+};
+
+export default connect(null, mapDispatchToProps)(Navbar);

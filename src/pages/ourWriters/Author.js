@@ -28,7 +28,7 @@ function Author({ getAuthor }) {
       setData(res.data);
     }
     getData();
-  }, []);
+  }, [id]);
   return (
     <Box mt="100px" mb="100px" className="padding">
       {data && (
@@ -42,8 +42,8 @@ function Author({ getAuthor }) {
           >
             <Image
               //   borderRadius="50%"
-              w="300px"
-              h="300px"
+              //   w="300px"
+              //   h="300px"
               //   shadow="lg"
               src={`${process.env.REACT_APP_STORAGE}/${data.image}`}
             ></Image>
