@@ -19,8 +19,8 @@ import {
 } from '@chakra-ui/core';
 import Carousel from 'react-elastic-carousel';
 import { useParams, Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 import moment from 'moment';
+import { connect } from 'react-redux';
 import { getBook } from '../redux/actions/booksActions';
 
 import GlobalShare from '../util/GlobalShare';
@@ -188,10 +188,11 @@ function Book({ getBook }) {
                         <ListItem>السعر : {data.price}$</ListItem>
                         <ListItem>
                           هاشتاغ :{' '}
-                          <div
+                          <Box
+                            d="inline"
                             className="content"
                             dangerouslySetInnerHTML={{ __html: data.hashtag }}
-                          ></div>
+                          ></Box>
                         </ListItem>
                       </List>
                     </TabPanel>
