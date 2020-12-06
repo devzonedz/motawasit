@@ -67,13 +67,13 @@ function Author({ getAuthor }) {
                 opacity="1"
                 borderColor={color[colorMode]}
               ></Divider>
-              <SimpleGrid mt="4" columns={[1, 2, 3, 3]}>
+              <SimpleGrid mt="4" spacing={8} columns={[1, 2, 3, 3]}>
                 {data.books.map(book => (
                   <Link key={book.id} to={`/book/${book.id}`}>
                     <Box mb="4" cursor="pointer">
                       <Image
                         w="225px"
-                        h="300px"
+                        h="250px"
                         m="0 auto"
                         shadow="lg"
                         src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}

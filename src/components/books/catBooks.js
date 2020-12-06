@@ -38,16 +38,10 @@ function CatBooks({ featured, category, getBooks, name }) {
         <>
           <Box mr="80px">
             <Link to={`/books_by_category/${category}`}>
-              <Heading cursor="pointer" m="2">
+              <Heading textDecoration="underline" cursor="pointer" m="2">
                 {name}
               </Heading>
             </Link>
-            <Divider
-              w="20%"
-              // border="4px solid black"
-              opacity="1"
-              //   borderColor={color[colorMode]}
-            ></Divider>
             <Box d="flex" m="4">
               <Link to={`/books_by_category/${category}?translate=0`}>
                 <Heading fontWeight="normal" size="md" m="2">
@@ -61,6 +55,13 @@ function CatBooks({ featured, category, getBooks, name }) {
               </Link>
             </Box>
           </Box>
+          <Divider
+            // w="20%"
+            mb="4"
+            border="1px solid grey"
+            opacity="0.4"
+            borderColor="grey"
+          ></Divider>
           <SimpleGrid mr="80px" columns={[1, 2, 3, 5]}>
             {data &&
               data.books &&
@@ -100,6 +101,13 @@ function CatBooks({ featured, category, getBooks, name }) {
                 </>
               ))}
           </SimpleGrid>
+          <Divider
+            // w="20%"
+            mt="4"
+            border="1px solid grey"
+            opacity="0.4"
+            borderColor="grey"
+          ></Divider>
         </>
       )}
     </Box>

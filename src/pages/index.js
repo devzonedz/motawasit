@@ -77,30 +77,18 @@ export default function Home() {
           w={['100vw', '100vw', '50vw', '50vw']}
           h={['25vh', '25vh', '50vh', '50vh']}
         >
-          <Center>
-            <Image w="90%" src={medium}></Image>
-          </Center>
-
-          {/* <Flex justify="center" direction="column">
-            <Flex justifyContent="center">
-              <Heading
-                fontSize={['28px', '28px', '48px', '48px']}
-                display="block"
-              >
-                المتوسط
-              </Heading>
+          <Flex>
+            <Flex
+              alignItems="center"
+              justifyContent="center"
+              direction="column"
+            >
+              <Image w="70%" src={medium}></Image>
+              <Text mt="4" fontSize="2xl">
+                معا لنحارب طواحين الهواء
+              </Text>
             </Flex>
-            {main && (
-              <Box>
-                <Flex justifyContent="center">
-                  <Text textAlign="center" w="50%">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Minima iste est atque
-                  </Text>
-                </Flex>
-              </Box>
-            )}
-          </Flex> */}
+          </Flex>
         </Flex>
       </a>
       <a
@@ -118,30 +106,18 @@ export default function Home() {
           w={['100vw', '100vw', '50vw', '50vw']}
           h={['25vh', '25vh', '50vh', '50vh']}
         >
-          <Center>
-            <Image w="60%" src={shope}></Image>
-          </Center>
-          {/* <Flex justify="center" direction="column">
-            <Flex justifyContent="center">
-              <Heading
-                fontSize={['28px', '28px', '48px', '48px']}
-                display="block"
-              >
-                المتجر
-              </Heading>
+          <Flex>
+            <Flex
+              alignItems="center"
+              justifyContent="center"
+              direction="column"
+            >
+              <Image w="30%" src={shope}></Image>{' '}
+              <Text mt="4" fontSize="2xl">
+                متجر الكتاب العربي في إيطاليا
+              </Text>
             </Flex>
-            {shop && (
-              <Box>
-                <Flex justifyContent="center">
-                  <Text textAlign="center" w="50%">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Minima iste est atque
-                  </Text>
-                </Flex>
-
-              </Box>
-            )}
-          </Flex> */}
+          </Flex>
         </Flex>
       </a>
       <a
@@ -159,30 +135,18 @@ export default function Home() {
           w={['100vw', '100vw', '50vw', '50vw']}
           h={['25vh', '25vh', '50vh', '50vh']}
         >
-          <Center>
-            <Image w="50%" src={braat}></Image>
-          </Center>
-          {/* <Flex justify="center" direction="column">
-            <Flex justifyContent="center">
-              <Heading
-                fontSize={['28px', '28px', '48px', '48px']}
-                display="block"
-              >
-                المجلة
-              </Heading>
+          <Flex>
+            <Flex
+              alignItems="center"
+              justifyContent="center"
+              direction="column"
+            >
+              <Image w="20%" src={braat}></Image>
+              <Text mt="4" fontSize="2xl">
+                الشعر أكثر الأفعال حظاً من البراءة
+              </Text>
             </Flex>
-            {journal && (
-              <Box>
-                <Flex justifyContent="center">
-                  <Text textAlign="center" w="50%">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Minima iste est atque
-                  </Text>
-                </Flex>
-
-              </Box>
-            )}
-          </Flex> */}
+          </Flex>
         </Flex>
       </a>
       <a
@@ -200,30 +164,18 @@ export default function Home() {
           w={['100vw', '100vw', '50vw', '50vw']}
           h={['25vh', '25vh', '50vh', '50vh']}
         >
-          <Center>
-            <Image w="90%" src={center}></Image>
-          </Center>
-          {/* <Flex justify="center" direction="column">
-            <Flex justifyContent="center">
-              <Heading
-                fontSize={['28px', '28px', '48px', '48px']}
-                display="block"
-              >
-                المركز
-              </Heading>
+          <Flex>
+            <Flex
+              alignItems="center"
+              justifyContent="center"
+              direction="column"
+            >
+              <Image w="70%" src={center}></Image>
+              <Text mt="4" fontSize="2xl">
+                لشعر أكثر الأفعال حظاً من البراءة
+              </Text>
             </Flex>
-            {center && (
-              <Box>
-                <Flex justifyContent="center">
-                  <Text textAlign="center" w="50%">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Minima iste est atque
-                  </Text>
-                </Flex>
-
-              </Box>
-            )}
-          </Flex> */}
+          </Flex>
         </Flex>
       </a>
     </SimpleGrid>

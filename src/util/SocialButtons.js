@@ -17,21 +17,17 @@ export default function SocialButtons() {
 
   const bg = { light: '#fff', dark: '#1a202c' };
   const bgIcon = { light: '#000', dark: '#fff' };
-  const color = { light: 'black', dark: 'white' };
-  const bgcolor = { light: 'white', dark: 'black' };
+  const color = { light: 'white', dark: 'black' };
   return (
-    <Box style={{ position: 'absolute', top: '23%', right: 0 }}>
+    <Box style={{ position: 'fixed', zIndex: '99', top: '25%', right: 0 }}>
       <Flex direction="column">
         <Link
-        //   className="social-href "
-
-        //   style={{ border: `1px solid ${bgIcon[colorMode]}` }}
+          //   className="social-href "
+          style={{ backgroundColor: bgIcon[colorMode] }}
         >
           <Box
-            _hover={{ bg: bgIcon[colorMode], color: bgcolor[colorMode] }}
-            style={{ border: `1px solid ${bgIcon[colorMode]}` }}
             className="facebook"
-            // bg={bgIcon[colorMode]}
+            bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
             fontSize="18px"
@@ -41,12 +37,11 @@ export default function SocialButtons() {
         </Link>
         <Link
           //   className="social-href"
-          style={{ border: `1px solid ${bgIcon[colorMode]}` }}
+          style={{ backgroundColor: bgIcon[colorMode] }}
         >
           <Box
-            _hover={{ bg: bgIcon[colorMode], color: bgcolor[colorMode] }}
             className="twitter"
-            // bg={bgIcon[colorMode]}
+            bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
             fontSize="18px"
@@ -56,12 +51,11 @@ export default function SocialButtons() {
         </Link>
         <Link
           //   className="social-href"
-          style={{ border: `1px solid ${bgIcon[colorMode]}` }}
+          style={{ backgroundColor: bgIcon[colorMode] }}
         >
           <Box
-            _hover={{ bg: bgIcon[colorMode], color: bgcolor[colorMode] }}
             className="linkedin"
-            // bg={bgIcon[colorMode]}
+            bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
             fontSize="18px"
@@ -69,30 +63,28 @@ export default function SocialButtons() {
             <FaLinkedin></FaLinkedin>
           </Box>
         </Link>
-        {/*
+
         <Link
           //   className="social-href"
-          style={{ border: `1px solid ${bgIcon[colorMode]}` }}
+          style={{ backgroundColor: bgIcon[colorMode] }}
         >
           <Box
-          _hover={{ bg: bgIcon[colorMode], color: bgcolor[colorMode] }}
             className="whatsapp"
-            // bg={bgIcon[colorMode]}
+            bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
             fontSize="18px"
           >
             <IoLogoWhatsapp></IoLogoWhatsapp>
           </Box>
-        </Link> */}
+        </Link>
         <Link
           //   className="social-href"
-          style={{ border: `1px solid ${bgIcon[colorMode]}` }}
+          style={{ backgroundColor: bgIcon[colorMode] }}
         >
           <Box
-            _hover={{ bg: bgIcon[colorMode], color: bgcolor[colorMode] }}
             className="whatsapp"
-            // bg={bgIcon[colorMode]}
+            bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
             fontSize="18px"
@@ -102,12 +94,11 @@ export default function SocialButtons() {
         </Link>
         <Link
           //   className="social-href"
-          style={{ border: `1px solid ${bgIcon[colorMode]}` }}
+          style={{ backgroundColor: bgIcon[colorMode] }}
         >
           <Box
-            _hover={{ bg: bgIcon[colorMode], color: bgcolor[colorMode] }}
             className="whatsapp"
-            // bg={bgIcon[colorMode]}
+            bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
             fontSize="18px"
@@ -117,12 +108,11 @@ export default function SocialButtons() {
         </Link>
         <Link
           //   className="social-href"
-          style={{ border: `1px solid ${bgIcon[colorMode]}` }}
+          style={{ backgroundColor: bgIcon[colorMode] }}
         >
           <Box
-            _hover={{ bg: bgIcon[colorMode], color: bgcolor[colorMode] }}
             className="whatsapp"
-            // bg={bgIcon[colorMode]}
+            bg={bgIcon[colorMode]}
             color={color[colorMode]}
             p="20px"
             fontSize="18px"

@@ -15,14 +15,14 @@ import {
 
 export default function publishlist() {
   return (
-    <Box mt="100px" mb="100px" textAlign="center">
-      <Heading size="xl">شروط النشر</Heading>
+    <Box mt="100px" mb="100px">
       <Box
         textAlign="right"
         p="30px"
         pl={['5%', '5%', '20%', '20%']}
         pr={['5%', '5%', '20%', '20%']}
       >
+        <Heading size="xl">شروط النشر</Heading>
         <Text fontSize="2xl" m="4">
           تتشرف "منشورات المتوسط" باستقبال مخطوطاتكم في هذه الصفحة
         </Text>
@@ -162,7 +162,12 @@ export default function publishlist() {
             تبدأ من لحظة النقر على زر (تقديم)
           </Text>
           <FormControl w="90%" m="4">
-            <Button w="100%" variantColor="teal">
+            <Button
+              _hover={{ bg: '#212121' }}
+              w="100%"
+              bg="black"
+              color="white"
+            >
               تقديم
             </Button>
           </FormControl>

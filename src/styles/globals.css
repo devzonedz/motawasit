@@ -106,8 +106,8 @@ h6 {
 }
 
 ::selection {
-  background: rgb(239, 252, 2);
-  color: #000000;
+  background: rgb(0, 0, 0);
+  color: #fff;
   text-shadow: none;
 }
 .search-box::placeholder {
@@ -178,16 +178,13 @@ h6 {
   overflow: hidden;
 }
 
-/* .facebook {
-  transition: width 0.3s ease-out;
+.facebook {
+  transition: transform 0.3s ease-out;
   position: relative;
 }
 
 .facebook:hover {
   transform: translate(-30px, 0);
-  transition: width 0.3s ease-out;
-
-  width: 100px;
 }
 .twitter {
   transition: transform 0.3s ease-out;
@@ -216,7 +213,7 @@ h6 {
 
 .whatsapp:hover {
   transform: translate(-30px, 0);
-} */
+}
 /*
 .main:hover {
   background-color: white;

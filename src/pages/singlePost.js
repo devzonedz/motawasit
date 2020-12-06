@@ -125,6 +125,7 @@ function SingleBlog({ getArticle }) {
                 </Heading>
               </Box>
               <Carousel
+                isRTL={true}
                 style={{
                   //   marginTop: 100,
 
@@ -165,6 +166,7 @@ function SingleBlog({ getArticle }) {
                 </Heading>
               </Box>
               <Carousel
+                isRTL={true}
                 style={{
                   //   marginTop: 100,
 

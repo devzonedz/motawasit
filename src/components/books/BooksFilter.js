@@ -55,14 +55,14 @@ export default function Navbar(props) {
       //   color={color[colorMode]}
       bg={bg[colorMode]}
     >
-      <Link to="/books">
-        <Text fontWeight="bold" mr="8" ml="8" fontSize="2xl">
-          الكل
+      <Link to="/featured?featured=1">
+        <Text fontWeight="bold" ml="8" mr="8" fontSize="2xl">
+          آخر الإصدارات
         </Text>
       </Link>
-      <Link to="/featured?featured=1">
+      <Link to="/books">
         <Text fontWeight="bold" ml="8" fontSize="2xl">
-          صدر حديثا
+          جميعها
         </Text>
       </Link>
 
@@ -80,7 +80,7 @@ export default function Navbar(props) {
           // _hover={{ bg: 'gray.100' }}
           // _focus={{ outline: 0, boxShadow: 'outline' }}
         >
-          مواضيع
+          حسب الصنف
           <FaChevronDown
             style={{
               display: 'inline',
@@ -280,12 +280,12 @@ export default function Navbar(props) {
       </Menu>
       <Link>
         <Text fontWeight="bold" ml="8" fontSize="2xl">
-          سلاسل
+          سلسلات
         </Text>
       </Link>
       <Link to="furthercoming?furthercoming=1">
         <Text fontWeight="bold" ml="8" fontSize="2xl">
-          يصدر قريبا
+          يأتي قريباً
         </Text>
       </Link>
     </Flex>

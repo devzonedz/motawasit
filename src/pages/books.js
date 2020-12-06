@@ -30,6 +30,7 @@ function Home(props) {
           category="دراسات المتوسط"
         ></CatBooks>
       </Box>
+
       <Divider></Divider>
       <Box m="4">
         <CatBooks name="الرواية" category="روايات المتوسط"></CatBooks>

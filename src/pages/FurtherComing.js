@@ -19,7 +19,7 @@ export default function Books() {
     <Box>
       <BooksFilter></BooksFilter>
       <Box mr="80px" mt="100px" mb="100px">
-        <Box textAlign="center" m="8">
+        <Box m="8">
           <Heading>{category}</Heading>
         </Box>
         <Further furthercoming={furthercoming} category={category}></Further>

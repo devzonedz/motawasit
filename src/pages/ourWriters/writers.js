@@ -35,7 +35,7 @@ function Writers({ getAuthors }) {
   };
 
   return (
-    <Box className="padding" mt="100px" mb="100px" textAlign="center">
+    <Box className="padding" mt="100px" mb="100px">
       <Heading size="xl">كتابنا</Heading>
       <Flex mt="8" flexWrap="wrap">
         <Button

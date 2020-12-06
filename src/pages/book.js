@@ -73,7 +73,7 @@ function Book({ getBook }) {
                     w={['300px', '300px', '400px', '400px']}
                     colorScheme="red"
                   >
-                    لشراء الكتاب إلمس هنا
+                    لشراء الكتاب المس هنا
                   </Button>
                 </Link>
                 <Box mt="4" w={['300px', '300px', '400px', '400px']}>
@@ -137,7 +137,7 @@ function Book({ getBook }) {
                         {data.description}
                       </Text> */}
                       <Box
-                        fontSize="xl"
+                        fontSize="2xl"
                         className="content"
                         dangerouslySetInnerHTML={{ __html: data.description }}
                       ></Box>
@@ -210,6 +210,7 @@ function Book({ getBook }) {
               </Heading>
             </Box>
             <Carousel
+              isRTL={true}
               style={{
                 //   marginTop: 100,
 
@@ -250,6 +251,7 @@ function Book({ getBook }) {
               </Heading>
             </Box>
             <Carousel
+              isRTL={true}
               style={{
                 //   marginTop: 100,
 

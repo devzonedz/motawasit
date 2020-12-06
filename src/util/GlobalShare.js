@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, useColorMode } from '@chakra-ui/core';
+import { Box, Flex, useColorMode, Heading } from '@chakra-ui/core';
 import {
   FaFacebook,
   FaTwitter,
@@ -29,7 +29,8 @@ export default function SocialButtons() {
   const bgIcon = { light: '#000', dark: '#fff' };
   const color = { light: 'black', dark: 'white' };
   return (
-    <Box>
+    <Box textAlign="center">
+      <Heading size="md">شارك على صفحتك</Heading>
       <Flex justifyContent="center">
         <FacebookShareButton
           //   className="social-href "
