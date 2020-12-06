@@ -37,7 +37,12 @@ function Writers({ getAuthors }) {
   return (
     <Box className="padding" mt="100px" mb="100px">
       <Heading size="xl">كتابنا</Heading>
-      <Flex mt="8" flexWrap="wrap">
+      <Flex
+        mt="8"
+        overflowX={{ base: 'auto', sm: 'auto' }}
+        wrap={['nowrap', 'nowrap', 'wrap', 'wrap']}
+        direction={['row', 'row', 'row', 'row']}
+      >
         <Button
           onClick={() => getFiltredAuthors('أ')}
           fontWeight="normal"

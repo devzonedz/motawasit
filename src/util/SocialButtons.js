@@ -19,7 +19,10 @@ export default function SocialButtons() {
   const bgIcon = { light: '#000', dark: '#fff' };
   const color = { light: 'white', dark: 'black' };
   return (
-    <Box style={{ position: 'fixed', zIndex: '99', top: '25%', right: 0 }}>
+    <Box
+      display={{ base: 'none' }}
+      style={{ position: 'fixed', zIndex: '99', top: '25%', right: 0 }}
+    >
       <Flex direction="column">
         <Link
           //   className="social-href "

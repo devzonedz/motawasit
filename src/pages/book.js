@@ -43,6 +43,13 @@ function Book({ getBook }) {
     }
     getData();
   }, [id]);
+
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
+    { width: 850, itemsToShow: 3 },
+    { width: 1150, itemsToShow: 4, itemsToScroll: 4 },
+  ];
   return (
     <Box mt="100px">
       <Box mt="100px">
@@ -54,46 +61,48 @@ function Book({ getBook }) {
         >
           {data && (
             <>
-              <Box m="4">
-                <Skeleton
-                  w={['300px', '300px', '400px', '400px']}
-                  isLoaded={loaded}
-                >
-                  <Image
-                    onLoad={imageLoaded}
-                    shadow="lg"
+              <Flex justifyContent="center">
+                <Box m="4">
+                  <Skeleton
                     w={['300px', '300px', '400px', '400px']}
-                    src={`${process.env.REACT_APP_STORAGE}/${data.cover}`}
-                  ></Image>
-                </Skeleton>
-                <Link>
-                  <Button
-                    rounded="20px"
-                    mt="4"
-                    w={['300px', '300px', '400px', '400px']}
-                    colorScheme="red"
+                    isLoaded={loaded}
                   >
-                    لشراء الكتاب المس هنا
-                  </Button>
-                </Link>
-                <Box mt="4" w={['300px', '300px', '400px', '400px']}>
-                  <GlobalShare></GlobalShare>
+                    <Image
+                      onLoad={imageLoaded}
+                      shadow="lg"
+                      w={['300px', '300px', '400px', '400px']}
+                      src={`${process.env.REACT_APP_STORAGE}/${data.cover}`}
+                    ></Image>
+                  </Skeleton>
+                  <Link>
+                    <Button
+                      rounded="20px"
+                      mt="4"
+                      w={['300px', '300px', '400px', '400px']}
+                      colorScheme="red"
+                    >
+                      لشراء الكتاب المس هنا
+                    </Button>
+                  </Link>
+                  <Box mt="4" w={['300px', '300px', '400px', '400px']}>
+                    <GlobalShare></GlobalShare>
+                  </Box>
+                  <Box w={['300px', '300px', '400px', '400px']}>
+                    {data.podcast && (
+                      <iframe
+                        title={data.title}
+                        width="100%"
+                        height="100"
+                        scrolling="no"
+                        frameborder="no"
+                        allow="autoplay"
+                        src={data.podcast}
+                      ></iframe>
+                    )}
+                  </Box>
                 </Box>
-                <Box w={['300px', '300px', '400px', '400px']}>
-                  {data.podcast && (
-                    <iframe
-                      title={data.title}
-                      width="100%"
-                      height="100"
-                      scrolling="no"
-                      frameborder="no"
-                      allow="autoplay"
-                      src={data.podcast}
-                    ></iframe>
-                  )}
-                </Box>
-              </Box>
-              <Box m="4">
+              </Flex>
+              <Box m="4" w={['370px', '370px', 'auto', 'auto']}>
                 <Heading m="4">{data.title}</Heading>
                 <Divider></Divider>
                 <Text fontSize="xl">{data.sub_title}</Text>
@@ -122,13 +131,29 @@ function Book({ getBook }) {
                 </Text>
                 <Divider></Divider>
                 <Tabs>
-                  <TabList>
-                    <Tab fontSize="18px"> عن الكتاب</Tab>
-                    <Tab fontSize="18px">عن المؤلف</Tab>
-                    <Tab fontSize="18px"> فهرس الكتاب</Tab>
-                    <Tab fontSize="18px"> من الكتاب</Tab>
-                    <Tab fontSize="18px"> في الصحافة</Tab>
-                    <Tab fontSize="18px">معلومات الكتاب</Tab>
+                  <TabList overflowX="auto">
+                    <Tab whiteSpace="nowrap" fontSize="18px">
+                      {' '}
+                      عن الكتاب
+                    </Tab>
+                    <Tab whiteSpace="nowrap" fontSize="18px">
+                      عن المؤلف
+                    </Tab>
+                    <Tab whiteSpace="nowrap" fontSize="18px">
+                      {' '}
+                      فهرس الكتاب
+                    </Tab>
+                    <Tab whiteSpace="nowrap" fontSize="18px">
+                      {' '}
+                      من الكتاب
+                    </Tab>
+                    <Tab whiteSpace="nowrap" fontSize="18px">
+                      {' '}
+                      في الصحافة
+                    </Tab>
+                    <Tab whiteSpace="nowrap" fontSize="18px">
+                      معلومات الكتاب
+                    </Tab>
                   </TabList>
 
                   <TabPanels>
@@ -210,14 +235,15 @@ function Book({ getBook }) {
               </Heading>
             </Box>
             <Carousel
+              breakPoints={breakPoints}
               isRTL={true}
               style={{
                 //   marginTop: 100,
 
                 paddingBottom: 10,
               }}
-              itemsToScroll={3}
-              itemsToShow={3}
+              //   itemsToScroll={3}
+              //   itemsToShow={3}
             >
               {data.books.map(book => (
                 <Link key={book.id} to={`/book/${book.id}`}>
@@ -251,14 +277,15 @@ function Book({ getBook }) {
               </Heading>
             </Box>
             <Carousel
+              breakPoints={breakPoints}
               isRTL={true}
               style={{
                 //   marginTop: 100,
 
                 paddingBottom: 10,
               }}
-              itemsToScroll={3}
-              itemsToShow={3}
+              //   itemsToScroll={3}
+              //   itemsToShow={3}
             >
               {data.articles.map(article => (
                 <Link to={`/singlePost?id=${article.id}`}>
@@ -270,6 +297,7 @@ function Book({ getBook }) {
                       }}
                       className="detail-image"
                       h="200px"
+                      w="280px"
                     ></Box>
                     <Heading color="white" m="2" size="lg">
                       {article.title}

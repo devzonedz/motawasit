@@ -36,7 +36,7 @@ function CatBooks({ featured, category, getBooks, name }) {
     <Box>
       {data && data.books.length !== 0 && (
         <>
-          <Box mr="80px">
+          <Box mr={['0', '80px']}>
             <Link to={`/books_by_category/${category}`}>
               <Heading textDecoration="underline" cursor="pointer" m="2">
                 {name}
@@ -62,7 +62,7 @@ function CatBooks({ featured, category, getBooks, name }) {
             opacity="0.4"
             borderColor="grey"
           ></Divider>
-          <SimpleGrid mr="80px" columns={[1, 2, 3, 5]}>
+          <SimpleGrid mr={['0', '80px']} columns={[1, 2, 3, 5]}>
             {data &&
               data.books &&
               data.books.length !== 0 &&

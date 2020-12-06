@@ -40,8 +40,10 @@ function SingleBlog({ getArticle }) {
     getData();
   }, []);
   const breakPoints = [
-    { width: 700, itemsToShow: 1, itemsToScroll: 1 },
-    { width: 1000, itemsToShow: 2, itemsToScroll: 2 },
+    { width: 1, itemsToShow: 1 },
+    { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
+    { width: 850, itemsToShow: 3 },
+    { width: 1150, itemsToShow: 4, itemsToScroll: 4 },
   ];
   return (
     <Box mt="100px">
@@ -125,14 +127,15 @@ function SingleBlog({ getArticle }) {
                 </Heading>
               </Box>
               <Carousel
+                breakPoints={breakPoints}
                 isRTL={true}
                 style={{
                   //   marginTop: 100,
 
                   paddingBottom: 10,
                 }}
-                itemsToScroll={3}
-                itemsToShow={3}
+                // itemsToScroll={3}
+                // itemsToShow={3}
               >
                 {data.books.map(book => (
                   <Link key={book.id} to={`/book/${book.id}`}>
@@ -166,14 +169,15 @@ function SingleBlog({ getArticle }) {
                 </Heading>
               </Box>
               <Carousel
+                breakPoints={breakPoints}
                 isRTL={true}
                 style={{
                   //   marginTop: 100,
 
                   paddingBottom: 10,
                 }}
-                itemsToScroll={3}
-                itemsToShow={3}
+                // itemsToScroll={3}
+                // itemsToShow={3}
               >
                 {data.maitres.map(article => (
                   <Link to={`/singlePost?id=${article.id}`}>
@@ -185,6 +189,7 @@ function SingleBlog({ getArticle }) {
                         }}
                         className="detail-image"
                         h="200px"
+                        w="280px"
                       ></Box>
                       <Heading m="2" size="lg">
                         {article.title}

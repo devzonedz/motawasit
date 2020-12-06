@@ -94,7 +94,7 @@ function Navbar({ getSearch }) {
     <Box>
       {hits[0] !== undefined && <Heading m="8">كتب</Heading>}
 
-      <SimpleGrid spacing={8} columns={[1, 2, 3, 8]}>
+      <SimpleGrid spacing={8} columns={[2, 2, 3, 8]}>
         {hits &&
           hits.map(hit => (
             <Link onClick={onClose} key={hit.objectID} to={`/book/${hit.id}`}>
@@ -113,7 +113,7 @@ function Navbar({ getSearch }) {
     <Box>
       {hits[0] !== undefined && <Heading m="8">كتاب</Heading>}
 
-      <SimpleGrid spacing={8} columns={[1, 2, 3, 8]}>
+      <SimpleGrid spacing={8} columns={[2, 2, 3, 8]}>
         {hits &&
           hits.map(hit => (
             <Link onClick={onClose} key={hit.objectID} to={`/author/${hit.id}`}>
@@ -132,7 +132,7 @@ function Navbar({ getSearch }) {
     <Box>
       {hits[0] !== undefined && <Heading m="8">مقالات</Heading>}
 
-      <SimpleGrid spacing={8} columns={[1, 2, 3, 8]}>
+      <SimpleGrid spacing={8} columns={[2, 2, 3, 8]}>
         {hits &&
           hits.map(hit => (
             <Link onClick={onClose} key={hit.objectID} to={`/book/${hit.id}`}>

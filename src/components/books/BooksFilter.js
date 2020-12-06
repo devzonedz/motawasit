@@ -49,19 +49,33 @@ export default function Navbar(props) {
       as="nav"
       align="center"
       //   justify="space-between"
-      wrap="wrap"
+
       padding="0.5rem"
       //   shadow="lg"
       //   color={color[colorMode]}
       bg={bg[colorMode]}
+      overflowX={{ base: 'auto', sm: 'auto' }}
+      wrap={['nowrap', 'nowrap', 'wrap', 'wrap']}
+      direction={['row', 'row', 'row', 'row']}
     >
       <Link to="/featured?featured=1">
-        <Text fontWeight="bold" ml="8" mr="8" fontSize="2xl">
+        <Text
+          whiteSpace="nowrap"
+          fontWeight="bold"
+          ml="8"
+          mr="8"
+          fontSize={['lg', '2xl']}
+        >
           آخر الإصدارات
         </Text>
       </Link>
       <Link to="/books">
-        <Text fontWeight="bold" ml="8" fontSize="2xl">
+        <Text
+          whiteSpace="nowrap"
+          fontWeight="bold"
+          ml="8"
+          fontSize={['lg', '2xl']}
+        >
           جميعها
         </Text>
       </Link>
@@ -71,10 +85,11 @@ export default function Navbar(props) {
           display="block"
           // px={4}
           // py={2}
+          whiteSpace="nowrap"
           as={Text}
-          mt={{ base: 4, md: 0 }}
+          //   mt={{ base: 4, md: 0 }}
           ml={8}
-          fontSize="2xl"
+          fontSize={['lg', '2xl']}
           fontWeight="bold"
           transition="all 0.2s"
           // _hover={{ bg: 'gray.100' }}
@@ -279,12 +294,22 @@ export default function Navbar(props) {
         </MenuList>
       </Menu>
       <Link>
-        <Text fontWeight="bold" ml="8" fontSize="2xl">
+        <Text
+          whiteSpace="nowrap"
+          fontWeight="bold"
+          ml="8"
+          fontSize={['lg', '2xl']}
+        >
           سلسلات
         </Text>
       </Link>
       <Link to="furthercoming?furthercoming=1">
-        <Text fontWeight="bold" ml="8" fontSize="2xl">
+        <Text
+          whiteSpace="nowrap"
+          fontWeight="bold"
+          ml="8"
+          fontSize={['lg', '2xl']}
+        >
           يأتي قريباً
         </Text>
       </Link>
