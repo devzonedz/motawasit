@@ -12,8 +12,34 @@ import {
   Select,
   Button,
 } from '@chakra-ui/core';
+import { connect } from 'react-redux';
 
-export default function publishlist() {
+import { postBook } from '../../redux/actions/booksActions';
+import PickFile from './PickFile';
+
+function Publishlist({ postBook }) {
+  const [data, setData] = React.useState({
+    email: null,
+    phone: null,
+    address: null,
+    message: null,
+    nickname: null,
+    author_name: null,
+    book_title: null,
+    book_category: null,
+    book_language: null,
+  });
+
+  const handleChange = e => {
+    e.persist();
+    setData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+  const handleSubmit = async () => {
+    const response = await postBook(data);
+    console.log(response);
+  };
+
+  console.log(data);
   return (
     <Box mt="100px" mb="100px">
       <Box
@@ -94,36 +120,63 @@ export default function publishlist() {
           </Text>
           <FormControl w="90%" m="4">
             <FormLabel textAlign="right">اسم المؤلف</FormLabel>
-            <Input type="text" placeholder="اسم المؤلف"></Input>
+            <Input
+              onChange={handleChange}
+              type="text"
+              name="author_name"
+              placeholder="اسم المؤلف"
+            ></Input>
           </FormControl>
           <FormControl w="90%" m="4">
             <FormLabel textAlign="right">كنية المؤلف</FormLabel>
-            <Input type="text" placeholder="كنية المؤلف"></Input>
+            <Input
+              onChange={handleChange}
+              name="nickname"
+              type="text"
+              placeholder="كنية المؤلف"
+            ></Input>
           </FormControl>
           <FormControl w="90%" m="4">
             <FormLabel textAlign="right">عنوان المؤلف البريدي</FormLabel>
-            <Input type="text" placeholder="عنوان المؤلف البريدي"></Input>
+            <Input
+              onChange={handleChange}
+              name="address"
+              type="text"
+              placeholder="عنوان المؤلف البريدي"
+            ></Input>
           </FormControl>
           <FormControl w="90%" m="4">
             <FormLabel textAlign="right">إيميل المؤلف</FormLabel>
-            <Input type="email" placeholder="إيميل المؤلف"></Input>
+            <Input
+              onChange={handleChange}
+              name="email"
+              type="email"
+              placeholder="إيميل المؤلف"
+            ></Input>
           </FormControl>
           <FormControl w="90%" m="4">
             <FormLabel textAlign="right">
               رقم الهاتف الثابت أو الموبايل
             </FormLabel>
             <Input
+              onChange={handleChange}
+              name="phone"
               type="text"
               placeholder="رقم الهاتف الثابت أو الموبايل"
             ></Input>
           </FormControl>
           <FormControl w="90%" m="4">
             <FormLabel textAlign="right">عنوان الكتاب</FormLabel>
-            <Input type="text" placeholder="عنوان الكتاب"></Input>
+            <Input
+              onChange={handleChange}
+              name="book_title"
+              type="text"
+              placeholder="عنوان الكتاب"
+            ></Input>
           </FormControl>
           <FormControl w="90%" m="4">
             <FormLabel textAlign="right">جنس الكتاب</FormLabel>
-            <Select placeholder="">
+            <Select onChange={handleChange} name="book_category" placeholder="">
               <option value="دراسة"> دراسة</option>
               <option value="رواية"> رواية</option>
               <option value="قصة قصيرة "> قصة قصيرة </option>
@@ -135,7 +188,7 @@ export default function publishlist() {
           </FormControl>
           <FormControl w="90%" m="4">
             <FormLabel textAlign="right">اللغة الأصلية</FormLabel>
-            <Select placeholder="">
+            <Select onChange={handleChange} name="book_language" placeholder="">
               <option value="الإنجليزية"> الإنجليزية</option>
               <option value="الصينية"> الصينية</option>
               <option value=" الهندية "> الهندية </option>
@@ -150,12 +203,25 @@ export default function publishlist() {
           </FormControl>
           <FormControl w="90%" m="4">
             <FormLabel textAlign="right">اترك رسالة </FormLabel>
-            <Textarea type="text" placeholder="اترك رسالة "></Textarea>
+            <Textarea
+              onChange={handleChange}
+              name="message"
+              type="text"
+              placeholder="اترك رسالة "
+            ></Textarea>
           </FormControl>
-          <FormControl w="90%" m="4">
+          <Box w="90%" m="4">
+            <PickFile setData={setData}></PickFile>
+          </Box>
+          {/* <FormControl w="90%" m="4">
             <FormLabel textAlign="right">تحميل المخطوط </FormLabel>
-            <Input type="file" placeholder="تحميل المخطوط"></Input>
-          </FormControl>
+            <Input
+              onChange={handleChange}
+              name="file"
+              type="file"
+              placeholder="تحميل المخطوط"
+            ></Input>
+          </FormControl> */}
           <Text color="gray.500" fontSize="2xl" m="4">
             أتعهد بأن هذا المخطوط غير مقدم لأي ناشر آخر وبأني وبالنقر على زر
             (تقديم) سأنتظر الموافقة، أو الاعتذار الأوليين، كمدة أقصاها 10 أيام
@@ -163,10 +229,23 @@ export default function publishlist() {
           </Text>
           <FormControl w="90%" m="4">
             <Button
+              isDisabled={
+                !data.file ||
+                !data.address ||
+                !data.phone ||
+                !data.message ||
+                !data.email ||
+                !data.nickname ||
+                !data.author_name ||
+                !data.book_title ||
+                !data.book_language ||
+                !data.book_category
+              }
               _hover={{ bg: '#212121' }}
               w="100%"
               bg="black"
               color="white"
+              onClick={handleSubmit}
             >
               تقديم
             </Button>
@@ -176,3 +255,9 @@ export default function publishlist() {
     </Box>
   );
 }
+
+const mapDispatchToProps = dispatch => {
+  return { postBook: letter => dispatch(postBook(letter)) };
+};
+
+export default connect(null, mapDispatchToProps)(Publishlist);

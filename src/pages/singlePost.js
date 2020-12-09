@@ -63,7 +63,7 @@ function SingleBlog({ getArticle }) {
               fontSize="2xl"
               color="gray.500"
             >
-              {'صلاح الدين برياني'}
+              {data.author}
             </Text>
             {/* </Link> */}
           </Box>

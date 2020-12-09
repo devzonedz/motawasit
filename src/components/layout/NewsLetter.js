@@ -15,14 +15,27 @@ import {
   Text,
 } from '@chakra-ui/core';
 import { FaNewspaper } from 'react-icons/fa';
+import { connect } from 'react-redux';
+import { postNews } from '../../redux/actions/newsletterAction';
 
-export default function BasicUsage() {
+function BasicUsage({ postNews }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
 
   const bg = { light: '#fff', dark: '#1a202c' };
   const bgIcon = { light: '#000', dark: '#fff' };
   const color = { light: 'white', dark: 'black' };
+
+  const [email, setEmail] = React.useState(null);
+
+  const handleChange = e => {
+    e.persist();
+    setEmail(e.target.value);
+  };
+  const handleSubmit = () => {
+    postNews();
+  };
+
   return (
     <>
       <Box
@@ -56,8 +69,14 @@ export default function BasicUsage() {
                 الإخبارية
               </Text>
             </Box>
-            <Input mb="4" placeholder="بريدك الالكتروني"></Input>
-            <Button colorScheme="teal" mb="8" w="100%">
+            <Input
+              onChange={handleChange}
+              name="email"
+              type="email"
+              mb="4"
+              placeholder="بريدك الالكتروني"
+            ></Input>
+            <Button onClick={handleSubmit} colorScheme="teal" mb="8" w="100%">
               سجل
             </Button>
           </ModalBody>
@@ -73,3 +92,9 @@ export default function BasicUsage() {
     </>
   );
 }
+
+const mapDispatchToProps = dispatch => {
+  return { postNews: id => dispatch(postNews(id)) };
+};
+
+export default connect(null, mapDispatchToProps)(BasicUsage);

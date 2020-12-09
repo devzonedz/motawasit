@@ -9,8 +9,8 @@ import {
   Divider,
   useColorMode,
 } from '@chakra-ui/core';
-import { connect } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { getAuthor } from '../../redux/actions/authorActions';
 

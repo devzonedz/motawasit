@@ -20,7 +20,7 @@ export default function SocialButtons() {
   const color = { light: 'white', dark: 'black' };
   return (
     <Box
-      display={{ base: 'none' }}
+      display={{ base: 'none', md: 'block' }}
       style={{ position: 'fixed', zIndex: '99', top: '25%', right: 0 }}
     >
       <Flex direction="column">

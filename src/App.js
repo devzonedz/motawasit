@@ -44,6 +44,8 @@ import theme from './util/theme';
 
 import './styles/globals.css';
 import './styles/fancyroutes.css';
+import 'react-dropzone-uploader/dist/styles.css';
+
 const TIMEOUT = 300;
 const getTransitionStyles = {
   entering: {
