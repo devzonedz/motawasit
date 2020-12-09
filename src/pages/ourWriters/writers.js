@@ -12,6 +12,7 @@ import {
   Select,
   Button,
   Flex,
+  Image,
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -280,17 +281,25 @@ function Writers({ getAuthors }) {
         {data &&
           Object.values(data).map(author => (
             <Link key={author.id} to={`/author/${author.id}`}>
-              <Text
-                _hover={{
-                  bg: 'yellow.300',
-                  color: 'black',
-                  textDecoration: 'underline',
-                }}
-                m="2"
-                fontSize="2xl"
-              >
-                {author.name}
-              </Text>
+              <Box>
+                <Image
+                  w="100px"
+                  //   h="150px"
+                  m="2"
+                  src={`${process.env.REACT_APP_STORAGE}/${author.image}`}
+                ></Image>
+                <Text
+                  _hover={{
+                    bg: 'yellow.300',
+                    color: 'black',
+                    textDecoration: 'underline',
+                  }}
+                  m="2"
+                  fontSize="xl"
+                >
+                  {author.name}
+                </Text>
+              </Box>
             </Link>
           ))}
       </Flex>
