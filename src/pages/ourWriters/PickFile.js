@@ -58,6 +58,12 @@ export default function Previews(props) {
     </div>
   ));
 
+  const preview = files.map(file => (
+    <li key={file.name}>
+      {file.name} - {file.size} bytes
+    </li>
+  ));
+
   useEffect(
     () => () => {
       // Make sure to revoke the data uris to avoid memory leaks
@@ -75,7 +81,7 @@ export default function Previews(props) {
         <input {...getInputProps()} />
         <p>اسحب الملف هنا او قم بالضغط لتحديده</p>
       </div>
-      <aside style={thumbsContainer}>{thumbs}</aside>
+      <aside style={thumbsContainer}>{preview}</aside>
     </section>
   );
 }

@@ -13,6 +13,7 @@ import {
   useColorMode,
   Input,
   Text,
+  useToast,
 } from '@chakra-ui/core';
 import { FaNewspaper } from 'react-icons/fa';
 import { connect } from 'react-redux';
@@ -21,6 +22,7 @@ import { postNews } from '../../redux/actions/newsletterAction';
 function BasicUsage({ postNews }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
+  const toast = useToast();
 
   const bg = { light: '#fff', dark: '#1a202c' };
   const bgIcon = { light: '#000', dark: '#fff' };
@@ -35,6 +37,12 @@ function BasicUsage({ postNews }) {
   const handleSubmit = async () => {
     const response = await postNews(email);
     console.log(response);
+    toast({
+      description: response.data.message,
+      status: 'success',
+      duration: 2000,
+      isClosable: true,
+    });
   };
 
   console.log(email);
