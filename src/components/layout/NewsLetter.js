@@ -32,9 +32,12 @@ function BasicUsage({ postNews }) {
     e.persist();
     setEmail(e.target.value);
   };
-  const handleSubmit = () => {
-    postNews();
+  const handleSubmit = async () => {
+    const response = await postNews(email);
+    console.log(response);
   };
+
+  console.log(email);
 
   return (
     <>
@@ -76,7 +79,13 @@ function BasicUsage({ postNews }) {
               mb="4"
               placeholder="بريدك الالكتروني"
             ></Input>
-            <Button onClick={handleSubmit} colorScheme="teal" mb="8" w="100%">
+            <Button
+              isDisabled={!email}
+              onClick={handleSubmit}
+              colorScheme="teal"
+              mb="8"
+              w="100%"
+            >
               سجل
             </Button>
           </ModalBody>
