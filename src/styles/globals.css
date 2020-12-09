@@ -12,9 +12,16 @@
   font-display: swap;
 }
 @font-face {
-  font-family: 'bahij';
+  font-family: 'diodrum-med';
   /* src: url('/fonts/bahij/bold.ttf'); */
-  src: url('/src/fonts/bahij/bold.ttf');
+  src: url('/src/fonts/DiodrumArabic-Medium.ttf');
+  font-style: medium;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'diodrum-bold';
+  src: url('/src/fonts/DiodrumArabic-Semibold.ttf');
   font-style: medium;
   font-weight: 500;
   font-display: swap;
@@ -71,14 +78,16 @@ a {
 * {
   box-sizing: border-box;
 }
-p,
+p {
+  font-family: inherit !important;
+}
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: inherit !important;
+  font-family: 'doidrum-bold' !important;
 }
 
 .detail-image {
@@ -270,8 +279,8 @@ h6 {
 }
 @media only screen and (max-width: 1600px) {
   .padding {
-    padding-left: 20% !important;
-    padding-right: 20% !important;
+    padding-left: 15% !important;
+    padding-right: 15% !important;
   }
 }
 @media only screen and (max-width: 600px) {

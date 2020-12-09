@@ -5,6 +5,9 @@ const headers = {
   Accept: 'application/json',
   'Content-Type': 'application/json',
 };
+const multipart = {
+  'Content-Type': 'multipart/form-data',
+};
 
 export const getBooks = (
   category,
@@ -96,7 +99,7 @@ export const postBook = payload => async (dispatch, getState) => {
   console.log(payload);
   let data;
   data = await axios
-    .post(`${process.env.REACT_APP_API}/uploadFile`, { payload }, { headers })
+    .post(`${process.env.REACT_APP_API}/uploadFile`, { payload }, { multipart })
     .then(res => {
       console.log(res);
       return res;
