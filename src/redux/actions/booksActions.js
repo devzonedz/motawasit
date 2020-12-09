@@ -1,5 +1,6 @@
 import * as t from '../types';
 import axios from 'axios';
+import { serialize } from 'object-to-formdata';
 
 const headers = {
   Accept: 'application/json',
@@ -97,9 +98,12 @@ export const getBooksBySerie = serie => async (dispatch, getState) => {
 };
 export const postBook = payload => async (dispatch, getState) => {
   console.log(payload);
+  const formData = serialize(payload);
+
+  console.log(formData);
   let data;
   data = await axios
-    .post(`${process.env.REACT_APP_API}/uploadFile`, { payload }, { multipart })
+    .post(`${process.env.REACT_APP_API}/uploadFile`, formData, { multipart })
     .then(res => {
       console.log(res);
       return res;

@@ -15,6 +15,7 @@
     "moment": "^2.29.1",
     "money": "^0.2.0",
     "nprogress": "^0.2.0",
+    "object-to-formdata": "^4.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-dropzone": "^11.2.4",
