@@ -30,8 +30,10 @@ import {
   FaSun,
 } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { connect } from 'react-redux';
+import { getSeries } from '../../redux/actions/seriesActions';
 
-export default function Navbar(props) {
+function Navbar({ getSeries }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
@@ -40,6 +42,21 @@ export default function Navbar(props) {
 
   const bg = { light: '#fff', dark: '#1a202c' };
   const filter = { light: '#000000', dark: '#1a202c' };
+  const [data, setData] = React.useState(null);
+  const [loaded, setLoaded] = React.useState(false);
+  const imageLoaded = () => {
+    setLoaded(true);
+  };
+  React.useEffect(() => {
+    async function getData() {
+      const res = await getSeries();
+      console.log(res);
+      if (res) {
+        setData(res.data);
+      }
+    }
+    getData();
+  }, []);
 
   return (
     <Flex
@@ -293,7 +310,63 @@ export default function Navbar(props) {
           </SimpleGrid>
         </MenuList>
       </Menu>
-      <Link>
+      <Menu>
+        <MenuButton
+          display="block"
+          // px={4}
+          // py={2}
+          whiteSpace="nowrap"
+          as={Text}
+          //   mt={{ base: 4, md: 0 }}
+          ml={8}
+          fontSize={['lg', '2xl']}
+          fontWeight="bold"
+          transition="all 0.2s"
+          // _hover={{ bg: 'gray.100' }}
+          // _focus={{ outline: 0, boxShadow: 'outline' }}
+        >
+          سلسلات
+          <FaChevronDown
+            style={{
+              display: 'inline',
+              fontSize: 15,
+              marginRight: 3,
+              marginTop: 5,
+            }}
+          ></FaChevronDown>{' '}
+        </MenuButton>
+        <MenuList w="100vw" color="white" bg={filter[colorMode]} shadow="xl">
+          <SimpleGrid
+            pl={['5%', '5%', '20%', '20%']}
+            pr={['5%', '5%', '20%', '20%']}
+            columns={3}
+          >
+            {data &&
+              data.map(serie => (
+                <Link
+                  style={{ margin: '50px !important' }}
+                  onClick={handleToggle}
+                  to={`/books_by_series?serie=${serie.name} `}
+                >
+                  <Box m="4">
+                    <MenuItem
+                      _focus={{ bg: 'white', color: 'black' }}
+                      _hover={{ bg: 'white', color: 'black' }}
+                      fontSize="xl"
+                    >
+                      <Box display="flex">
+                        <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                          {serie.name}
+                        </Heading>
+                      </Box>
+                    </MenuItem>
+                  </Box>
+                </Link>
+              ))}
+          </SimpleGrid>
+        </MenuList>
+      </Menu>
+      {/* <Link>
         <Text
           whiteSpace="nowrap"
           fontWeight="bold"
@@ -302,7 +375,7 @@ export default function Navbar(props) {
         >
           سلسلات
         </Text>
-      </Link>
+      </Link> */}
       <Link to="furthercoming?furthercoming=1">
         <Text
           whiteSpace="nowrap"
@@ -316,3 +389,9 @@ export default function Navbar(props) {
     </Flex>
   );
 }
+
+const mapDispatchToProps = dispatch => {
+  return { getSeries: () => dispatch(getSeries()) };
+};
+
+export default connect(null, mapDispatchToProps)(Navbar);

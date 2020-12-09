@@ -74,6 +74,25 @@ export const getBooks = (
   return data;
 };
 
+export const getBooksBySerie = serie => async (dispatch, getState) => {
+  console.log(serie);
+  let data;
+  data = await axios
+    .get(
+      `${process.env.REACT_APP_API}/books?serie=${serie}`,
+      //   { website: 'المتوسط' },
+      { headers }
+    )
+    .then(res => {
+      console.log(res);
+      return res;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  return data;
+};
+
 export const getBook = id => async (dispatch, getState) => {
   const data = await axios
     .get(

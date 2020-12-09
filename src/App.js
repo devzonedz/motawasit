@@ -21,6 +21,7 @@ import Podcast from './pages/Podcast';
 import FeaturedBooks from './pages/FeaturedBooks';
 import FurtherComing from './pages/FurtherComing';
 import BooksByCategory from './pages/BooksByCategory';
+import BooksSeries from './pages/BooksSeries';
 import Events from './pages/events';
 import InThePress from './pages/inThePress';
 import SinglePost from './pages/singlePost';
@@ -110,6 +111,9 @@ function App(props) {
         </Route>
         <Route title="books" exact path="/books_by_category/:category">
           <BooksByCategory />
+        </Route>
+        <Route title="books_by_series" exact path="/books_by_series">
+          <BooksSeries />
         </Route>
         <Route title="books" exact path="/books">
           <Books />

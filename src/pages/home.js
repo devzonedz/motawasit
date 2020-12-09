@@ -42,32 +42,36 @@ function Home({ getHome }) {
         {data &&
           data.articles &&
           data.articles.map(article => (
-            <Box>
-              <Heading> {article.title} </Heading>
-              <Box
-                fontSize="xl"
-                className="content event-body"
-                dangerouslySetInnerHTML={{ __html: article.body }}
-              ></Box>
-              <Image
-                src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
-              ></Image>
-            </Box>
+            <Link to={`/singlePost?id=${article.id}`}>
+              <Box>
+                <Heading> {article.title} </Heading>
+                <Box
+                  fontSize="xl"
+                  className="content event-body"
+                  dangerouslySetInnerHTML={{ __html: article.body }}
+                ></Box>
+                <Image
+                  src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
+                ></Image>
+              </Box>
+            </Link>
           ))}
       </SimpleGrid>
       <SimpleGrid mt="8" spacing={4} columns={[1, 2, 2, 3]}>
         {data &&
           data.books &&
           data.books.map(book => (
-            <Box>
-              <Heading> {book.title} </Heading>
-              <Text fontSize="xl"> {book.overview} </Text>
-              <Image
-                mt="2"
-                w="300px"
-                src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
-              ></Image>
-            </Box>
+            <Link to={`/book/${book.id}`}>
+              <Box>
+                <Heading> {book.title} </Heading>
+                <Text fontSize="xl"> {book.overview} </Text>
+                <Image
+                  mt="2"
+                  w="300px"
+                  src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
+                ></Image>
+              </Box>
+            </Link>
           ))}
       </SimpleGrid>
     </Box>
