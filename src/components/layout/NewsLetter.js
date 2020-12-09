@@ -43,6 +43,7 @@ function BasicUsage({ postNews }) {
       duration: 2000,
       isClosable: true,
     });
+    onClose();
   };
 
   console.log(email);
