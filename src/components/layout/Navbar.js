@@ -147,7 +147,14 @@ export default function Navbar(props) {
             // _focus={{ outline: 0, boxShadow: 'outline' }}
           >
             مشاريعنا
-            <FaChevronUp style={{ display: 'inline' }}></FaChevronUp>{' '}
+            <FaChevronUp
+              style={{
+                display: 'inline',
+                fontSize: '15px !important',
+                marginRight: 3,
+                marginTop: 5,
+              }}
+            ></FaChevronUp>{' '}
           </MenuButton>
           <MenuList w="100vw" bg={bg[colorMode]} shadow="xl">
             {/* <SimpleGrid pl="5%" pr="5%" columns={4}> */}

@@ -90,16 +90,16 @@ export default function Home() {
             </Flex>
           </Flex>
         </Flex>
-      </a>
+      </a>{' '}
       <a
-        href="http://motawasit-shop.vercel.app
+        href="http://motawasit-center.vercel.app
 "
       >
         <Flex
-          className="shop"
+          className="center"
           justifyContent="center"
-          //   onMouseEnter={() => setShop(true)}
-          //   onMouseLeave={() => setShop(false)}
+          //   onMouseEnter={() => setCenter(true)}
+          //   onMouseLeave={() => setCenter(false)}
           cursor="pointer"
           //   _hover={{ color: 'black', backgroundColor: 'white' }}
           border="1px solid white"
@@ -112,10 +112,10 @@ export default function Home() {
               justifyContent="center"
               direction="column"
             >
-              <Image w="30%" src={shope}></Image>{' '}
-              <Text mt="4" fontSize="2xl">
-                متجر الكتاب العربي في إيطاليا
-              </Text>
+              <Image w="70%" src={center}></Image>
+              {/* <Text mt="4" fontSize="2xl">
+                لشعر أكثر الأفعال حظاً من البراءة
+              </Text> */}
             </Flex>
           </Flex>
         </Flex>
@@ -150,14 +150,14 @@ export default function Home() {
         </Flex>
       </a>
       <a
-        href="http://motawasit-center.vercel.app
+        href="http://motawasit-shop.vercel.app
 "
       >
         <Flex
-          className="center"
+          className="shop"
           justifyContent="center"
-          //   onMouseEnter={() => setCenter(true)}
-          //   onMouseLeave={() => setCenter(false)}
+          //   onMouseEnter={() => setShop(true)}
+          //   onMouseLeave={() => setShop(false)}
           cursor="pointer"
           //   _hover={{ color: 'black', backgroundColor: 'white' }}
           border="1px solid white"
@@ -170,9 +170,9 @@ export default function Home() {
               justifyContent="center"
               direction="column"
             >
-              <Image w="70%" src={center}></Image>
+              <Image w="30%" src={shope}></Image>{' '}
               <Text mt="4" fontSize="2xl">
-                لشعر أكثر الأفعال حظاً من البراءة
+                متجر الكتاب العربي في إيطاليا
               </Text>
             </Flex>
           </Flex>

@@ -86,12 +86,12 @@ function Author({ getAuthor }) {
                     <Box mb="4" cursor="pointer">
                       <Image
                         w="225px"
-                        h="250px"
+                        h="280px"
                         m="0 auto"
                         shadow="lg"
                         src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
                       ></Image>
-                      <Box mt="4" textAlign="center">
+                      {/* <Box mt="4" textAlign="center">
                         <Text fontWeight="500" fontSize="xl">
                           {book.title}
                         </Text>
@@ -101,7 +101,7 @@ function Author({ getAuthor }) {
                         <Text fontSize="sm" color="gray.500">
                           {book.author}
                         </Text>
-                      </Box>
+                      </Box> */}
                     </Box>
                   </Link>
                 ))}

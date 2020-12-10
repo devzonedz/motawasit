@@ -223,31 +223,6 @@ h6 {
 .whatsapp:hover {
   transform: translate(-30px, 0);
 }
-/*
-.main:hover {
-  background-color: white;
-
-  color: black;
-  transition: background-color 0.5s, color 0.5s;
-}
-.shop:hover {
-  background-color: white;
-
-  color: black;
-  transition: background-color 0.5s, color 0.5s;
-}
-.center:hover {
-  background-color: white;
-
-  color: black;
-  transition: background-color 0.5s, color 0.5s;
-}
-.journal:hover {
-  background-color: white;
-
-  color: black;
-  transition: background-color 0.5s, color 0.5s;
-} */
 
 .quote {
   margin: 0;
@@ -307,5 +282,8 @@ h6 {
   .padding {
     padding-left: 5% !important;
     padding-right: 5% !important;
+  }
+  .booktablist {
+    overflow-x: auto;
   }
 }

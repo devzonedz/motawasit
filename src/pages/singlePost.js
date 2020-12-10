@@ -49,7 +49,11 @@ function SingleBlog({ getArticle }) {
     <Box mt="100px">
       {data && (
         <Box>
-          <Box mb="8" textAlign="center">
+          <Box
+            pr={['2%', '2%', '7%', '7%']}
+            pl={['2%', '2%', '7%', '7%']}
+            mb="8"
+          >
             <Heading mb="2"> {data.article_title} </Heading>
             <Link key={data.author_id} to={`/author/${data.author_id}`}>
               <Text
@@ -84,29 +88,39 @@ function SingleBlog({ getArticle }) {
             templateColumns={['1fr', '1fr', '0.5fr 2fr', '0.5fr 2fr']}
             gap="10px"
           >
-            <Box mb="8">
-              {/* <Text mb="2" fontSize="xl">
+            <Box>
+              {data.books.map(book => (
+                <Box mb="8">
+                  {/* <Text mb="2" fontSize="xl">
                 بمساهمة صلاح برياني
               </Text> */}
-              <Divider w="80%"></Divider>
-              {/* <Image mt="2" src={``}></Image> */}
-              <Box
-                mt="2"
-                mb="4"
-                style={{
-                  background: `
-    url('${process.env.REACT_APP_STORAGE}/${data.books[0].cover}')`,
-                }}
-                className="detail-image"
-                w="80%"
-                h="270px"
-              ></Box>
-              <Heading size="md">{data.books[0].title}</Heading>
-              <Text> {data.books[0].sub_title} </Text>
-              <Text fontSize="lg" mt="2" pl="6" className="book-description">
-                {' '}
-                {data.books[0].description}{' '}
-              </Text>
+                  <Divider w="80%"></Divider>
+                  {/* <Image mt="2" src={``}></Image> */}
+                  <Box
+                    mt="2"
+                    mb="4"
+                    style={{
+                      background: `
+    url('${process.env.REACT_APP_STORAGE}/${book.cover}')`,
+                    }}
+                    className="detail-image"
+                    w="80%"
+                    h="270px"
+                  ></Box>
+                  <Heading size="md">{book.title}</Heading>
+                  <Text> {book.sub_title} </Text>
+
+                  <Box
+                    fontSize="lg"
+                    mt="2"
+                    pl="6"
+                    className="book-description"
+                    dangerouslySetInnerHTML={{
+                      __html: book.description,
+                    }}
+                  ></Box>
+                </Box>
+              ))}
             </Box>
             <Box
               fontSize="2xl"
@@ -120,9 +134,9 @@ function SingleBlog({ getArticle }) {
           </Grid>
           <GlobalShare></GlobalShare>
           {data.books[0] && (
-            <Box bg="black" borderBottom="1px solid white">
+            <Box pr="3%" pl="3%" bg="black" borderBottom="1px solid white">
               <Box mt="100px" mb="4" color="white">
-                <Heading p="4" size="lg">
+                <Heading mr="7%" p="4" size="lg">
                   كتب ذات صلة
                 </Heading>
               </Box>
@@ -139,7 +153,7 @@ function SingleBlog({ getArticle }) {
               >
                 {data.books.map(book => (
                   <Link key={book.id} to={`/book/${book.id}`}>
-                    <Box color="white" mb="4" cursor="pointer">
+                    <Box w="350px" bg="#f5f2ef" mb="4" cursor="pointer">
                       <Image
                         w="225px"
                         h="350px"
@@ -162,9 +176,9 @@ function SingleBlog({ getArticle }) {
             </Box>
           )}
           {data.maitres[0] && (
-            <Box bg="black" borderBottom="1px solid white">
+            <Box pr="5%" pl="3%" bg="black" borderBottom="1px solid white">
               <Box mb="4" color="white">
-                <Heading p="4" size="lg">
+                <Heading mr="7%" p="4" size="lg">
                   مقالات ذات صلة
                 </Heading>
               </Box>
@@ -180,29 +194,71 @@ function SingleBlog({ getArticle }) {
                 // itemsToShow={3}
               >
                 {data.maitres.map(article => (
-                  <Link to={`/singlePost?id=${article.id}`}>
-                    <Box color="white" shadow="lg" p="2" cursor="pointer">
-                      <Box
-                        style={{
-                          background: `
-    url('${process.env.REACT_APP_STORAGE}/${article.image}')`,
-                        }}
-                        className="detail-image"
-                        h="200px"
-                        w="280px"
-                      ></Box>
-                      <Heading m="2" size="lg">
-                        {article.title}
-                      </Heading>
-                      <Heading> {article.author} </Heading>
+                  //               <Link to={`/singlePost?id=${article.id}`}>
+                  //                 <Box bg="#f5f2ef" shadow="lg" p="2" cursor="pointer">
+                  //                   <Box
+                  //                     style={{
+                  //                       background: `
+                  // url('${process.env.REACT_APP_STORAGE}/${article.image}')`,
+                  //                     }}
+                  //                     className="detail-image"
+                  //                     h="200px"
+                  //                     w="280px"
+                  //                   ></Box>
+                  //                   <Heading m="2" size="lg">
+                  //                     {article.title}
+                  //                   </Heading>
+                  //                   <Heading> {article.author} </Heading>
 
-                      <Box
-                        fontSize="lg"
-                        className="event-body"
-                        dangerouslySetInnerHTML={{
-                          __html: article.body,
-                        }}
-                      ></Box>
+                  //                   <Box
+                  //                     fontSize="lg"
+                  //                     className="event-body"
+                  //                     dangerouslySetInnerHTML={{
+                  //                       __html: article.body,
+                  //                     }}
+                  //                   ></Box>
+                  //                 </Box>
+                  //               </Link>
+                  <Link to={`/singlePost?id=${article.id}`}>
+                    <Box
+                      bg="white"
+                      w="350px"
+                      shadow="lg"
+                      // p="2"
+                      pb="4"
+                      m="4"
+                      cursor="pointer"
+                    >
+                      <Box>
+                        <Skeleton w="100%" isLoaded={loaded}>
+                          {/* <Box
+                    style={{
+                      background: ` linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('${process.env.REACT_APP_STORAGE}/${article.image}')`,
+                    }}
+                    className="detail-image"
+                    h="200px"
+                  ></Box> */}
+                          <Image
+                            w="100%"
+                            h="200px"
+                            onLoad={imageLoaded}
+                            src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
+                          ></Image>
+                        </Skeleton>
+                        <Heading m="2" size="lg">
+                          {article.title}
+                        </Heading>
+                        <Heading> {article.author} </Heading>
+                        <Box
+                          m="2"
+                          fontSize="lg"
+                          className="event-body"
+                          dangerouslySetInnerHTML={{
+                            __html: article.body,
+                          }}
+                        ></Box>
+                      </Box>
                     </Box>
                   </Link>
                 ))}

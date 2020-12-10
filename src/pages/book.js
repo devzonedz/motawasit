@@ -102,7 +102,7 @@ function Book({ getBook }) {
                   </Box>
                 </Box>
               </Flex>
-              <Box m="4" w={['370px', '370px', 'auto', 'auto']}>
+              <Box m="4" w={['370px', '400px', 'auto', 'auto']}>
                 <Heading m="4">{data.title}</Heading>
                 <Divider></Divider>
                 <Text fontSize="xl">{data.sub_title}</Text>
@@ -131,7 +131,7 @@ function Book({ getBook }) {
                 </Text>
                 <Divider></Divider>
                 <Tabs>
-                  <TabList overflowX="auto">
+                  <TabList className="booktablist">
                     <Tab whiteSpace="nowrap" fontSize="18px">
                       {' '}
                       عن الكتاب
@@ -228,9 +228,9 @@ function Book({ getBook }) {
           )}
         </Grid>
         {data && data.books[0] && (
-          <Box bg="black" borderBottom="1px solid white">
+          <Box pr="7%" pl="3%" bg="black" borderBottom="1px solid white">
             <Box mt="100px" mb="4" color="white">
-              <Heading p="4" size="lg">
+              <Heading mr="7%" p="4" size="lg">
                 كتب ذات صلة
               </Heading>
             </Box>
@@ -247,7 +247,7 @@ function Book({ getBook }) {
             >
               {data.books.map(book => (
                 <Link key={book.id} to={`/book/${book.id}`}>
-                  <Box color="white" mb="4" cursor="pointer">
+                  <Box w="350px" bg="#f5f2ef" mb="4" cursor="pointer">
                     <Image
                       w="225px"
                       h="350px"
@@ -270,9 +270,9 @@ function Book({ getBook }) {
           </Box>
         )}
         {data && data.articles[0] && (
-          <Box bg="black" borderBottom="1px solid white">
+          <Box pr="5%" pl="3%" bg="black" borderBottom="1px solid white">
             <Box mb="4" color="white">
-              <Heading p="4" size="lg">
+              <Heading mr="7%" p="4" size="lg">
                 مقالات ذات صلة
               </Heading>
             </Box>
@@ -288,29 +288,71 @@ function Book({ getBook }) {
               //   itemsToShow={3}
             >
               {data.articles.map(article => (
-                <Link to={`/singlePost?id=${article.id}`}>
-                  <Box color="white" shadow="lg" p="2" cursor="pointer">
-                    <Box
-                      style={{
-                        background: `
-    url('${process.env.REACT_APP_STORAGE}/${article.image}')`,
-                      }}
-                      className="detail-image"
-                      h="200px"
-                      w="280px"
-                    ></Box>
-                    <Heading color="white" m="2" size="lg">
-                      {article.title}
-                    </Heading>
-                    <Heading> {article.author} </Heading>
+                //             <Link to={`/singlePost?id=${article.id}`}>
+                //               <Box bg="#f5f2ef" shadow="lg" p="2" cursor="pointer">
+                //                 <Box
+                //                   style={{
+                //                     background: `
+                // url('${process.env.REACT_APP_STORAGE}/${article.image}')`,
+                //                   }}
+                //                   className="detail-image"
+                //                   h="200px"
+                //                   w="280px"
+                //                 ></Box>
+                //                 <Heading color="white" m="2" size="lg">
+                //                   {article.title}
+                //                 </Heading>
+                //                 <Heading> {article.author} </Heading>
 
-                    <Box
-                      fontSize="lg"
-                      className="event-body"
-                      dangerouslySetInnerHTML={{
-                        __html: article.body,
-                      }}
-                    ></Box>
+                //                 <Box
+                //                   fontSize="lg"
+                //                   className="event-body"
+                //                   dangerouslySetInnerHTML={{
+                //                     __html: article.body,
+                //                   }}
+                //                 ></Box>
+                //               </Box>
+                //             </Link>
+                <Link to={`/singlePost?id=${article.id}`}>
+                  <Box
+                    bg="white"
+                    w="350px"
+                    shadow="lg"
+                    // p="2"
+                    pb="4"
+                    m="4"
+                    cursor="pointer"
+                  >
+                    <Box>
+                      <Skeleton w="100%" isLoaded={loaded}>
+                        {/* <Box
+                    style={{
+                      background: ` linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('${process.env.REACT_APP_STORAGE}/${article.image}')`,
+                    }}
+                    className="detail-image"
+                    h="200px"
+                  ></Box> */}
+                        <Image
+                          w="100%"
+                          h="200px"
+                          onLoad={imageLoaded}
+                          src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
+                        ></Image>
+                      </Skeleton>
+                      <Heading m="2" size="lg">
+                        {article.title}
+                      </Heading>
+                      <Heading> {article.author} </Heading>
+                      <Box
+                        m="2"
+                        fontSize="lg"
+                        className="event-body"
+                        dangerouslySetInnerHTML={{
+                          __html: article.body,
+                        }}
+                      ></Box>
+                    </Box>
                   </Box>
                 </Link>
               ))}

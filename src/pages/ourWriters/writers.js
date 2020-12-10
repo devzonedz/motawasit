@@ -1,4 +1,6 @@
 import React from 'react';
+import Masonry from 'react-masonry-css';
+
 import {
   Box,
   Heading,
@@ -14,6 +16,7 @@ import {
   Flex,
   Image,
   Skeleton,
+  SimpleGrid,
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -38,6 +41,13 @@ function Writers({ getAuthors }) {
     const res = await getAuthors(letter);
     console.log(res);
     setData(res.data);
+  };
+
+  const breakpointColumnsObj = {
+    default: 5,
+    1300: 5,
+    1100: 2,
+    1000: 1,
   };
 
   return (
@@ -282,7 +292,11 @@ function Writers({ getAuthors }) {
           ي
         </Button>
       </Flex>{' '}
-      <Flex mt="8" flexWrap="wrap">
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+      >
         {data &&
           Object.values(data).map(author => (
             <Link key={author.id} to={`/author/${author.id}`}>
@@ -310,7 +324,8 @@ function Writers({ getAuthors }) {
               </Box>
             </Link>
           ))}
-      </Flex>
+      </Masonry>
+      {/* <Flex mt="8" flexWrap="wrap"></Flex> */}
     </Box>
   );
 }
