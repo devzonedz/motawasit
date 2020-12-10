@@ -53,6 +53,7 @@ function SingleBlog({ getArticle }) {
             pr={['2%', '2%', '7%', '7%']}
             pl={['2%', '2%', '7%', '7%']}
             mb="8"
+            textAlign={['center', 'center', 'right']}
           >
             <Heading mb="2"> {data.article_title} </Heading>
             <Link key={data.author_id} to={`/author/${data.author_id}`}>
@@ -73,8 +74,9 @@ function SingleBlog({ getArticle }) {
           </Box>
           <Flex justifyContent="center">
             <Box mb="8" w="85%">
-              <Skeleton isLoaded={loaded}>
+              <Skeleton w="100%" isLoaded={loaded}>
                 <Image
+                  w="100%"
                   onLoad={imageLoaded}
                   src={`${process.env.REACT_APP_STORAGE}/${data.image}`}
                 ></Image>
@@ -88,7 +90,7 @@ function SingleBlog({ getArticle }) {
             templateColumns={['1fr', '1fr', '0.5fr 2fr', '0.5fr 2fr']}
             gap="10px"
           >
-            <Box>
+            <Box display={['none', 'none', 'block', 'block']}>
               {data.books.map(book => (
                 <Box mb="8">
                   {/* <Text mb="2" fontSize="xl">
@@ -125,8 +127,9 @@ function SingleBlog({ getArticle }) {
             <Box
               fontSize="2xl"
               mb="8"
-              pl="15%"
-              //   className="padding"
+              pl={['2%', '2%', '15%', '15%']}
+              pr={['2%', '2%', '0%', '0%']}
+              className="dont-break-out"
               dangerouslySetInnerHTML={{
                 __html: data.article_body,
               }}
