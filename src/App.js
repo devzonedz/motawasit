@@ -111,7 +111,7 @@ function App(props) {
         <Route title="book" exact path="/book/:id">
           <Book />
         </Route>
-        <Route title="books" exact path="/books_by_category/:category">
+        <Route title="books" exact path="/books_by_category">
           <BooksByCategory />
         </Route>
         <Route title="books_by_series" exact path="/books_by_series">

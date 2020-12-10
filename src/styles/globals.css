@@ -265,6 +265,26 @@ h6 {
   color: rgb(82, 82, 20);
 }
 
+.chakra-alert__icon {
+  display: none !important;
+}
+
+.chakra-alert {
+  text-align: right !important;
+  font-size: larger;
+}
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
+}
+
 @media only screen and (min-width: 1600px) {
   .main-logo {
     width: 500px !important;

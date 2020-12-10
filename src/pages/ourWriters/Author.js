@@ -8,6 +8,7 @@ import {
   SimpleGrid,
   Divider,
   useColorMode,
+  Skeleton,
 } from '@chakra-ui/core';
 import { useParams, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -18,6 +19,10 @@ function Author({ getAuthor }) {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const color = { light: 'black', dark: 'white' };
+  const [loaded, setLoaded] = React.useState(false);
+  const imageLoaded = () => {
+    setLoaded(true);
+  };
 
   let { id } = useParams();
   const [data, setData] = React.useState(null);
@@ -31,7 +36,12 @@ function Author({ getAuthor }) {
   }, [id]);
   return (
     <Box mt="100px" mb="100px" className="padding">
-      {data && (
+      {data && data === 'لا توجد صفحة لهذا الكاتب' && (
+        <Box textAlign="center" mt="200px" mb="200px">
+          <Heading>{data}</Heading>
+        </Box>
+      )}
+      {data && data !== 'لا توجد صفحة لهذا الكاتب' && (
         <>
           <Grid
             mb="50px"
@@ -40,13 +50,16 @@ function Author({ getAuthor }) {
             templateColumns={['1fr', '1fr', '1fr 2fr', '1fr 2fr']}
             gap="10px"
           >
-            <Image
-              //   borderRadius="50%"
-              //   w="300px"
-              //   h="300px"
-              //   shadow="lg"
-              src={`${process.env.REACT_APP_STORAGE}/${data.image}`}
-            ></Image>
+            <Skeleton isLoaded={loaded}>
+              <Image
+                onLoad={imageLoaded}
+                //   borderRadius="50%"
+                //   w="300px"
+                //   h="300px"
+                //   shadow="lg"
+                src={`${process.env.REACT_APP_STORAGE}/${data.image}`}
+              ></Image>
+            </Skeleton>
             <Box>
               <Heading size="lg" m="4">
                 {data.name}

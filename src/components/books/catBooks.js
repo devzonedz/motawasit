@@ -37,18 +37,18 @@ function CatBooks({ featured, category, getBooks, name }) {
       {data && data.books.length !== 0 && (
         <>
           <Box mr={['0', '80px']}>
-            <Link to={`/books_by_category/${category}`}>
+            <Link to={`/books_by_category?category=${category}`}>
               <Heading textDecoration="underline" cursor="pointer" m="2">
                 {name}
               </Heading>
             </Link>
             <Box d="flex" m="4">
-              <Link to={`/books_by_category/${category}?translate=0`}>
+              <Link to={`/books_by_category?category=${category}&translate=0`}>
                 <Heading fontWeight="normal" size="md" m="2">
                   عربي
                 </Heading>
               </Link>
-              <Link to={`/books_by_category/${category}?translate=1`}>
+              <Link to={`/books_by_category?category=${category}&translate=1`}>
                 <Heading fontWeight="normal" size="md" m="2">
                   مترجم
                 </Heading>

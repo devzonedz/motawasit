@@ -11,10 +11,11 @@ function useQuery() {
 export default function Books() {
   let query = useQuery();
   let translate = query.get('translate');
+  let category = query.get('category');
   console.log(translate);
 
-  let { category } = useParams();
-  console.log(category);
+  //   let { category } = useParams();
+  //   console.log(category);
   return (
     <Box>
       <BooksFilter></BooksFilter>

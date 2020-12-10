@@ -13,6 +13,7 @@ import {
   Button,
   Flex,
   Image,
+  Skeleton,
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -20,6 +21,10 @@ import { getAuthors } from '../../redux/actions/authorActions';
 
 function Writers({ getAuthors }) {
   const [data, setData] = React.useState(null);
+  const [loaded, setLoaded] = React.useState(false);
+  const imageLoaded = () => {
+    setLoaded(true);
+  };
   React.useEffect(() => {
     async function getData() {
       const res = await getAuthors();
@@ -282,12 +287,15 @@ function Writers({ getAuthors }) {
           Object.values(data).map(author => (
             <Link key={author.id} to={`/author/${author.id}`}>
               <Box>
-                <Image
-                  w="100px"
-                  //   h="150px"
-                  m="2"
-                  src={`${process.env.REACT_APP_STORAGE}/${author.image}`}
-                ></Image>
+                <Skeleton w="100px" isLoaded={loaded}>
+                  <Image
+                    onLoad={imageLoaded}
+                    w="100px"
+                    //   h="150px"
+                    m="2"
+                    src={`${process.env.REACT_APP_STORAGE}/${author.image}`}
+                  ></Image>
+                </Skeleton>
                 <Text
                   _hover={{
                     bg: 'yellow.300',

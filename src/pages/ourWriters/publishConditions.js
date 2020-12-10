@@ -11,6 +11,7 @@ import {
   Textarea,
   Select,
   Button,
+  useToast,
 } from '@chakra-ui/core';
 import { connect } from 'react-redux';
 
@@ -18,6 +19,8 @@ import { postBook } from '../../redux/actions/booksActions';
 import PickFile from './PickFile';
 
 function Publishlist({ postBook }) {
+  const toast = useToast();
+
   const [data, setData] = React.useState({
     email: null,
     phone: null,
@@ -26,17 +29,33 @@ function Publishlist({ postBook }) {
     nickname: null,
     author_name: null,
     book_title: null,
-    book_category: null,
-    book_language: null,
+    book_category: 'دراسة',
+    book_language: 'الإنجليزية',
   });
+  const [loading, setLoading] = React.useState(false);
 
   const handleChange = e => {
     e.persist();
     setData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
   const handleSubmit = async () => {
+    setLoading(true);
     const response = await postBook(data);
     console.log(response);
+    if (response.status === 201) {
+      setLoading(false);
+
+      toast({
+        title: 'نجاح',
+        description: 'تمت العملية بنجاح',
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      });
+      setInterval(function () {
+        window.location.replace('/home');
+      }, 1000);
+    }
   };
 
   console.log(data);
@@ -229,6 +248,7 @@ function Publishlist({ postBook }) {
           </Text>
           <FormControl w="90%" m="4">
             <Button
+              isLoading={loading}
               isDisabled={
                 !data.file ||
                 !data.address ||

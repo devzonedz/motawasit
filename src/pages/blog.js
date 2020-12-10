@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Masonry from 'react-masonry-css';
+
 import {
   Button,
   ButtonGroup,
@@ -34,16 +36,36 @@ function Blog({ getArticles }) {
     }
     getData();
   }, []);
+  const breakpointColumnsObj = {
+    default: 3,
+    1300: 3,
+    1100: 2,
+    1000: 1,
+  };
 
   return (
-    <Box m="10%">
-      <SimpleGrid m="8" columns={[1, 1, 3, 3]} spacing="8">
+    <Box m="7%">
+      {/* <SimpleGrid m="8" columns={[1, 1, 3, 3]} spacing="8"> */}
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+      >
         {data &&
           data.articles.map(article => (
             <Link to={`/singlePost?id=${article.id}`}>
-              <Box shadow="lg" p="2" cursor="pointer">
-                <Skeleton isLoaded={loaded}>
-                  {/* <Box
+              <Box
+                bg="white"
+                w="100%"
+                shadow="lg"
+                // p="2"
+                pb="4"
+                m="4"
+                cursor="pointer"
+              >
+                <Box>
+                  <Skeleton w="100%" isLoaded={loaded}>
+                    {/* <Box
                     style={{
                       background: ` linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('${process.env.REACT_APP_STORAGE}/${article.image}')`,
@@ -51,27 +73,30 @@ function Blog({ getArticles }) {
                     className="detail-image"
                     h="200px"
                   ></Box> */}
-                  <Image
-                    h="200px"
-                    onLoad={imageLoaded}
-                    src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
-                  ></Image>
-                </Skeleton>
-                <Heading m="2" size="lg">
-                  {article.title}
-                </Heading>
-                <Heading> {article.author} </Heading>
-                <Box
-                  fontSize="lg"
-                  className="event-body"
-                  dangerouslySetInnerHTML={{
-                    __html: article.body,
-                  }}
-                ></Box>
+                    <Image
+                      w="100%"
+                      onLoad={imageLoaded}
+                      src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
+                    ></Image>
+                  </Skeleton>
+                  <Heading m="2" size="lg">
+                    {article.title}
+                  </Heading>
+                  <Heading> {article.author} </Heading>
+                  <Box
+                    m="2"
+                    fontSize="lg"
+                    className="event-body"
+                    dangerouslySetInnerHTML={{
+                      __html: article.body,
+                    }}
+                  ></Box>
+                </Box>
               </Box>
             </Link>
           ))}
-      </SimpleGrid>
+      </Masonry>
+      {/* </SimpleGrid> */}
       {/* <Flex m="8" justifyContent="center">
         <ReactPaginate
           previousLabel={'previous'}

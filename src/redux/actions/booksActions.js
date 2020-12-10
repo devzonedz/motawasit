@@ -19,9 +19,13 @@ export const getBooks = (
   console.log(category, featured, translate, furthercoming);
   let data;
   if (furthercoming) {
+    console.log('further block excuted');
+
     data = await axios
       .get(
-        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&furthercoming=${furthercoming}`,
+        `${
+          process.env.REACT_APP_API
+        }/books?website=منشورات المتوسط&furthercoming=${furthercoming.toString()}`,
         //   { website: 'المتوسط' },
         { headers }
       )
@@ -33,6 +37,8 @@ export const getBooks = (
         console.log(err);
       });
   } else if (featured && !category && !translate) {
+    console.log('featued block excuted');
+
     data = await axios
       .get(
         `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&featured=${featured}`,
@@ -47,6 +53,7 @@ export const getBooks = (
         console.log(err);
       });
   } else if (translate) {
+    console.log('translated block excuted');
     data = await axios
       .get(
         `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&category=${category}&translate=${translate}`,
@@ -61,6 +68,8 @@ export const getBooks = (
         console.log(err);
       });
   } else {
+    console.log('category block excuted');
+
     data = await axios
       .get(
         `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&category=${category}`,

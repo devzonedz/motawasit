@@ -131,7 +131,7 @@ function Navbar({ getSeries }) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books_by_category/دراسات المتوسط"
+              to="/books_by_category?category=دراسات المتوسط"
             >
               <Box m="4">
                 <MenuItem
@@ -151,7 +151,7 @@ function Navbar({ getSeries }) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books_by_category/روايات المتوسط"
+              to="/books_by_category?category=روايات المتوسط"
             >
               <Box m="4">
                 <MenuItem
@@ -171,7 +171,7 @@ function Navbar({ getSeries }) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books_by_category/شعر المتوسط"
+              to="/books_by_category?category=شعر المتوسط"
             >
               <Box m="4">
                 <MenuItem
@@ -191,7 +191,7 @@ function Navbar({ getSeries }) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books_by_category/قصص المتوسط"
+              to="/books_by_category?category=قصص المتوسط"
             >
               <Box m="4">
                 <MenuItem
@@ -210,7 +210,7 @@ function Navbar({ getSeries }) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books_by_category/فلسفة المتوسط"
+              to="/books_by_category?category=فلسفة المتوسط"
             >
               <Box m="4">
                 <MenuItem
@@ -230,7 +230,7 @@ function Navbar({ getSeries }) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books_by_category/كتب السيرة"
+              to="/books_by_category?category=كتب السيرة"
             >
               <Box m="4">
                 <MenuItem
@@ -250,7 +250,7 @@ function Navbar({ getSeries }) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books_by_category/يوميات المتوسط"
+              to="/books_by_category?category=يوميات المتوسط"
             >
               <Box m="4">
                 <MenuItem
@@ -271,7 +271,7 @@ function Navbar({ getSeries }) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books_by_category/معاجم وقواميس المتوسط"
+              to="/books_by_category?category=معاجم وقواميس المتوسط"
             >
               <Box m="4">
                 <MenuItem
@@ -290,7 +290,7 @@ function Navbar({ getSeries }) {
             <Link
               style={{ margin: '50px !important' }}
               onClick={handleToggle}
-              to="/books_by_category/منوعات المتوسط"
+              to="/books_by_category?category=منوعات المتوسط"
             >
               <Box m="4">
                 <MenuItem

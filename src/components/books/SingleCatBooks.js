@@ -13,7 +13,8 @@ function CatBooks({ category, translate, getBooks }) {
   };
   React.useEffect(() => {
     async function getData() {
-      const res = await getBooks(category, translate);
+      console.log(translate);
+      const res = await getBooks(category, null, translate, null);
       console.log(category);
       console.log(res);
       if (res) {
@@ -66,7 +67,8 @@ function CatBooks({ category, translate, getBooks }) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getBooks: (category, translate) => dispatch(getBooks(category, translate)),
+    getBooks: (category, featured, translate, further) =>
+      dispatch(getBooks(category, featured, translate, further)),
   };
 };
 

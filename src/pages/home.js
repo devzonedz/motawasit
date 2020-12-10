@@ -1,4 +1,6 @@
 import React from 'react';
+import Masonry from 'react-masonry-css';
+
 import {
   Heading,
   Box,
@@ -7,6 +9,7 @@ import {
   Image,
   SimpleGrid,
   Text,
+  Skeleton,
 } from '@chakra-ui/core';
 import { BsArrowUpLeft } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
@@ -34,46 +37,89 @@ function Home({ getHome }) {
     getData();
   }, []);
 
+  const breakpointColumnsObj = {
+    default: 3,
+    1300: 3,
+    1100: 2,
+    1000: 1,
+  };
+  const breakpointColumns = {
+    default: 4,
+    1300: 4,
+    1100: 3,
+    1000: 2,
+    700: 2,
+  };
+
   const color = { light: 'black', dark: 'white' };
   return (
     <Box pr="10%" pl="10%" mt="100px" mb="100px">
       <Image src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/06/black_lives_matter_in_charlotte1800x675-1600x600.jpg"></Image>
-      <SimpleGrid mt="8" spacing={4} columns={[1, 2, 2, 3]}>
+
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+      >
         {data &&
           data.articles &&
           data.articles.map(article => (
             <Link to={`/singlePost?id=${article.id}`}>
-              <Box>
-                <Heading> {article.title} </Heading>
+              <Box
+                bg="white"
+                w="100%"
+                shadow="lg"
+                // p="2"
+                pb="4"
+                // m="4"
+                mt="8"
+                cursor="pointer"
+              >
+                <Skeleton w="100%" isLoaded={loaded}>
+                  <Image
+                    w="100%"
+                    onLoad={imageLoaded}
+                    src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
+                  ></Image>
+                </Skeleton>
+                <Heading m="4"> {article.title} </Heading>
                 <Box
+                  m="4"
                   fontSize="xl"
                   className="content event-body"
                   dangerouslySetInnerHTML={{ __html: article.body }}
                 ></Box>
-                <Image
-                  src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
-                ></Image>
               </Box>
             </Link>
           ))}
-      </SimpleGrid>
-      <SimpleGrid mt="8" spacing={4} columns={[1, 2, 2, 3]}>
+      </Masonry>
+
+      <Masonry
+        breakpointCols={breakpointColumns}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+      >
         {data &&
           data.books &&
           data.books.map(book => (
             <Link to={`/book/${book.id}`}>
-              <Box>
-                <Heading> {book.title} </Heading>
-                <Text fontSize="xl"> {book.overview} </Text>
+              <Box mt="8" pb="4" shadow="lg" bg="white">
                 <Image
                   mt="2"
-                  w="300px"
+                  w="100%"
                   src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
                 ></Image>
+                <Heading m="4"> {book.title} </Heading>
+                <Box
+                  m="4"
+                  fontSize="xl"
+                  className="content"
+                  dangerouslySetInnerHTML={{ __html: book.overview }}
+                ></Box>
               </Box>
             </Link>
           ))}
-      </SimpleGrid>
+      </Masonry>
     </Box>
   );
 }

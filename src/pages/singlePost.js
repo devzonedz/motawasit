@@ -51,21 +51,21 @@ function SingleBlog({ getArticle }) {
         <Box>
           <Box mb="8" textAlign="center">
             <Heading mb="2"> {data.article_title} </Heading>
-            {/* <Link key={author.id} to={`/author/${author.id}`}> */}
-            <Text
-              d="inline"
-              _hover={{
-                bg: 'yellow.300',
-                color: 'black',
-                textDecoration: 'underline',
-              }}
-              m="2"
-              fontSize="2xl"
-              color="gray.500"
-            >
-              {data.author}
-            </Text>
-            {/* </Link> */}
+            <Link key={data.author_id} to={`/author/${data.author_id}`}>
+              <Text
+                d="inline"
+                _hover={{
+                  bg: 'yellow.300',
+                  color: 'black',
+                  textDecoration: 'underline',
+                }}
+                m="2"
+                fontSize="2xl"
+                color="gray.500"
+              >
+                {data.author}
+              </Text>
+            </Link>
           </Box>
           <Flex justifyContent="center">
             <Box mb="8" w="85%">
@@ -85,9 +85,9 @@ function SingleBlog({ getArticle }) {
             gap="10px"
           >
             <Box mb="8">
-              <Text mb="2" fontSize="xl">
+              {/* <Text mb="2" fontSize="xl">
                 بمساهمة صلاح برياني
-              </Text>
+              </Text> */}
               <Divider w="80%"></Divider>
               {/* <Image mt="2" src={``}></Image> */}
               <Box

@@ -252,7 +252,7 @@ function Navbar({ getSearch }) {
             </DrawerOverlay>
           </Drawer>
         </Box>
-        <Box
+        {/* <Box
           rounded="5px"
           bg={bgIcon[colorMode]}
           color={color[colorMode]}
@@ -261,7 +261,7 @@ function Navbar({ getSearch }) {
           fontSize="28px"
         >
           <FaShoppingCart></FaShoppingCart>
-        </Box>
+        </Box> */}
         <Newsletter></Newsletter>
         <Box
           rounded="5px"

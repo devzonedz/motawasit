@@ -247,7 +247,7 @@ export default function Navbar(props) {
             نشاطات
           </Link>
         </Text>
-        <Text
+        {/* <Text
           mt={{ base: 4, md: 0 }}
           ml={6}
           display="block"
@@ -257,7 +257,7 @@ export default function Navbar(props) {
           <Link onClick={handleToggle} to="/inThePress">
             في الصحافة
           </Link>
-        </Text>
+        </Text> */}
         <Text
           mt={{ base: 4, md: 0 }}
           ml={6}
