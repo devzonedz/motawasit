@@ -1,10 +1,15 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+
 import { Box, Heading, Text, Image, Divider } from '@chakra-ui/core';
 import divine from '../../images/comedy-min.jpg';
 
 export default function publishlist() {
   return (
     <Box mt="100px" mb="100px">
+      <Helmet>
+        <title> الكوميديا الإلهية</title>
+      </Helmet>
       <Heading
         fontFamily="diodrum-bold !important"
         pl={['5%', '5%', '20%', '20%']}

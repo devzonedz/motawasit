@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Carousel from 'react-elastic-carousel';
+import { Helmet } from 'react-helmet';
+
 import {
   Box,
   Image,
@@ -49,6 +51,9 @@ function SingleBlog({ getArticle }) {
     <Box mt="100px">
       {data && (
         <Box>
+          <Helmet>
+            <title>{data.article_title}</title>
+          </Helmet>
           <Box
             pr={['2%', '2%', '7%', '7%']}
             pl={['2%', '2%', '7%', '7%']}
@@ -143,7 +148,13 @@ function SingleBlog({ getArticle }) {
           </Grid>
           <GlobalShare></GlobalShare>
           {data.books[0] && (
-            <Box pr="3%" pl="3%" bg="black" borderBottom="1px solid white">
+            <Box
+              pr="3%"
+              pl="3%"
+              bg="black"
+              color="black"
+              borderBottom="1px solid white"
+            >
               <Box mt="100px" mb="4" color="white">
                 <Heading
                   fontFamily="diodrum-med !important"
@@ -195,7 +206,13 @@ function SingleBlog({ getArticle }) {
             </Box>
           )}
           {data.maitres[0] && (
-            <Box pr="5%" pl="3%" bg="black" borderBottom="1px solid white">
+            <Box
+              pr="5%"
+              pl="3%"
+              bg="black"
+              color="black"
+              borderBottom="1px solid white"
+            >
               <Box mb="4" color="white">
                 <Heading
                   fontFamily="diodrum-med !important"

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+
 import {
   Box,
   Heading,
@@ -43,6 +45,9 @@ function Author({ getAuthor }) {
       )}
       {data && data !== 'لا توجد صفحة لهذا الكاتب' && (
         <>
+          <Helmet>
+            <title>{data.name}</title>
+          </Helmet>
           <Grid
             mb="50px"
             // pr={['2%', '2%', '10%', '10%']}

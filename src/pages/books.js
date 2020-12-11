@@ -1,4 +1,6 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+
 import { Heading, Box, Divider, useColorMode } from '@chakra-ui/core';
 import { BsArrowUpLeft } from 'react-icons/bs';
 import { Link, useLocation } from 'react-router-dom';
@@ -22,6 +24,9 @@ function Home(props) {
   const color = { light: 'black', dark: 'white' };
   return (
     <Box mt="160px" mb="100px">
+      <Helmet>
+        <title>الكتب</title>
+      </Helmet>
       <BooksFilter></BooksFilter>
       <Box m="8">
         <CatBooks

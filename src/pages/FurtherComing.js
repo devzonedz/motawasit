@@ -1,4 +1,6 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+
 import { useParams, useLocation } from 'react-router-dom';
 import { Box, Heading } from '@chakra-ui/core';
 import Further from '../components/books/Further';
@@ -17,6 +19,9 @@ export default function Books() {
   console.log(category);
   return (
     <Box>
+      <Helmet>
+        <title>ياتي قريبا</title>
+      </Helmet>
       <BooksFilter></BooksFilter>
       <Box mr={['0', '80px']} mt="100px" mb="100px">
         <Box m="8">

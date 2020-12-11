@@ -1,4 +1,6 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+
 import {
   Box,
   Heading,
@@ -61,6 +63,9 @@ function Book({ getBook }) {
         >
           {data && (
             <>
+              <Helmet>
+                <title>{data.title}</title>
+              </Helmet>
               <Flex justifyContent="center">
                 <Box m="4">
                   <Skeleton
@@ -129,9 +134,16 @@ function Book({ getBook }) {
                   ))}
                 </Flex>
                 <Divider></Divider>
-                <Text m="4" fontSize="xl">
-                  {data.overview}
+                <Text m="2" fontSize="xl">
+                  {data.translate_from}
                 </Text>
+
+                <Box
+                  m="4"
+                  fontSize="xl"
+                  className="content"
+                  dangerouslySetInnerHTML={{ __html: data.overview }}
+                ></Box>
                 <Divider></Divider>
                 <Tabs>
                   <TabList className="booktablist">
@@ -231,7 +243,13 @@ function Book({ getBook }) {
           )}
         </Grid>
         {data && data.books[0] && (
-          <Box pr="7%" pl="3%" bg="black" borderBottom="1px solid white">
+          <Box
+            pr="7%"
+            pl="3%"
+            bg="black"
+            color="black"
+            borderBottom="1px solid white"
+          >
             <Box mt="100px" mb="4" color="white">
               <Heading
                 fontFamily="diodrum-med !important"
@@ -282,7 +300,13 @@ function Book({ getBook }) {
           </Box>
         )}
         {data && data.articles[0] && (
-          <Box pr="5%" pl="3%" bg="black" borderBottom="1px solid white">
+          <Box
+            pr="5%"
+            pl="3%"
+            bg="black"
+            color="black"
+            borderBottom="1px solid white"
+          >
             <Box mb="4" color="white">
               <Heading
                 fontFamily="diodrum-med !important"

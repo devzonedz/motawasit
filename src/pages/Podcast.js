@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Heading, SimpleGrid } from '@chakra-ui/core';
 import { connect } from 'react-redux';
 import { getPodcasts } from '../redux/actions/poscastsActions';
+import { Helmet } from 'react-helmet';
 
 function Podcasts({ getPodcasts }) {
   const [data, setData] = React.useState(null);
@@ -24,6 +25,9 @@ function Podcasts({ getPodcasts }) {
     <Box mt="100px" mb="700px" pl="10%" pr="10%">
       {data && (
         <Box>
+          <Helmet>
+            <title>بودكاست</title>
+          </Helmet>
           <Heading mt="8" size="xl">
             بودكاست الكتب
           </Heading>

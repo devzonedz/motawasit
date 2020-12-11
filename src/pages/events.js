@@ -14,13 +14,19 @@ import {
   Input,
   Flex,
   Skeleton,
+  useColorMode,
 } from '@chakra-ui/core';
+import { Helmet } from 'react-helmet';
+
 import { BsArrowUpLeft } from 'react-icons/bs';
 import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
 import { getArticles } from '../redux/actions/articleActions';
 
 function Blog({ getArticles }) {
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  const bg = { light: 'white', dark: '#151a23' };
   const [data, setData] = React.useState(null);
   const [loaded, setLoaded] = React.useState(false);
   const imageLoaded = () => {
@@ -45,6 +51,9 @@ function Blog({ getArticles }) {
 
   return (
     <Box m="7%">
+      <Helmet>
+        <title>نشاطات</title>
+      </Helmet>
       {/* <SimpleGrid m="8" columns={[1, 1, 3, 3]} spacing="8"> */}
       <Masonry
         breakpointCols={breakpointColumnsObj}
@@ -55,7 +64,7 @@ function Blog({ getArticles }) {
           data.articles.map(article => (
             <Link to={`/singlePost?id=${article.id}`}>
               <Box
-                bg="white"
+                bg={bg[colorMode]}
                 w="100%"
                 shadow="lg"
                 // p="2"

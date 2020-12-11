@@ -156,7 +156,7 @@ function App(props) {
           <Four />
         </Route>
       </Switch>
-      <Up></Up>
+      {/* <Up></Up> */}
       <Footer></Footer>
     </ChakraProvider>
   );

@@ -3,6 +3,7 @@ import { useParams, useLocation } from 'react-router-dom';
 import { Box, Heading } from '@chakra-ui/core';
 import Featured from '../components/books/Featured';
 import BooksFilter from '../components/books/BooksFilter';
+import { Helmet } from 'react-helmet';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -17,6 +18,9 @@ export default function Books() {
   console.log(category);
   return (
     <Box>
+      <Helmet>
+        <title>اخر الاصدارات</title>
+      </Helmet>
       <BooksFilter></BooksFilter>
       <Box mr={['0', '80px']} mt="100px" mb="100px">
         <Box m="8">

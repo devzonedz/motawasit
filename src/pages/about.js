@@ -1,11 +1,15 @@
 import React from 'react';
 import { Box, Text, Heading, Image, Divider } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import aboutpic from '../images/about-min.jpg';
 export default function blog() {
   return (
     <Box mt="100px" mb="100px">
+      <Helmet>
+        <title> عن المتوسط</title>
+      </Helmet>
       <Heading
         mr="4"
         pl={['5%', '5%', '20%', '20%']}

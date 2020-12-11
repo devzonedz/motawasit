@@ -1,5 +1,6 @@
 import React from 'react';
 import Masonry from 'react-masonry-css';
+import { Helmet } from 'react-helmet';
 
 import {
   Heading,
@@ -54,6 +55,9 @@ function Home({ getHome }) {
   const color = { light: 'black', dark: 'white' };
   return (
     <Box pr="10%" pl="10%" mt="100px" mb="100px">
+      <Helmet>
+        <title>الرئيسية</title>
+      </Helmet>
       <Image src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/06/black_lives_matter_in_charlotte1800x675-1600x600.jpg"></Image>
 
       <Masonry

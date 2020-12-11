@@ -1,9 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+
 import { Box, Heading, Text } from '@chakra-ui/core';
 
 export default function publishlist() {
   return (
     <Box mt="100px" mb="100px" textAlign="center">
+      <Helmet>
+        <title> مهرجان الثقافة العربية في ميلانو</title>
+      </Helmet>
       <Heading
         fontFamily="diodrum-bold !important"
         pl={['5%', '5%', '20%', '20%']}

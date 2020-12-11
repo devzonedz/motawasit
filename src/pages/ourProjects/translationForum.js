@@ -1,4 +1,6 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+
 import {
   Box,
   Heading,
@@ -13,6 +15,9 @@ import translation from '../../images/conf-min.jpg';
 export default function publishlist() {
   return (
     <Box mt="100px" mb="100px">
+      <Helmet>
+        <title> ملتقى الترجمة والأدب العالمي نحو مأسسة الفعل الثقافي</title>
+      </Helmet>
       <Heading
         pl={['5%', '5%', '20%', '20%']}
         pr={['5%', '5%', '20%', '20%']}
@@ -30,7 +35,6 @@ export default function publishlist() {
           w="20%"
         ></Divider>
       </Heading>
-
       <Box d="flex" justifyContent="center" m="4">
         <Image w={['90%', '90%', '60%', '60%']} src={translation}></Image>
       </Box>

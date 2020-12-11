@@ -36,6 +36,7 @@ import { FaChevronUp } from 'react-icons/fa';
 import Login from '../auth/Login';
 import Register from '../auth/Register';
 import Transition from '../../util/Transition';
+import Up from '../../util/Up';
 
 import logo from '../../images/logo.png';
 
@@ -331,6 +332,7 @@ export default function Navbar(props) {
           {' '}
           {colorMode === 'light' ? <FaMoon></FaMoon> : <FaSun></FaSun>}
         </Box>
+        <Up></Up>
       </Box>
     </Flex>
   );

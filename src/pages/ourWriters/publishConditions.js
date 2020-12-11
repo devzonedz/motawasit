@@ -1,4 +1,6 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+
 import {
   Box,
   Heading,
@@ -61,6 +63,9 @@ function Publishlist({ postBook }) {
   console.log(data);
   return (
     <Box mt="100px" mb="100px">
+      <Helmet>
+        <title> انشر معنا</title>
+      </Helmet>
       <Box
         textAlign="right"
         p="30px"

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+
 import {
   SimpleGrid,
   Box,
@@ -40,6 +42,9 @@ function CatBooks({ getBooksBySerie }) {
 
   return (
     <Box>
+      <Helmet>
+        <title>{serie}</title>
+      </Helmet>
       <BooksFilter></BooksFilter>
       <Box mr={['0', '80px']} mt="160px" mb="100px">
         <Box m="8">

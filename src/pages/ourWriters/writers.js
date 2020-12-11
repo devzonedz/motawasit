@@ -1,5 +1,6 @@
 import React from 'react';
 import Masonry from 'react-masonry-css';
+import { Helmet } from 'react-helmet';
 
 import {
   Box,
@@ -52,6 +53,9 @@ function Writers({ getAuthors }) {
 
   return (
     <Box className="padding" mt="100px" mb="100px">
+      <Helmet>
+        <title> كتابنا</title>
+      </Helmet>
       <Heading fontFamily="diodrum-bold !important" size="xl">
         كتابنا
       </Heading>

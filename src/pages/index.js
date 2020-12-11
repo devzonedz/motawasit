@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import {
   Heading,
@@ -65,6 +66,9 @@ export default function Home() {
       //   bgRepeat="no-repeat"
       overflow="hidden"
     >
+      <Helmet>
+        <title>index</title>
+      </Helmet>
       <a href="/home">
         <Flex
           className="main"
