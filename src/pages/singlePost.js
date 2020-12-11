@@ -55,9 +55,13 @@ function SingleBlog({ getArticle }) {
             mb="8"
             textAlign={['center', 'center', 'right']}
           >
-            <Heading mb="2"> {data.article_title} </Heading>
+            <Heading fontFamily="diodrum-bold !important" mb="2">
+              {' '}
+              {data.article_title}{' '}
+            </Heading>
             <Link key={data.author_id} to={`/author/${data.author_id}`}>
               <Text
+                fontFamily="diodrum-med !important"
                 d="inline"
                 _hover={{
                   bg: 'yellow.300',
@@ -109,7 +113,9 @@ function SingleBlog({ getArticle }) {
                     w="80%"
                     h="270px"
                   ></Box>
-                  <Heading size="md">{book.title}</Heading>
+                  <Heading fontFamily="diodrum-med !important" size="md">
+                    {book.title}
+                  </Heading>
                   <Text> {book.sub_title} </Text>
 
                   <Box
@@ -139,7 +145,12 @@ function SingleBlog({ getArticle }) {
           {data.books[0] && (
             <Box pr="3%" pl="3%" bg="black" borderBottom="1px solid white">
               <Box mt="100px" mb="4" color="white">
-                <Heading mr="7%" p="4" size="lg">
+                <Heading
+                  fontFamily="diodrum-med !important"
+                  mr="7%"
+                  p="4"
+                  size="lg"
+                >
                   كتب ذات صلة
                 </Heading>
               </Box>
@@ -156,7 +167,7 @@ function SingleBlog({ getArticle }) {
               >
                 {data.books.map(book => (
                   <Link key={book.id} to={`/book/${book.id}`}>
-                    <Box w="350px" bg="#f5f2ef" mb="4" cursor="pointer">
+                    <Box w="350px" bg="#f5f2ef" mb="4" pb="4" cursor="pointer">
                       <Image
                         w="225px"
                         h="350px"
@@ -165,12 +176,17 @@ function SingleBlog({ getArticle }) {
                         src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
                       ></Image>
                       <Box mt="4" textAlign="center">
-                        <Text fontWeight="500" fontSize="xl">
+                        <Text
+                          fontFamily="diodrum-med !important"
+                          fontWeight="500"
+                          fontSize="xl"
+                          mb="8"
+                        >
                           {book.title}
                         </Text>
-                        <Text fontSize="md">{book.sub_title}</Text>
+                        {/* <Text fontSize="md">{book.sub_title}</Text>
                         <Text fontSize="sm">{book.author}</Text>
-                        <Text fontWeight="bold">${book.price}</Text>
+                        <Text fontWeight="bold">${book.price}</Text> */}
                       </Box>
                     </Box>
                   </Link>
@@ -181,7 +197,12 @@ function SingleBlog({ getArticle }) {
           {data.maitres[0] && (
             <Box pr="5%" pl="3%" bg="black" borderBottom="1px solid white">
               <Box mb="4" color="white">
-                <Heading mr="7%" p="4" size="lg">
+                <Heading
+                  fontFamily="diodrum-med !important"
+                  mr="7%"
+                  p="4"
+                  size="lg"
+                >
                   مقالات ذات صلة
                 </Heading>
               </Box>
@@ -249,7 +270,11 @@ function SingleBlog({ getArticle }) {
                             src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
                           ></Image>
                         </Skeleton>
-                        <Heading m="2" size="lg">
+                        <Heading
+                          fontFamily="diodrum-med !important"
+                          m="2"
+                          size="lg"
+                        >
                           {article.title}
                         </Heading>
                         <Heading> {article.author} </Heading>

@@ -82,6 +82,7 @@ function Navbar({ getSeries }) {
           ml="8"
           mr="8"
           fontSize={['lg', '2xl']}
+          fontFamily="diodrum-med !important"
         >
           آخر الإصدارات
         </Text>
@@ -92,6 +93,7 @@ function Navbar({ getSeries }) {
           fontWeight="bold"
           ml="8"
           fontSize={['lg', '2xl']}
+          fontFamily="diodrum-med !important"
         >
           جميعها
         </Text>
@@ -111,6 +113,7 @@ function Navbar({ getSeries }) {
           transition="all 0.2s"
           // _hover={{ bg: 'gray.100' }}
           // _focus={{ outline: 0, boxShadow: 'outline' }}
+          fontFamily="diodrum-med !important"
         >
           حسب الصنف
           <FaChevronDown
@@ -140,7 +143,10 @@ function Navbar({ getSeries }) {
                   fontSize="xl"
                 >
                   <Box display="flex">
-                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                    <Heading
+                      fontFamily="diodrum-med !important"
+                      fontSize={['lg', 'lg', '2xl', '2xl']}
+                    >
                       {' '}
                       الدراسات
                     </Heading>
@@ -160,7 +166,10 @@ function Navbar({ getSeries }) {
                   fontSize="xl"
                 >
                   <Box display="flex">
-                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                    <Heading
+                      fontFamily="diodrum-med !important"
+                      fontSize={['lg', 'lg', '2xl', '2xl']}
+                    >
                       {' '}
                       الرواية
                     </Heading>
@@ -180,7 +189,10 @@ function Navbar({ getSeries }) {
                   fontSize="xl"
                 >
                   <Box display="flex">
-                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                    <Heading
+                      fontFamily="diodrum-med !important"
+                      fontSize={['lg', 'lg', '2xl', '2xl']}
+                    >
                       {' '}
                       الشعر
                     </Heading>
@@ -200,7 +212,10 @@ function Navbar({ getSeries }) {
                   fontSize="xl"
                 >
                   <Box display="flex">
-                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                    <Heading
+                      fontFamily="diodrum-med !important"
+                      fontSize={['lg', 'lg', '2xl', '2xl']}
+                    >
                       القصة القصيرة
                     </Heading>
                   </Box>
@@ -219,7 +234,10 @@ function Navbar({ getSeries }) {
                   fontSize="xl"
                 >
                   <Box display="flex">
-                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                    <Heading
+                      fontFamily="diodrum-med !important"
+                      fontSize={['lg', 'lg', '2xl', '2xl']}
+                    >
                       {' '}
                       الفلسفة
                     </Heading>
@@ -239,7 +257,10 @@ function Navbar({ getSeries }) {
                   fontSize="xl"
                 >
                   <Box display="flex">
-                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                    <Heading
+                      fontFamily="diodrum-med !important"
+                      fontSize={['lg', 'lg', '2xl', '2xl']}
+                    >
                       {' '}
                       سير ذاتية
                     </Heading>
@@ -259,7 +280,10 @@ function Navbar({ getSeries }) {
                   fontSize="xl"
                 >
                   <Box display="flex">
-                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                    <Heading
+                      fontFamily="diodrum-med !important"
+                      fontSize={['lg', 'lg', '2xl', '2xl']}
+                    >
                       {' '}
                       يوميات عربية
                     </Heading>
@@ -280,7 +304,10 @@ function Navbar({ getSeries }) {
                   fontSize="xl"
                 >
                   <Box display="flex">
-                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                    <Heading
+                      fontFamily="diodrum-med !important"
+                      fontSize={['lg', 'lg', '2xl', '2xl']}
+                    >
                       المعاجم والقواميس
                     </Heading>
                   </Box>
@@ -299,7 +326,10 @@ function Navbar({ getSeries }) {
                   fontSize="xl"
                 >
                   <Box display="flex">
-                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                    <Heading
+                      fontFamily="diodrum-med !important"
+                      fontSize={['lg', 'lg', '2xl', '2xl']}
+                    >
                       {' '}
                       منوعات
                     </Heading>
@@ -324,6 +354,7 @@ function Navbar({ getSeries }) {
           transition="all 0.2s"
           // _hover={{ bg: 'gray.100' }}
           // _focus={{ outline: 0, boxShadow: 'outline' }}
+          fontFamily="diodrum-med !important"
         >
           سلسلات
           <FaChevronDown
@@ -355,7 +386,10 @@ function Navbar({ getSeries }) {
                       fontSize="xl"
                     >
                       <Box display="flex">
-                        <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                        <Heading
+                          fontFamily="diodrum-med !important"
+                          fontSize={['lg', 'lg', '2xl', '2xl']}
+                        >
                           {serie.name}
                         </Heading>
                       </Box>
@@ -382,6 +416,7 @@ function Navbar({ getSeries }) {
           fontWeight="bold"
           ml="8"
           fontSize={['lg', '2xl']}
+          fontFamily="diodrum-med !important"
         >
           يأتي قريباً
         </Text>

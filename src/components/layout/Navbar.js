@@ -117,6 +117,7 @@ export default function Navbar(props) {
           display="block"
           fontWeight="bold"
           fontSize="xl"
+          fontFamily="diodrum-bold !important"
         >
           <Link onClick={handleToggle} to="/books">
             كتب المتوسط
@@ -128,6 +129,7 @@ export default function Navbar(props) {
           display="block"
           fontWeight="bold"
           fontSize="xl"
+          fontFamily="diodrum-bold !important"
         >
           <Link onClick={handleToggle} to="/ourWriters/writers">
             كتّاب المتوسط
@@ -145,12 +147,13 @@ export default function Navbar(props) {
             transition="all 0.2s"
             // _hover={{ bg: 'gray.100' }}
             // _focus={{ outline: 0, boxShadow: 'outline' }}
+            fontFamily="diodrum-bold !important"
           >
             مشاريعنا
             <FaChevronUp
+              className="project-chevron"
               style={{
                 display: 'inline',
-                fontSize: '15px !important',
                 marginRight: 3,
                 marginTop: 5,
               }}
@@ -172,7 +175,10 @@ export default function Navbar(props) {
                   fontSize="xl"
                 >
                   <Box display="flex">
-                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                    <Heading
+                      fontFamily="diodrum-bold !important"
+                      fontSize={['lg', 'lg', '2xl', '2xl']}
+                    >
                       {' '}
                       الكوميديا الإلهية
                     </Heading>
@@ -186,7 +192,10 @@ export default function Navbar(props) {
                   fontSize="xl"
                 >
                   <Box display="flex">
-                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                    <Heading
+                      fontFamily="diodrum-bold !important"
+                      fontSize={['lg', 'lg', '2xl', '2xl']}
+                    >
                       {' '}
                       ملتقى الترجمة
                     </Heading>
@@ -203,7 +212,10 @@ export default function Navbar(props) {
                   fontSize="xl"
                 >
                   <Box display="flex">
-                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                    <Heading
+                      fontFamily="diodrum-bold !important"
+                      fontSize={['lg', 'lg', '2xl', '2xl']}
+                    >
                       {' '}
                       مهرجان الثقافة العربية في ميلانو
                     </Heading>
@@ -220,7 +232,10 @@ export default function Navbar(props) {
                   fontSize="xl"
                 >
                   <Box display="flex">
-                    <Heading fontSize={['lg', 'lg', '2xl', '2xl']}>
+                    <Heading
+                      fontFamily="diodrum-bold !important"
+                      fontSize={['lg', 'lg', '2xl', '2xl']}
+                    >
                       {' '}
                       الأدب أقوى
                     </Heading>
@@ -238,6 +253,7 @@ export default function Navbar(props) {
           display="block"
           fontWeight="bold"
           fontSize="xl"
+          fontFamily="diodrum-bold !important"
         >
           <Link onClick={handleToggle} to="/blog">
             المدونة
@@ -249,6 +265,7 @@ export default function Navbar(props) {
           display="block"
           fontWeight="bold"
           fontSize="xl"
+          fontFamily="diodrum-bold !important"
         >
           <Link onClick={handleToggle} to="/events">
             نشاطات
@@ -271,6 +288,7 @@ export default function Navbar(props) {
           display="block"
           fontWeight="bold"
           fontSize="xl"
+          fontFamily="diodrum-bold !important"
         >
           <Link onClick={handleToggle} to="/podcast">
             بودكاست
@@ -282,6 +300,7 @@ export default function Navbar(props) {
           display="block"
           fontWeight="bold"
           fontSize="xl"
+          fontFamily="diodrum-bold !important"
         >
           <Link onClick={handleToggle} to="/about">
             عن المتوسط
@@ -293,6 +312,7 @@ export default function Navbar(props) {
           display="block"
           fontWeight="bold"
           fontSize="xl"
+          fontFamily="diodrum-bold !important"
         >
           <Link onClick={handleToggle} to="/ourWriters/publishConditions">
             انشر معنا

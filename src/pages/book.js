@@ -80,6 +80,7 @@ function Book({ getBook }) {
                       mt="4"
                       w={['300px', '300px', '400px', '400px']}
                       colorScheme="red"
+                      fontFamily="diodrum-med !important"
                     >
                       لشراء الكتاب المس هنا
                     </Button>
@@ -103,7 +104,9 @@ function Book({ getBook }) {
                 </Box>
               </Flex>
               <Box m="4" w={['370px', '400px', 'auto', 'auto']}>
-                <Heading m="4">{data.title}</Heading>
+                <Heading fontFamily="diodrum-med !important" m="4">
+                  {data.title}
+                </Heading>
                 <Divider></Divider>
                 <Text fontSize="xl">{data.sub_title}</Text>
                 <Divider></Divider>
@@ -230,7 +233,12 @@ function Book({ getBook }) {
         {data && data.books[0] && (
           <Box pr="7%" pl="3%" bg="black" borderBottom="1px solid white">
             <Box mt="100px" mb="4" color="white">
-              <Heading mr="7%" p="4" size="lg">
+              <Heading
+                fontFamily="diodrum-med !important"
+                mr="7%"
+                p="4"
+                size="lg"
+              >
                 كتب ذات صلة
               </Heading>
             </Box>
@@ -256,7 +264,11 @@ function Book({ getBook }) {
                       src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
                     ></Image>
                     <Box mt="4" textAlign="center">
-                      <Text fontWeight="500" fontSize="xl">
+                      <Text
+                        fontFamily="diodrum-med !important"
+                        fontWeight="500"
+                        fontSize="xl"
+                      >
                         {book.title}
                       </Text>
                       <Text fontSize="md">{book.sub_title}</Text>
@@ -272,7 +284,12 @@ function Book({ getBook }) {
         {data && data.articles[0] && (
           <Box pr="5%" pl="3%" bg="black" borderBottom="1px solid white">
             <Box mb="4" color="white">
-              <Heading mr="7%" p="4" size="lg">
+              <Heading
+                fontFamily="diodrum-med !important"
+                mr="7%"
+                p="4"
+                size="lg"
+              >
                 مقالات ذات صلة
               </Heading>
             </Box>
@@ -340,7 +357,11 @@ function Book({ getBook }) {
                           src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
                         ></Image>
                       </Skeleton>
-                      <Heading m="2" size="lg">
+                      <Heading
+                        fontFamily="diodrum-med !important"
+                        m="2"
+                        size="lg"
+                      >
                         {article.title}
                       </Heading>
                       <Heading> {article.author} </Heading>

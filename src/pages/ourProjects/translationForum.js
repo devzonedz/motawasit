@@ -17,6 +17,7 @@ export default function publishlist() {
         pl={['5%', '5%', '20%', '20%']}
         pr={['5%', '5%', '20%', '20%']}
         size="xl"
+        fontFamily="diodrum-bold !important"
       >
         ملتقى الترجمة والأدب العالمي نحو مأسسة الفعل الثقافي
         <Divider

@@ -30,7 +30,9 @@ export default function SocialButtons() {
   const color = { light: 'black', dark: 'white' };
   return (
     <Box textAlign="center">
-      <Heading size="md">شارك على صفحتك</Heading>
+      <Heading fontFamily="diodrum-med !important" size="md">
+        شارك على صفحتك
+      </Heading>
       <Flex justifyContent="center">
         <FacebookShareButton
           //   className="social-href "

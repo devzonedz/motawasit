@@ -38,18 +38,33 @@ function CatBooks({ featured, category, getBooks, name }) {
         <>
           <Box mr={['0', '80px']}>
             <Link to={`/books_by_category?category=${category}`}>
-              <Heading textDecoration="underline" cursor="pointer" m="2">
+              <Heading
+                fontFamily="diodrum-bold !important"
+                textDecoration="underline"
+                cursor="pointer"
+                m="2"
+              >
                 {name}
               </Heading>
             </Link>
             <Box d="flex" m="4">
               <Link to={`/books_by_category?category=${category}&translate=0`}>
-                <Heading fontWeight="normal" size="md" m="2">
+                <Heading
+                  fontFamily="diodrum-med !important"
+                  fontWeight="normal"
+                  size="md"
+                  m="2"
+                >
                   عربي
                 </Heading>
               </Link>
               <Link to={`/books_by_category?category=${category}&translate=1`}>
-                <Heading fontWeight="normal" size="md" m="2">
+                <Heading
+                  fontFamily="diodrum-med !important"
+                  fontWeight="normal"
+                  size="md"
+                  m="2"
+                >
                   مترجم
                 </Heading>
               </Link>
@@ -85,7 +100,11 @@ function CatBooks({ featured, category, getBooks, name }) {
                         </Box>
                       </Flex>
                       <Box mt="4" textAlign="center">
-                        <Text fontWeight="500" fontSize="xl">
+                        <Text
+                          fontFamily="diodrum-med !important"
+                          fontWeight="500"
+                          fontSize="xl"
+                        >
                           {book.title}
                         </Text>
                         <Text fontSize="md" color="gray.600">

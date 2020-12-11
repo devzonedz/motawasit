@@ -6,6 +6,7 @@ export default function publishlist() {
   return (
     <Box mt="100px" mb="100px">
       <Heading
+        fontFamily="diodrum-bold !important"
         pl={['5%', '5%', '20%', '20%']}
         pr={['5%', '5%', '20%', '20%']}
         size="xl"
@@ -13,6 +14,7 @@ export default function publishlist() {
         الكوميديا الإلهية
       </Heading>
       <Text
+        fontFamily="diodrum-med !important"
         pl={['5%', '5%', '20%', '20%']}
         pr={['5%', '5%', '20%', '20%']}
         fontSize="2xl"

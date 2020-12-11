@@ -11,6 +11,7 @@ export default function blog() {
         pl={['5%', '5%', '20%', '20%']}
         pr={['5%', '5%', '20%', '20%']}
         size="xl"
+        fontFamily="diodrum-bold !important"
       >
         عن المتوسط
         <Divider

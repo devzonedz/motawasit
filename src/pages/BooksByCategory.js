@@ -21,7 +21,7 @@ export default function Books() {
       <BooksFilter></BooksFilter>
       <Box mr={['0', '80px']} mt="160px" mb="100px">
         <Box m="8">
-          <Heading>{category}</Heading>
+          <Heading fontFamily="diodrum-bold !important">{category}</Heading>
         </Box>
         <SingleCatBooks
           translate={translate}

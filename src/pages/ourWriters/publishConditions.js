@@ -67,7 +67,9 @@ function Publishlist({ postBook }) {
         pl={['5%', '5%', '20%', '20%']}
         pr={['5%', '5%', '20%', '20%']}
       >
-        <Heading size="xl">شروط النشر</Heading>
+        <Heading fontFamily="diodrum-bold !important" size="xl">
+          شروط النشر
+        </Heading>
         <Text fontSize="2xl" m="4">
           تتشرف "منشورات المتوسط" باستقبال مخطوطاتكم في هذه الصفحة
         </Text>

@@ -79,7 +79,7 @@ function Blog({ getArticles }) {
                       src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
                     ></Image>
                   </Skeleton>
-                  <Heading m="2" size="lg">
+                  <Heading fontFamily="diodrum-med !important" m="2" size="lg">
                     {article.title}
                   </Heading>
                   <Heading> {article.author} </Heading>

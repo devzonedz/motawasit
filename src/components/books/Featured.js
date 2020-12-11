@@ -37,7 +37,11 @@ function CatBooks({ featured, getBooks }) {
                 <Box m="8">
                   <Box>
                     <Link to={`/books_by_category/${bookcat.key}`}>
-                      <Heading cursor="pointer" m="2">
+                      <Heading
+                        fontFamily="diodrum-bold !important"
+                        cursor="pointer"
+                        m="2"
+                      >
                         {bookcat.name}
                       </Heading>
                     </Link>
@@ -51,14 +55,24 @@ function CatBooks({ featured, getBooks }) {
                       <Link
                         to={`/books_by_category/${bookcat.key}?translate=0`}
                       >
-                        <Heading fontWeight="normal" size="md" m="2">
+                        <Heading
+                          fontFamily="diodrum-med !important"
+                          fontWeight="normal"
+                          size="md"
+                          m="2"
+                        >
                           عربي
                         </Heading>
                       </Link>
                       <Link
                         to={`/books_by_category/${bookcat.key}?translate=1`}
                       >
-                        <Heading fontWeight="normal" size="md" m="2">
+                        <Heading
+                          fontFamily="diodrum-med !important"
+                          fontWeight="normal"
+                          size="md"
+                          m="2"
+                        >
                           مترجم
                         </Heading>
                       </Link>
@@ -77,7 +91,11 @@ function CatBooks({ featured, getBooks }) {
                           src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
                         ></Image>
                         <Box mt="4" textAlign="center">
-                          <Text fontWeight="500" fontSize="xl">
+                          <Text
+                            fontFamily="diodrum-med !important"
+                            fontWeight="500"
+                            fontSize="xl"
+                          >
                             {book.title}
                           </Text>
                           <Text fontSize="md" color="gray.600">

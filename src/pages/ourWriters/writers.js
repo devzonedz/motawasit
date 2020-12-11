@@ -52,7 +52,9 @@ function Writers({ getAuthors }) {
 
   return (
     <Box className="padding" mt="100px" mb="100px">
-      <Heading size="xl">كتابنا</Heading>
+      <Heading fontFamily="diodrum-bold !important" size="xl">
+        كتابنا
+      </Heading>
       <Flex
         mt="8"
         overflowX={{ base: 'auto', sm: 'auto' }}
@@ -318,6 +320,7 @@ function Writers({ getAuthors }) {
                   }}
                   m="2"
                   fontSize="xl"
+                  fontFamily="diodrum-med !important"
                 >
                   {author.name}
                 </Text>

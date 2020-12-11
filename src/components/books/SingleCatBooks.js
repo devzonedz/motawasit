@@ -47,7 +47,11 @@ function CatBooks({ category, translate, getBooks }) {
                 </Box>
               </Flex>
               <Box mt="4" textAlign="center">
-                <Text fontWeight="500" fontSize="xl">
+                <Text
+                  fontFamily="diodrum-med !important"
+                  fontWeight="500"
+                  fontSize="xl"
+                >
                   {book.title}
                 </Text>
                 <Text fontSize="md" color="gray.600">

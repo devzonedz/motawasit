@@ -61,7 +61,7 @@ function Author({ getAuthor }) {
               ></Image>
             </Skeleton>
             <Box>
-              <Heading size="lg" m="4">
+              <Heading fontFamily="diodrum-med !important" size="lg" m="4">
                 {data.name}
               </Heading>
               <Divider
@@ -72,7 +72,7 @@ function Author({ getAuthor }) {
               <Text fontSize="2xl" m="4">
                 {data.author_bio}
               </Text>
-              <Heading size="lg" m="4">
+              <Heading fontFamily="diodrum-med !important" size="lg" m="4">
                 صدر له في المتوسط
               </Heading>
               <Divider

@@ -43,7 +43,7 @@ function CatBooks({ getBooksBySerie }) {
       <BooksFilter></BooksFilter>
       <Box mr={['0', '80px']} mt="160px" mb="100px">
         <Box m="8">
-          <Heading>{serie}</Heading>
+          <Heading fontFamily="diodrum-bold !important">{serie}</Heading>
         </Box>
 
         <SimpleGrid columns={[1, 2, 3, 5]}>
