@@ -47,6 +47,12 @@ function SingleBlog({ getArticle }) {
     { width: 850, itemsToShow: 3 },
     { width: 1150, itemsToShow: 4, itemsToScroll: 4 },
   ];
+  const bookBreakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
+    { width: 850, itemsToShow: 4, itemsToScroll: 4 },
+    { width: 1150, itemsToShow: 4, itemsToScroll: 4 },
+  ];
   return (
     <Box mt="100px">
       {data && (
@@ -148,17 +154,11 @@ function SingleBlog({ getArticle }) {
           </Grid>
           <GlobalShare></GlobalShare>
           {data.books[0] && (
-            <Box
-              pr="3%"
-              pl="3%"
-              bg="black"
-              color="black"
-              borderBottom="1px solid white"
-            >
+            <Box pr="5%" pl="3%" bg="black" borderBottom="1px solid white">
               <Box mt="100px" mb="4" color="white">
                 <Heading
                   fontFamily="diodrum-med !important"
-                  mr="7%"
+                  mr="6%"
                   p="4"
                   size="lg"
                 >
@@ -166,7 +166,7 @@ function SingleBlog({ getArticle }) {
                 </Heading>
               </Box>
               <Carousel
-                breakPoints={breakPoints}
+                breakPoints={bookBreakPoints}
                 isRTL={true}
                 style={{
                   //   marginTop: 100,
@@ -178,7 +178,7 @@ function SingleBlog({ getArticle }) {
               >
                 {data.books.map(book => (
                   <Link key={book.id} to={`/book/${book.id}`}>
-                    <Box w="350px" bg="#f5f2ef" mb="4" pb="4" cursor="pointer">
+                    <Box w="350px" mb="4" pb="4" cursor="pointer">
                       <Image
                         w="225px"
                         h="350px"
@@ -216,7 +216,7 @@ function SingleBlog({ getArticle }) {
               <Box mb="4" color="white">
                 <Heading
                   fontFamily="diodrum-med !important"
-                  mr="7%"
+                  mr="5%"
                   p="4"
                   size="lg"
                 >
