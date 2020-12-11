@@ -12,6 +12,7 @@ function useQuery() {
 export default function Books() {
   let query = useQuery();
   let featured = query.get('featured');
+  let translate = query.get('translate');
   console.log(featured);
 
   let { category } = useParams();
@@ -22,11 +23,15 @@ export default function Books() {
         <title>اخر الاصدارات</title>
       </Helmet>
       <BooksFilter></BooksFilter>
-      <Box mr={['0', '80px']} mt="100px" mb="100px">
+      <Box mr={['0', '80px']} mt="160px" mb="100px">
         <Box m="8">
           <Heading>{category}</Heading>
         </Box>
-        <Featured featured={featured} category={category}></Featured>
+        <Featured
+          translate={translate}
+          featured={featured}
+          category={category}
+        ></Featured>
       </Box>
     </Box>
   );

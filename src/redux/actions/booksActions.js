@@ -36,12 +36,12 @@ export const getBooks = (
       .catch(err => {
         console.log(err);
       });
-  } else if (featured && !category && !translate) {
+  } else if (featured && !category) {
     console.log('featued block excuted');
 
     data = await axios
       .get(
-        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&featured=${featured}`,
+        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&featured=${featured}&translate=${translate}`,
         //   { website: 'المتوسط' },
         { headers }
       )

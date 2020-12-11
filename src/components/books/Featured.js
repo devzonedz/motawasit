@@ -6,114 +6,96 @@ import {
   Text,
   Heading,
   Divider,
+  Flex,
+  Skeleton,
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { getBooks } from '../../redux/actions/booksActions';
 
-function CatBooks({ featured, getBooks }) {
+function CatBooks({ translate, featured, getBooks }) {
   const [data, setData] = React.useState(null);
+  const [loaded, setLoaded] = React.useState(false);
+  const imageLoaded = () => {
+    setLoaded(true);
+  };
   React.useEffect(() => {
     async function getData() {
-      const res = await getBooks(null, featured, null);
+      const res = await getBooks(null, featured, translate);
       console.log(res);
       if (res) {
         setData(res.data);
       }
     }
     getData();
-  }, []);
+  }, [translate]);
 
   return (
-    <Box mt="160px" mb="100px">
-      {data &&
-        data.book_categories &&
-        data.book_categories.length !== 0 &&
-        data.book_categories.map(bookcat => (
-          <Box>
-            {bookcat.books.length !== 0 && (
-              <>
-                <Box m="8">
+    <Box>
+      <Box d="flex" m="4">
+        <Link to={`/featured?featured=1&translate=0`}>
+          <Heading
+            fontFamily="diodrum-med !important"
+            fontWeight="normal"
+            size="md"
+            m="2"
+          >
+            عربي
+          </Heading>
+        </Link>
+        <Link to={`/featured?featured=1&translate=1`}>
+          <Heading
+            fontFamily="diodrum-med !important"
+            fontWeight="normal"
+            size="md"
+            m="2"
+          >
+            مترجم
+          </Heading>
+        </Link>
+      </Box>
+      <SimpleGrid columns={[1, 2, 3, 5]}>
+        {data &&
+          data.books &&
+          data.books.length !== 0 &&
+          data.books.map(book => (
+            <Link key={book.id} to={`/book/${book.id}`}>
+              <Box mb="4" cursor="pointer">
+                <Flex justifyContent="center">
                   <Box>
-                    <Link to={`/books_by_category/${bookcat.key}`}>
-                      <Heading
-                        fontFamily="diodrum-bold !important"
-                        cursor="pointer"
-                        m="2"
-                      >
-                        {bookcat.name}
-                      </Heading>
-                    </Link>
-                    <Divider
-                      w="20%"
-                      // border="4px solid black"
-                      opacity="1"
-                      // borderColor={color[colorMode]}
-                    ></Divider>
-                    <Box d="flex" m="4">
-                      <Link
-                        to={`/books_by_category/${bookcat.key}?translate=0`}
-                      >
-                        <Heading
-                          fontFamily="diodrum-med !important"
-                          fontWeight="normal"
-                          size="md"
-                          m="2"
-                        >
-                          عربي
-                        </Heading>
-                      </Link>
-                      <Link
-                        to={`/books_by_category/${bookcat.key}?translate=1`}
-                      >
-                        <Heading
-                          fontFamily="diodrum-med !important"
-                          fontWeight="normal"
-                          size="md"
-                          m="2"
-                        >
-                          مترجم
-                        </Heading>
-                      </Link>
-                    </Box>
+                    <Skeleton w="225px" h="350px" isLoaded={loaded}>
+                      <Image
+                        onLoad={imageLoaded}
+                        w="225px"
+                        h="350px"
+                        m="0 auto"
+                        shadow="lg"
+                        src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
+                      ></Image>
+                    </Skeleton>
                   </Box>
+                </Flex>
+                <Box mt="4" textAlign="center">
+                  <Text
+                    fontFamily="diodrum-med !important"
+                    fontWeight="500"
+                    fontSize="xl"
+                  >
+                    {book.title}
+                  </Text>
+                  <Text fontSize="md" color="gray.600">
+                    {book.sub_title}
+                  </Text>
+                  <Text fontSize="sm" color="gray.500">
+                    {book.author}
+                  </Text>
+                  <Text fontWeight="bold">${book.price}</Text>
                 </Box>
-                <SimpleGrid columns={[1, 2, 3, 5]}>
-                  {bookcat.books.map(book => (
-                    <Link key={book.id} to={`/book/${book.id}`}>
-                      <Box mb="4" cursor="pointer">
-                        <Image
-                          w="225px"
-                          h="350px"
-                          m="0 auto"
-                          shadow="lg"
-                          src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
-                        ></Image>
-                        <Box mt="4" textAlign="center">
-                          <Text
-                            fontFamily="diodrum-med !important"
-                            fontWeight="500"
-                            fontSize="xl"
-                          >
-                            {book.title}
-                          </Text>
-                          <Text fontSize="md" color="gray.600">
-                            {book.sub_title}
-                          </Text>
-                          <Text fontSize="sm" color="gray.500">
-                            {book.author}
-                          </Text>
-                          <Text fontWeight="bold">${book.price}</Text>
-                        </Box>
-                      </Box>
-                    </Link>
-                  ))}
-                </SimpleGrid>
-              </>
-            )}
-          </Box>
-        ))}
+              </Box>
+            </Link>
+          ))}
+      </SimpleGrid>
     </Box>
   );
 }
