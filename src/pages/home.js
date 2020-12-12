@@ -22,6 +22,8 @@ import CatBooks from '../components/books/catBooks';
 
 function Home({ getHome }) {
   const { colorMode, toggleColorMode } = useColorMode();
+
+  const bg = { light: 'white', dark: '#151a23' };
   const [data, setData] = React.useState(null);
   const [loaded, setLoaded] = React.useState(false);
   const imageLoaded = () => {
@@ -52,7 +54,6 @@ function Home({ getHome }) {
     700: 2,
   };
 
-  const color = { light: 'black', dark: 'white' };
   return (
     <Box pr="10%" pl="10%" mt="100px" mb="100px">
       <Helmet>
@@ -70,7 +71,7 @@ function Home({ getHome }) {
           data.articles.map(article => (
             <Link to={`/singlePost?id=${article.id}`}>
               <Box
-                bg="white"
+                bg={bg[colorMode]}
                 w="100%"
                 shadow="lg"
                 // p="2"
@@ -107,7 +108,7 @@ function Home({ getHome }) {
           data.books &&
           data.books.map(book => (
             <Link to={`/book/${book.id}`}>
-              <Box mt="8" pb="4" shadow="lg" bg="white">
+              <Box mt="8" pb="4" shadow="lg" bg={bg[colorMode]}>
                 <Image
                   mt="2"
                   w="100%"

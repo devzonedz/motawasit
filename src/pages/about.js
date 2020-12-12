@@ -19,6 +19,7 @@ export default function blog() {
       >
         عن المتوسط
         <Divider
+          mt="4"
           opacity="1"
           border="3px solid black"
           pl="20%"

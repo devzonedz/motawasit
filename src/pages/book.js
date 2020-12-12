@@ -18,6 +18,7 @@ import {
   ListItem,
   Flex,
   Skeleton,
+  useColorMode,
 } from '@chakra-ui/core';
 import Carousel from 'react-elastic-carousel';
 import { useParams, Link } from 'react-router-dom';
@@ -28,6 +29,11 @@ import { getBook } from '../redux/actions/booksActions';
 import GlobalShare from '../util/GlobalShare';
 
 function Book({ getBook }) {
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  const bg = { light: '#f5f2ef', dark: '#1a202c' };
+  const color = { light: 'black', dark: 'white' };
+
   let { id } = useParams();
   console.log(id);
   const [data, setData] = React.useState(null);
@@ -126,8 +132,8 @@ function Book({ getBook }) {
                     <Link key={author.id} to={`/author/${author.id}`}>
                       <Text
                         _hover={{
-                          bg: 'yellow.300',
-                          color: 'black',
+                          bg: 'black',
+                          color: 'white',
                           textDecoration: 'underline',
                         }}
                         m="2"
@@ -249,8 +255,13 @@ function Book({ getBook }) {
           )}
         </Grid>
         {data && data.books[0] && (
-          <Box pr="7%" pl="3%" bg="black" borderBottom="1px solid white">
-            <Box mt="100px" mb="4" color="white">
+          <Box
+            pr="7%"
+            pl="3%"
+            bg={bg[colorMode]}
+            borderBottom="1px solid white"
+          >
+            <Box mt="100px" mb="4" color={color[colorMode]}>
               <Heading
                 fontFamily="diodrum-med !important"
                 mr="7%"
@@ -303,11 +314,11 @@ function Book({ getBook }) {
           <Box
             pr="5%"
             pl="3%"
-            bg="black"
+            bg={bg[colorMode]}
             color="black"
             borderBottom="1px solid white"
           >
-            <Box mb="4" color="white">
+            <Box mb="4" color={color[colorMode]}>
               <Heading
                 fontFamily="diodrum-med !important"
                 mr="7%"

@@ -66,6 +66,7 @@ function Writers({ getAuthors }) {
         direction={['row', 'row', 'row', 'row']}
       >
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('أ')}
           fontWeight="normal"
           fontSize="2xl"
@@ -74,6 +75,7 @@ function Writers({ getAuthors }) {
           أ
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('إ')}
           fontWeight="normal"
           fontSize="2xl"
@@ -82,6 +84,7 @@ function Writers({ getAuthors }) {
           إ
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ب')}
           fontWeight="normal"
           fontSize="2xl"
@@ -90,6 +93,7 @@ function Writers({ getAuthors }) {
           ب
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ت')}
           fontWeight="normal"
           fontSize="2xl"
@@ -98,6 +102,7 @@ function Writers({ getAuthors }) {
           ت
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ث')}
           fontWeight="normal"
           fontSize="2xl"
@@ -106,6 +111,7 @@ function Writers({ getAuthors }) {
           ث
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ج')}
           fontWeight="normal"
           fontSize="2xl"
@@ -114,6 +120,7 @@ function Writers({ getAuthors }) {
           ج
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ح')}
           fontWeight="normal"
           fontSize="2xl"
@@ -122,6 +129,7 @@ function Writers({ getAuthors }) {
           ح
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('خ')}
           fontWeight="normal"
           fontSize="2xl"
@@ -130,6 +138,7 @@ function Writers({ getAuthors }) {
           خ
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('د')}
           fontWeight="normal"
           fontSize="2xl"
@@ -138,6 +147,7 @@ function Writers({ getAuthors }) {
           د
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ذ')}
           fontWeight="normal"
           fontSize="2xl"
@@ -146,6 +156,7 @@ function Writers({ getAuthors }) {
           ذ
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ر')}
           fontWeight="normal"
           fontSize="2xl"
@@ -154,6 +165,7 @@ function Writers({ getAuthors }) {
           ر
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ز')}
           fontWeight="normal"
           fontSize="2xl"
@@ -162,6 +174,7 @@ function Writers({ getAuthors }) {
           ز
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('س')}
           fontWeight="normal"
           fontSize="2xl"
@@ -170,6 +183,7 @@ function Writers({ getAuthors }) {
           س
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ش')}
           fontWeight="normal"
           fontSize="2xl"
@@ -178,6 +192,7 @@ function Writers({ getAuthors }) {
           ش
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ص')}
           fontWeight="normal"
           fontSize="2xl"
@@ -186,6 +201,7 @@ function Writers({ getAuthors }) {
           ص
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ض')}
           fontWeight="normal"
           fontSize="2xl"
@@ -194,6 +210,7 @@ function Writers({ getAuthors }) {
           ض
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ط')}
           fontWeight="normal"
           fontSize="2xl"
@@ -202,6 +219,7 @@ function Writers({ getAuthors }) {
           ط
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ظ')}
           fontWeight="normal"
           fontSize="2xl"
@@ -210,6 +228,7 @@ function Writers({ getAuthors }) {
           ظ
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ع')}
           fontWeight="normal"
           fontSize="2xl"
@@ -218,6 +237,7 @@ function Writers({ getAuthors }) {
           ع
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('غ')}
           fontWeight="normal"
           fontSize="2xl"
@@ -226,6 +246,7 @@ function Writers({ getAuthors }) {
           غ
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ف')}
           fontWeight="normal"
           fontSize="2xl"
@@ -234,6 +255,7 @@ function Writers({ getAuthors }) {
           ف
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ق')}
           fontWeight="normal"
           fontSize="2xl"
@@ -242,6 +264,7 @@ function Writers({ getAuthors }) {
           ق
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ك')}
           fontWeight="normal"
           fontSize="2xl"
@@ -250,6 +273,7 @@ function Writers({ getAuthors }) {
           ك
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ل')}
           fontWeight="normal"
           fontSize="2xl"
@@ -258,6 +282,7 @@ function Writers({ getAuthors }) {
           ل
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('م')}
           fontWeight="normal"
           fontSize="2xl"
@@ -266,6 +291,7 @@ function Writers({ getAuthors }) {
           م
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ن')}
           fontWeight="normal"
           fontSize="2xl"
@@ -274,6 +300,7 @@ function Writers({ getAuthors }) {
           ن
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ه')}
           fontWeight="normal"
           fontSize="2xl"
@@ -282,6 +309,7 @@ function Writers({ getAuthors }) {
           ه
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('و')}
           fontWeight="normal"
           fontSize="2xl"
@@ -290,6 +318,7 @@ function Writers({ getAuthors }) {
           و
         </Button>
         <Button
+          _focus={{ bg: 'black', color: 'white' }}
           onClick={() => getFiltredAuthors('ي')}
           fontWeight="normal"
           fontSize="2xl"
@@ -318,8 +347,8 @@ function Writers({ getAuthors }) {
                 </Skeleton>
                 <Text
                   _hover={{
-                    bg: 'yellow.300',
-                    color: 'black',
+                    bg: 'black',
+                    color: 'white',
                     textDecoration: 'underline',
                   }}
                   m="2"

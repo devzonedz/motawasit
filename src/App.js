@@ -35,6 +35,7 @@ import Author from './pages/ourWriters/Author';
 
 import Navbar from './components/layout/Navbar';
 import TopNavbar from './components/layout/TopNavbar';
+import BooksFilter from './components/books/BooksFilter';
 import Footer from './components/layout/Footer';
 //?util
 import Up from './util/Up';
@@ -77,6 +78,7 @@ function App(props) {
     <ChakraProvider theme={theme}>
       <CSSReset />
       <TopNavbar></TopNavbar>
+      {/* <BooksFilter></BooksFilter> */}
       <SocialButtons></SocialButtons>
       <ScrollToTop></ScrollToTop>
       <Navbar></Navbar>

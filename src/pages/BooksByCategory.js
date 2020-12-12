@@ -12,8 +12,8 @@ function useQuery() {
 
 export default function Books() {
   let query = useQuery();
-  let translate = query.get('translate');
   let category = query.get('category');
+  let translate = query.get('translate');
   console.log(translate);
 
   //   let { category } = useParams();

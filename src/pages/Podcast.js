@@ -28,7 +28,7 @@ function Podcasts({ getPodcasts }) {
           <Helmet>
             <title>بودكاست</title>
           </Helmet>
-          <Heading mt="8" size="xl">
+          <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
             بودكاست الكتب
           </Heading>
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
@@ -45,7 +45,7 @@ function Podcasts({ getPodcasts }) {
                 ></iframe>
               ))}
           </SimpleGrid>
-          <Heading mt="8" size="xl">
+          <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
             بودكاست المقالات
           </Heading>
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
@@ -62,7 +62,7 @@ function Podcasts({ getPodcasts }) {
                 ></iframe>
               ))}
           </SimpleGrid>
-          <Heading mt="8" size="xl">
+          <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
             بودكاست براءات
           </Heading>
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">

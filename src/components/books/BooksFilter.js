@@ -12,9 +12,10 @@ import {
   MenuItem,
   Heading,
   SimpleGrid,
+  Button,
 } from '@chakra-ui/core';
 // import { ChevronDownIcon } from '@chakra-ui/icons';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import { FaChevronDown } from 'react-icons/fa';
 
@@ -40,7 +41,7 @@ function Navbar({ getSeries }) {
 
   const { colorMode, toggleColorMode } = useColorMode();
 
-  const bg = { light: '#fff', dark: '#1a202c' };
+  const bg = { light: '#f5f2ef', dark: '#1a202c' };
   const filter = { light: '#000000', dark: '#1a202c' };
   const [data, setData] = React.useState(null);
   const [loaded, setLoaded] = React.useState(false);
@@ -67,7 +68,7 @@ function Navbar({ getSeries }) {
       align="center"
       //   justify="space-between"
 
-      padding="0.5rem"
+      //   padding="0.5rem"
       //   shadow="lg"
       //   color={color[colorMode]}
       bg={bg[colorMode]}
@@ -75,29 +76,52 @@ function Navbar({ getSeries }) {
       wrap={['nowrap', 'nowrap', 'wrap', 'wrap']}
       direction={['row', 'row', 'row', 'row']}
     >
-      <Link to="/featured?featured=1">
-        <Text
-          whiteSpace="nowrap"
-          fontWeight="bold"
-          ml="8"
-          mr="8"
-          fontSize={['lg', '2xl']}
-          fontFamily="diodrum-med !important"
-        >
-          آخر الإصدارات
-        </Text>
-      </Link>
-      <Link to="/books">
-        <Text
-          whiteSpace="nowrap"
-          fontWeight="bold"
-          ml="8"
-          fontSize={['lg', '2xl']}
-          fontFamily="diodrum-med !important"
-        >
-          جميعها
-        </Text>
-      </Link>
+      <NavLink
+        activeStyle={{
+          fontWeight: 'bold',
+          color: 'white',
+          backgroundColor: 'black',
+          height: '100%',
+          marginLeft: 5,
+        }}
+        to="/featured?featured=1"
+      >
+        <Flex h="100%" direction="column" justifyContent="center">
+          <Text
+            whiteSpace="nowrap"
+            fontWeight="bold"
+            ml="4"
+            mr="4"
+            fontSize={['lg', '2xl']}
+            fontFamily="diodrum-med !important"
+          >
+            آخر الإصدارات
+          </Text>
+        </Flex>
+      </NavLink>
+      <NavLink
+        activeStyle={{
+          fontWeight: 'bold',
+          color: 'white',
+          backgroundColor: 'black',
+          height: '100%',
+          marginLeft: 5,
+        }}
+        to="/books"
+      >
+        <Flex h="100%" direction="column" justifyContent="center">
+          <Text
+            whiteSpace="nowrap"
+            fontWeight="bold"
+            ml="4"
+            mr="4"
+            fontSize={['lg', '2xl']}
+            fontFamily="diodrum-med !important"
+          >
+            جميعها
+          </Text>
+        </Flex>
+      </NavLink>
 
       <Menu>
         <MenuButton
@@ -410,17 +434,29 @@ function Navbar({ getSeries }) {
           سلسلات
         </Text>
       </Link> */}
-      <Link to="furthercoming?furthercoming=1">
-        <Text
-          whiteSpace="nowrap"
-          fontWeight="bold"
-          ml="8"
-          fontSize={['lg', '2xl']}
-          fontFamily="diodrum-med !important"
-        >
-          يأتي قريباً
-        </Text>
-      </Link>
+      <NavLink
+        activeStyle={{
+          fontWeight: 'bold',
+          color: 'white',
+          backgroundColor: 'black',
+          height: '100%',
+          marginLeft: 5,
+        }}
+        to="furthercoming?furthercoming=1"
+      >
+        <Flex h="100%" direction="column" justifyContent="center">
+          <Text
+            whiteSpace="nowrap"
+            fontWeight="bold"
+            ml="4"
+            mr="4"
+            fontSize={['lg', '2xl']}
+            fontFamily="diodrum-med !important"
+          >
+            يأتي قريباً
+          </Text>
+        </Flex>
+      </NavLink>
     </Flex>
   );
 }

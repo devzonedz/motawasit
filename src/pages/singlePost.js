@@ -11,6 +11,7 @@ import {
   Grid,
   Flex,
   Skeleton,
+  useColorMode,
 } from '@chakra-ui/core';
 import { useParams, useLocation, Link } from 'react-router-dom';
 
@@ -24,6 +25,10 @@ function useQuery() {
 }
 
 function SingleBlog({ getArticle }) {
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  const bg = { light: '#f5f2ef', dark: '#1a202c' };
+  const color = { light: 'black', dark: 'white' };
   const [loaded, setLoaded] = React.useState(false);
   const imageLoaded = () => {
     setLoaded(true);
@@ -107,38 +112,40 @@ function SingleBlog({ getArticle }) {
           >
             <Box display={['none', 'none', 'block', 'block']}>
               {data.books.map(book => (
-                <Box mb="8">
-                  {/* <Text mb="2" fontSize="xl">
+                <Link to={`/book/${book.id}`}>
+                  <Box mb="8">
+                    {/* <Text mb="2" fontSize="xl">
                 بمساهمة صلاح برياني
               </Text> */}
-                  <Divider w="80%"></Divider>
-                  {/* <Image mt="2" src={``}></Image> */}
-                  <Box
-                    mt="2"
-                    mb="4"
-                    style={{
-                      background: `
+                    <Divider w="80%"></Divider>
+                    {/* <Image mt="2" src={``}></Image> */}
+                    <Box
+                      mt="2"
+                      mb="4"
+                      style={{
+                        background: `
     url('${process.env.REACT_APP_STORAGE}/${book.cover}')`,
-                    }}
-                    className="detail-image"
-                    w="80%"
-                    h="270px"
-                  ></Box>
-                  <Heading fontFamily="diodrum-med !important" size="md">
-                    {book.title}
-                  </Heading>
-                  <Text> {book.sub_title} </Text>
+                      }}
+                      className="detail-image"
+                      w="80%"
+                      h="270px"
+                    ></Box>
+                    <Heading fontFamily="diodrum-med !important" size="md">
+                      {book.title}
+                    </Heading>
+                    <Text> {book.sub_title} </Text>
 
-                  <Box
-                    fontSize="lg"
-                    mt="2"
-                    pl="6"
-                    className="book-description"
-                    dangerouslySetInnerHTML={{
-                      __html: book.description,
-                    }}
-                  ></Box>
-                </Box>
+                    <Box
+                      fontSize="lg"
+                      mt="2"
+                      pl="6"
+                      className="book-description"
+                      dangerouslySetInnerHTML={{
+                        __html: book.description,
+                      }}
+                    ></Box>
+                  </Box>
+                </Link>
               ))}
             </Box>
             <Box
@@ -154,8 +161,13 @@ function SingleBlog({ getArticle }) {
           </Grid>
           <GlobalShare></GlobalShare>
           {data.books[0] && (
-            <Box pr="5%" pl="3%" bg="black" borderBottom="1px solid white">
-              <Box mt="100px" mb="4" color="white">
+            <Box
+              pr="5%"
+              pl="3%"
+              bg={bg[colorMode]}
+              borderBottom="1px solid white"
+            >
+              <Box mt="100px" mb="4" color={color[colorMode]}>
                 <Heading
                   fontFamily="diodrum-med !important"
                   mr="6%"
@@ -209,11 +221,11 @@ function SingleBlog({ getArticle }) {
             <Box
               pr="5%"
               pl="3%"
-              bg="black"
+              bg={bg[colorMode]}
               color="black"
               borderBottom="1px solid white"
             >
-              <Box mb="4" color="white">
+              <Box mb="4" color={color[colorMode]}>
                 <Heading
                   fontFamily="diodrum-med !important"
                   mr="5%"
