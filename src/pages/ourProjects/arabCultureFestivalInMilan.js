@@ -1,11 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Box, Heading, Text } from '@chakra-ui/core';
+import { Box, Heading, Text, Divider } from '@chakra-ui/core';
 
 export default function publishlist() {
   return (
-    <Box mt="100px" mb="100px" textAlign="center">
+    <Box mt="100px" mb="100px">
       <Helmet>
         <title> مهرجان الثقافة العربية في ميلانو</title>
       </Helmet>
@@ -16,6 +16,16 @@ export default function publishlist() {
         size="xl"
       >
         مهرجان الثقافة العربية في ميلانو
+        <Divider
+          mt="4"
+          opacity="1"
+          border="3px solid black"
+          pl="20%"
+          pr="20%"
+          //   m="4"
+          borderColor="black"
+          w="20%"
+        ></Divider>
       </Heading>
       <Box
         textAlign="right"

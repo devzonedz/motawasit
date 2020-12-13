@@ -78,48 +78,52 @@ function Book({ getBook }) {
               <Helmet>
                 <title>{data.title}</title>
               </Helmet>
-              <Flex justifyContent="center">
-                <Box m="4">
-                  <Skeleton
-                    w={['300px', '300px', '400px', '400px']}
-                    isLoaded={loaded}
-                  >
-                    <Image
-                      onLoad={imageLoaded}
-                      shadow="lg"
-                      w={['300px', '300px', '400px', '400px']}
-                      src={`${process.env.REACT_APP_STORAGE}/${data.cover}`}
-                    ></Image>
-                  </Skeleton>
-                  <Link>
-                    <Button
-                      rounded="20px"
-                      mt="4"
-                      w={['300px', '300px', '400px', '400px']}
-                      colorScheme="red"
-                      fontFamily="diodrum-med !important"
-                    >
-                      لشراء الكتاب المس هنا
-                    </Button>
-                  </Link>
-                  <Box mt="4" w={['300px', '300px', '400px', '400px']}>
-                    <GlobalShare></GlobalShare>
-                  </Box>
-                  <Box w={['300px', '300px', '400px', '400px']}>
-                    {data.podcast && (
-                      <iframe
-                        title={data.title}
-                        width="100%"
-                        height="100"
-                        scrolling="no"
-                        frameborder="no"
-                        allow="autoplay"
-                        src={data.podcast}
-                      ></iframe>
-                    )}
-                  </Box>
+              <Box>
+                <Box top="0" position="sticky">
+                  <Flex justifyContent="center">
+                    <Box m="4">
+                      <Skeleton
+                        w={['300px', '300px', '400px', '400px']}
+                        isLoaded={loaded}
+                      >
+                        <Image
+                          onLoad={imageLoaded}
+                          shadow="lg"
+                          w={['300px', '300px', '400px', '400px']}
+                          src={`${process.env.REACT_APP_STORAGE}/${data.cover}`}
+                        ></Image>
+                      </Skeleton>
+                      <Link>
+                        <Button
+                          rounded="20px"
+                          mt="4"
+                          w={['300px', '300px', '400px', '400px']}
+                          colorScheme="red"
+                          fontFamily="diodrum-med !important"
+                        >
+                          لشراء الكتاب المس هنا
+                        </Button>
+                      </Link>
+                      <Box mt="4" w={['300px', '300px', '400px', '400px']}>
+                        <GlobalShare></GlobalShare>
+                      </Box>
+                      <Box w={['300px', '300px', '400px', '400px']}>
+                        {data.podcast && (
+                          <iframe
+                            title={data.title}
+                            width="100%"
+                            height="100"
+                            scrolling="no"
+                            frameborder="no"
+                            allow="autoplay"
+                            src={data.podcast}
+                          ></iframe>
+                        )}
+                      </Box>
+                    </Box>
+                  </Flex>
                 </Box>
-              </Flex>
+              </Box>
               <Box m="4" w={['370px', '400px', 'auto', 'auto']}>
                 <Heading fontFamily="diodrum-med !important" m="4">
                   {data.title}
@@ -146,13 +150,13 @@ function Book({ getBook }) {
                   ))}
                 </Flex>
                 <Divider></Divider>
-                <Text m="2" fontSize="xl">
-                  {data.translate_from}
+                <Text m="2" fontSize="2xl">
+                  ترجم عن : {data.translate_from}
                 </Text>
 
                 <Box
                   m="4"
-                  fontSize="xl"
+                  fontSize="2xl"
                   className="content"
                   dangerouslySetInnerHTML={{ __html: data.overview }}
                 ></Box>

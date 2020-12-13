@@ -110,43 +110,49 @@ function SingleBlog({ getArticle }) {
             templateColumns={['1fr', '1fr', '0.5fr 2fr', '0.5fr 2fr']}
             gap="10px"
           >
-            <Box display={['none', 'none', 'block', 'block']}>
-              {data.books.map(book => (
-                <Link to={`/book/${book.id}`}>
-                  <Box mb="8">
-                    {/* <Text mb="2" fontSize="xl">
+            <Box position="relative">
+              <Box
+                position="sticky"
+                top="0"
+                display={['none', 'none', 'block', 'block']}
+              >
+                {data.books.map(book => (
+                  <Link to={`/book/${book.id}`}>
+                    <Box mb="8">
+                      {/* <Text mb="2" fontSize="xl">
                 بمساهمة صلاح برياني
               </Text> */}
-                    <Divider w="80%"></Divider>
-                    {/* <Image mt="2" src={``}></Image> */}
-                    <Box
-                      mt="2"
-                      mb="4"
-                      style={{
-                        background: `
+                      <Divider w="80%"></Divider>
+                      {/* <Image mt="2" src={``}></Image> */}
+                      <Box
+                        mt="2"
+                        mb="4"
+                        style={{
+                          background: `
     url('${process.env.REACT_APP_STORAGE}/${book.cover}')`,
-                      }}
-                      className="detail-image"
-                      w="80%"
-                      h="270px"
-                    ></Box>
-                    <Heading fontFamily="diodrum-med !important" size="md">
-                      {book.title}
-                    </Heading>
-                    <Text> {book.sub_title} </Text>
+                        }}
+                        className="detail-image"
+                        w="80%"
+                        h="270px"
+                      ></Box>
+                      <Heading fontFamily="diodrum-med !important" size="md">
+                        {book.title}
+                      </Heading>
+                      <Text> {book.sub_title} </Text>
 
-                    <Box
-                      fontSize="lg"
-                      mt="2"
-                      pl="6"
-                      className="book-description"
-                      dangerouslySetInnerHTML={{
-                        __html: book.description,
-                      }}
-                    ></Box>
-                  </Box>
-                </Link>
-              ))}
+                      <Box
+                        fontSize="lg"
+                        mt="2"
+                        pl="6"
+                        className="book-description"
+                        dangerouslySetInnerHTML={{
+                          __html: book.description,
+                        }}
+                      ></Box>
+                    </Box>
+                  </Link>
+                ))}
+              </Box>
             </Box>
             <Box
               fontSize="2xl"
@@ -159,6 +165,7 @@ function SingleBlog({ getArticle }) {
               }}
             ></Box>
           </Grid>
+
           <GlobalShare></GlobalShare>
           {data.books[0] && (
             <Box

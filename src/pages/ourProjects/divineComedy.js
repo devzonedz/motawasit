@@ -26,6 +26,7 @@ export default function publishlist() {
       >
         إعادة إنتاج "الكوميديا الإلهية" عربياً
         <Divider
+          mt="4"
           opacity="1"
           border="3px solid black"
           pl="20%"
