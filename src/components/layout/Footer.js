@@ -31,6 +31,15 @@ export default function Footer() {
                 حول المتوسط
               </Text>
             </Link>
+            <Link to="/about">
+              <Text
+                color="gray.200"
+                fontFamily="diodrum-med !important"
+                fontSize="md"
+              >
+                وكلاء وموزعون
+              </Text>
+            </Link>
             <Text
               color="gray.200"
               fontFamily="diodrum-med !important"

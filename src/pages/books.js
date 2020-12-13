@@ -18,8 +18,7 @@ function useQuery() {
 function Home(props) {
   const { colorMode, toggleColorMode } = useColorMode();
   let query = useQuery();
-  let featured = query.get('featured');
-  console.log(featured);
+  let translate = query.get('translate');
 
   const color = { light: 'black', dark: 'white' };
   return (
@@ -28,48 +27,8 @@ function Home(props) {
         <title>الكتب</title>
       </Helmet>
       <BooksFilter></BooksFilter>
-      <Box m="8">
-        <CatBooks
-          name="الدراسات"
-          featured={featured}
-          category="دراسات المتوسط"
-        ></CatBooks>
-      </Box>
-
-      <Divider></Divider>
-      <Box m="4">
-        <CatBooks name="الرواية" category="روايات المتوسط"></CatBooks>
-      </Box>
-      <Divider></Divider>
-      <Box m="4">
-        <CatBooks name="الشعر" category="شعر المتوسط"></CatBooks>
-      </Box>
-      <Divider></Divider>
-      <Box m="4">
-        <CatBooks name="القصة القصيرة" category="قصص المتوسط"></CatBooks>
-      </Box>
-      <Divider></Divider>
-      <Box m="4">
-        <CatBooks name="الفلسفة" category="فلسفة المتوسط"></CatBooks>
-      </Box>
-      <Divider></Divider>
-      <Box m="4">
-        <CatBooks name=" سير ذاتية" category="كتب السيرة"></CatBooks>
-      </Box>
-      <Divider></Divider>
-      <Box m="4">
-        <CatBooks name="يوميات عربية" category="يوميات المتوسط"></CatBooks>
-      </Box>
-      <Divider></Divider>
-      <Box m="4">
-        <CatBooks
-          name=" المعاجم والقواميس"
-          category="معاجم وقواميس المتوسط"
-        ></CatBooks>
-      </Box>
-      <Divider></Divider>
-      <Box m="4">
-        <CatBooks name="منوعات" category="منوعات المتوسط"></CatBooks>
+      <Box mr={['0', '80px']} mt="160px" mb="100px">
+        <CatBooks translate={translate}></CatBooks>
       </Box>
     </Box>
   );

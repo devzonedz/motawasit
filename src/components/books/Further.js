@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 
 import { getBooks } from '../../redux/actions/booksActions';
 
-function CatBooks({ furthercoming, getBooks }) {
+function CatBooks({ translate, furthercoming, getBooks }) {
   const [data, setData] = React.useState(null);
   const [loaded, setLoaded] = React.useState(false);
   const imageLoaded = () => {
@@ -22,18 +22,40 @@ function CatBooks({ furthercoming, getBooks }) {
   React.useEffect(() => {
     let response;
     async function getData() {
-      const res = await getBooks(null, null, null, furthercoming);
+      const res = await getBooks(null, null, translate, furthercoming);
       if (res) {
         console.log(response);
         setData(Object.values(res.data));
       }
     }
     getData();
-  }, []);
+  }, [translate]);
 
   return (
     <Box mt="160px" mb="100px">
       <Box>
+        <Box d="flex" m="4">
+          <Link to={`/furthercoming?furthercoming=1&translate=0`}>
+            <Heading
+              fontFamily="diodrum-med !important"
+              fontWeight="normal"
+              size="md"
+              m="2"
+            >
+              عربي
+            </Heading>
+          </Link>
+          <Link to={`/furthercoming?furthercoming=1&translate=1`}>
+            <Heading
+              fontFamily="diodrum-med !important"
+              fontWeight="normal"
+              size="md"
+              m="2"
+            >
+              مترجم
+            </Heading>
+          </Link>
+        </Box>
         <SimpleGrid columns={[1, 2, 3, 5]}>
           {data &&
             data.length !== 0 &&

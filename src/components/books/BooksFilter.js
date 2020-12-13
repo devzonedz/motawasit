@@ -409,8 +409,9 @@ function Navbar({ getSeries }) {
                       _hover={{ bg: 'white', color: 'black' }}
                       fontSize="xl"
                     >
-                      <Box display="flex">
+                      <Box textAlign="right" display="flex">
                         <Heading
+                          dir="rtl"
                           fontFamily="diodrum-med !important"
                           fontSize={['lg', 'lg', '2xl', '2xl']}
                         >

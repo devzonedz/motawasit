@@ -13,6 +13,7 @@ function useQuery() {
 export default function Books() {
   let query = useQuery();
   let furthercoming = query.get('furthercoming');
+  let translate = query.get('translate');
   console.log(furthercoming);
 
   let { category } = useParams();
@@ -24,10 +25,7 @@ export default function Books() {
       </Helmet>
       <BooksFilter></BooksFilter>
       <Box mr={['0', '80px']} mt="100px" mb="100px">
-        <Box m="8">
-          <Heading>{category}</Heading>
-        </Box>
-        <Further furthercoming={furthercoming} category={category}></Further>
+        <Further furthercoming={furthercoming} translate={translate}></Further>
       </Box>
     </Box>
   );

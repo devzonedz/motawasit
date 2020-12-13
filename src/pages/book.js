@@ -150,9 +150,11 @@ function Book({ getBook }) {
                   ))}
                 </Flex>
                 <Divider></Divider>
-                <Text m="2" fontSize="2xl">
-                  ترجم عن : {data.translate_from}
-                </Text>
+                {data.translate_from && (
+                  <Text m="2" fontSize="2xl">
+                    ترجم عن : {data.translate_from}
+                  </Text>
+                )}
 
                 <Box
                   m="4"

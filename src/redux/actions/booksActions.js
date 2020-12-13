@@ -18,15 +18,25 @@ export const getBooks = (
 ) => async (dispatch, getState) => {
   console.log(category, featured, translate, furthercoming);
   let data;
-  if (furthercoming) {
-    console.log('further block excuted');
 
+  if (!category && !featured && !translate && !furthercoming) {
+    console.log('all books no filter');
+    data = await axios
+      .get(`${process.env.REACT_APP_API}/books?website=منشورات المتوسط`, {
+        headers,
+      })
+      .then(res => {
+        console.log(res);
+        return res;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  } else if (!category && featured && !translate && !furthercoming) {
+    console.log('just featured');
     data = await axios
       .get(
-        `${
-          process.env.REACT_APP_API
-        }/books?website=منشورات المتوسط&furthercoming=${furthercoming.toString()}`,
-        //   { website: 'المتوسط' },
+        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&featured=${featured}`,
         { headers }
       )
       .then(res => {
@@ -36,13 +46,11 @@ export const getBooks = (
       .catch(err => {
         console.log(err);
       });
-  } else if (featured && !category) {
-    console.log('featued block excuted');
-
+  } else if (!category && featured && translate && !furthercoming) {
+    console.log('feautred with transltae');
     data = await axios
       .get(
         `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&featured=${featured}&translate=${translate}`,
-        //   { website: 'المتوسط' },
         { headers }
       )
       .then(res => {
@@ -52,28 +60,67 @@ export const getBooks = (
       .catch(err => {
         console.log(err);
       });
-  } else if (translate) {
-    console.log('translated block excuted');
+  } else if (category && !featured && !translate && !furthercoming) {
+    console.log('just category');
     data = await axios
       .get(
-        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&category=${category}&translate=${translate}`,
-        //   { website: 'المتوسط' },
+        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&category=${category}`,
         { headers }
       )
       .then(res => {
-        //   console.log(res);
+        console.log(res);
         return res;
       })
       .catch(err => {
         console.log(err);
       });
-  } else {
-    console.log('category block excuted');
-
+  } else if (!category && !featured && !translate && furthercoming) {
+    console.log('just category');
     data = await axios
       .get(
-        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&category=${category}`,
-        //   { website: 'المتوسط' },
+        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&furthercoming=${furthercoming}`,
+        { headers }
+      )
+      .then(res => {
+        console.log(res);
+        return res;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  } else if (!category && !featured && translate && !furthercoming) {
+    console.log('just translate');
+    data = await axios
+      .get(
+        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&translate=${translate}`,
+        { headers }
+      )
+      .then(res => {
+        console.log(res);
+        return res;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  } else if (category && !featured && translate && !furthercoming) {
+    console.log('category with translate');
+    data = await axios
+      .get(
+        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&category=${category}&translate=${translate}`,
+        { headers }
+      )
+      .then(res => {
+        console.log(res);
+        return res;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  } else if (!category && !featured && translate && furthercoming) {
+    console.log('furthercoming with translate');
+    data = await axios
+      .get(
+        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&furthercoming=${furthercoming}&translate=${translate}`,
         { headers }
       )
       .then(res => {
@@ -84,6 +131,73 @@ export const getBooks = (
         console.log(err);
       });
   }
+
+  //   if (furthercoming) {
+  //     console.log('further block excuted');
+
+  //     data = await axios
+  //       .get(
+  //         `${
+  //           process.env.REACT_APP_API
+  //         }/books?website=منشورات المتوسط&furthercoming=${furthercoming.toString()}`,
+  //         //   { website: 'المتوسط' },
+  //         { headers }
+  //       )
+  //       .then(res => {
+  //         console.log(res);
+  //         return res;
+  //       })
+  //       .catch(err => {
+  //         console.log(err);
+  //       });
+  //   } else if (featured && !category) {
+  //     console.log('featued block excuted');
+
+  //     data = await axios
+  //       .get(
+  //         `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&featured=${featured}&translate=${translate}`,
+  //         //   { website: 'المتوسط' },
+  //         { headers }
+  //       )
+  //       .then(res => {
+  //         console.log(res);
+  //         return res;
+  //       })
+  //       .catch(err => {
+  //         console.log(err);
+  //       });
+  //   } else if (translate || category) {
+  //     console.log('translated block excuted');
+  //     data = await axios
+  //       .get(
+  //         `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&category=${category}&translate=${translate}`,
+  //         //   { website: 'المتوسط' },
+  //         { headers }
+  //       )
+  //       .then(res => {
+  //         //   console.log(res);
+  //         return res;
+  //       })
+  //       .catch(err => {
+  //         console.log(err);
+  //       });
+  //   } else {
+  //     console.log('category block excuted');
+
+  //     data = await axios
+  //       .get(
+  //         `${process.env.REACT_APP_API}/books?website=منشورات المتوسط`,
+  //         //   { website: 'المتوسط' },
+  //         { headers }
+  //       )
+  //       .then(res => {
+  //         console.log(res);
+  //         return res;
+  //       })
+  //       .catch(err => {
+  //         console.log(err);
+  //       });
+  //   }
   return data;
 };
 

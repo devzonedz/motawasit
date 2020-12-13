@@ -22,7 +22,7 @@ function CatBooks({ category, translate, getBooks }) {
       }
     }
     getData();
-  }, [category]);
+  }, [category, translate]);
 
   return (
     <SimpleGrid columns={[1, 2, 3, 5]}>
