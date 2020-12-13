@@ -60,7 +60,7 @@ function CatBooks({ translate, getBooks, name }) {
           data.books &&
           data.books.length !== 0 &&
           data.books.map(book => (
-            <Link key={book.id} to={`/book/${book.id}`}>
+            <Link key={book.id + Math.random()} to={`/book/${book.id}`}>
               <Box mb="4" cursor="pointer">
                 <Flex justifyContent="center">
                   <Box>
