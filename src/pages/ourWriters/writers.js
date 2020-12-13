@@ -57,7 +57,7 @@ function Writers({ getAuthors }) {
         <title> كتابنا</title>
       </Helmet>
       <Heading fontFamily="diodrum-bold !important" size="xl">
-        كتابنا
+        كتاب المتوسط
       </Heading>
       <Flex
         mt="8"
