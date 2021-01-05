@@ -31,6 +31,7 @@ export const getAuthors = letter => async (dispatch, getState) => {
   }
   return data;
 };
+
 export const getAuthor = id => async (dispatch, getState) => {
   let data = await axios
     .get(`${process.env.REACT_APP_API}/authors/${id}`, { headers })

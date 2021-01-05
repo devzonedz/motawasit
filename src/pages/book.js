@@ -264,10 +264,16 @@ function Book({ getBook }) {
           <Box
             pr="7%"
             pl="3%"
-            bg={bg[colorMode]}
+            // bg={bg[colorMode]}
+            bg="black"
             borderBottom="1px solid white"
           >
-            <Box mt="100px" mb="4" color={color[colorMode]}>
+            <Box
+              mt="100px"
+              mb="4"
+              // color={color[colorMode]}
+              color="white"
+            >
               <Heading
                 fontFamily="diodrum-med !important"
                 mr="7%"
@@ -300,6 +306,7 @@ function Book({ getBook }) {
                     ></Image>
                     <Box mt="4" textAlign="center">
                       <Text
+                        color="white"
                         fontFamily="diodrum-med !important"
                         fontWeight="500"
                         fontSize="xl"

@@ -2,11 +2,7 @@ import React from 'react';
 import { ChakraProvider, CSSReset, Box, Grid } from '@chakra-ui/core';
 import { Switch, Route, Link, Redirect, useLocation } from 'react-router-dom';
 // import theme from '@chakra-ui/theme';
-import {
-  CSSTransition,
-  TransitionGroup,
-  Transition as ReactTransition,
-} from 'react-transition-group';
+
 import nprogress from 'nprogress';
 
 //?pages
@@ -48,23 +44,6 @@ import './styles/fancyroutes.css';
 import 'react-dropzone-uploader/dist/styles.css';
 
 const TIMEOUT = 300;
-const getTransitionStyles = {
-  entering: {
-    position: `absolute`,
-    opacity: 0,
-    transform: `scale(0.7) translate(100px) `,
-  },
-  entered: {
-    transition: `opacity ${TIMEOUT}ms ease-in-out, transform ${TIMEOUT}ms ease-in-out`,
-    opacity: 1,
-    transform: `scale(1) translate(0px)`,
-  },
-  exiting: {
-    transition: `opacity ${600}ms ease-in-out, transform ${600}ms ease-in-out`,
-    opacity: 0,
-    transform: `scale(0.7) translate(-100px)`,
-  },
-};
 
 function App(props) {
   React.useEffect(() => {

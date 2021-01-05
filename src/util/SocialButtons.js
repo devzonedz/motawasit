@@ -32,7 +32,7 @@ export default function SocialButtons() {
             className="facebook"
             bg={bgIcon[colorMode]}
             color={color[colorMode]}
-            p="20px"
+            p="15px"
             fontSize="18px"
           >
             <FaFacebook></FaFacebook>
@@ -46,7 +46,7 @@ export default function SocialButtons() {
             className="twitter"
             bg={bgIcon[colorMode]}
             color={color[colorMode]}
-            p="20px"
+            p="15px"
             fontSize="18px"
           >
             <FaTwitter></FaTwitter>
@@ -60,7 +60,7 @@ export default function SocialButtons() {
             className="linkedin"
             bg={bgIcon[colorMode]}
             color={color[colorMode]}
-            p="20px"
+            p="15px"
             fontSize="18px"
           >
             <FaLinkedin></FaLinkedin>
@@ -75,7 +75,7 @@ export default function SocialButtons() {
             className="whatsapp"
             bg={bgIcon[colorMode]}
             color={color[colorMode]}
-            p="20px"
+            p="15px"
             fontSize="18px"
           >
             <IoLogoWhatsapp></IoLogoWhatsapp>
@@ -89,7 +89,7 @@ export default function SocialButtons() {
             className="whatsapp"
             bg={bgIcon[colorMode]}
             color={color[colorMode]}
-            p="20px"
+            p="15px"
             fontSize="18px"
           >
             <FaPinterest></FaPinterest>
@@ -103,7 +103,7 @@ export default function SocialButtons() {
             className="whatsapp"
             bg={bgIcon[colorMode]}
             color={color[colorMode]}
-            p="20px"
+            p="15px"
             fontSize="18px"
           >
             <FaYoutube></FaYoutube>
@@ -117,7 +117,7 @@ export default function SocialButtons() {
             className="whatsapp"
             bg={bgIcon[colorMode]}
             color={color[colorMode]}
-            p="20px"
+            p="15px"
             fontSize="18px"
           >
             <FaSoundcloud></FaSoundcloud>
