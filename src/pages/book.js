@@ -106,7 +106,7 @@ function Book({ getBook }) {
                         >
                           لشراء الكتاب المس هنا
                         </Button>
-                      </Link>
+                      </a>
                       <Box mt="4" w={['300px', '300px', '400px', '400px']}>
                         <GlobalShare></GlobalShare>
                       </Box>
