@@ -17,9 +17,11 @@ function Podcasts({ getPodcasts }) {
     }
     getData();
   }, []);
+  console.log(data);
 
   const artic =
     data && Object.keys(data.articles).map(key => data.articles[key]);
+  const books = data && Object.keys(data.books).map(key => data.books[key]);
   console.log(artic);
   return (
     <Box mt="100px" mb="700px" pl="10%" pr="10%">
@@ -32,8 +34,8 @@ function Podcasts({ getPodcasts }) {
             بودكاست الكتب
           </Heading>
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
-            {data.books.length !== 0 &&
-              data.books.map(podcast => (
+            {books.length !== 0 &&
+              books.map(podcast => (
                 <iframe
                   title={data.title}
                   width="100%"
