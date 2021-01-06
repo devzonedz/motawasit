@@ -93,8 +93,9 @@ function Book({ getBook }) {
                           src={`${process.env.REACT_APP_STORAGE}/${data.cover}`}
                         ></Image>
                       </Skeleton>
-                      <Link
-                        to={`https://motawasit-shop.vercel.app/book/${data.id}`}
+                      <a
+                        target="_blank"
+                        href={`https://motawasit-shop.vercel.app/book/${data.id}`}
                       >
                         <Button
                           rounded="20px"
