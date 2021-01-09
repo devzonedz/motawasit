@@ -3,30 +3,15 @@ import { Link } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import { Helmet } from 'react-helmet';
 
-import {
-  Button,
-  ButtonGroup,
-  Heading,
-  Box,
-  Text,
-  Image,
-  Center,
-  SimpleGrid,
-  Input,
-  Flex,
-  Skeleton,
-  useColorMode,
-} from '@chakra-ui/core';
-import { BsArrowUpLeft } from 'react-icons/bs';
-import ReactPaginate from 'react-paginate';
+import { Heading, Box, Image, Skeleton, useColorMode } from '@chakra-ui/core';
+
 import { connect } from 'react-redux';
 import { getArticles } from '../redux/actions/articleActions';
 
 function Blog({ getArticles }) {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
 
   const bg = { light: 'white', dark: '#151a23' };
-  const color = { light: 'white', dark: 'white' };
   const [data, setData] = React.useState(null);
   const [loaded, setLoaded] = React.useState(false);
   const imageLoaded = () => {
@@ -35,7 +20,6 @@ function Blog({ getArticles }) {
   React.useEffect(() => {
     async function getData() {
       const res = await getArticles('مدونة المتوسط');
-      console.log(res);
       if (res) {
         setData(res.data);
       }

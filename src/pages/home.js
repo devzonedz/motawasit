@@ -2,26 +2,14 @@ import React from 'react';
 import Masonry from 'react-masonry-css';
 import { Helmet } from 'react-helmet';
 
-import {
-  Heading,
-  Box,
-  Divider,
-  useColorMode,
-  Image,
-  SimpleGrid,
-  Text,
-  Skeleton,
-} from '@chakra-ui/core';
-import { BsArrowUpLeft } from 'react-icons/bs';
+import { Heading, Box, useColorMode, Image, Skeleton } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 // import fx from 'money';
 import { connect } from 'react-redux';
 import { getHome } from '../redux/actions/homeActions';
 
-import CatBooks from '../components/books/catBooks';
-
 function Home({ getHome }) {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
 
   const bg = { light: 'white', dark: '#151a23' };
   const [data, setData] = React.useState(null);
@@ -32,7 +20,6 @@ function Home({ getHome }) {
   React.useEffect(() => {
     async function getData() {
       const res = await getHome();
-      console.log(res);
       if (res) {
         setData(res.data);
       }
@@ -69,7 +56,7 @@ function Home({ getHome }) {
         {data &&
           data.articles &&
           data.articles.map(article => (
-            <Link to={`/singlePost?id=${article.id}`}>
+            <Link key={article.id} to={`/singlePost?id=${article.id}`}>
               <Box
                 bg={bg[colorMode]}
                 w="100%"
@@ -107,7 +94,7 @@ function Home({ getHome }) {
         {data &&
           data.books &&
           data.books.map(book => (
-            <Link to={`/book/${book.id}`}>
+            <Link key={book.id} to={`/book/${book.id}`}>
               <Box mt="8" pb="4" shadow="lg" bg={bg[colorMode]}>
                 <Image
                   mt="2"

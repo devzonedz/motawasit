@@ -5,7 +5,6 @@ import {
   Image,
   Text,
   Heading,
-  Divider,
   Flex,
   Skeleton,
 } from '@chakra-ui/core';
@@ -23,7 +22,6 @@ function CatBooks({ translate, featured, getBooks }) {
   React.useEffect(() => {
     async function getData() {
       const res = await getBooks(null, featured, translate, null);
-      console.log(res);
       if (res) {
         setData(res.data);
       }

@@ -6,18 +6,10 @@ import {
   Box,
   Heading,
   Text,
-  List,
-  ListItem,
-  Input,
-  FormControl,
-  FormLabel,
-  Textarea,
-  Select,
   Button,
   Flex,
   Image,
   Skeleton,
-  SimpleGrid,
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -32,7 +24,6 @@ function Writers({ getAuthors }) {
   React.useEffect(() => {
     async function getData() {
       const res = await getAuthors();
-      console.log(res);
       setData(res.data);
     }
     getData();
@@ -40,7 +31,6 @@ function Writers({ getAuthors }) {
 
   const getFiltredAuthors = async letter => {
     const res = await getAuthors(letter);
-    console.log(res);
     setData(res.data);
   };
 

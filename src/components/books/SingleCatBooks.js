@@ -13,10 +13,8 @@ function CatBooks({ category, translate, getBooks }) {
   };
   React.useEffect(() => {
     async function getData() {
-      console.log(translate);
       const res = await getBooks(category, null, translate, null);
-      console.log(category);
-      console.log(res);
+
       if (res) {
         setData(res.data);
       }

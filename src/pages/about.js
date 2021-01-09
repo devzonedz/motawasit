@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Text, Heading, Image, Divider } from '@chakra-ui/core';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import aboutpic from '../images/about-min.jpg';

@@ -3,8 +3,6 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   Button,
@@ -21,10 +19,9 @@ import { postNews } from '../../redux/actions/newsletterAction';
 
 function BasicUsage({ postNews }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
   const toast = useToast();
 
-  const bg = { light: '#fff', dark: '#1a202c' };
   const bgIcon = { light: '#000', dark: '#fff' };
   const color = { light: 'white', dark: 'black' };
 
@@ -36,7 +33,6 @@ function BasicUsage({ postNews }) {
   };
   const handleSubmit = async () => {
     const response = await postNews(email);
-    console.log(response);
     toast({
       description: response.data.message,
       status: 'success',
@@ -45,8 +41,6 @@ function BasicUsage({ postNews }) {
     });
     onClose();
   };
-
-  console.log(email);
 
   return (
     <>

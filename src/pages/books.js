@@ -1,9 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Heading, Box, Divider, useColorMode } from '@chakra-ui/core';
-import { BsArrowUpLeft } from 'react-icons/bs';
-import { Link, useLocation } from 'react-router-dom';
+import { Box } from '@chakra-ui/core';
+import { useLocation } from 'react-router-dom';
 // import fx from 'money';
 import { connect } from 'react-redux';
 import { getBooks } from '../redux/actions/booksActions';
@@ -16,11 +15,9 @@ function useQuery() {
 }
 
 function Home(props) {
-  const { colorMode, toggleColorMode } = useColorMode();
   let query = useQuery();
   let translate = query.get('translate');
 
-  const color = { light: 'black', dark: 'white' };
   return (
     <Box mt="160px" mb="100px">
       <Helmet>

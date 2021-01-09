@@ -7,16 +7,12 @@ const headers = {
 };
 
 export const getSeries = page => async (dispatch, getState) => {
-  console.log(page);
   let data;
   data = await axios
     .get(`${process.env.REACT_APP_API}/series`, { headers })
     .then(res => {
-      console.log(res);
       return res;
     })
-    .catch(err => {
-      console.log(err);
-    });
+    .catch(err => {});
   return data;
 };

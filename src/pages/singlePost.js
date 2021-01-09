@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Carousel from 'react-elastic-carousel';
 import { Helmet } from 'react-helmet';
 
@@ -13,7 +13,7 @@ import {
   Skeleton,
   useColorMode,
 } from '@chakra-ui/core';
-import { useParams, useLocation, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { getArticle } from '../redux/actions/articleActions';
@@ -25,7 +25,7 @@ function useQuery() {
 }
 
 function SingleBlog({ getArticle }) {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
 
   const bg = { light: '#f5f2ef', dark: '#1a202c' };
   const color = { light: 'black', dark: 'white' };
@@ -39,7 +39,6 @@ function SingleBlog({ getArticle }) {
   React.useEffect(() => {
     async function getData() {
       const res = await getArticle(id);
-      console.log(res);
       if (res) {
         setData(res.data);
       }

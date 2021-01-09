@@ -43,7 +43,6 @@ function Publishlist({ postBook }) {
   const handleSubmit = async () => {
     setLoading(true);
     const response = await postBook(data);
-    console.log(response);
     if (response.status === 201) {
       setLoading(false);
 
@@ -60,7 +59,6 @@ function Publishlist({ postBook }) {
     }
   };
 
-  console.log(data);
   return (
     <Box mt="100px" mb="100px">
       <Helmet>

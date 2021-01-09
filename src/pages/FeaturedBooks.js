@@ -13,10 +13,8 @@ export default function Books() {
   let query = useQuery();
   let featured = query.get('featured');
   let translate = query.get('translate');
-  console.log(featured);
 
   let { category } = useParams();
-  console.log(category);
   return (
     <Box>
       <Helmet>

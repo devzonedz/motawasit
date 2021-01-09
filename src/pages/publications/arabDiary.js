@@ -1,18 +1,6 @@
 import React from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
-import {
-  Button,
-  ButtonGroup,
-  Heading,
-  Box,
-  Text,
-  Image,
-  Divider,
-  SimpleGrid,
-  Input,
-  Flex,
-} from '@chakra-ui/core';
+import { Heading, Box, Text, Image, SimpleGrid } from '@chakra-ui/core';
 
 export default function arabDiary() {
   return (

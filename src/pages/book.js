@@ -29,13 +29,12 @@ import { getBook } from '../redux/actions/booksActions';
 import GlobalShare from '../util/GlobalShare';
 
 function Book({ getBook }) {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
 
   const bg = { light: '#f5f2ef', dark: '#1a202c' };
   const color = { light: 'black', dark: 'white' };
 
   let { id } = useParams();
-  console.log(id);
   const [data, setData] = React.useState(null);
   const [loaded, setLoaded] = React.useState(false);
   const imageLoaded = () => {
@@ -44,7 +43,6 @@ function Book({ getBook }) {
   React.useEffect(() => {
     async function getData() {
       const res = await getBook(id);
-      console.log(res);
       if (res) {
         setData(res.data);
       }
@@ -95,7 +93,7 @@ function Book({ getBook }) {
                       </Skeleton>
                       <a
                         target="_blank"
-                        href={`https://motawasit-shop.vercel.app/book/${data.id}`}
+                        href={`${process.env.REACT_APP_BOOK}/${data.id}`}
                       >
                         <Button
                           rounded="20px"

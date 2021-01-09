@@ -12,46 +12,27 @@ import {
   MenuItem,
   Heading,
   SimpleGrid,
-  Button,
 } from '@chakra-ui/core';
 // import { ChevronDownIcon } from '@chakra-ui/icons';
 import { NavLink, Link } from 'react-router-dom';
-import ReactPaginate from 'react-paginate';
 import { FaChevronDown } from 'react-icons/fa';
 
-import {
-  FaGoogle,
-  FaFacebookF,
-  FaHamburger,
-  FaShoppingCart,
-  FaDollarSign,
-  FaSearch,
-  FaNewspaper,
-  FaMoon,
-  FaSun,
-} from 'react-icons/fa';
-import { GiHamburgerMenu } from 'react-icons/gi';
 import { connect } from 'react-redux';
 import { getSeries } from '../../redux/actions/seriesActions';
 
 function Navbar({ getSeries }) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
 
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
 
   const bg = { light: '#f5f2ef', dark: '#1a202c' };
   const filter = { light: '#000000', dark: '#1a202c' };
   const [data, setData] = React.useState(null);
-  const [loaded, setLoaded] = React.useState(false);
-  const imageLoaded = () => {
-    setLoaded(true);
-  };
+
   React.useEffect(() => {
     async function getData() {
       const res = await getSeries();
-      console.log(res);
       if (res) {
         setData(res.data);
       }

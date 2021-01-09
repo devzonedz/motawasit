@@ -1,15 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import {
-  Heading,
-  Box,
-  Text,
-  SimpleGrid,
-  Flex,
-  Image,
-  Center,
-} from '@chakra-ui/core';
+import { Text, SimpleGrid, Flex, Image } from '@chakra-ui/core';
 // import '../components/util/changeBg';
 import first from '../images/main.jpg';
 import main2 from '../images/main2.jpg';

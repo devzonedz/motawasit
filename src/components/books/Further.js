@@ -5,7 +5,6 @@ import {
   Image,
   Text,
   Heading,
-  Divider,
   Skeleton,
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
@@ -20,11 +19,9 @@ function CatBooks({ translate, furthercoming, getBooks }) {
     setLoaded(true);
   };
   React.useEffect(() => {
-    let response;
     async function getData() {
       const res = await getBooks(null, null, translate, furthercoming);
       if (res) {
-        console.log(response);
         setData(Object.values(res.data));
       }
     }

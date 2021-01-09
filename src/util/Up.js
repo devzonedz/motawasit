@@ -32,18 +32,18 @@ export default class Up extends Component {
       <div
         style={{
           backgroundColor: '#151a23',
-          marginLeft: 10,
-          padding: 5,
+          //   marginLeft: 10,
+          //   padding: 5,
           borderRadius: '50%',
-          width: 35,
-          height: 35,
-          marginTop: 5,
-          // position: 'fixed',
-          // bottom: 100,
-          // left: 30,
-          // zIndex: 997,
-          // padding: 10,
-          // cursor: 'pointer',
+          //   width: 37,
+          //   height: 37,
+          //   marginTop: 10,
+          position: 'fixed',
+          bottom: 80,
+          left: 20,
+          zIndex: 997,
+          padding: 10,
+          cursor: 'pointer',
         }}
       >
         <FaChevronUp

@@ -18,7 +18,7 @@ import { connect } from 'react-redux';
 import { getAuthor } from '../../redux/actions/authorActions';
 
 function Author({ getAuthor }) {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
 
   const color = { light: 'black', dark: 'white' };
   const [loaded, setLoaded] = React.useState(false);
@@ -31,7 +31,6 @@ function Author({ getAuthor }) {
   React.useEffect(() => {
     async function getData() {
       const res = await getAuthor(id);
-      console.log(res);
       setData(res.data);
     }
     getData();

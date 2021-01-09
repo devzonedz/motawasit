@@ -1,6 +1,6 @@
 import React from 'react';
-import { ChakraProvider, CSSReset, Box, Grid } from '@chakra-ui/core';
-import { Switch, Route, Link, Redirect, useLocation } from 'react-router-dom';
+import { ChakraProvider, CSSReset } from '@chakra-ui/core';
+import { Switch, Route } from 'react-router-dom';
 // import theme from '@chakra-ui/theme';
 
 import nprogress from 'nprogress';
@@ -31,7 +31,7 @@ import Author from './pages/ourWriters/Author';
 
 import Navbar from './components/layout/Navbar';
 import TopNavbar from './components/layout/TopNavbar';
-import BooksFilter from './components/books/BooksFilter';
+// import BooksFilter from './components/books/BooksFilter';
 import Footer from './components/layout/Footer';
 //?util
 import Up from './util/Up';
@@ -43,7 +43,7 @@ import './styles/globals.css';
 import './styles/fancyroutes.css';
 import 'react-dropzone-uploader/dist/styles.css';
 
-const TIMEOUT = 300;
+// const TIMEOUT = 300;
 
 function App(props) {
   React.useEffect(() => {
@@ -137,7 +137,7 @@ function App(props) {
           <Four />
         </Route>
       </Switch>
-      {/* <Up></Up> */}
+      <Up></Up>
       <Footer></Footer>
     </ChakraProvider>
   );

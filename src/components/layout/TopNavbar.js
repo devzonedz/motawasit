@@ -4,7 +4,6 @@ import {
   Box,
   Flex,
   Badge,
-  Text,
   useColorMode,
   useDisclosure,
   Drawer,
@@ -20,7 +19,6 @@ import {
 } from '@chakra-ui/core';
 // import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
-import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
 import { getSearch } from '../../redux/actions/searchActions';
 
@@ -33,18 +31,7 @@ import {
   connectStateResults,
 } from 'react-instantsearch-dom';
 
-import {
-  FaGoogle,
-  FaFacebookF,
-  FaHamburger,
-  FaShoppingCart,
-  FaDollarSign,
-  FaSearch,
-  FaNewspaper,
-  FaMoon,
-  FaSun,
-} from 'react-icons/fa';
-import { GiHamburgerMenu } from 'react-icons/gi';
+import { FaShoppingCart, FaDollarSign, FaSearch } from 'react-icons/fa';
 import Newsletter from './NewsLetter';
 
 const searchClient = algoliasearch(
@@ -52,43 +39,14 @@ const searchClient = algoliasearch(
   process.env.REACT_APP_algoliaAdminKey
 );
 
-function ShopBadge(props) {
-  return (
-    <Link href="/cart">
-      <Box cursor="pointer" mt={{ base: '15px', md: '0' }} display="flex">
-        <Badge rounded="20px" fontSize="18px" ml="1" colorScheme="green">
-          5
-        </Badge>
-        <FaShoppingCart fontSize="28px"></FaShoppingCart>
-      </Box>
-    </Link>
-  );
-}
-
 function Navbar({ getSearch }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [show, setShow] = React.useState(false);
-  const handleToggle = () => setShow(!show);
 
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
 
   const bg = { light: '#f5f2ef', dark: '#1a202c' };
   const bgIcon = { light: '#000', dark: '#fff' };
   const color = { light: 'white', dark: 'black' };
-
-  const [data, setData] = React.useState(null);
-  const [loaded, setLoaded] = React.useState(false);
-
-  //   React.useEffect(() => {
-  //     async function getData() {
-  //       const res = await getSearch('la');
-  //       console.log(res);
-  //       if (res) {
-  //         setData(res.data);
-  //       }
-  //     }
-  //     getData();
-  //   }, []);
 
   const Books = ({ hits }) => (
     <Box>

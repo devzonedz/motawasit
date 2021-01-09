@@ -1,8 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { useParams, useLocation } from 'react-router-dom';
-import { Box, Heading } from '@chakra-ui/core';
+import { useLocation } from 'react-router-dom';
+import { Box } from '@chakra-ui/core';
 import Further from '../components/books/Further';
 import BooksFilter from '../components/books/BooksFilter';
 
@@ -14,10 +14,7 @@ export default function Books() {
   let query = useQuery();
   let furthercoming = query.get('furthercoming');
   let translate = query.get('translate');
-  console.log(furthercoming);
 
-  let { category } = useParams();
-  console.log(category);
   return (
     <Box>
       <Helmet>

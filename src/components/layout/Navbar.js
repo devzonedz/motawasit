@@ -3,69 +3,29 @@ import {
   Box,
   Heading,
   Flex,
-  Badge,
   Text,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  MenuGroup,
-  MenuDivider,
-  MenuOptionGroup,
-  MenuItemOption,
-  Icon,
-  useToast,
   useColorMode,
-  Button,
-  SimpleGrid,
   Image,
 } from '@chakra-ui/core';
 // import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
-import {
-  FaGoogle,
-  FaFacebookF,
-  FaHamburger,
-  FaShoppingCart,
-  FaMoon,
-  FaSun,
-} from 'react-icons/fa';
+import { FaMoon, FaSun } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaChevronUp } from 'react-icons/fa';
 
-import Login from '../auth/Login';
-import Register from '../auth/Register';
-import Transition from '../../util/Transition';
-import Up from '../../util/Up';
+// import Up from '../../util/Up';
 
 import logo from '../../images/logo.png';
-
-function ShopBadge(props) {
-  return (
-    <Link to="/cart">
-      <Box cursor="pointer" mt={{ base: '15px', md: '0' }} display="flex">
-        <Badge
-          rounded="20px"
-          fontWeight="bold"
-          fontSize="xl"
-          ml="1"
-          colorScheme="green"
-        >
-          5
-        </Badge>
-        <FaShoppingCart fontSize="28px"></FaShoppingCart>
-      </Box>
-    </Link>
-  );
-}
 
 export default function Navbar(props) {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const bg = { light: '#000000', dark: '#1a202c' };
   const color = { light: 'white', dark: 'white' };
-
-  const toast = useToast();
 
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
@@ -332,7 +292,7 @@ export default function Navbar(props) {
           {' '}
           {colorMode === 'light' ? <FaMoon></FaMoon> : <FaSun></FaSun>}
         </Box>
-        <Up></Up>
+        {/* <Up></Up> */}
       </Box>
     </Flex>
   );

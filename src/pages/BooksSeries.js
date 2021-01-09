@@ -10,7 +10,7 @@ import {
   Flex,
   Heading,
 } from '@chakra-ui/core';
-import { Link, useParams, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 
@@ -32,7 +32,6 @@ function CatBooks({ getBooksBySerie }) {
   React.useEffect(() => {
     async function getData() {
       const res = await getBooksBySerie(serie);
-      console.log(res);
       if (res) {
         setData(res.data);
       }

@@ -7,16 +7,12 @@ const headers = {
 };
 
 export const postNews = email => async (dispatch, getState) => {
-  console.log('this is the email', email);
   let data;
   data = await axios
     .post(`${process.env.REACT_APP_API}/newsletter`, { email }, { headers })
     .then(res => {
-      console.log(res);
       return res;
     })
-    .catch(err => {
-      console.log(err);
-    });
+    .catch(err => {});
   return data;
 };

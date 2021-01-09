@@ -25,6 +25,7 @@ export default function SocialButtons() {
     >
       <Flex direction="column">
         <Link
+          to="#"
           //   className="social-href "
           style={{ backgroundColor: bgIcon[colorMode] }}
         >
@@ -39,6 +40,7 @@ export default function SocialButtons() {
           </Box>
         </Link>
         <Link
+          to="#"
           //   className="social-href"
           style={{ backgroundColor: bgIcon[colorMode] }}
         >
@@ -53,6 +55,7 @@ export default function SocialButtons() {
           </Box>
         </Link>
         <Link
+          to="#"
           //   className="social-href"
           style={{ backgroundColor: bgIcon[colorMode] }}
         >
@@ -68,6 +71,7 @@ export default function SocialButtons() {
         </Link>
 
         <Link
+          to="#"
           //   className="social-href"
           style={{ backgroundColor: bgIcon[colorMode] }}
         >
@@ -82,6 +86,7 @@ export default function SocialButtons() {
           </Box>
         </Link>
         <Link
+          to="#"
           //   className="social-href"
           style={{ backgroundColor: bgIcon[colorMode] }}
         >
@@ -96,6 +101,7 @@ export default function SocialButtons() {
           </Box>
         </Link>
         <Link
+          to="#"
           //   className="social-href"
           style={{ backgroundColor: bgIcon[colorMode] }}
         >
@@ -110,6 +116,7 @@ export default function SocialButtons() {
           </Box>
         </Link>
         <Link
+          to="#"
           //   className="social-href"
           style={{ backgroundColor: bgIcon[colorMode] }}
         >

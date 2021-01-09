@@ -38,7 +38,6 @@ export default function Previews(props) {
     accept: 'application/pdf',
     maxFiles: 1,
     onDrop: async acceptedFiles => {
-      console.log(acceptedFiles[0]);
       await setFiles(
         acceptedFiles.map(file =>
           Object.assign(file, {
@@ -49,14 +48,6 @@ export default function Previews(props) {
       props.setData(prevState => ({ ...prevState, file: acceptedFiles[0] }));
     },
   });
-
-  const thumbs = files.map(file => (
-    <div style={thumb} key={file.name}>
-      <div style={thumbInner}>
-        <img src={file.preview} style={img} />
-      </div>
-    </div>
-  ));
 
   const preview = files.map(file => (
     <li key={file.name}>

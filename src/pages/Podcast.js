@@ -10,19 +10,16 @@ function Podcasts({ getPodcasts }) {
   React.useEffect(() => {
     async function getData() {
       const res = await getPodcasts();
-      console.log(res);
       if (res) {
         setData(res.data);
       }
     }
     getData();
   }, []);
-  console.log(data);
 
   const artic =
     data && Object.keys(data.articles).map(key => data.articles[key]);
   const books = data && Object.keys(data.books).map(key => data.books[key]);
-  console.log(artic);
   return (
     <Box mt="100px" mb="700px" pl="10%" pr="10%">
       {data && (

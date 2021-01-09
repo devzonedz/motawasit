@@ -12,22 +12,16 @@ export const getAuthors = letter => async (dispatch, getState) => {
     data = await axios
       .get(`${process.env.REACT_APP_API}/authors?letter=${letter}`, { headers })
       .then(res => {
-        //   console.log(res);
         return res;
       })
-      .catch(err => {
-        console.log(err);
-      });
+      .catch(err => {});
   } else {
     data = await axios
       .get(`${process.env.REACT_APP_API}/authors`, { headers })
       .then(res => {
-        //   console.log(res);
         return res;
       })
-      .catch(err => {
-        console.log(err);
-      });
+      .catch(err => {});
   }
   return data;
 };
@@ -36,12 +30,9 @@ export const getAuthor = id => async (dispatch, getState) => {
   let data = await axios
     .get(`${process.env.REACT_APP_API}/authors/${id}`, { headers })
     .then(res => {
-      //   console.log(res);
       return res;
     })
-    .catch(err => {
-      console.log(err);
-    });
+    .catch(err => {});
 
   return data;
 };
