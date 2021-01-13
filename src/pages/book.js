@@ -93,7 +93,7 @@ function Book({ getBook }) {
                       </Skeleton>
                       <a
                         target="_blank"
-                        href={`${process.env.REACT_APP_BOOK}/${data.id}`}
+                        href={`${process.env.REACT_APP_SHOP}/book/${data.id}`}
                       >
                         <Button
                           rounded="20px"

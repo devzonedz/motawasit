@@ -276,7 +276,7 @@ export default function Navbar(props) {
           fontFamily="diodrum-bold !important"
         >
           <Link onClick={handleToggle} to="/ourWriters/publishConditions">
-            انشر معنا
+            أنشر معنا
           </Link>
         </Text>
 

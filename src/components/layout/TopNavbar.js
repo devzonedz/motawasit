@@ -221,16 +221,18 @@ function Navbar({ getSearch }) {
           <FaShoppingCart></FaShoppingCart>
         </Box> */}
         <Newsletter></Newsletter>
-        <Box
-          rounded="5px"
-          bg={bgIcon[colorMode]}
-          color={color[colorMode]}
-          m="3px"
-          p="10px"
-          fontSize="28px"
-        >
-          <FaDollarSign></FaDollarSign>
-        </Box>
+        <a target="_blank" rel=" noreferrer" href={process.env.REACT_APP_SHOP}>
+          <Box
+            rounded="5px"
+            bg={bgIcon[colorMode]}
+            color={color[colorMode]}
+            m="3px"
+            p="10px"
+            fontSize="28px"
+          >
+            <FaDollarSign></FaDollarSign>
+          </Box>
+        </a>
       </Box>
     </Flex>
   );
