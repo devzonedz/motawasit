@@ -46,7 +46,7 @@ function Home({ getHome }) {
       <Helmet>
         <title>الرئيسية</title>
       </Helmet>
-      <Image src="https://48428-125698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/06/black_lives_matter_in_charlotte1800x675-1600x600.jpg"></Image>
+      <Image src={data && data.image}></Image>
 
       <Masonry
         breakpointCols={breakpointColumnsObj}

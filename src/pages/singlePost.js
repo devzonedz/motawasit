@@ -138,6 +138,11 @@ function SingleBlog({ getArticle }) {
                     <Heading fontFamily="diodrum-med !important" size="md">
                       {data.author}
                     </Heading>
+                        {data.translator && (
+                        <Heading fontFamily="diodrum-med !important" size="sm">
+                          {data.translator}
+                        </Heading>
+                      )}
                   </Box>
                 </Link>
               </Box>
