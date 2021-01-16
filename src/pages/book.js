@@ -50,6 +50,8 @@ function Book({ getBook }) {
     getData();
   }, [id]);
 
+  console.log(data);
+
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
@@ -153,7 +155,7 @@ function Book({ getBook }) {
                 <Divider></Divider>
                 {data.translate_from && (
                   <Text m="2" fontSize="2xl">
-                    ترجم عن : {data.translate_from}
+                    تُرجم عن:{data.translate_from}
                   </Text>
                 )}
 
