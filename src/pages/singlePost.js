@@ -118,42 +118,28 @@ function SingleBlog({ getArticle }) {
                 top="0"
                 display={['none', 'none', 'block', 'block']}
               >
-                {data.books.map(book => (
-                  <Link to={`/book/${book.id}`}>
-                    <Box mb="8">
-                      {/* <Text mb="2" fontSize="xl">
+                <Link to={`/author/${data.author_id}`}>
+                  <Box mb="8">
+                    {/* <Text mb="2" fontSize="xl">
                 بمساهمة صلاح برياني
               </Text> */}
-                      <Divider w="80%"></Divider>
-                      {/* <Image mt="2" src={``}></Image> */}
-                      <Box
-                        mt="2"
-                        mb="4"
-                        style={{
-                          background: `
-    url('${process.env.REACT_APP_STORAGE}/${book.cover}')`,
-                        }}
-                        className="detail-image"
-                        w="80%"
-                        h="270px"
-                      ></Box>
-                      <Heading fontFamily="diodrum-med !important" size="md">
-                        {book.title}
-                      </Heading>
-                      <Text> {book.sub_title} </Text>
-
-                      <Box
-                        fontSize="lg"
-                        mt="2"
-                        pl="6"
-                        className="book-description"
-                        dangerouslySetInnerHTML={{
-                          __html: book.description,
-                        }}
-                      ></Box>
-                    </Box>
-                  </Link>
-                ))}
+                    {/* <Image mt="2" src={``}></Image> */}
+                    <Box
+                      mt="2"
+                      mb="4"
+                      style={{
+                        background: `
+    url('${process.env.REACT_APP_STORAGE}/${data.author_image}')`,
+                      }}
+                      className="detail-image"
+                      w="80%"
+                      h="270px"
+                    ></Box>
+                    <Heading fontFamily="diodrum-med !important" size="md">
+                      {data.author}
+                    </Heading>
+                  </Box>
+                </Link>
               </Box>
             </Box>
             <Box
