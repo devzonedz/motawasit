@@ -186,30 +186,37 @@ export default function Footer() {
           <Heading mt="12" fontFamily="diodrum-bold !important" size="md">
             وسائل التواصل الاجتماعي
           </Heading>
-          <Text
-            color="gray.200"
-            _hover={{ textDecoration: 'underline' }}
-            fontFamily="diodrum-med !important"
-            fontSize="md"
-          >
-            تويتر
-          </Text>
-          <Text
-            color="gray.200"
-            _hover={{ textDecoration: 'underline' }}
-            fontFamily="diodrum-med !important"
-            fontSize="md"
-          >
-            فيسبوك
-          </Text>
-          <Text
-            color="gray.200"
-            _hover={{ textDecoration: 'underline' }}
-            fontFamily="diodrum-med !important"
-            fontSize="md"
-          >
-            انستغرام
-          </Text>
+          <a href="https://twitter.com/Almutawassitit">
+            <Text
+              color="gray.200"
+              _hover={{ textDecoration: 'underline' }}
+              fontFamily="diodrum-med !important"
+              fontSize="md"
+            >
+              تويتر
+            </Text>
+          </a>
+          <a href="https://www.facebook.com/almutawassit">
+            <Text
+              color="gray.200"
+              _hover={{ textDecoration: 'underline' }}
+              fontFamily="diodrum-med !important"
+              fontSize="md"
+            >
+              فيسبوك
+            </Text>
+          </a>
+          <a href="https://www.instagram.com/Almutawassit_books/">
+            <Text
+              color="gray.200"
+              _hover={{ textDecoration: 'underline' }}
+              fontFamily="diodrum-med !important"
+              fontSize="md"
+            >
+              انستغرام
+            </Text>
+          </a>
+          <a href=""></a>
           <Text
             color="gray.200"
             _hover={{ textDecoration: 'underline' }}
@@ -217,6 +224,34 @@ export default function Footer() {
             fontSize="md"
           >
             لينكدن
+          </Text>
+          <a href="https://www.youtube.com/channel/UCSBUh4FMxnG9Wmjio_tJk1w">
+            <Text
+              color="gray.200"
+              _hover={{ textDecoration: 'underline' }}
+              fontFamily="diodrum-med !important"
+              fontSize="md"
+            >
+              يوتيوب
+            </Text>
+          </a>
+          <a href=""></a>
+          <Text
+            color="gray.200"
+            _hover={{ textDecoration: 'underline' }}
+            fontFamily="diodrum-med !important"
+            fontSize="md"
+          >
+            ساوند كلاود
+          </Text>
+          <a href=""></a>
+          <Text
+            color="gray.200"
+            _hover={{ textDecoration: 'underline' }}
+            fontFamily="diodrum-med !important"
+            fontSize="md"
+          >
+            بينتريست
           </Text>
         </Flex>
       </SimpleGrid>
