@@ -102,7 +102,8 @@ export default function Footer() {
           <Heading fontFamily="diodrum-bold !important" size="md">
             قوائم الكتب والكاتالوغات
           </Heading>
-          <a href="../../images/list.xls" download>
+
+          <Link to="/files/list.xls" target="_blank" download>
             <Text
               cursor="pointer"
               color="gray.200"
@@ -112,7 +113,7 @@ export default function Footer() {
             >
               تحميل قائمة إكسل
             </Text>
-          </a>
+          </Link>
 
           <Heading mt="12" fontFamily="diodrum-bold !important" size="md">
             التوزيع والحقوق
