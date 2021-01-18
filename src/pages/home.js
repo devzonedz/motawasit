@@ -46,7 +46,9 @@ function Home({ getHome }) {
       <Helmet>
         <title>الرئيسية</title>
       </Helmet>
-      <Image src={data && data.image}></Image>
+      <Image
+        src={`${process.env.REACT_APP_STORAGE}/${data && data.image}`}
+      ></Image>
 
       <Masonry
         breakpointCols={breakpointColumnsObj}
