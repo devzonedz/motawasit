@@ -124,17 +124,19 @@ function SingleBlog({ getArticle }) {
                 بمساهمة صلاح برياني
               </Text> */}
                     {/* <Image mt="2" src={``}></Image> */}
-                    <Box
-                      mt="2"
-                      mb="4"
-                      style={{
-                        background: `
+                    {data.author_image && (
+                      <Box
+                        mt="2"
+                        mb="4"
+                        style={{
+                          background: `
     url('${process.env.REACT_APP_STORAGE}/${data.author_image}')`,
-                      }}
-                      className="detail-image"
-                      w="80%"
-                      h="270px"
-                    ></Box>
+                        }}
+                        className="detail-image"
+                        w="80%"
+                        h="270px"
+                      ></Box>
+                    )}
                     <Heading fontFamily="diodrum-med !important" size="md">
                       {data.author}
                     </Heading>
@@ -144,9 +146,12 @@ function SingleBlog({ getArticle }) {
                       </Heading>
                     )}
                     {data.reference && (
-                      <Heading fontFamily="diodrum-med !important" size="sm">
-                        {data.reference}
-                      </Heading>
+                      <Box
+                        fontSize="md"
+                        dangerouslySetInnerHTML={{
+                          __html: data.reference,
+                        }}
+                      ></Box>
                     )}
                   </Box>
                 </Link>
