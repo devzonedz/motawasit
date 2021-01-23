@@ -16,7 +16,7 @@ export default function publishlist() {
         size="xl"
       >
         مهرجان الثقافة العربية في ميلانو
-        <Divider
+        {/* <Divider
           mt="4"
           opacity="1"
           border="3px solid black"
@@ -25,7 +25,7 @@ export default function publishlist() {
           //   m="4"
           borderColor="black"
           w="20%"
-        ></Divider>
+        ></Divider> */}
       </Heading>
       <Box
         textAlign="right"

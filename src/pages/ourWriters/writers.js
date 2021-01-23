@@ -35,8 +35,8 @@ function Writers({ getAuthors }) {
   };
 
   const breakpointColumnsObj = {
-    default: 5,
-    1300: 5,
+    default: 3,
+    1300: 3,
     1100: 2,
     1000: 1,
   };
@@ -325,13 +325,13 @@ function Writers({ getAuthors }) {
         {data &&
           Object.values(data).map(author => (
             <Link key={author.id} to={`/author/${author.id}`}>
-              <Box>
-                <Skeleton w="100px" isLoaded={loaded}>
+              <Box oveflow="hidden" mt="4" mb="4" bg="white">
+                <Skeleton w="100%" isLoaded={loaded}>
                   <Image
                     onLoad={imageLoaded}
-                    w="100px"
+                    w="100%"
                     //   h="150px"
-                    m="2"
+                    // m="2"
                     src={`${process.env.REACT_APP_STORAGE}/${author.image}`}
                   ></Image>
                 </Skeleton>
@@ -341,7 +341,7 @@ function Writers({ getAuthors }) {
                     color: 'white',
                     textDecoration: 'underline',
                   }}
-                  m="2"
+                  //   m="2"
                   fontSize="xl"
                   fontFamily="diodrum-med !important"
                 >

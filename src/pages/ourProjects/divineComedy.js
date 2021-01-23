@@ -25,7 +25,7 @@ export default function publishlist() {
         fontSize="2xl"
       >
         إعادة إنتاج "الكوميديا الإلهية" عربياً
-        <Divider
+        {/* <Divider
           mt="4"
           opacity="1"
           border="3px solid black"
@@ -34,7 +34,7 @@ export default function publishlist() {
           //   m="4"
           borderColor="black"
           w="20%"
-        ></Divider>
+        ></Divider> */}
       </Text>
 
       <Box d="flex" justifyContent="center" m="4">

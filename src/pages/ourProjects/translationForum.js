@@ -25,7 +25,7 @@ export default function publishlist() {
         fontFamily="diodrum-bold !important"
       >
         ملتقى الترجمة والأدب العالمي نحو مأسسة الفعل الثقافي
-        <Divider
+        {/* <Divider
           mt="4"
           opacity="1"
           border="3px solid black"
@@ -34,7 +34,7 @@ export default function publishlist() {
           //   m="4"
           borderColor="black"
           w="20%"
-        ></Divider>
+        ></Divider> */}
       </Heading>
       <Box d="flex" justifyContent="center" m="4">
         <Image w={['90%', '90%', '60%', '60%']} src={translation}></Image>
