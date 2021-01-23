@@ -24,7 +24,7 @@ function Home(props) {
         <title>الكتب</title>
       </Helmet>
       <BooksFilter></BooksFilter>
-      <Box mr={['0', '80px']} mt="160px" mb="100px">
+      <Box ml="80px" mr={['0', '80px']} mt="160px" mb="100px">
         <CatBooks translate={translate}></CatBooks>
       </Box>
     </Box>

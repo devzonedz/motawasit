@@ -11,6 +11,7 @@ import {
   Heading,
 } from '@chakra-ui/core';
 import { Link, useLocation } from 'react-router-dom';
+import LazyLoad from 'react-lazyload';
 
 import { connect } from 'react-redux';
 
@@ -45,7 +46,7 @@ function CatBooks({ getBooksBySerie }) {
         <title>{serie}</title>
       </Helmet>
       <BooksFilter></BooksFilter>
-      <Box mr={['0', '80px']} mt="160px" mb="100px">
+      <Box ml="80px" mr={['0', '80px']} mt="160px" mb="100px">
         <Box m="8">
           <Heading fontFamily="diodrum-bold !important">{serie}</Heading>
         </Box>
@@ -59,16 +60,17 @@ function CatBooks({ getBooksBySerie }) {
                 <Box mb="4" cursor="pointer">
                   <Flex justifyContent="center">
                     <Box>
-                      <Skeleton w="225px" h="350px" isLoaded={loaded}>
-                        <Image
-                          onLoad={imageLoaded}
-                          w="225px"
-                          h="350px"
-                          m="0 auto"
-                          shadow="lg"
-                          src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
-                        ></Image>
-                      </Skeleton>
+                      <LazyLoad once height="350px">
+                        <Skeleton w="100%" isLoaded={loaded}>
+                          <Image
+                            onLoad={imageLoaded}
+                            w="100%"
+                            m="0 auto"
+                            shadow="lg"
+                            src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
+                          ></Image>
+                        </Skeleton>
+                      </LazyLoad>
                     </Box>
                   </Flex>
                   <Box mt="4" textAlign="center">

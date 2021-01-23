@@ -77,7 +77,7 @@ function Author({ getAuthor }) {
                 {data.author_bio}
               </Text>
               <Heading fontFamily="diodrum-med !important" size="lg" m="4">
-                صدر له في المتوسط
+                صدر له/لها في المتوسط
               </Heading>
               <Divider
                 // border="4px solid black"

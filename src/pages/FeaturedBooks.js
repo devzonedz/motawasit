@@ -21,7 +21,7 @@ export default function Books() {
         <title>اخر الاصدارات</title>
       </Helmet>
       <BooksFilter></BooksFilter>
-      <Box mr={['0', '80px']} mt="160px" mb="100px">
+      <Box ml="80px" mr={['0', '80px']} mt="160px" mb="100px">
         <Box m="8">
           <Heading>{category}</Heading>
         </Box>

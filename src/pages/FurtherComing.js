@@ -21,7 +21,7 @@ export default function Books() {
         <title>ياتي قريبا</title>
       </Helmet>
       <BooksFilter></BooksFilter>
-      <Box mr={['0', '80px']} mt="100px" mb="100px">
+      <Box ml="80px" mr={['0', '80px']} mt="100px" mb="100px">
         <Further furthercoming={furthercoming} translate={translate}></Further>
       </Box>
     </Box>

@@ -6,13 +6,19 @@ import {
   Text,
   Heading,
   Skeleton,
+  useColorMode,
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Masonry from 'react-masonry-css';
 
 import { getBooks } from '../../redux/actions/booksActions';
+import LazyLoad from 'react-lazyload';
 
 function CatBooks({ translate, furthercoming, getBooks }) {
+  const { colorMode } = useColorMode();
+
+  const bg = { light: 'white', dark: '#151a23' };
   const [data, setData] = React.useState(null);
   const [loaded, setLoaded] = React.useState(false);
   const imageLoaded = () => {
@@ -27,6 +33,13 @@ function CatBooks({ translate, furthercoming, getBooks }) {
     }
     getData();
   }, [translate]);
+  const breakpointColumns = {
+    default: 4,
+    1300: 4,
+    1100: 3,
+    1000: 2,
+    700: 2,
+  };
 
   return (
     <Box mt="160px" mb="100px">
@@ -53,42 +66,39 @@ function CatBooks({ translate, furthercoming, getBooks }) {
             </Heading>
           </Link>
         </Box>
-        <SimpleGrid columns={[1, 2, 3, 5]}>
+        <Masonry
+          breakpointCols={breakpointColumns}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
           {data &&
-            data.length !== 0 &&
-            data.map(book => (
+            data.books &&
+            data.books.length !== 0 &&
+            data.books.map(book => (
               <Link key={book.id} to={`/book/${book.id}`}>
-                <Box mb="4" cursor="pointer">
-                  <Skeleton w="225px" h="350px" isLoaded={loaded}>
-                    <Image
-                      onLoad={imageLoaded}
-                      w="225px"
-                      h="350px"
-                      m="0 auto"
-                      shadow="lg"
-                      src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
-                    ></Image>
-                  </Skeleton>
-                  <Box mt="4" textAlign="center">
-                    <Text
-                      fontFamily="diodrum-med !important"
-                      fontWeight="500"
-                      fontSize="xl"
-                    >
-                      {book.title}
-                    </Text>
-                    <Text fontSize="md" color="gray.600">
-                      {book.sub_title}
-                    </Text>
-                    <Text fontSize="sm" color="gray.500">
-                      {book.author}
-                    </Text>
-                    <Text fontWeight="bold">${book.price}</Text>
-                  </Box>
+                <Box mt="8" pb="4" shadow="lg" bg={bg[colorMode]}>
+                  <LazyLoad once height="350px">
+                    <Skeleton w="100%" isLoaded={loaded}>
+                      <Image
+                        onLoad={imageLoaded}
+                        w="100%"
+                        m="0 auto"
+                        shadow="lg"
+                        src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
+                      ></Image>
+                    </Skeleton>
+                  </LazyLoad>
+                  <Heading m="4"> {book.title} </Heading>
+                  <Box
+                    m="4"
+                    fontSize="xl"
+                    className="content"
+                    dangerouslySetInnerHTML={{ __html: book.overview }}
+                  ></Box>
                 </Box>
               </Link>
             ))}
-        </SimpleGrid>
+        </Masonry>
       </Box>
     </Box>
   );
