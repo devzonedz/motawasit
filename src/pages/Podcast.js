@@ -27,9 +27,9 @@ function Podcasts({ getPodcasts }) {
           <Helmet>
             <title>بودكاست</title>
           </Helmet>
-          <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
+          {/* <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
             بودكاست الكتب
-          </Heading>
+          </Heading> */}
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
             {books.length !== 0 &&
               books.map(podcast => (
@@ -44,9 +44,9 @@ function Podcasts({ getPodcasts }) {
                 ></iframe>
               ))}
           </SimpleGrid>
-          <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
+          {/* <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
             بودكاست المقالات
-          </Heading>
+          </Heading> */}
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
             {artic.length !== 0 &&
               artic.map(podcast => (
@@ -61,9 +61,9 @@ function Podcasts({ getPodcasts }) {
                 ></iframe>
               ))}
           </SimpleGrid>
-          <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
+          {/* <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
             بودكاست براءات
-          </Heading>
+          </Heading> */}
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
             {data.podcasts.length !== 0 &&
               data.podcasts.map(podcast => (

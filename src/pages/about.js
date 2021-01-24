@@ -18,7 +18,7 @@ export default function blog() {
         fontFamily="diodrum-bold !important"
       >
         عن المتوسط
-        <Divider
+        {/* <Divider
           mt="4"
           opacity="1"
           border="3px solid black"
@@ -27,7 +27,7 @@ export default function blog() {
           //   m="4"
           borderColor="black"
           w="20%"
-        ></Divider>
+        ></Divider> */}
       </Heading>
       <Box d="flex" justifyContent="center" m="4">
         <Image
