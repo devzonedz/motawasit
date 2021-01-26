@@ -9,6 +9,7 @@ import {
   Skeleton,
   Flex,
   Heading,
+  Spinner,
 } from '@chakra-ui/core';
 import { Link, useLocation } from 'react-router-dom';
 import LazyLoad from 'react-lazyload';
@@ -50,6 +51,11 @@ function CatBooks({ getBooksBySerie }) {
         <Box m="8">
           <Heading fontFamily="diodrum-bold !important">{serie}</Heading>
         </Box>
+        {!data && (
+          <Box textAlign="center">
+            <Spinner size="xl" />
+          </Box>
+        )}
 
         <SimpleGrid columns={[1, 2, 3, 5]}>
           {data &&

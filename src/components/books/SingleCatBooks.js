@@ -8,6 +8,7 @@ import {
   Flex,
   Heading,
   useColorMode,
+  Spinner,
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -46,41 +47,48 @@ function CatBooks({ category, translate, getBooks }) {
   };
 
   return (
-    // <SimpleGrid columns={[1, 2, 3, 5]}>
-    <Masonry
-      breakpointCols={breakpointColumns}
-      className="my-masonry-grid"
-      columnClassName="my-masonry-grid_column"
-    >
-      {data &&
-        data.books &&
-        data.books.length !== 0 &&
-        data.books.map(book => (
-          <Link key={book.id} to={`/book/${book.id}`}>
-            <Box mt="8" pb="4" shadow="lg" bg={bg[colorMode]}>
-              <LazyLoad once height="350px">
-                <Skeleton w="100%" isLoaded={loaded}>
-                  <Image
-                    onLoad={imageLoaded}
-                    w="100%"
-                    m="0 auto"
-                    shadow="lg"
-                    src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
-                  ></Image>
-                </Skeleton>
-              </LazyLoad>
-              <Heading m="4"> {book.title} </Heading>
-              <Box
-                m="4"
-                fontSize="xl"
-                className="content"
-                dangerouslySetInnerHTML={{ __html: book.overview }}
-              ></Box>
-            </Box>
-          </Link>
-        ))}
-    </Masonry>
-    // </SimpleGrid>
+    <Box>
+      {!data && (
+        <Box textAlign="center">
+          <Spinner size="xl" />
+        </Box>
+      )}
+      {/* // <SimpleGrid columns={[1, 2, 3, 5]}> */}
+      <Masonry
+        breakpointCols={breakpointColumns}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+      >
+        {data &&
+          data.books &&
+          data.books.length !== 0 &&
+          data.books.map(book => (
+            <Link key={book.id} to={`/book/${book.id}`}>
+              <Box mt="8" pb="4" shadow="lg" bg={bg[colorMode]}>
+                <LazyLoad once height="350px">
+                  <Skeleton w="100%" isLoaded={loaded}>
+                    <Image
+                      onLoad={imageLoaded}
+                      w="100%"
+                      m="0 auto"
+                      shadow="lg"
+                      src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
+                    ></Image>
+                  </Skeleton>
+                </LazyLoad>
+                <Heading m="4"> {book.title} </Heading>
+                <Box
+                  m="4"
+                  fontSize="xl"
+                  className="content"
+                  dangerouslySetInnerHTML={{ __html: book.overview }}
+                ></Box>
+              </Box>
+            </Link>
+          ))}
+      </Masonry>
+      {/* // </SimpleGrid> */}
+    </Box>
   );
 }
 

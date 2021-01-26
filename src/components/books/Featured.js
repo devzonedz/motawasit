@@ -8,6 +8,7 @@ import {
   Flex,
   Skeleton,
   useColorMode,
+  Spinner,
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -68,6 +69,11 @@ function CatBooks({ translate, featured, getBooks }) {
           </Heading>
         </Link>
       </Box>
+      {!data && (
+        <Box textAlign="center">
+          <Spinner size="xl" />
+        </Box>
+      )}
       <Masonry
         breakpointCols={breakpointColumns}
         className="my-masonry-grid"

@@ -11,6 +11,7 @@ import {
   Divider,
   useColorMode,
   Skeleton,
+  Spinner,
 } from '@chakra-ui/core';
 import { useParams, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -37,6 +38,11 @@ function Author({ getAuthor }) {
   }, [id]);
   return (
     <Box mt="100px" mb="100px" className="padding">
+      {!data && (
+        <Box textAlign="center">
+          <Spinner size="xl" />
+        </Box>
+      )}
       {data && data === 'لا توجد صفحة لهذا الكاتب' && (
         <Box textAlign="center" mt="200px" mb="200px">
           <Heading>{data}</Heading>

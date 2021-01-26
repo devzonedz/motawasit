@@ -3,7 +3,14 @@ import { Link } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import { Helmet } from 'react-helmet';
 
-import { Heading, Box, Image, Skeleton, useColorMode } from '@chakra-ui/core';
+import {
+  Heading,
+  Box,
+  Image,
+  Skeleton,
+  useColorMode,
+  Spinner,
+} from '@chakra-ui/core';
 
 import { connect } from 'react-redux';
 import { getArticles } from '../redux/actions/articleActions';
@@ -39,6 +46,11 @@ function Blog({ getArticles }) {
         <title>المدونة</title>
       </Helmet>
       {/* <SimpleGrid m="8" columns={[1, 1, 3, 3]} spacing="8"> */}
+      {!data && (
+        <Box textAlign="center">
+          <Spinner size="xl" />
+        </Box>
+      )}
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"

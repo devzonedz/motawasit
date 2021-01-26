@@ -2,7 +2,14 @@ import React from 'react';
 import Masonry from 'react-masonry-css';
 import { Helmet } from 'react-helmet';
 
-import { Heading, Box, useColorMode, Image, Skeleton } from '@chakra-ui/core';
+import {
+  Heading,
+  Box,
+  useColorMode,
+  Image,
+  Skeleton,
+  Spinner,
+} from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 // import fx from 'money';
 import { connect } from 'react-redux';
@@ -46,6 +53,11 @@ function Home({ getHome }) {
       <Helmet>
         <title>الرئيسية</title>
       </Helmet>
+      {!data && (
+        <Box textAlign="center">
+          <Spinner size="xl" />
+        </Box>
+      )}
       <Image
         src={`${process.env.REACT_APP_STORAGE}/${data && data.image}`}
       ></Image>

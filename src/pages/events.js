@@ -2,7 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 
-import { Heading, Box, Image, Skeleton, useColorMode } from '@chakra-ui/core';
+import {
+  Heading,
+  Box,
+  Image,
+  Skeleton,
+  useColorMode,
+  Spinner,
+} from '@chakra-ui/core';
 import { Helmet } from 'react-helmet';
 
 import { connect } from 'react-redux';
@@ -38,6 +45,11 @@ function Blog({ getArticles }) {
       <Helmet>
         <title>نشاطات</title>
       </Helmet>
+      {!data && (
+        <Box textAlign="center">
+          <Spinner size="xl" />
+        </Box>
+      )}
       {/* <SimpleGrid m="8" columns={[1, 1, 3, 3]} spacing="8"> */}
       <Masonry
         breakpointCols={breakpointColumnsObj}

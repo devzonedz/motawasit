@@ -39,7 +39,7 @@ export default class Up extends Component {
           //   height: 37,
           //   marginTop: 10,
           position: 'fixed',
-          bottom: 80,
+          bottom: 100,
           left: 20,
           zIndex: 997,
           padding: 10,

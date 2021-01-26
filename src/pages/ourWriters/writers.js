@@ -10,6 +10,7 @@ import {
   Flex,
   Image,
   Skeleton,
+  Spinner,
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -317,6 +318,11 @@ function Writers({ getAuthors }) {
           ي
         </Button>
       </Flex>{' '}
+      {!data && (
+        <Box textAlign="center">
+          <Spinner size="xl" />
+        </Box>
+      )}
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"

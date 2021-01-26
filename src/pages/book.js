@@ -19,6 +19,7 @@ import {
   Flex,
   Skeleton,
   useColorMode,
+  Spinner,
 } from '@chakra-ui/core';
 import Carousel from 'react-elastic-carousel';
 import { useParams, Link } from 'react-router-dom';
@@ -66,6 +67,11 @@ function Book({ getBook }) {
   ];
   return (
     <Box mt="100px">
+      {!data && (
+        <Box textAlign="center">
+          <Spinner size="xl" />
+        </Box>
+      )}
       <Box mt="100px">
         <Grid
           pr={['2%', '2%', '7%', '7%']}

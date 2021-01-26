@@ -12,6 +12,7 @@ import {
   Flex,
   Skeleton,
   useColorMode,
+  Spinner,
 } from '@chakra-ui/core';
 import { useLocation, Link } from 'react-router-dom';
 
@@ -62,6 +63,11 @@ function SingleBlog({ getArticle }) {
   ];
   return (
     <Box mt="100px">
+      {!data && (
+        <Box textAlign="center">
+          <Spinner size="xl" />
+        </Box>
+      )}
       {data && (
         <Box>
           <Helmet>
@@ -77,22 +83,6 @@ function SingleBlog({ getArticle }) {
               {' '}
               {data.article_title}{' '}
             </Heading>
-            <Link key={data.author_id} to={`/author/${data.author_id}`}>
-              <Text
-                fontFamily="diodrum-med !important"
-                d="inline"
-                _hover={{
-                  bg: 'yellow.300',
-                  color: 'black',
-                  textDecoration: 'underline',
-                }}
-                m="2"
-                fontSize="2xl"
-                color="gray.500"
-              >
-                {data.author}
-              </Text>
-            </Link>
           </Box>
           <Flex justifyContent="center">
             <Box mb="8" w="85%">
