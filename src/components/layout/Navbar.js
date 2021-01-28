@@ -252,7 +252,7 @@ export default function Navbar(props) {
           fontFamily="diodrum-bold !important"
         >
           <Link onClick={handleToggle} to="/podcast">
-            بودكاست
+            ميديا
           </Link>
         </Text>
         <Text

@@ -10,6 +10,7 @@ function Podcasts({ getPodcasts }) {
   React.useEffect(() => {
     async function getData() {
       const res = await getPodcasts();
+      console.log(res);
       if (res) {
         setData(res.data);
       }
@@ -33,15 +34,20 @@ function Podcasts({ getPodcasts }) {
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
             {books.length !== 0 &&
               books.map(podcast => (
-                <iframe
-                  title={data.title}
-                  width="100%"
-                  height="100"
-                  scrolling="no"
-                  frameborder="no"
-                  allow="autoplay"
-                  src={podcast}
-                ></iframe>
+                <Box>
+                  <Heading fontFamily="diodrum-med !important" size="md" mb="4">
+                    {podcast.title}
+                  </Heading>
+                  <iframe
+                    title={data.title}
+                    width="100%"
+                    height="100"
+                    scrolling="no"
+                    frameborder="no"
+                    allow="autoplay"
+                    src={podcast}
+                  ></iframe>
+                </Box>
               ))}
           </SimpleGrid>
           {/* <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
@@ -50,15 +56,20 @@ function Podcasts({ getPodcasts }) {
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
             {artic.length !== 0 &&
               artic.map(podcast => (
-                <iframe
-                  title={data.title}
-                  width="100%"
-                  height="100"
-                  scrolling="no"
-                  frameborder="no"
-                  allow="autoplay"
-                  src={podcast}
-                ></iframe>
+                <Box>
+                  <Heading fontFamily="diodrum-med !important" size="md" mb="4">
+                    {podcast.title}
+                  </Heading>
+                  <iframe
+                    title={data.title}
+                    width="100%"
+                    height="100"
+                    scrolling="no"
+                    frameborder="no"
+                    allow="autoplay"
+                    src={podcast}
+                  ></iframe>
+                </Box>
               ))}
           </SimpleGrid>
           {/* <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
@@ -67,15 +78,16 @@ function Podcasts({ getPodcasts }) {
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
             {data.podcasts.length !== 0 &&
               data.podcasts.map(podcast => (
-                <iframe
-                  title={data.title}
-                  width="100%"
-                  height="100"
-                  scrolling="no"
-                  frameborder="no"
-                  allow="autoplay"
-                  src={podcast}
-                ></iframe>
+                <Box>
+                  <Heading fontFamily="diodrum-med !important" size="md" mb="4">
+                    {podcast.title}
+                  </Heading>
+                  <Box
+                    dangerouslySetInnerHTML={{
+                      __html: podcast.url,
+                    }}
+                  ></Box>
+                </Box>
               ))}
           </SimpleGrid>
         </Box>

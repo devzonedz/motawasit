@@ -11,12 +11,16 @@ import {
   Image,
   Skeleton,
   Spinner,
+  useColorMode,
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getAuthors } from '../../redux/actions/authorActions';
 
 function Writers({ getAuthors }) {
+  const { colorMode } = useColorMode();
+
+  const bg = { light: 'white', dark: '#151a23' };
   const [data, setData] = React.useState(null);
   const [loaded, setLoaded] = React.useState(false);
   const imageLoaded = () => {
@@ -331,7 +335,7 @@ function Writers({ getAuthors }) {
         {data &&
           Object.values(data).map(author => (
             <Link key={author.id} to={`/author/${author.id}`}>
-              <Box oveflow="hidden" mt="4" mb="4" bg="white">
+              <Box oveflow="hidden" pb="4" mt="4" mb="4" bg={bg[colorMode]}>
                 <Skeleton w="100%" isLoaded={loaded}>
                   <Image
                     onLoad={imageLoaded}
@@ -348,6 +352,7 @@ function Writers({ getAuthors }) {
                     textDecoration: 'underline',
                   }}
                   mt="4"
+                  mr="4"
                   fontSize="xl"
                   fontFamily="diodrum-med !important"
                 >
