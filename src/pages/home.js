@@ -9,6 +9,7 @@ import {
   Image,
   Skeleton,
   Spinner,
+  Text,
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 // import fx from 'money';
@@ -27,6 +28,7 @@ function Home({ getHome }) {
   React.useEffect(() => {
     async function getData() {
       const res = await getHome();
+      console.log(res);
       if (res) {
         setData(res.data);
       }
@@ -58,8 +60,9 @@ function Home({ getHome }) {
           <Spinner size="xl" />
         </Box>
       )}
+      <Text mb="2">{data && data.image.name}</Text>
       <Image
-        src={`${process.env.REACT_APP_STORAGE}/${data && data.image}`}
+        src={`${process.env.REACT_APP_STORAGE}/${data && data.image.image}`}
       ></Image>
 
       <Masonry
