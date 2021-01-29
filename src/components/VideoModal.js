@@ -11,6 +11,7 @@ import {
   useColorMode,
 } from '@chakra-ui/core';
 import React from 'react';
+import { AiFillPlayCircle } from 'react-icons/ai';
 
 export default function PodcastModal({ podcast }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -21,14 +22,26 @@ export default function PodcastModal({ podcast }) {
   return (
     <>
       <Box shadow="lg" bg={bg[colorMode]} onClick={onOpen}>
-        <Image
-          src={`${process.env.REACT_APP_STORAGE}/${podcast.image}`}
-        ></Image>
+        <Box position="relative">
+          <Image
+            src={`${process.env.REACT_APP_STORAGE}/${podcast.image}`}
+          ></Image>
+          <Box
+            position="absolute"
+            bottom="10px"
+            left="10px"
+            fontSize="70px"
+            color="#eee"
+          >
+            <AiFillPlayCircle></AiFillPlayCircle>
+          </Box>
+        </Box>
         <Box p="4">
-          <Heading mt="4" fontFamily="diodrum-med !important" size="md" mb="4">
+          <Heading fontFamily="diodrum-med !important" size="md" mb="2">
             {podcast.title}
           </Heading>
           <Box
+            fontSize="xl"
             className="event-body"
             dangerouslySetInnerHTML={{
               __html: podcast.description,
