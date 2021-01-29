@@ -24,6 +24,7 @@ import Blog from './pages/blog';
 import Book from './pages/book';
 import Books from './pages/books';
 import Podcast from './pages/Podcast';
+import Videos from './pages/videos';
 import FeaturedBooks from './pages/FeaturedBooks';
 import FurtherComing from './pages/FurtherComing';
 import BooksByCategory from './pages/BooksByCategory';
@@ -109,6 +110,9 @@ function App(props) {
 
         <Route title="podcast" exact path="/podcast">
           <Podcast />
+        </Route>
+        <Route title="videos" exact path="/videos">
+          <Videos />
         </Route>
         <Route title="featured" exact path="/featured">
           <FeaturedBooks />

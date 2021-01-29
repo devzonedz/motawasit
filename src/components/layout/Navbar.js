@@ -244,17 +244,30 @@ export default function Navbar(props) {
           </Link>
         </Text> */}
         <Text
-          mt={{ base: 4, md: 0 }}
-          ml={6}
-          display="block"
-          fontWeight="bold"
-          fontSize="xl"
           fontFamily="diodrum-bold !important"
+          fontWeight="bold"
+          mt={{ base: 4, md: 0 }}
+          ml={8}
+          display="block"
+          fontSize="18px"
         >
           <Link onClick={handleToggle} to="/podcast">
-            ميديا
+            بودكاست
           </Link>
         </Text>
+        <Text
+          fontFamily="diodrum-bold !important"
+          fontWeight="bold"
+          mt={{ base: 4, md: 0 }}
+          ml={8}
+          display="block"
+          fontSize="18px"
+        >
+          <Link onClick={handleToggle} to="/videos">
+            فيديو
+          </Link>
+        </Text>
+
         <Text
           mt={{ base: 4, md: 0 }}
           ml={6}

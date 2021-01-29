@@ -1,31 +1,15 @@
 import React from 'react';
-import {
-  Box,
-  Heading,
-  SimpleGrid,
-  Image,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-} from '@chakra-ui/core';
+import { Box, Heading, SimpleGrid } from '@chakra-ui/core';
 import { connect } from 'react-redux';
-import { getPodcasts } from '../redux/actions/poscastsActions';
+import { getVideos } from '../redux/actions/poscastsActions';
 import { Helmet } from 'react-helmet';
 
-import PodcastModal from '../components/PodcastModal';
-import PodcastBookModal from '../components/PodcastBookModal';
-import PodcastArticleModal from '../components/PodcastArticleModal';
-
-function Podcasts({ getPodcasts }) {
+function Podcasts({ getVideos }) {
   const [data, setData] = React.useState(null);
 
   React.useEffect(() => {
     async function getData() {
-      const res = await getPodcasts();
+      const res = await getVideos();
       console.log(res);
       if (res) {
         setData(res.data);
@@ -42,7 +26,7 @@ function Podcasts({ getPodcasts }) {
       {data && (
         <Box>
           <Helmet>
-            <title>بودكاست</title>
+            <title>فيديو</title>
           </Helmet>
           {/* <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
             بودكاست الكتب
@@ -50,7 +34,20 @@ function Podcasts({ getPodcasts }) {
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
             {books.length !== 0 &&
               books.map(podcast => (
-                <PodcastBookModal podcast={podcast}></PodcastBookModal>
+                <Box>
+                  <Heading fontFamily="diodrum-med !important" size="md" mb="4">
+                    {podcast.title}
+                  </Heading>
+                  <iframe
+                    title={data.title}
+                    width="100%"
+                    height="100"
+                    scrolling="no"
+                    frameborder="no"
+                    allow="autoplay"
+                    src={podcast}
+                  ></iframe>
+                </Box>
               ))}
           </SimpleGrid>
           {/* <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
@@ -59,7 +56,20 @@ function Podcasts({ getPodcasts }) {
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
             {artic.length !== 0 &&
               artic.map(podcast => (
-                <PodcastArticleModal podcast={podcast}></PodcastArticleModal>
+                <Box>
+                  <Heading fontFamily="diodrum-med !important" size="md" mb="4">
+                    {podcast.title}
+                  </Heading>
+                  <iframe
+                    title={data.title}
+                    width="100%"
+                    height="100"
+                    scrolling="no"
+                    frameborder="no"
+                    allow="autoplay"
+                    src={podcast}
+                  ></iframe>
+                </Box>
               ))}
           </SimpleGrid>
           {/* <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
@@ -68,7 +78,16 @@ function Podcasts({ getPodcasts }) {
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
             {data.podcasts.length !== 0 &&
               data.podcasts.map(podcast => (
-                <PodcastModal podcast={podcast}></PodcastModal>
+                <Box>
+                  <Heading fontFamily="diodrum-med !important" size="md" mb="4">
+                    {podcast.title}
+                  </Heading>
+                  <Box
+                    dangerouslySetInnerHTML={{
+                      __html: podcast.url,
+                    }}
+                  ></Box>
+                </Box>
               ))}
           </SimpleGrid>
         </Box>
@@ -78,7 +97,7 @@ function Podcasts({ getPodcasts }) {
 }
 
 const mapDispatchToProps = dispatch => {
-  return { getPodcasts: () => dispatch(getPodcasts()) };
+  return { getVideos: () => dispatch(getVideos()) };
 };
 
 export default connect(null, mapDispatchToProps)(Podcasts);
