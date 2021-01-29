@@ -1,8 +1,24 @@
 import React from 'react';
-import { Box, Heading, SimpleGrid } from '@chakra-ui/core';
+import {
+  Box,
+  Heading,
+  SimpleGrid,
+  Image,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from '@chakra-ui/core';
 import { connect } from 'react-redux';
 import { getVideos } from '../redux/actions/poscastsActions';
 import { Helmet } from 'react-helmet';
+
+import VideoModal from '../components/VideoModal';
+import VideoBookModal from '../components/VideoBookModal';
+import VideoArticleModal from '../components/VideoArticleModal';
 
 function Podcasts({ getVideos }) {
   const [data, setData] = React.useState(null);
@@ -26,7 +42,7 @@ function Podcasts({ getVideos }) {
       {data && (
         <Box>
           <Helmet>
-            <title>فيديو</title>
+            <title>بودكاست</title>
           </Helmet>
           {/* <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
             بودكاست الكتب
@@ -34,20 +50,7 @@ function Podcasts({ getVideos }) {
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
             {books.length !== 0 &&
               books.map(podcast => (
-                <Box>
-                  <Heading fontFamily="diodrum-med !important" size="md" mb="4">
-                    {podcast.title}
-                  </Heading>
-                  <iframe
-                    title={data.title}
-                    width="100%"
-                    height="100"
-                    scrolling="no"
-                    frameborder="no"
-                    allow="autoplay"
-                    src={podcast}
-                  ></iframe>
-                </Box>
+                <VideoBookModal podcast={podcast}></VideoBookModal>
               ))}
           </SimpleGrid>
           {/* <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
@@ -56,20 +59,7 @@ function Podcasts({ getVideos }) {
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
             {artic.length !== 0 &&
               artic.map(podcast => (
-                <Box>
-                  <Heading fontFamily="diodrum-med !important" size="md" mb="4">
-                    {podcast.title}
-                  </Heading>
-                  <iframe
-                    title={data.title}
-                    width="100%"
-                    height="100"
-                    scrolling="no"
-                    frameborder="no"
-                    allow="autoplay"
-                    src={podcast}
-                  ></iframe>
-                </Box>
+                <VideoArticleModal podcast={podcast}></VideoArticleModal>
               ))}
           </SimpleGrid>
           {/* <Heading fontFamily="diodrum-bold !important" mt="8" size="xl">
@@ -78,16 +68,7 @@ function Podcasts({ getVideos }) {
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
             {data.podcasts.length !== 0 &&
               data.podcasts.map(podcast => (
-                <Box>
-                  <Heading fontFamily="diodrum-med !important" size="md" mb="4">
-                    {podcast.title}
-                  </Heading>
-                  <Box
-                    dangerouslySetInnerHTML={{
-                      __html: podcast.url,
-                    }}
-                  ></Box>
-                </Box>
+                <VideoModal podcast={podcast}></VideoModal>
               ))}
           </SimpleGrid>
         </Box>
