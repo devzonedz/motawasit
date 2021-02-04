@@ -118,15 +118,12 @@ function Book({ getBook }) {
                       </Box>
                       <Box w={['300px', '300px', '400px', '400px']}>
                         {data.podcast && (
-                          <iframe
-                            title={data.title}
-                            width="100%"
-                            height="100"
-                            scrolling="no"
-                            frameborder="no"
-                            allow="autoplay"
-                            src={data.podcast}
-                          ></iframe>
+                          <Box
+                            m="4"
+                            fontSize="2xl"
+                            className="content"
+                            dangerouslySetInnerHTML={{ __html: data.podcast }}
+                          ></Box>
                         )}
                       </Box>
                     </Box>
