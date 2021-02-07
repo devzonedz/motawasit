@@ -2,26 +2,27 @@ import {
   Box,
   Heading,
   Image,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalBody,
-  ModalCloseButton,
   useDisclosure,
   useColorMode,
+  Drawer,
+  DrawerBody,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
 } from '@chakra-ui/core';
 import React from 'react';
 import { AiFillPlayCircle } from 'react-icons/ai';
 
 export default function PodcastModal({ podcast }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
   const { colorMode } = useColorMode();
 
   const bg = { light: 'white', dark: '#151a23' };
 
   return (
     <>
-      <Box shadow="lg" bg={bg[colorMode]} onClick={onOpen}>
+      <Box ref={btnRef} shadow="lg" bg={bg[colorMode]} onClick={onOpen}>
         <Box position="relative">
           <Image
             src={`${process.env.REACT_APP_STORAGE}/${podcast.image}`}
@@ -49,27 +50,51 @@ export default function PodcastModal({ podcast }) {
           ></Box>
         </Box>
       </Box>
+      <Drawer
+        isOpen={isOpen}
+        placement="bottom"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+        size="full"
+      >
+        <DrawerOverlay>
+          <DrawerContent>
+            <DrawerCloseButton />
 
-      <Modal size="full" isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent bg="transparent" shadow="none">
-          <ModalCloseButton
-            position="absolute"
-            top="10px"
-            left="10px"
-            right="none"
-          />
-          <Box
-            d="flex"
-            justifyContent="center"
-            m="100px"
-            className="event-body"
-            dangerouslySetInnerHTML={{
-              __html: podcast.url,
-            }}
-          ></Box>
-        </ModalContent>
-      </Modal>
+            <DrawerBody>
+              <Heading
+                mt="100px"
+                mr="10%"
+                ml="10%"
+                mb="4"
+                fontFamily="diodrum-med !important"
+                size="md"
+              >
+                {podcast.title}
+              </Heading>
+              <Box
+                mr="10%"
+                ml="10%"
+                mb="4"
+                className="event-body"
+                dangerouslySetInnerHTML={{
+                  __html: podcast.url,
+                }}
+              ></Box>
+              <Box
+                fontSize="xl"
+                // className="event-body"
+                mr="10%"
+                ml="10%"
+                mb="100px"
+                dangerouslySetInnerHTML={{
+                  __html: podcast.description,
+                }}
+              ></Box>
+            </DrawerBody>
+          </DrawerContent>
+        </DrawerOverlay>
+      </Drawer>
     </>
   );
 }
