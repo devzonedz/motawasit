@@ -58,7 +58,7 @@ export default function PodcastModal({ podcast }) {
         size="full"
       >
         <DrawerOverlay>
-          <DrawerContent>
+          <DrawerContent bg="black" color="white">
             <DrawerCloseButton />
 
             <DrawerBody>

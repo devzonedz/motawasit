@@ -266,8 +266,8 @@ function Publishlist({ postBook }) {
                 !data.book_language ||
                 !data.book_category
               }
-              _hover={{ bg: '#212121' }}
               w="100%"
+              _hover={{ bg: '#212121' }}
               bg="black"
               color="white"
               onClick={handleSubmit}

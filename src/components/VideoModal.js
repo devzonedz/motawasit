@@ -9,6 +9,7 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
+  Flex,
 } from '@chakra-ui/core';
 import React from 'react';
 import { AiFillPlayCircle } from 'react-icons/ai';
@@ -58,7 +59,7 @@ export default function PodcastModal({ podcast }) {
         size="full"
       >
         <DrawerOverlay>
-          <DrawerContent>
+          <DrawerContent bg="black" color="white">
             <DrawerCloseButton />
 
             <DrawerBody>
@@ -72,15 +73,17 @@ export default function PodcastModal({ podcast }) {
               >
                 {podcast.title}
               </Heading>
-              <Box
-                mr="10%"
-                ml="10%"
-                mb="4"
-                className="event-body"
-                dangerouslySetInnerHTML={{
-                  __html: podcast.url,
-                }}
-              ></Box>
+              <Flex justifyContent="center">
+                <Box
+                  mr="10%"
+                  ml="10%"
+                  mb="4"
+                  className="event-body"
+                  dangerouslySetInnerHTML={{
+                    __html: podcast.url,
+                  }}
+                ></Box>
+              </Flex>
               <Box
                 fontSize="xl"
                 // className="event-body"
