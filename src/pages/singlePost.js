@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Carousel from 'react-elastic-carousel';
 import { Helmet } from 'react-helmet';
+// import parse from 'html-react-parser';
 
 import {
   Box,
@@ -12,9 +13,9 @@ import {
   Flex,
   Skeleton,
   useColorMode,
-  Spinner,
+  Button,
 } from '@chakra-ui/core';
-import { useLocation, Link } from 'react-router-dom';
+import { useParams, useLocation, Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { getArticle } from '../redux/actions/articleActions';
@@ -26,7 +27,7 @@ function useQuery() {
 }
 
 function SingleBlog({ getArticle }) {
-  const { colorMode } = useColorMode();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   const bg = { light: '#f5f2ef', dark: '#1a202c' };
   const color = { light: 'black', dark: 'white' };
@@ -40,14 +41,27 @@ function SingleBlog({ getArticle }) {
   React.useEffect(() => {
     async function getData() {
       const res = await getArticle(id);
+      console.log(res);
       if (res) {
         setData(res.data);
       }
     }
     getData();
   }, []);
-
-  console.log(data);
+  const ar = data && data.article_body;
+  //   const ar = `
+  //   <p id="main">
+  //     <span class="prettify">
+  //       keep me and make me pretty!
+  //     </span>
+  //   </p>
+  // `;
+  //   data &&
+  //     parse(ar.toString(), {
+  //       replace: domNode => {
+  //         console.log(domNode);
+  //       },
+  //     });
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -63,11 +77,6 @@ function SingleBlog({ getArticle }) {
   ];
   return (
     <Box mt="100px">
-      {!data && (
-        <Box textAlign="center">
-          <Spinner size="xl" />
-        </Box>
-      )}
       {data && (
         <Box>
           <Helmet>
@@ -83,6 +92,22 @@ function SingleBlog({ getArticle }) {
               {' '}
               {data.article_title}{' '}
             </Heading>
+            {/* <Link key={data.author_id} to={`/author/${data.author_id}`}>
+              <Text
+                fontFamily="diodrum-med !important"
+                d="inline"
+                _hover={{
+                  bg: 'yellow.300',
+                  color: 'black',
+                  textDecoration: 'underline',
+                }}
+                m="2"
+                fontSize="2xl"
+                color="gray.500"
+              >
+                {data.author}
+              </Text>
+            </Link> */}
           </Box>
           <Flex justifyContent="center">
             <Box mb="8" w="85%">
@@ -108,43 +133,65 @@ function SingleBlog({ getArticle }) {
                 top="0"
                 display={['none', 'none', 'block', 'block']}
               >
-                <Link to={`/author/${data.author_id}`}>
-                  <Box mb="8">
-                    {/* <Text mb="2" fontSize="xl">
+                <Box mb="8">
+                  {/* <Text mb="2" fontSize="xl">
                 بمساهمة صلاح برياني
               </Text> */}
-                    {/* <Image mt="2" src={``}></Image> */}
-                    {data.author_image && (
-                      <Box
-                        mt="2"
-                        mb="4"
-                        style={{
-                          background: `
+                  {/* <Image mt="2" src={``}></Image> */}
+                  {data.author_image && (
+                    <Box
+                      mt="2"
+                      mb="4"
+                      style={{
+                        background: `
     url('${process.env.REACT_APP_STORAGE}/${data.author_image}')`,
-                        }}
-                        className="detail-image"
-                        w="80%"
-                        h="270px"
-                      ></Box>
-                    )}
-                    <Heading fontFamily="diodrum-med !important" size="md">
-                      {data.author}
+                      }}
+                      className="detail-image"
+                      w="80%"
+                      h="270px"
+                    ></Box>
+                  )}
+                  <Heading fontFamily="diodrum-med !important" size="md">
+                    {data.author}
+                  </Heading>
+                  {data.translator && (
+                    <Heading fontFamily="diodrum-med !important" size="sm">
+                      ترجمة: {data.translator}
                     </Heading>
-                    {data.translator && (
-                      <Heading fontFamily="diodrum-med !important" size="sm">
-                        ترجمة: {data.translator}
-                      </Heading>
-                    )}
-                    {data.reference && (
-                      <Box
-                        fontSize="md"
-                        dangerouslySetInnerHTML={{
-                          __html: data.reference,
-                        }}
-                      ></Box>
-                    )}
-                  </Box>
-                </Link>
+                  )}
+                  {data.reference && (
+                    <Box
+                      fontSize="md"
+                      dangerouslySetInnerHTML={{
+                        __html: data.reference,
+                      }}
+                    ></Box>
+                  )}
+                  {data.pdf && (
+                    <Box
+                      mt="4"
+                      fontFamily="diodrum-med !important"
+                      fontSize="lg"
+                      fontWeight="bold"
+                      //   textDecoration="underline"
+                    >
+                      <a
+                        href={`${process.env.REACT_APP_STORAGE}/${data.pdf}`}
+                        download
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <Button
+                          _hover={{ bg: '#212121' }}
+                          bg="black"
+                          color="white"
+                        >
+                          تحميل
+                        </Button>
+                      </a>
+                    </Box>
+                  )}
+                </Box>
               </Box>
             </Box>
             <Box
@@ -157,6 +204,7 @@ function SingleBlog({ getArticle }) {
                 __html: data.article_body,
               }}
             ></Box>
+            <Box></Box>
           </Grid>
 
           <GlobalShare></GlobalShare>
@@ -171,7 +219,7 @@ function SingleBlog({ getArticle }) {
               <Box
                 mt="100px"
                 mb="4"
-                //   color={color[colorMode]}
+                //    color={color[colorMode]}
                 color="white"
               >
                 <Heading

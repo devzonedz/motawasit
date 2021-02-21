@@ -51,6 +51,8 @@ function BasicUsage({ postNews }) {
         color={color[colorMode]}
         m="3px"
         p="10px"
+        w="50px"
+        h="50px"
         fontSize="28px"
       >
         <FaNewspaper></FaNewspaper>

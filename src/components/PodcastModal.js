@@ -18,6 +18,11 @@ export default function PodcastModal({ podcast }) {
   const btnRef = React.useRef();
   const { colorMode } = useColorMode();
 
+  const [loaded, setLoaded] = React.useState(false);
+  const imageLoaded = () => {
+    setLoaded(true);
+  };
+
   const bg = { light: 'white', dark: '#151a23' };
 
   return (
@@ -25,17 +30,20 @@ export default function PodcastModal({ podcast }) {
       <Box ref={btnRef} shadow="lg" bg={bg[colorMode]} onClick={onOpen}>
         <Box position="relative">
           <Image
+            onLoad={imageLoaded}
             src={`${process.env.REACT_APP_STORAGE}/${podcast.image}`}
           ></Image>
-          <Box
-            position="absolute"
-            bottom="10px"
-            left="10px"
-            fontSize="70px"
-            color="#eee"
-          >
-            <AiFillPlayCircle></AiFillPlayCircle>
-          </Box>
+          {loaded && (
+            <Box
+              position="absolute"
+              bottom="10px"
+              left="10px"
+              fontSize="70px"
+              color="#eee"
+            >
+              <AiFillPlayCircle></AiFillPlayCircle>
+            </Box>
+          )}
         </Box>
         <Box p="4">
           <Heading fontFamily="diodrum-med !important" size="md" mb="2">
