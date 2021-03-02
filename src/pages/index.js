@@ -8,6 +8,7 @@ import main2 from '../images/main2.jpg';
 import main3 from '../images/main3.jpg';
 import medium from '../images/logo.png';
 import center from '../images/center-main-logo.png';
+import newcenter from '../images/new-center-logo.jpeg';
 import shope from '../images/shop-logo.png';
 import braat from '../images/braat-logo.png';
 
@@ -108,7 +109,7 @@ export default function Home() {
               justifyContent="center"
               direction="column"
             >
-              <Image w="70%" src={center}></Image>
+              <Image w="70%" src={newcenter}></Image>
               {/* <Text mt="4" fontSize="2xl">
                 لشعر أكثر الأفعال حظاً من البراءة
               </Text> */}

@@ -197,12 +197,18 @@ function Navbar({ getSearch }) {
             size="full"
           >
             <DrawerOverlay>
-              <DrawerContent pt="50px" bg="black" color="white">
+              <DrawerContent
+                mt={['100px', '0']}
+                pt="50px"
+                bg="black"
+                color="white"
+              >
                 <DrawerCloseButton
                   position="absolute"
                   top="50px"
                   left="10px"
                   right="none"
+                  mt={['100px', '0']}
                 />
 
                 <DrawerHeader fontSize="36px">بحث</DrawerHeader>
