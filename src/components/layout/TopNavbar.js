@@ -197,12 +197,7 @@ function Navbar({ getSearch }) {
             size="full"
           >
             <DrawerOverlay>
-              <DrawerContent
-                mt={['100px', '0']}
-                pt="50px"
-                bg="black"
-                color="white"
-              >
+              <DrawerContent pt={['100px', '0']} bg="black" color="white">
                 <DrawerCloseButton
                   position="absolute"
                   top="50px"
