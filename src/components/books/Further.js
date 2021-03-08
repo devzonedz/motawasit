@@ -29,6 +29,7 @@ function CatBooks({ translate, furthercoming, getBooks }) {
     async function getData() {
       const res = await getBooks(null, null, translate, furthercoming);
       if (res) {
+        console.log(res);
         setData(Object.values(res.data));
       }
     }
@@ -78,9 +79,7 @@ function CatBooks({ translate, furthercoming, getBooks }) {
           columnClassName="my-masonry-grid_column"
         >
           {data &&
-            data.books &&
-            data.books.length !== 0 &&
-            data.books.map(book => (
+            Object.values(data).map(book => (
               <Link key={book.id} to={`/book/${book.id}`}>
                 <Box mt="8" pb="4" shadow="lg" bg={bg[colorMode]}>
                   <LazyLoad once height="350px">

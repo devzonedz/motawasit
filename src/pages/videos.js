@@ -42,7 +42,7 @@ function Podcasts({ getVideos }) {
       {data && (
         <Box>
           <Helmet>
-            <title>بودكاست</title>
+            <title>فيديو المتوسط</title>
           </Helmet>
           {/*
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
