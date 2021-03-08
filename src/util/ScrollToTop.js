@@ -4,7 +4,10 @@ import { animateScroll as scroll } from 'react-scroll';
 
 class ScrollToTop extends Component {
   componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
+    if (
+      this.props.location !== prevProps.location &&
+      this.props.location.hash === ''
+    ) {
       scroll.scrollToTop();
     }
   }
