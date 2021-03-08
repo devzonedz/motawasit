@@ -59,7 +59,7 @@ export default function Footer() {
               fontFamily="diodrum-med !important"
               fontSize="md"
             >
-              سياسة خاصة
+              سياسة الخصوصية
             </Text>
           </Link>
           <Link to="/questions">
