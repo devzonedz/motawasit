@@ -350,7 +350,7 @@ function SingleBlog({ getArticle }) {
                   ></Box> */}
                           <Image
                             w="100%"
-                            h="200px"
+                            // h="200px"
                             onLoad={imageLoaded}
                             src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
                           ></Image>
