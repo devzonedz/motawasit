@@ -310,13 +310,13 @@ function Book({ getBook }) {
                       shadow="lg"
                       src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
                     ></Image>
-                    <Box mt="4" textAlign="center">
-                      <Text
-                        color="white"
-                        fontFamily="diodrum-med !important"
-                        fontWeight="500"
-                        fontSize="xl"
-                      >
+                    <Box
+                      fontFamily="diodrum-med !important"
+                      color="white"
+                      mt="4"
+                      textAlign="center"
+                    >
+                      <Text fontWeight="500" fontSize="xl">
                         {book.title}
                       </Text>
                       <Text fontSize="md">{book.sub_title}</Text>
@@ -359,31 +359,6 @@ function Book({ getBook }) {
               //   itemsToShow={3}
             >
               {data.articles.map(article => (
-                //             <Link to={`/singlePost?id=${article.id}`}>
-                //               <Box bg="#f5f2ef" shadow="lg" p="2" cursor="pointer">
-                //                 <Box
-                //                   style={{
-                //                     background: `
-                // url('${process.env.REACT_APP_STORAGE}/${article.image}')`,
-                //                   }}
-                //                   className="detail-image"
-                //                   h="200px"
-                //                   w="280px"
-                //                 ></Box>
-                //                 <Heading color="white" m="2" size="lg">
-                //                   {article.title}
-                //                 </Heading>
-                //                 <Heading> {article.author} </Heading>
-
-                //                 <Box
-                //                   fontSize="lg"
-                //                   className="event-body"
-                //                   dangerouslySetInnerHTML={{
-                //                     __html: article.body,
-                //                   }}
-                //                 ></Box>
-                //               </Box>
-                //             </Link>
                 <Link to={`/singlePost?id=${article.id}`}>
                   <Box
                     bg="white"
@@ -396,17 +371,9 @@ function Book({ getBook }) {
                   >
                     <Box>
                       <Skeleton w="100%" isLoaded={loaded}>
-                        {/* <Box
-                    style={{
-                      background: ` linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('${process.env.REACT_APP_STORAGE}/${article.image}')`,
-                    }}
-                    className="detail-image"
-                    h="200px"
-                  ></Box> */}
                         <Image
                           w="100%"
-                          h="200px"
+                          //   h="200px"
                           onLoad={imageLoaded}
                           src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
                         ></Image>
@@ -418,7 +385,7 @@ function Book({ getBook }) {
                       >
                         {article.title}
                       </Heading>
-                      <Heading> {article.author} </Heading>
+                      <Text m="2"> {article.author} </Text>
                       <Box
                         m="2"
                         fontSize="lg"

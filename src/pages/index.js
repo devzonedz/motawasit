@@ -2,6 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import { Text, SimpleGrid, Flex, Image } from '@chakra-ui/core';
+import { connect } from 'react-redux';
+import { getImages } from '../redux/actions/indexActions';
 // import '../components/util/changeBg';
 import first from '../images/main.jpg';
 import main2 from '../images/main2.jpg';
@@ -11,36 +13,48 @@ import center from '../images/center-main-logo.png';
 import shope from '../images/shop-logo.png';
 import braat from '../images/braat-logo.png';
 
-export default function Home() {
-  //   const [main, setMain] = React.useState(false);
-  //   const [shop, setShop] = React.useState(false);
-  //   const [center, setCenter] = React.useState(false);
-  //   const [journal, setJournal] = React.useState(false);
+function Home({ getImages }) {
+  const [images, setImages] = React.useState();
+
+  React.useEffect(() => {
+    async function getData() {
+      const res = await getImages();
+      if (res?.status === 201) {
+        setImages(res.data.images);
+      }
+      //   console.log(res);
+    }
+    getData();
+  }, []);
 
   React.useEffect(() => {
     document.body.style.overflow = 'hidden';
 
-    const cats = [first, main2, main3];
+    // const cats = [first, main2, main3];
 
     const node = document.getElementById('image-head');
 
-    const cycleImages = (images, container, step) => {
-      images.forEach((image, index) =>
+    const cycleImages = async (images, container, step) => {
+      images.forEach((image, index) => {
+        console.log(image);
         setTimeout(() => {
-          container.style.backgroundImage = `linear-gradient(to bottom, rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.50)),url(${image}) `;
+          container.style.backgroundImage = `linear-gradient(to bottom, rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.50)),url(${process.env.REACT_APP_STORAGE}/${image.image}) `;
           //   container.style.transition = 'background-image 6s';
-        }, step * (index + 1))
-      );
+        }, step * (index + 1));
+      });
       setTimeout(
         () => cycleImages(images, container, step),
         step * images.length
       );
     };
-    cycleImages(cats, node, 3000);
+    if (images) {
+      cycleImages(images, node, 3000);
+    }
+
     return () => {
       document.body.style.overflow = 'none';
     };
-  }, []);
+  }, [images]);
 
   return (
     <SimpleGrid
@@ -177,3 +191,9 @@ export default function Home() {
     </SimpleGrid>
   );
 }
+
+const mapDispatchToProps = dispatch => {
+  return { getImages: () => dispatch(getImages()) };
+};
+
+export default connect(null, mapDispatchToProps)(Home);

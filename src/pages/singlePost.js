@@ -90,8 +90,9 @@ function SingleBlog({ getArticle }) {
           >
             <Heading fontFamily="diodrum-bold !important" mb="2">
               {' '}
-              {data.article_title}{' '}
+              {data.title}{' '}
             </Heading>
+            <Text>{data.sub_title}</Text>
             {/* <Link key={data.author_id} to={`/author/${data.author_id}`}>
               <Text
                 fontFamily="diodrum-med !important"
@@ -151,7 +152,7 @@ function SingleBlog({ getArticle }) {
                       h="270px"
                     ></Box>
                   )}
-                  <Heading fontFamily="diodrum-med !important" size="md">
+                  <Heading mb="4" fontFamily="diodrum-med !important" size="md">
                     {data.author}
                   </Heading>
                   {data.translator && (
@@ -201,7 +202,7 @@ function SingleBlog({ getArticle }) {
               pr={['2%', '2%', '0%', '0%']}
               className="dont-break-out"
               dangerouslySetInnerHTML={{
-                __html: data.article_body,
+                __html: data.body,
               }}
             ></Box>
             <Box></Box>

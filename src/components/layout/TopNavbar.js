@@ -157,6 +157,7 @@ function Navbar({ getSearch }) {
       >
         <a href={process.env.REACT_APP_HOME} target="_blank" rel="noreferrer">
           <Box
+            cursor="pointer"
             d="flex"
             rounded="5px"
             bg={bgIcon[colorMode]}

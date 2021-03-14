@@ -22,9 +22,4 @@ const bindMiddleware = middleware => {
 
 const store = createStore(persistedReducer, bindMiddleware([thunk]));
 
-// eslint-disable-next-line import/no-anonymous-default-export
-// export default () => {
-//   return { store, persistor };
-// };
-
 export default store;

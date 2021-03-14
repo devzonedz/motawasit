@@ -10,6 +10,7 @@ import {
   Skeleton,
   useColorMode,
   Spinner,
+  Text,
 } from '@chakra-ui/core';
 
 import { connect } from 'react-redux';
@@ -30,6 +31,7 @@ function Blog({ getArticles }) {
       if (res) {
         setData(res.data);
       }
+      console.log(res);
     }
     getData();
   }, []);
@@ -87,7 +89,7 @@ function Blog({ getArticles }) {
                   <Heading fontFamily="diodrum-med !important" m="2" size="lg">
                     {article.title}
                   </Heading>
-                  <Heading> {article.author} </Heading>
+                  <Text m="2"> {article.author} </Text>
                   <Box
                     m="2"
                     fontSize="lg"

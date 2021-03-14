@@ -32,6 +32,7 @@ function CatBooks({ translate, getBooks, name }) {
       if (res) {
         setData(res.data);
       }
+      console.log(res);
     }
     getData();
   }, [translate]);
@@ -97,6 +98,8 @@ function CatBooks({ translate, getBooks, name }) {
                   </Skeleton>
                 </LazyLoad>
                 <Heading m="4"> {book.title} </Heading>
+                <Text m="2"> {book?.author[0]?.name} </Text>
+
                 <Box
                   m="4"
                   fontSize="xl"
