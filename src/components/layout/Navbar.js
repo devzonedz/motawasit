@@ -77,7 +77,7 @@ export default function Navbar(props) {
           ml={6}
           display="block"
           fontWeight="bold"
-          fontSize="xl"
+          fontSize="lg"
           fontFamily="diodrum-bold !important"
         >
           <Link onClick={handleToggle} to="/books">
@@ -89,7 +89,7 @@ export default function Navbar(props) {
           ml={6}
           display="block"
           fontWeight="bold"
-          fontSize="xl"
+          fontSize="lg"
           fontFamily="diodrum-bold !important"
         >
           <Link onClick={handleToggle} to="/ourWriters/writers">
@@ -103,7 +103,7 @@ export default function Navbar(props) {
             // py={2}
             mt={{ base: 4, md: 0 }}
             ml={8}
-            fontSize="xl"
+            fontSize="lg"
             fontWeight="bold"
             transition="all 0.2s"
             // _hover={{ bg: 'gray.100' }}
@@ -133,7 +133,7 @@ export default function Navbar(props) {
                 <MenuItem
                   _focus={{ bg: 'white', color: 'black' }}
                   _hover={{ bg: 'white', color: 'black' }}
-                  fontSize="xl"
+                  fontSize="lg"
                 >
                   <Box display="flex">
                     <Heading
@@ -150,7 +150,7 @@ export default function Navbar(props) {
                 <MenuItem
                   _focus={{ bg: 'white', color: 'black' }}
                   _hover={{ bg: 'white', color: 'black' }}
-                  fontSize="xl"
+                  fontSize="lg"
                 >
                   <Box display="flex">
                     <Heading
@@ -170,7 +170,7 @@ export default function Navbar(props) {
                 <MenuItem
                   _focus={{ bg: 'white', color: 'black' }}
                   _hover={{ bg: 'white', color: 'black' }}
-                  fontSize="xl"
+                  fontSize="lg"
                 >
                   <Box display="flex">
                     <Heading
@@ -190,7 +190,7 @@ export default function Navbar(props) {
                 <MenuItem
                   _focus={{ bg: 'white', color: 'black' }}
                   _hover={{ bg: 'white', color: 'black' }}
-                  fontSize="xl"
+                  fontSize="lg"
                 >
                   <Box display="flex">
                     <Heading
@@ -213,7 +213,7 @@ export default function Navbar(props) {
           ml={6}
           display="block"
           fontWeight="bold"
-          fontSize="xl"
+          fontSize="lg"
           fontFamily="diodrum-bold !important"
         >
           <Link onClick={handleToggle} to="/blog">
@@ -225,7 +225,7 @@ export default function Navbar(props) {
           ml={6}
           display="block"
           fontWeight="bold"
-          fontSize="xl"
+          fontSize="lg"
           fontFamily="diodrum-bold !important"
         >
           <Link onClick={handleToggle} to="/events">
@@ -237,7 +237,7 @@ export default function Navbar(props) {
           ml={6}
           display="block"
           fontWeight="bold"
-          fontSize="xl"
+          fontSize="lg"
         >
           <Link onClick={handleToggle} to="/inThePress">
             في الصحافة
@@ -273,7 +273,7 @@ export default function Navbar(props) {
           ml={6}
           display="block"
           fontWeight="bold"
-          fontSize="xl"
+          fontSize="lg"
           fontFamily="diodrum-bold !important"
         >
           <Link onClick={handleToggle} to="/about">
@@ -285,7 +285,7 @@ export default function Navbar(props) {
           ml={6}
           display="block"
           fontWeight="bold"
-          fontSize="xl"
+          fontSize="lg"
           fontFamily="diodrum-bold !important"
         >
           <Link onClick={handleToggle} to="/ourWriters/publishConditions">

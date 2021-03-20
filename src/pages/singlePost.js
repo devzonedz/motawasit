@@ -92,7 +92,9 @@ function SingleBlog({ getArticle }) {
               {' '}
               {data.title}{' '}
             </Heading>
-            <Text>{data.sub_title}</Text>
+            <Text fontSize="lg" fontFamily="diodrum-med !important">
+              {data.sub_title}
+            </Text>
             {/* <Link key={data.author_id} to={`/author/${data.author_id}`}>
               <Text
                 fontFamily="diodrum-med !important"
@@ -363,14 +365,11 @@ function SingleBlog({ getArticle }) {
                           {article.title}
                         </Heading>
                         <Heading> {article.author} </Heading>
-                        <Box
-                          m="2"
-                          fontSize="lg"
-                          className="event-body"
-                          dangerouslySetInnerHTML={{
-                            __html: article.body,
-                          }}
-                        ></Box>
+                        <Box m="4" fontSize="xl" className="content event-body">
+                          <Box
+                            dangerouslySetInnerHTML={{ __html: article.body }}
+                          ></Box>
+                        </Box>
                       </Box>
                     </Box>
                   </Link>

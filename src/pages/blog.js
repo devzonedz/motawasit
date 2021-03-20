@@ -86,18 +86,18 @@ function Blog({ getArticles }) {
                       src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
                     ></Image>
                   </Skeleton>
+                  <Text m="2" fontSize="lg" fontFamily="diodrum-med !important">
+                    {' '}
+                    {article.author}{' '}
+                  </Text>
                   <Heading fontFamily="diodrum-med !important" m="2" size="lg">
                     {article.title}
                   </Heading>
-                  <Text m="2"> {article.author} </Text>
-                  <Box
-                    m="2"
-                    fontSize="lg"
-                    className="event-body"
-                    dangerouslySetInnerHTML={{
-                      __html: article.body,
-                    }}
-                  ></Box>
+                  <Box m="4" fontSize="xl" className="content event-body">
+                    <Box
+                      dangerouslySetInnerHTML={{ __html: article.body }}
+                    ></Box>
+                  </Box>
                 </Box>
               </Box>
             </Link>

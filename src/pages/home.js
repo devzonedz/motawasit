@@ -91,14 +91,13 @@ function Home({ getHome }) {
                     src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
                   ></Image>
                 </Skeleton>
+                <Text m="4" fontSize="lg" fontFamily="diodrum-med !important">
+                  {article.author}
+                </Text>
                 <Heading m="4"> {article.title} </Heading>
-                <Text m="4">{article.author}</Text>
-                <Box
-                  m="4"
-                  fontSize="xl"
-                  className="content event-body"
-                  dangerouslySetInnerHTML={{ __html: article.body }}
-                ></Box>
+                <Box m="4" fontSize="xl" className="content event-body">
+                  <Box dangerouslySetInnerHTML={{ __html: article.body }}></Box>
+                </Box>
               </Box>
             </Link>
           ))}
