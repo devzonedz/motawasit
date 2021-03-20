@@ -62,6 +62,7 @@ function Home({ getHome }) {
       )}
       <Text mb="2">{data && data.image.name}</Text>
       <Image
+        loading="lazy"
         src={`${process.env.REACT_APP_STORAGE}/${data && data.image.image}`}
       ></Image>
 
@@ -86,6 +87,7 @@ function Home({ getHome }) {
               >
                 <Skeleton w="100%" isLoaded={loaded}>
                   <Image
+                    loading="lazy"
                     w="100%"
                     onLoad={imageLoaded}
                     src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
@@ -114,6 +116,7 @@ function Home({ getHome }) {
             <Link key={book.id} to={`/book/${book.id}`}>
               <Box mt="8" pb="4" shadow="lg" bg={bg[colorMode]}>
                 <Image
+                  loading="lazy"
                   mt="2"
                   w="100%"
                   src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}

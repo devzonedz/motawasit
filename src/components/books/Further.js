@@ -85,6 +85,7 @@ function CatBooks({ translate, furthercoming, getBooks }) {
                   <LazyLoad once height="350px">
                     <Skeleton w="100%" isLoaded={loaded}>
                       <Image
+                        loading="lazy"
                         onLoad={imageLoaded}
                         w="100%"
                         m="0 auto"

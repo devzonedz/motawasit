@@ -372,6 +372,7 @@ function Book({ getBook }) {
                     <Box>
                       <Skeleton w="100%" isLoaded={loaded}>
                         <Image
+                          loading="lazy"
                           w="100%"
                           //   h="200px"
                           onLoad={imageLoaded}

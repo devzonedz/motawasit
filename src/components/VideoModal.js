@@ -30,6 +30,7 @@ export default function PodcastModal({ podcast }) {
       <Box ref={btnRef} shadow="lg" bg={bg[colorMode]} onClick={onOpen}>
         <Box position="relative">
           <Image
+            loading="lazy"
             onLoad={imageLoaded}
             src={`${process.env.REACT_APP_STORAGE}/${podcast.image}`}
           ></Image>

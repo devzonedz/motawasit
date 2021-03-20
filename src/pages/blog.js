@@ -81,6 +81,7 @@ function Blog({ getArticles }) {
                     h="200px"
                   ></Box> */}
                     <Image
+                      loading="lazy"
                       w="100%"
                       onLoad={imageLoaded}
                       src={`${process.env.REACT_APP_STORAGE}/${article.image}`}

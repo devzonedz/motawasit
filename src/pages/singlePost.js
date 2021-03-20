@@ -351,6 +351,7 @@ function SingleBlog({ getArticle }) {
                     h="200px"
                   ></Box> */}
                           <Image
+                            loading="lazy"
                             w="100%"
                             // h="200px"
                             onLoad={imageLoaded}
