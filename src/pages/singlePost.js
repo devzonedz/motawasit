@@ -182,6 +182,7 @@ function SingleBlog({ getArticle }) {
                         to={`${process.env.REACT_APP_STORAGE}/${data.pdf}`}
                         download
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <Button
                           _hover={{ bg: '#212121' }}
