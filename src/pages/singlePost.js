@@ -178,11 +178,10 @@ function SingleBlog({ getArticle }) {
                       fontWeight="bold"
                       //   textDecoration="underline"
                     >
-                      <a
-                        href={`${process.env.REACT_APP_STORAGE}/${data.pdf}`}
+                      <Link
+                        to={`${process.env.REACT_APP_STORAGE}/${data.pdf}`}
                         download
                         target="_blank"
-                        rel="noreferrer"
                       >
                         <Button
                           _hover={{ bg: '#212121' }}
@@ -191,7 +190,7 @@ function SingleBlog({ getArticle }) {
                         >
                           تحميل
                         </Button>
-                      </a>
+                      </Link>
                     </Box>
                   )}
                 </Box>
