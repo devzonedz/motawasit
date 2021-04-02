@@ -54,7 +54,12 @@ export default function Navbar(props) {
             fontSize="36px"
             letterSpacing={'-.1rem'}
           >
-            <Image w="220px" className="main-logo" src={logo}></Image>
+            <Image
+              loading="lazy"
+              w="220px"
+              className="main-logo"
+              src={logo}
+            ></Image>
           </Heading>
         </Link>
       </Flex>

@@ -93,7 +93,7 @@ function Home({ getImages }) {
               justifyContent="center"
               direction="column"
             >
-              <Image w="70%" src={medium}></Image>
+              <Image loading="lazy" w="70%" src={medium}></Image>
               <Text mt="4" fontSize="2xl">
                 معا لنحارب طواحين الهواء
               </Text>
@@ -122,7 +122,7 @@ function Home({ getImages }) {
               justifyContent="center"
               direction="column"
             >
-              <Image w="70%" src={center}></Image>
+              <Image loading="lazy" w="70%" src={center}></Image>
               {/* <Text mt="4" fontSize="2xl">
                 لشعر أكثر الأفعال حظاً من البراءة
               </Text> */}
@@ -151,7 +151,7 @@ function Home({ getImages }) {
               justifyContent="center"
               direction="column"
             >
-              <Image w="20%" src={braat}></Image>
+              <Image loading="lazy" w="20%" src={braat}></Image>
               <Text mt="4" fontSize="2xl">
                 الشعر أكثر الأفعال حظاً من البراءة
               </Text>
@@ -180,7 +180,7 @@ function Home({ getImages }) {
               justifyContent="center"
               direction="column"
             >
-              <Image w="30%" src={shope}></Image>{' '}
+              <Image loading="lazy" w="30%" src={shope}></Image>{' '}
               <Text mt="4" fontSize="2xl">
                 متجر الكتاب العربي في إيطاليا
               </Text>

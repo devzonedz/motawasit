@@ -24,6 +24,7 @@ export default function PodcastModal({ podcast }) {
       <Box shadow="lg" bg={bg[colorMode]} onClick={onOpen}>
         <Box position="relative">
           <Image
+            loading="lazy"
             src={`${process.env.REACT_APP_STORAGE}/${podcast.image}`}
           ></Image>
           <Box

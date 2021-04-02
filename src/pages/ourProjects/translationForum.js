@@ -37,7 +37,11 @@ export default function publishlist() {
         ></Divider> */}
       </Heading>
       <Box d="flex" justifyContent="center" m="4">
-        <Image w={['90%', '90%', '60%', '60%']} src={translation}></Image>
+        <Image
+          loading="lazy"
+          w={['90%', '90%', '60%', '60%']}
+          src={translation}
+        ></Image>
       </Box>
       <Box
         textAlign="right"

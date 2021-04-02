@@ -62,6 +62,7 @@ function Author({ getAuthor }) {
           >
             <Skeleton isLoaded={loaded}>
               <Image
+                loading="lazy"
                 onLoad={imageLoaded}
                 //   borderRadius="50%"
                 //   w="300px"
@@ -95,6 +96,7 @@ function Author({ getAuthor }) {
                   <Link key={book.id} to={`/book/${book.id}`}>
                     <Box mb="4" cursor="pointer">
                       <Image
+                        loading="lazy"
                         w="225px"
                         h="280px"
                         m="0 auto"

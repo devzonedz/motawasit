@@ -38,7 +38,11 @@ export default function publishlist() {
       </Text>
 
       <Box d="flex" justifyContent="center" m="4">
-        <Image w={['90%', '90%', '60%', '60%']} src={divine}></Image>
+        <Image
+          loading="lazy"
+          w={['90%', '90%', '60%', '60%']}
+          src={divine}
+        ></Image>
       </Box>
       <Box
         textAlign="right"

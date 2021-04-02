@@ -338,6 +338,7 @@ function Writers({ getAuthors }) {
               <Box oveflow="hidden" pb="4" mt="4" mb="4" bg={bg[colorMode]}>
                 <Skeleton w="100%" isLoaded={loaded}>
                   <Image
+                    loading="lazy"
                     onLoad={imageLoaded}
                     w="100%"
                     //   h="150px"
