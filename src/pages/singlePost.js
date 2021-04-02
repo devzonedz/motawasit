@@ -48,20 +48,6 @@ function SingleBlog({ getArticle }) {
     }
     getData();
   }, []);
-  const ar = data && data.article_body;
-  //   const ar = `
-  //   <p id="main">
-  //     <span class="prettify">
-  //       keep me and make me pretty!
-  //     </span>
-  //   </p>
-  // `;
-  //   data &&
-  //     parse(ar.toString(), {
-  //       replace: domNode => {
-  //         console.log(domNode);
-  //       },
-  //     });
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -197,17 +183,35 @@ function SingleBlog({ getArticle }) {
                 </Box>
               </Box>
             </Box>
-            <Box
-              fontSize="2xl"
-              mb="8"
-              pl={['2%', '2%', '15%', '15%']}
-              pr={['2%', '2%', '0%', '0%']}
-              className="dont-break-out"
-              dangerouslySetInnerHTML={{
-                __html: data.body,
-              }}
-            ></Box>
-            <Box></Box>
+            <Box>
+              <Box
+                fontSize="2xl"
+                mb="8"
+                pl={['2%', '2%', '15%', '15%']}
+                pr={['2%', '2%', '0%', '0%']}
+                className="dont-break-out"
+                dangerouslySetInnerHTML={{
+                  __html: data.body,
+                }}
+              ></Box>
+
+              <Box
+                pl={['2%', '2%', '15%', '15%']}
+                pr={['2%', '2%', '0%', '0%']}
+                dangerouslySetInnerHTML={{
+                  __html: data.soundcloud_link,
+                }}
+              ></Box>
+              <Flex mb="8" justifyContent="center">
+                <Box
+                  pl={['2%', '2%', '15%', '15%']}
+                  pr={['2%', '2%', '0%', '0%']}
+                  dangerouslySetInnerHTML={{
+                    __html: data.youtube_link,
+                  }}
+                ></Box>
+              </Flex>
+            </Box>
           </Grid>
 
           <GlobalShare></GlobalShare>
