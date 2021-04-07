@@ -48,26 +48,37 @@ function Navbar({ getSearch }) {
   const bgIcon = { light: '#000', dark: '#fff' };
   const color = { light: 'white', dark: 'black' };
 
-  const Books = ({ hits }) => (
-    <Box>
-      {hits[0] !== undefined && <Heading m="8">كتب</Heading>}
+  const Books = ({ hits }) => {
+    // console.log(hits);
+    return (
+      <Box>
+        {hits[0] !== undefined && <Heading m="8">كتب</Heading>}
 
-      <SimpleGrid spacing={8} columns={[2, 2, 3, 8]}>
-        {hits &&
-          hits.map(hit => (
-            <Link onClick={onClose} key={hit.objectID} to={`/book/${hit.id}`}>
-              <Image
-                loading="lazy"
-                src={`${process.env.REACT_APP_STORAGE}/${hit.cover}`}
-              ></Image>
-              <Heading size="md" mt="2">
-                {hit.title}
-              </Heading>
-            </Link>
-          ))}
-      </SimpleGrid>
-    </Box>
-  );
+        <SimpleGrid spacing={8} columns={[2, 2, 3, 8]}>
+          {hits &&
+            hits.map(hit => {
+              if (hit.searchable_out_mutab === 1) {
+                return (
+                  <Link
+                    onClick={onClose}
+                    key={hit.objectID}
+                    to={`/book/${hit.id}`}
+                  >
+                    <Image
+                      loading="lazy"
+                      src={`${process.env.REACT_APP_STORAGE}/${hit.cover}`}
+                    ></Image>
+                    <Heading size="md" mt="2">
+                      {hit.title}
+                    </Heading>
+                  </Link>
+                );
+              }
+            })}
+        </SimpleGrid>
+      </Box>
+    );
+  };
   const Authors = ({ hits }) => (
     <Box>
       {hits[0] !== undefined && <Heading m="8">كتاب</Heading>}
@@ -88,26 +99,29 @@ function Navbar({ getSearch }) {
       </SimpleGrid>
     </Box>
   );
-  const Articles = ({ hits }) => (
-    <Box>
-      {hits[0] !== undefined && <Heading m="8">مقالات</Heading>}
+  const Articles = ({ hits }) => {
+    console.log(hits);
+    return (
+      <Box>
+        {hits[0] !== undefined && <Heading m="8">مقالات</Heading>}
 
-      <SimpleGrid spacing={8} columns={[2, 2, 3, 8]}>
-        {hits &&
-          hits.map(hit => (
-            <Link onClick={onClose} key={hit.objectID} to={`/book/${hit.id}`}>
-              <Image
-                loading="lazy"
-                src={`${process.env.REACT_APP_STORAGE}/${hit.cover}`}
-              ></Image>
-              <Heading size="md" mt="2">
-                {hit.title}
-              </Heading>
-            </Link>
-          ))}
-      </SimpleGrid>
-    </Box>
-  );
+        <SimpleGrid spacing={8} columns={[2, 2, 3, 8]}>
+          {hits &&
+            hits.map(hit => (
+              <Link onClick={onClose} key={hit.objectID} to={`/book/${hit.id}`}>
+                <Image
+                  loading="lazy"
+                  src={`${process.env.REACT_APP_STORAGE}/${hit.cover}`}
+                ></Image>
+                <Heading size="md" mt="2">
+                  {hit.title}
+                </Heading>
+              </Link>
+            ))}
+        </SimpleGrid>
+      </Box>
+    );
+  };
   const CustomSearchBox = ({ currentRefinement, refine }) => (
     <Input
       className="search-box"
