@@ -111,7 +111,7 @@ function Navbar({ getSearch }) {
               <Link onClick={onClose} key={hit.objectID} to={`/book/${hit.id}`}>
                 <Image
                   loading="lazy"
-                  src={`${process.env.REACT_APP_STORAGE}/${hit.cover}`}
+                  src={`${process.env.REACT_APP_STORAGE}/${hit.image}`}
                 ></Image>
                 <Heading size="md" mt="2">
                   {hit.title}
