@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Heading,
-  Text,
-  Divider,
-  ListItem,
-  OrderedList,
-} from '@chakra-ui/core';
+import { Box, Heading, Text, Divider } from '@chakra-ui/core';
 
 export default function standards() {
   return (

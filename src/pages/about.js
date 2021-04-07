@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, Heading, Image, Divider } from '@chakra-ui/core';
+import { Box, Text, Heading, Image } from '@chakra-ui/core';
 // import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 

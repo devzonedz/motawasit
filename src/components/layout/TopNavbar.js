@@ -3,7 +3,6 @@ import React from 'react';
 import {
   Box,
   Flex,
-  Badge,
   useColorMode,
   useDisclosure,
   Drawer,
@@ -31,7 +30,7 @@ import {
   connectStateResults,
 } from 'react-instantsearch-dom';
 
-import { FaShoppingCart, FaDollarSign, FaSearch } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import { AiOutlineShop } from 'react-icons/ai';
 import Newsletter from './NewsLetter';
 

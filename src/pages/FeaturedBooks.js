@@ -18,7 +18,7 @@ export default function Books() {
   return (
     <Box>
       <Helmet>
-        <title>اخر الاصدارات</title>
+        <title>آخر إصدرات المتوسط</title>
       </Helmet>
       <BooksFilter></BooksFilter>
       <Box ml="80px" mr={['0', '80px']} mt="160px" mb="100px">

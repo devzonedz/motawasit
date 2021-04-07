@@ -5,9 +5,7 @@ import { Text, SimpleGrid, Flex, Image } from '@chakra-ui/core';
 import { connect } from 'react-redux';
 import { getImages } from '../redux/actions/indexActions';
 // import '../components/util/changeBg';
-import first from '../images/main.jpg';
-import main2 from '../images/main2.jpg';
-import main3 from '../images/main3.jpg';
+
 import medium from '../images/logo.png';
 import center from '../images/center-main-logo.png';
 import shope from '../images/shop-logo.png';

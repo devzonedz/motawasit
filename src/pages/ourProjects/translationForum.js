@@ -1,15 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import {
-  Box,
-  Heading,
-  Text,
-  List,
-  ListItem,
-  Image,
-  Divider,
-} from '@chakra-ui/core';
+import { Box, Heading, Text, List, ListItem, Image } from '@chakra-ui/core';
 import translation from '../../images/conf-min.jpg';
 
 export default function publishlist() {

@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  SimpleGrid,
   Box,
   Image,
   Text,
@@ -95,7 +94,10 @@ function CatBooks({ translate, furthercoming, getBooks }) {
                     </Skeleton>
                   </LazyLoad>
                   <Heading m="4"> {book.title} </Heading>
-                  <Text m="2"> {book?.author[0]?.name} </Text>
+                  <Text fontSize="2xl" m="2">
+                    {' '}
+                    {book?.author[0]?.name}{' '}
+                  </Text>
 
                   <Box
                     m="4"

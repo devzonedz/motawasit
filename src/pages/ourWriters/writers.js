@@ -49,7 +49,7 @@ function Writers({ getAuthors }) {
   return (
     <Box className="padding" mt="100px" mb="100px">
       <Helmet>
-        <title> كتابنا</title>
+        <title> كتاب المتوسط</title>
       </Helmet>
       <Heading fontFamily="diodrum-bold !important" size="xl">
         كتاب المتوسط

@@ -57,7 +57,7 @@ function Book({ getBook }) {
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
     { width: 850, itemsToShow: 3 },
-    { width: 1150, itemsToShow: 4, itemsToScroll: 4 },
+    { width: 1900, itemsToShow: 4 },
   ];
   const bookBreakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -381,6 +381,15 @@ function Book({ getBook }) {
                           src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
                         ></Image>
                       </Skeleton>
+                      <Text
+                        m="2"
+                        mt="4"
+                        fontSize="lg"
+                        fontFamily="diodrum-med !important"
+                      >
+                        {' '}
+                        {article.author}{' '}
+                      </Text>
                       <Heading
                         fontFamily="diodrum-med !important"
                         m="2"

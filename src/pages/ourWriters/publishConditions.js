@@ -62,7 +62,7 @@ function Publishlist({ postBook }) {
   return (
     <Box mt="100px" mb="100px">
       <Helmet>
-        <title> انشر معنا</title>
+        <title>انشر مع المتوسط</title>
       </Helmet>
       <Box
         textAlign="right"

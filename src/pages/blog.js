@@ -45,7 +45,7 @@ function Blog({ getArticles }) {
   return (
     <Box m="7%">
       <Helmet>
-        <title>المدونة</title>
+        <title>مدونة المتوسط</title>
       </Helmet>
       {/* <SimpleGrid m="8" columns={[1, 1, 3, 3]} spacing="8"> */}
       {!data && (
@@ -87,7 +87,12 @@ function Blog({ getArticles }) {
                       src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
                     ></Image>
                   </Skeleton>
-                  <Text m="2" fontSize="lg" fontFamily="diodrum-med !important">
+                  <Text
+                    m="2"
+                    mt="4"
+                    fontSize="lg"
+                    fontFamily="diodrum-med !important"
+                  >
                     {' '}
                     {article.author}{' '}
                   </Text>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Carousel from 'react-elastic-carousel';
 import { Helmet } from 'react-helmet';
 // import parse from 'html-react-parser';
@@ -8,14 +8,13 @@ import {
   Image,
   Heading,
   Text,
-  Divider,
   Grid,
   Flex,
   Skeleton,
   useColorMode,
   Button,
 } from '@chakra-ui/core';
-import { useParams, useLocation, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { getArticle } from '../redux/actions/articleActions';
@@ -53,7 +52,7 @@ function SingleBlog({ getArticle }) {
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
     { width: 850, itemsToShow: 3 },
-    { width: 1150, itemsToShow: 4, itemsToScroll: 4 },
+    { width: 1900, itemsToShow: 4 },
   ];
   const bookBreakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -364,6 +363,15 @@ function SingleBlog({ getArticle }) {
                             src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
                           ></Image>
                         </Skeleton>
+                        <Text
+                          m="2"
+                          mt="4"
+                          fontSize="lg"
+                          fontFamily="diodrum-med !important"
+                        >
+                          {' '}
+                          {article.author}{' '}
+                        </Text>
                         <Heading
                           fontFamily="diodrum-med !important"
                           m="2"
@@ -371,7 +379,7 @@ function SingleBlog({ getArticle }) {
                         >
                           {article.title}
                         </Heading>
-                        <Heading> {article.author} </Heading>
+
                         <Box m="4" fontSize="xl" className="content event-body">
                           <Box
                             dangerouslySetInnerHTML={{ __html: article.body }}

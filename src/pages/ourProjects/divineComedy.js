@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Box, Heading, Text, Image, Divider } from '@chakra-ui/core';
+import { Box, Heading, Text, Image } from '@chakra-ui/core';
 import divine from '../../images/comedy-min.jpg';
 
 export default function publishlist() {

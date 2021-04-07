@@ -5,7 +5,6 @@ import {
   Flex,
   Text,
   useColorMode,
-  useDisclosure,
   Menu,
   MenuButton,
   MenuList,

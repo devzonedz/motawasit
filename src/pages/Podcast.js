@@ -1,24 +1,10 @@
 import React from 'react';
-import {
-  Box,
-  Heading,
-  SimpleGrid,
-  Image,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-} from '@chakra-ui/core';
+import { Box, SimpleGrid } from '@chakra-ui/core';
 import { connect } from 'react-redux';
 import { getPodcasts } from '../redux/actions/poscastsActions';
 import { Helmet } from 'react-helmet';
 
 import PodcastModal from '../components/PodcastModal';
-import PodcastBookModal from '../components/PodcastBookModal';
-import PodcastArticleModal from '../components/PodcastArticleModal';
 
 function Podcasts({ getPodcasts }) {
   const [data, setData] = React.useState(null);
@@ -34,9 +20,6 @@ function Podcasts({ getPodcasts }) {
     getData();
   }, []);
 
-  const artic =
-    data && Object.keys(data.articles).map(key => data.articles[key]);
-  const books = data && Object.keys(data.books).map(key => data.books[key]);
   return (
     <Box mt="100px" mb="700px" pl="10%" pr="10%">
       {data && (

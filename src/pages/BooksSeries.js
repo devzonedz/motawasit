@@ -8,6 +8,7 @@ import {
   Heading,
   useColorMode,
   Spinner,
+  Text,
 } from '@chakra-ui/core';
 import { Link, useLocation } from 'react-router-dom';
 import LazyLoad from 'react-lazyload';
@@ -90,6 +91,10 @@ function CatBooks({ getBooksBySerie }) {
                     </Skeleton>
                   </LazyLoad>
                   <Heading m="4"> {book.title} </Heading>
+                  <Text fontSize="2xl" m="2">
+                    {' '}
+                    {book?.author[0]?.name}{' '}
+                  </Text>
                   <Box
                     m="4"
                     fontSize="xl"

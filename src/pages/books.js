@@ -21,7 +21,7 @@ function Home(props) {
   return (
     <Box mt="160px" mb="100px">
       <Helmet>
-        <title>الكتب</title>
+        <title>كتب المتوسط</title>
       </Helmet>
       <BooksFilter></BooksFilter>
       <Box ml="80px" mr={['0', '80px']} mt="160px" mb="100px">
