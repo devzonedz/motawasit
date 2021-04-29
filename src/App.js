@@ -1,7 +1,6 @@
 import React from 'react';
 import { ChakraProvider, CSSReset } from '@chakra-ui/core';
 import { Switch, Route } from 'react-router-dom';
-// import theme from '@chakra-ui/theme';
 
 import nprogress from 'nprogress';
 
