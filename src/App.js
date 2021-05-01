@@ -67,7 +67,7 @@ function App(props) {
     <ChakraProvider theme={theme}>
       <CSSReset />
       <TopNavbar></TopNavbar>
-      {/* <BooksFilter></BooksFilter> */}
+
       <SocialButtons></SocialButtons>
       <ScrollToTop></ScrollToTop>
       <Navbar></Navbar>
