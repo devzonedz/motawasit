@@ -162,6 +162,20 @@ function Navbar({ getSearch }) {
       color={color[colorMode]}
       bg={bg[colorMode]}
     >
+      <Flex
+        justifyContent="center"
+        alignItems="center"
+        fontFamily="diodrum-med !important"
+        bg="black"
+        color="white"
+        m="3px"
+        p="3px"
+        h="50px"
+        rounded="5px"
+        fontSize="18px"
+      >
+        بث تجريبي
+      </Flex>
       <Box
         ml="8%"
         // display={{ base: show ? 'block' : 'none', md: 'flex' }}

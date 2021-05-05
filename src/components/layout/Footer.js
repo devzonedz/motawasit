@@ -1,6 +1,18 @@
 import React from 'react';
 import { Box, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
+import {
+  FaCcMastercard,
+  FaCcVisa,
+  FaCcPaypal,
+  FaCcApplePay,
+  FaFacebook,
+  FaSoundcloud,
+  FaTwitter,
+  FaYoutube,
+  FaInstagramSquare,
+  FaGoodreads,
+} from 'react-icons/fa';
 
 import News from './FooterNewsLetter';
 
@@ -186,99 +198,90 @@ export default function Footer() {
           <Heading mt="12" fontFamily="diodrum-bold !important" size="md">
             وسائل التواصل الاجتماعي
           </Heading>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://twitter.com/Almutawassitit"
-          >
-            <Text
-              color="gray.200"
-              _hover={{ textDecoration: 'underline' }}
-              fontFamily="diodrum-med !important"
-              fontSize="md"
+          <Flex mt="4">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://twitter.com/Almutawassitit"
             >
-              تويتر
-            </Text>
-          </a>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://www.facebook.com/almutawassit"
-          >
-            <Text
-              color="gray.200"
-              _hover={{ textDecoration: 'underline' }}
-              fontFamily="diodrum-med !important"
-              fontSize="md"
+              <Text
+                color="gray.200"
+                _hover={{ textDecoration: 'underline' }}
+                fontFamily="diodrum-med !important"
+                fontSize="28px"
+                m="2"
+              >
+                <FaTwitter></FaTwitter>
+              </Text>
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.facebook.com/almutawassit"
             >
-              فيسبوك
-            </Text>
-          </a>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://www.instagram.com/Almutawassit_books/"
-          >
-            <Text
-              color="gray.200"
-              _hover={{ textDecoration: 'underline' }}
-              fontFamily="diodrum-med !important"
-              fontSize="md"
+              <Text
+                color="gray.200"
+                _hover={{ textDecoration: 'underline' }}
+                fontFamily="diodrum-med !important"
+                fontSize="28px"
+                m="2"
+              >
+                <FaFacebook></FaFacebook>
+              </Text>
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.instagram.com/Almutawassit_books/"
             >
-              انستغرام
-            </Text>
-          </a>
-          <a target="_blank" rel="noreferrer" href=""></a>
-          <Text
-            color="gray.200"
-            _hover={{ textDecoration: 'underline' }}
-            fontFamily="diodrum-med !important"
-            fontSize="md"
-          >
-            لينكدن
-          </Text>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://www.youtube.com/channel/UCSBUh4FMxnG9Wmjio_tJk1w"
-          >
-            <Text
-              color="gray.200"
-              _hover={{ textDecoration: 'underline' }}
-              fontFamily="diodrum-med !important"
-              fontSize="md"
+              <Text
+                color="gray.200"
+                _hover={{ textDecoration: 'underline' }}
+                fontFamily="diodrum-med !important"
+                fontSize="28px"
+                m="2"
+              >
+                <FaInstagramSquare></FaInstagramSquare>
+              </Text>
+            </a>
+
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.youtube.com/channel/UCSBUh4FMxnG9Wmjio_tJk1w"
             >
-              يوتيوب
-            </Text>
-          </a>
-          <a target="_blank" rel="noreferrer" href=""></a>
-          <Text
-            color="gray.200"
-            _hover={{ textDecoration: 'underline' }}
-            fontFamily="diodrum-med !important"
-            fontSize="md"
-          >
-            ساوند كلاود
-          </Text>
-          <a target="_blank" rel="noreferrer" href=""></a>
-          <Text
-            color="gray.200"
-            _hover={{ textDecoration: 'underline' }}
-            fontFamily="diodrum-med !important"
-            fontSize="md"
-          >
-            بينتريست
-          </Text>
-          <Text
-            color="gray.200"
-            _hover={{ textDecoration: 'underline' }}
-            fontFamily="diodrum-med !important"
-            fontSize="md"
-          >
-            غودريدز
-          </Text>
+              <Text
+                color="gray.200"
+                _hover={{ textDecoration: 'underline' }}
+                fontFamily="diodrum-med !important"
+                fontSize="28px"
+                m="2"
+              >
+                <FaYoutube></FaYoutube>
+              </Text>
+            </a>
+
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.goodreads.com/user/show/50160397"
+            >
+              <Text
+                color="gray.200"
+                _hover={{ textDecoration: 'underline' }}
+                fontFamily="diodrum-med !important"
+                fontSize="28px"
+                m="2"
+              >
+                <FaGoodreads></FaGoodreads>
+              </Text>
+            </a>
+          </Flex>
         </Flex>
       </SimpleGrid>
+      <Flex mb="50px" justifyContent="center">
+        <Box>© 2021 Almutawassit Books</Box>
+      </Flex>
     </Box>
   );
 }

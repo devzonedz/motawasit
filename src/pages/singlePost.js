@@ -46,7 +46,7 @@ function SingleBlog({ getArticle }) {
       }
     }
     getData();
-  }, []);
+  }, [id]);
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
