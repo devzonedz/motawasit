@@ -250,7 +250,7 @@ function Book({ getBook }) {
                         </ListItem>
                         <ListItem>عدد الصفحات : {data.page_number} </ListItem>
                         <ListItem dir="ltr"> {data.isbn} : ISBN </ListItem>
-                        <ListItem>السعر : {data.price}$</ListItem>
+                        <ListItem>السعر : {data.price}€</ListItem>
                         <ListItem>
                           هاشتاغ :{' '}
                           <Box
@@ -323,7 +323,7 @@ function Book({ getBook }) {
                       </Text>
                       <Text fontSize="md">{book.sub_title}</Text>
                       <Text fontSize="sm">{book.author}</Text>
-                      <Text fontWeight="bold">${book.price}</Text>
+                      <Text fontWeight="bold">€{book.price}</Text>
                     </Box>
                   </Box>
                 </Link>
