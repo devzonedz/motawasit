@@ -136,7 +136,9 @@ function Book({ getBook }) {
                   {data.title}
                 </Heading>
                 <Divider></Divider>
-                <Text fontSize="xl">{data.sub_title}</Text>
+                <Text fontSize="xl" fontFamily="diodrum-med !important">
+                  {data.sub_title}
+                </Text>
                 <Divider></Divider>
                 <Flex>
                   {data.author.map(author => (
