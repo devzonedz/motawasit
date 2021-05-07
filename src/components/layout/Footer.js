@@ -92,22 +92,6 @@ export default function Footer() {
           >
             <News></News>
           </Text>
-
-          <Text
-            mt="12"
-            color="gray.200"
-            fontFamily="diodrum-med !important"
-            fontSize="md"
-          >
-            P.Iva 10078540969
-          </Text>
-          <Text
-            color="gray.200"
-            fontFamily="diodrum-med !important"
-            fontSize="md"
-          >
-            Numero REA MI-2503229
-          </Text>
         </Flex>
 
         <Flex direction="column">

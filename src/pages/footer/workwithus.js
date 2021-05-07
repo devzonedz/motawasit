@@ -1,9 +1,13 @@
 import React from 'react';
 import { Box, Heading, Divider } from '@chakra-ui/core';
+import { Helmet } from 'react-helmet';
 
 export default function standards() {
   return (
     <Box mt="100px" mb="100px">
+      <Helmet>
+        <title> اعمل مع المتوسط</title>
+      </Helmet>
       <Heading
         mr="4"
         pl={['5%', '5%', '20%', '20%']}
@@ -29,7 +33,8 @@ export default function standards() {
       >
         <Heading size="lg" m="4">
           {' '}
-          لا توجد حالياً مواقع شاغرة يمكنكم تحميل سيرة الخبرة الذاتية هنا
+          لا توجد حالياً مواقع شاغرة يمكنكم تحميل سيرة الخبرة الذاتية
+          info@almutawassit.org
         </Heading>
       </Box>
     </Box>
