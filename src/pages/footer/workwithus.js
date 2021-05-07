@@ -34,7 +34,7 @@ export default function standards() {
         <Heading size="lg" m="4">
           {' '}
           لا توجد حالياً مواقع شاغرة يمكنكم تحميل سيرة الخبرة الذاتية
-          info@almutawassit.org
+          work@almutawassit.org
         </Heading>
       </Box>
     </Box>

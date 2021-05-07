@@ -6,7 +6,7 @@ export default function standards() {
   return (
     <Box mt="100px" mb="100px">
       <Helmet>
-        <title> عن المتوسط</title>
+        <title>وكلاء وموزعون</title>
       </Helmet>
       <Heading
         mr="4"
