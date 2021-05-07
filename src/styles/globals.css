@@ -22,6 +22,23 @@
   src: local('diodrum-bold'),
     url('/src/fonts/DiodrumArabic-Semibold.ttf') format('truetype');
 }
+#image-head {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.publish input {
+  color: black;
+  border: 1px solid black;
+}
+.publish select {
+  color: black;
+  border: 1px solid black;
+}
+.publish textarea {
+  color: black;
+  border: 1px solid black;
+}
 
 html,
 body {

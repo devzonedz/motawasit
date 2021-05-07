@@ -6,7 +6,7 @@ export default function standards() {
   return (
     <Box mt="100px" mb="100px">
       <Helmet>
-        <title>اتصل بنا</title>
+        <title> اتصل بالمتوسط </title>
       </Helmet>
       <Heading
         mr="4"
@@ -27,7 +27,6 @@ export default function standards() {
       </Heading>
       <Box
         textAlign="right"
-        p="30px"
         pl={['5%', '5%', '20%', '20%']}
         pr={['5%', '5%', '20%', '20%']}
       >
@@ -48,6 +47,7 @@ export default function standards() {
           Italy
         </Text>
         <Divider></Divider>
+        <br />
         <Heading size="lg" m="4">
           {' '}
           هيئة التحرير والنشر
@@ -59,7 +59,7 @@ export default function standards() {
           editor@almutawassit.org
         </Text>
         <Divider></Divider>
-
+        <br />
         <Heading size="lg" m="4">
           {' '}
           مشاريع النشر والتبادل الثقافي:{' '}
@@ -71,6 +71,7 @@ export default function standards() {
           Khaled@almutawassit.org
         </Text>
         <Divider></Divider>
+        <br />
         <Heading size="lg" m="4">
           {' '}
           التواصل العام

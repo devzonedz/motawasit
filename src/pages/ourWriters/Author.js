@@ -51,7 +51,7 @@ function Author({ getAuthor }) {
       {data && data !== 'لا توجد صفحة لهذا الكاتب' && (
         <>
           <Helmet>
-            <title>{data.name}</title>
+            <title>{data.name} على المتوسط</title>
           </Helmet>
           <Grid
             mb="50px"

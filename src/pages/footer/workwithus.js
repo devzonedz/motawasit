@@ -27,14 +27,12 @@ export default function standards() {
       </Heading>
       <Box
         textAlign="right"
-        p="30px"
         pl={['5%', '5%', '20%', '20%']}
         pr={['5%', '5%', '20%', '20%']}
       >
         <Heading size="lg" m="4">
-          {' '}
-          لا توجد حالياً مواقع شاغرة يمكنكم تحميل سيرة الخبرة الذاتية
-          work@almutawassit.org
+          لا توجد حالياً مواقع شاغرة يمكنكم إرسال سيرة الخبرة الذاتية على هذا
+          الإيميل: work@almutawassit.org
         </Heading>
       </Box>
     </Box>

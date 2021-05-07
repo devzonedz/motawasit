@@ -27,7 +27,6 @@ export default function standards() {
       </Heading>
       <Box
         textAlign="right"
-        p="30px"
         pl={['5%', '5%', '20%', '20%']}
         pr={['5%', '5%', '20%', '20%']}
       >

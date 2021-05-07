@@ -15,19 +15,9 @@ export default function standards() {
         size="xl"
       >
         سياسة ملفات تعريف الارتباط
-        <Divider
-          opacity="1"
-          border="3px solid black"
-          pl="20%"
-          pr="20%"
-          mt="4"
-          borderColor="black"
-          w="20%"
-        ></Divider>
       </Heading>
       <Box
         textAlign="right"
-        p="30px"
         pl={['5%', '5%', '20%', '20%']}
         pr={['5%', '5%', '20%', '20%']}
       >

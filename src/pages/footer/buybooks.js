@@ -27,7 +27,6 @@ export default function standards() {
       </Heading>
       <Box
         textAlign="right"
-        p="30px"
         pl={['5%', '5%', '20%', '20%']}
         pr={['5%', '5%', '20%', '20%']}
       >
@@ -36,6 +35,9 @@ export default function standards() {
         </Text>
         <Text fontSize="2xl" m="4">
           info@almutawassit.org
+        </Text>
+        <Text fontSize="2xl" m="4">
+          أو اتصل على رقم الواتساب التالي 00393477104442
         </Text>
       </Box>
     </Box>

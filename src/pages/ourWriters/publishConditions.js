@@ -85,6 +85,7 @@ function Publishlist({ postBook }) {
           والفنية، التي تعتمدها فيما يخص نشر المخطوطات، وهي أيضا تستشير قسمي
           الإنتاج والتوزيع في قراراها النهائي.
         </Text>
+        <br />
         <Text fontWeight="bold" fontSize="2xl" m="4">
            تتمنى منشورات المتوسط عليكم مراعاة، قدر الإمكان، ما يلي:
         </Text>
@@ -111,6 +112,7 @@ function Publishlist({ postBook }) {
             أي مخطوط.
           </ListItem>
         </List>
+        <br />
         <Text fontWeight="bold" fontSize="2xl" m="4">
           النشر ضمن سلسلة براءات:
         </Text>
@@ -126,6 +128,7 @@ function Publishlist({ postBook }) {
           في حال توازي عدد الموافقين مع الرافضين من أعضاء اللجنة، تستعين الدار
           بهيئة التحرير لحسم قضية نشر الكتاب.
         </Text>
+        <br />
         <Text fontWeight="bold" fontSize="2xl" m="4">
           اقتراحات الترجمة:
         </Text>
@@ -138,12 +141,15 @@ function Publishlist({ postBook }) {
         <Text fontSize="2xl" m="4">
           نشكر الجميع ونرحب بكم لتكونوا من أسرة الدار، وكل الود.
         </Text>
-        <Box p="4" rounded="10px">
-          <Text fontSize="2xl" m="4" fontWeight="bold">
-            التقدم بنشر كتاب:
-          </Text>
+        <br />
+        <Box className="publish" p="4" rounded="10px">
+          <Heading fontFamily="diodrum-bold !important" size="xl">
+            التقدم بنشر كتاب:{' '}
+          </Heading>
           <FormControl w="90%" m="4">
-            <FormLabel textAlign="right">اسم المؤلف</FormLabel>
+            <FormLabel fontSize="xl" textAlign="right">
+              اسم المؤلف
+            </FormLabel>
             <Input
               onChange={handleChange}
               type="text"
@@ -152,7 +158,9 @@ function Publishlist({ postBook }) {
             ></Input>
           </FormControl>
           <FormControl w="90%" m="4">
-            <FormLabel textAlign="right">كنية المؤلف</FormLabel>
+            <FormLabel fontSize="xl" textAlign="right">
+              كنية المؤلف
+            </FormLabel>
             <Input
               onChange={handleChange}
               name="nickname"
@@ -161,7 +169,9 @@ function Publishlist({ postBook }) {
             ></Input>
           </FormControl>
           <FormControl w="90%" m="4">
-            <FormLabel textAlign="right">عنوان المؤلف البريدي</FormLabel>
+            <FormLabel fontSize="xl" textAlign="right">
+              عنوان المؤلف البريدي
+            </FormLabel>
             <Input
               onChange={handleChange}
               name="address"
@@ -170,7 +180,9 @@ function Publishlist({ postBook }) {
             ></Input>
           </FormControl>
           <FormControl w="90%" m="4">
-            <FormLabel textAlign="right">إيميل المؤلف</FormLabel>
+            <FormLabel fontSize="xl" textAlign="right">
+              إيميل المؤلف
+            </FormLabel>
             <Input
               onChange={handleChange}
               name="email"
@@ -179,7 +191,7 @@ function Publishlist({ postBook }) {
             ></Input>
           </FormControl>
           <FormControl w="90%" m="4">
-            <FormLabel textAlign="right">
+            <FormLabel fontSize="xl" textAlign="right">
               رقم الهاتف الثابت أو الموبايل
             </FormLabel>
             <Input
@@ -190,7 +202,9 @@ function Publishlist({ postBook }) {
             ></Input>
           </FormControl>
           <FormControl w="90%" m="4">
-            <FormLabel textAlign="right">عنوان الكتاب</FormLabel>
+            <FormLabel fontSize="xl" textAlign="right">
+              عنوان الكتاب
+            </FormLabel>
             <Input
               onChange={handleChange}
               name="book_title"
@@ -199,7 +213,9 @@ function Publishlist({ postBook }) {
             ></Input>
           </FormControl>
           <FormControl w="90%" m="4">
-            <FormLabel textAlign="right">جنس الكتاب</FormLabel>
+            <FormLabel fontSize="xl" textAlign="right">
+              جنس الكتاب
+            </FormLabel>
             <Select onChange={handleChange} name="book_category" placeholder="">
               <option value="دراسة"> دراسة</option>
               <option value="رواية"> رواية</option>
@@ -211,7 +227,9 @@ function Publishlist({ postBook }) {
             </Select>
           </FormControl>
           <FormControl w="90%" m="4">
-            <FormLabel textAlign="right">اللغة الأصلية</FormLabel>
+            <FormLabel fontSize="xl" textAlign="right">
+              اللغة الأصلية
+            </FormLabel>
             <Select onChange={handleChange} name="book_language" placeholder="">
               <option value="الإنجليزية"> الإنجليزية</option>
               <option value="الصينية"> الصينية</option>
@@ -226,7 +244,9 @@ function Publishlist({ postBook }) {
             </Select>
           </FormControl>
           <FormControl w="90%" m="4">
-            <FormLabel textAlign="right">اترك رسالة </FormLabel>
+            <FormLabel fontSize="xl" textAlign="right">
+              اترك رسالة{' '}
+            </FormLabel>
             <Textarea
               onChange={handleChange}
               name="message"
@@ -238,7 +258,7 @@ function Publishlist({ postBook }) {
             <PickFile setData={setData}></PickFile>
           </Box>
           {/* <FormControl w="90%" m="4">
-            <FormLabel textAlign="right">تحميل المخطوط </FormLabel>
+            <FormLabel fontSize="xl" textAlign="right">تحميل المخطوط </FormLabel>
             <Input
               onChange={handleChange}
               name="file"
@@ -271,6 +291,7 @@ function Publishlist({ postBook }) {
               bg="black"
               color="white"
               onClick={handleSubmit}
+              size="lg"
             >
               تقديم
             </Button>
