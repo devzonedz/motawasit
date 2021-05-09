@@ -264,7 +264,7 @@ export default function Footer() {
         </Flex>
       </SimpleGrid>
       <Flex mb="50px" justifyContent="center">
-        <Box>©️ 2021 Almutawassit Books</Box>
+        <Box dir="ltr">©️ 2021 Almutawassit Books</Box>
       </Flex>
     </Box>
   );
