@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import {
   Box,
@@ -17,9 +18,9 @@ import { NavLink, Link } from 'react-router-dom';
 import { FaChevronDown } from 'react-icons/fa';
 
 import { connect } from 'react-redux';
-import { getSeries } from '../../redux/actions/seriesActions';
+import { getSeries, getCat } from '../../redux/actions/seriesActions';
 
-function Navbar({ getSeries }) {
+function Navbar({ getSeries, getCat }) {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
 
@@ -28,9 +29,15 @@ function Navbar({ getSeries }) {
   const bg = { light: '#f5f2ef', dark: '#1a202c' };
   const filter = { light: '#000000', dark: '#1a202c' };
   const [data, setData] = React.useState(null);
+  const [cat, setCat] = React.useState(null);
 
   React.useEffect(() => {
     async function getData() {
+      const categories = await getCat();
+      if (categories) {
+        console.log(categories);
+        setCat(categories.data);
+      }
       const res = await getSeries();
       if (res) {
         setData(res.data);
@@ -135,212 +142,32 @@ function Navbar({ getSeries }) {
             pr={['5%', '5%', '20%', '20%']}
             columns={3}
           >
-            <Link
-              style={{ margin: '50px !important' }}
-              onClick={handleToggle}
-              to="/books_by_category?category=دراسات المتوسط"
-            >
-              <Box m="4">
-                <MenuItem
-                  _focus={{ bg: 'white', color: 'black' }}
-                  _hover={{ bg: 'white', color: 'black' }}
-                  fontSize="xl"
+            {cat &&
+              cat.map(category => (
+                <Link
+                  key={category.id}
+                  style={{ margin: '50px !important' }}
+                  onClick={handleToggle}
+                  to={`/books_by_category?category=${category.key}`}
                 >
-                  <Box display="flex">
-                    <Heading
-                      fontFamily="diodrum-med !important"
-                      fontSize={['lg', 'lg', '2xl', '2xl']}
+                  <Box m="4">
+                    <MenuItem
+                      _focus={{ bg: 'white', color: 'black' }}
+                      _hover={{ bg: 'white', color: 'black' }}
+                      fontSize="xl"
                     >
-                      {' '}
-                      الدراسات
-                    </Heading>
+                      <Box display="flex">
+                        <Heading
+                          fontFamily="diodrum-med !important"
+                          fontSize={['lg', 'lg', '2xl', '2xl']}
+                        >
+                          {category.description}
+                        </Heading>
+                      </Box>
+                    </MenuItem>
                   </Box>
-                </MenuItem>
-              </Box>
-            </Link>
-            <Link
-              style={{ margin: '50px !important' }}
-              onClick={handleToggle}
-              to="/books_by_category?category=روايات المتوسط"
-            >
-              <Box m="4">
-                <MenuItem
-                  _focus={{ bg: 'white', color: 'black' }}
-                  _hover={{ bg: 'white', color: 'black' }}
-                  fontSize="xl"
-                >
-                  <Box display="flex">
-                    <Heading
-                      fontFamily="diodrum-med !important"
-                      fontSize={['lg', 'lg', '2xl', '2xl']}
-                    >
-                      {' '}
-                      الرواية
-                    </Heading>
-                  </Box>
-                </MenuItem>
-              </Box>
-            </Link>
-            <Link
-              style={{ margin: '50px !important' }}
-              onClick={handleToggle}
-              to="/books_by_category?category=شعر المتوسط"
-            >
-              <Box m="4">
-                <MenuItem
-                  _focus={{ bg: 'white', color: 'black' }}
-                  _hover={{ bg: 'white', color: 'black' }}
-                  fontSize="xl"
-                >
-                  <Box display="flex">
-                    <Heading
-                      fontFamily="diodrum-med !important"
-                      fontSize={['lg', 'lg', '2xl', '2xl']}
-                    >
-                      {' '}
-                      الشعر
-                    </Heading>
-                  </Box>
-                </MenuItem>
-              </Box>
-            </Link>
-            <Link
-              style={{ margin: '50px !important' }}
-              onClick={handleToggle}
-              to="/books_by_category?category=قصص المتوسط"
-            >
-              <Box m="4">
-                <MenuItem
-                  _focus={{ bg: 'white', color: 'black' }}
-                  _hover={{ bg: 'white', color: 'black' }}
-                  fontSize="xl"
-                >
-                  <Box display="flex">
-                    <Heading
-                      fontFamily="diodrum-med !important"
-                      fontSize={['lg', 'lg', '2xl', '2xl']}
-                    >
-                      القصة القصيرة
-                    </Heading>
-                  </Box>
-                </MenuItem>
-              </Box>
-            </Link>
-            <Link
-              style={{ margin: '50px !important' }}
-              onClick={handleToggle}
-              to="/books_by_category?category=فلسفة المتوسط"
-            >
-              <Box m="4">
-                <MenuItem
-                  _focus={{ bg: 'white', color: 'black' }}
-                  _hover={{ bg: 'white', color: 'black' }}
-                  fontSize="xl"
-                >
-                  <Box display="flex">
-                    <Heading
-                      fontFamily="diodrum-med !important"
-                      fontSize={['lg', 'lg', '2xl', '2xl']}
-                    >
-                      {' '}
-                      الفلسفة
-                    </Heading>
-                  </Box>
-                </MenuItem>
-              </Box>
-            </Link>
-            <Link
-              style={{ margin: '50px !important' }}
-              onClick={handleToggle}
-              to="/books_by_category?category=كتب السيرة"
-            >
-              <Box m="4">
-                <MenuItem
-                  _focus={{ bg: 'white', color: 'black' }}
-                  _hover={{ bg: 'white', color: 'black' }}
-                  fontSize="xl"
-                >
-                  <Box display="flex">
-                    <Heading
-                      fontFamily="diodrum-med !important"
-                      fontSize={['lg', 'lg', '2xl', '2xl']}
-                    >
-                      {' '}
-                      سير ذاتية
-                    </Heading>
-                  </Box>
-                </MenuItem>
-              </Box>
-            </Link>
-            <Link
-              style={{ margin: '50px !important' }}
-              onClick={handleToggle}
-              to="/books_by_category?category=يوميات المتوسط"
-            >
-              <Box m="4">
-                <MenuItem
-                  _focus={{ bg: 'white', color: 'black' }}
-                  _hover={{ bg: 'white', color: 'black' }}
-                  fontSize="xl"
-                >
-                  <Box display="flex">
-                    <Heading
-                      fontFamily="diodrum-med !important"
-                      fontSize={['lg', 'lg', '2xl', '2xl']}
-                    >
-                      {' '}
-                      يوميات عربية
-                    </Heading>
-                  </Box>
-                </MenuItem>
-              </Box>
-            </Link>
-
-            <Link
-              style={{ margin: '50px !important' }}
-              onClick={handleToggle}
-              to="/books_by_category?category=معاجم وقواميس المتوسط"
-            >
-              <Box m="4">
-                <MenuItem
-                  _focus={{ bg: 'white', color: 'black' }}
-                  _hover={{ bg: 'white', color: 'black' }}
-                  fontSize="xl"
-                >
-                  <Box display="flex">
-                    <Heading
-                      fontFamily="diodrum-med !important"
-                      fontSize={['lg', 'lg', '2xl', '2xl']}
-                    >
-                      المعاجم والقواميس
-                    </Heading>
-                  </Box>
-                </MenuItem>
-              </Box>
-            </Link>
-            <Link
-              style={{ margin: '50px !important' }}
-              onClick={handleToggle}
-              to="/books_by_category?category=منوعات المتوسط"
-            >
-              <Box m="4">
-                <MenuItem
-                  _focus={{ bg: 'white', color: 'black' }}
-                  _hover={{ bg: 'white', color: 'black' }}
-                  fontSize="xl"
-                >
-                  <Box display="flex">
-                    <Heading
-                      fontFamily="diodrum-med !important"
-                      fontSize={['lg', 'lg', '2xl', '2xl']}
-                    >
-                      {' '}
-                      منوعات
-                    </Heading>
-                  </Box>
-                </MenuItem>
-              </Box>
-            </Link>
+                </Link>
+              ))}
           </SimpleGrid>
         </MenuList>
       </Menu>
@@ -443,7 +270,10 @@ function Navbar({ getSeries }) {
 }
 
 const mapDispatchToProps = dispatch => {
-  return { getSeries: () => dispatch(getSeries()) };
+  return {
+    getSeries: () => dispatch(getSeries()),
+    getCat: () => dispatch(getCat()),
+  };
 };
 
 export default connect(null, mapDispatchToProps)(Navbar);

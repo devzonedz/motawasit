@@ -139,7 +139,7 @@ export default function standards() {
           تعتقد أن حقوق النسخ والنشر الخاصة بك قد تم انتهاكها على أحد مواقع
           الدار؛ يرجى التواصل مع:
         </Text>
-
+        <br />
         <Heading size="lg" m="4">
           إدارة منشورات المتوسط
         </Heading>
