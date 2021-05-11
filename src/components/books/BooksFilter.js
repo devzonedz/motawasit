@@ -161,7 +161,7 @@ function Navbar({ getSeries, getCat }) {
                           fontFamily="diodrum-med !important"
                           fontSize={['lg', 'lg', '2xl', '2xl']}
                         >
-                          {category.description}
+                          {category.name}
                         </Heading>
                       </Box>
                     </MenuItem>
