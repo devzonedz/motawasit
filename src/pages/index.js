@@ -212,6 +212,7 @@ function Home({ getImages }) {
   const [images, setImages] = React.useState();
 
   React.useEffect(() => {
+    document.body.style.overflow = 'hidden';
     async function getData() {
       const res = await getImages();
       if (res?.status === 201) {
@@ -220,6 +221,9 @@ function Home({ getImages }) {
       console.log(res);
     }
     getData();
+    return () => {
+      document.body.style.overflow = 'none';
+    };
   }, []);
 
   return (
