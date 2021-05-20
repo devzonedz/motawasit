@@ -316,7 +316,8 @@ div.sticky {
 
 @media only screen and (min-width: 1600px) {
   .main-logo {
-    width: 500px !important;
+    /* width: 500px !important; */
+    width: 270px !important;
     margin-right: 50px;
   }
 }
