@@ -345,7 +345,7 @@ function Home({ getImages }) {
           </Flex>
         </a>
         <a
-          href="http://motwasit-journal.vercel.app
+          href="https://www.baraat.it/
 "
         >
           <Flex
@@ -374,7 +374,7 @@ function Home({ getImages }) {
           </Flex>
         </a>
         <a
-          href="http://motawasit-shop.vercel.app
+          href="https://www.mutab.it/
 "
         >
           <Flex
