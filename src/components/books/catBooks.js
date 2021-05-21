@@ -96,11 +96,14 @@ function CatBooks({ translate, getBooks, name }) {
                     ></Image>
                   </Skeleton>
                 </LazyLoad>
-                <Heading m="4"> {book.title} </Heading>
-                <Text fontSize="2xl" m="2">
+                <Text fontFamily="diodrum-med !important" fontSize="2xl" m="2">
                   {' '}
                   {book?.author[0]?.name}{' '}
                 </Text>
+                <Heading fontFamily="diodrum-bold !important" m="4">
+                  {' '}
+                  {book.title}{' '}
+                </Heading>
 
                 <Box
                   m="4"
