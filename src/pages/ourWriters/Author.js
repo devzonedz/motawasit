@@ -97,8 +97,8 @@ function Author({ getAuthor }) {
                     <Box mb="4" cursor="pointer">
                       <Image
                         loading="lazy"
-                        w="225px"
-                        h="280px"
+                        // w="225px"
+                        // h="280px"
                         m="0 auto"
                         shadow="lg"
                         src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
