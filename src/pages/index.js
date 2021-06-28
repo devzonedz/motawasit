@@ -316,7 +316,7 @@ function Home({ getImages }) {
           </Flex>
         </a>{' '}
         <a
-          href="http://motawasit-center.vercel.app
+          href="https://misccenter.com/
 "
         >
           <Flex

@@ -30,7 +30,7 @@ import {
   connectStateResults,
 } from 'react-instantsearch-dom';
 
-import { FaSearch } from 'react-icons/fa';
+import {FaHome, FaSearch} from 'react-icons/fa';
 import { AiOutlineShop } from 'react-icons/ai';
 import Newsletter from './NewsLetter';
 
@@ -201,8 +201,8 @@ function Navbar({ getSearch }) {
             fontWeight="bold"
             justifyContent="center"
           >
-            <Box position="absolute" bottom="2px">
-              4
+            <Box position="absolute" >
+              <FaHome></FaHome>
             </Box>
           </Box>
         </a>
