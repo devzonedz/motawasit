@@ -237,17 +237,7 @@ export default function Navbar(props) {
             نشاطات
           </Link>
         </Text>
-        {/* <Text
-          mt={{ base: 4, md: 0 }}
-          ml={6}
-          display="block"
-          fontWeight="bold"
-          fontSize="lg"
-        >
-          <Link onClick={handleToggle} to="/inThePress">
-            في الصحافة
-          </Link>
-        </Text> */}
+
         <Text
           fontFamily="diodrum-bold !important"
           fontWeight="bold"
