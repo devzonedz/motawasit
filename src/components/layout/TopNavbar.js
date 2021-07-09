@@ -204,9 +204,9 @@ function Navbar({ getSearch }) {
             justifyContent="center"
           >
             {colorMode === 'light' ? (
-              <Image rounded="5px" w="50px" h="50px" src={hlight}></Image>
-            ) : (
               <Image rounded="5px" w="50px" h="50px" src={hdark}></Image>
+            ) : (
+              <Image rounded="5px" w="50px" h="50px" src={hlight}></Image>
             )}
           </Box>
         </a>
