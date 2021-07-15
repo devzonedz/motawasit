@@ -19,7 +19,7 @@ import {
   Flex,
   Skeleton,
   useColorMode,
-  Spinner,
+  Spinner, AspectRatio,
 } from '@chakra-ui/core';
 import Carousel from 'react-elastic-carousel';
 import { useParams, Link } from 'react-router-dom';
@@ -117,6 +117,7 @@ function Book({ getBook }) {
                       <Box mt="4" w={['300px', '300px', '400px', '400px']}>
                         <GlobalShare></GlobalShare>
                       </Box>
+
                       <Box w={['300px', '300px', '400px', '400px']}>
                         {data.podcast && (
                           <Box
@@ -127,6 +128,16 @@ function Book({ getBook }) {
                           ></Box>
                         )}
                       </Box>
+                      {data.video && (
+                      <AspectRatio ratio={1}>
+                            <Box
+                                fontSize="2xl"
+                                className="content"
+                                dangerouslySetInnerHTML={{ __html: data.video }}
+                            ></Box>
+
+                      </AspectRatio>
+                      )}
                     </Box>
                   </Flex>
                 </Box>
@@ -265,6 +276,7 @@ function Book({ getBook }) {
                     </TabPanel>
                   </TabPanels>
                 </Tabs>
+
               </Box>
             </>
           )}
