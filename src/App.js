@@ -1,8 +1,8 @@
 import React from 'react';
 import { ChakraProvider, CSSReset } from '@chakra-ui/core';
 import { Switch, Route } from 'react-router-dom';
-
 import nprogress from 'nprogress';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 //?pages
 import Index from './pages/index';
@@ -184,6 +184,10 @@ function App(props) {
       </Switch>
       <Up></Up>
       <Footer></Footer>
+      <MessengerCustomerChat
+          pageId="2204511429809664"
+          appId="387957032206747"
+      />
     </ChakraProvider>
   );
 }

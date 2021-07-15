@@ -26,6 +26,7 @@
     "react-instantsearch-dom": "^6.8.2",
     "react-lazyload": "^3.1.0",
     "react-masonry-css": "^1.0.14",
+    "react-messenger-customer-chat": "^0.8.0",
     "react-paginate": "^6.5.0",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
