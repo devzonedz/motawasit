@@ -11,7 +11,7 @@ import {
   FaTwitter,
   FaYoutube,
   FaInstagramSquare,
-  FaGoodreads,
+  FaGoodreads, FaPinterest,
 } from 'react-icons/fa';
 
 import News from './FooterNewsLetter';
@@ -258,6 +258,22 @@ export default function Footer() {
                 m="2"
               >
                 <FaGoodreads></FaGoodreads>
+              </Text>
+            </a>
+
+            <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.pinterest.it/almutawassit/"
+            >
+              <Text
+                  color="gray.200"
+                  _hover={{ textDecoration: 'underline' }}
+                  fontFamily="diodrum-med !important"
+                  fontSize="28px"
+                  m="2"
+              >
+                <FaPinterest></FaPinterest>
               </Text>
             </a>
           </Flex>

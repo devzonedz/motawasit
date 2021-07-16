@@ -7,7 +7,7 @@ import {
   FaPinterest,
   FaSoundcloud,
   FaYoutube,
-  FaInstagram,
+  FaInstagram, FaGoodreads,
 } from 'react-icons/fa';
 import { IoLogoWhatsapp } from 'react-icons/io';
 
@@ -23,6 +23,24 @@ export default function SocialButtons() {
       style={{ position: 'fixed', zIndex: '99', top: '25%', right: 0 }}
     >
       <Flex direction="column">
+
+        <a
+            href="https://www.goodreads.com/user/show/50160397"
+            //   className="social-href "
+            style={{ backgroundColor: bgIcon[colorMode] }}
+        >
+          <Box
+              className="facebook"
+              bg={bgIcon[colorMode]}
+              color={color[colorMode]}
+              p="15px"
+              fontSize="18px"
+          >
+            <FaGoodreads></FaGoodreads>
+          </Box>
+        </a>
+
+
         <a
           href="https://www.facebook.com/almutawassit"
           //   className="social-href "
@@ -102,7 +120,7 @@ export default function SocialButtons() {
           </Box>
         </a> */}
         <a
-          to="#"
+          to="https://www.pinterest.it/almutawassit/"
           //   className="social-href"
           style={{ backgroundColor: bgIcon[colorMode] }}
         >
