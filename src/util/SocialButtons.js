@@ -27,6 +27,7 @@ export default function SocialButtons() {
         <a
             href="https://www.goodreads.com/user/show/50160397"
             //   className="social-href "
+            target="_blank"
             style={{ backgroundColor: bgIcon[colorMode] }}
         >
           <Box
@@ -43,6 +44,7 @@ export default function SocialButtons() {
 
         <a
           href="https://www.facebook.com/almutawassit"
+          target="_blank"
           //   className="social-href "
           style={{ backgroundColor: bgIcon[colorMode] }}
         >
@@ -59,7 +61,7 @@ export default function SocialButtons() {
         <a
           href="https://twitter.com/Almutawassitit"
           //   className="social-href"
-
+          target="_blank"
           style={{ backgroundColor: bgIcon[colorMode] }}
         >
           <Box
@@ -75,7 +77,7 @@ export default function SocialButtons() {
         <a
           href="https://www.instagram.com/Almutawassit_books/"
           //   className="social-href"
-
+          target="_blank"
           style={{ backgroundColor: bgIcon[colorMode] }}
         >
           <Box
@@ -122,6 +124,7 @@ export default function SocialButtons() {
         <a
           to="https://www.pinterest.it/almutawassit/"
           //   className="social-href"
+          target="_blank"
           style={{ backgroundColor: bgIcon[colorMode] }}
         >
           <Box
@@ -137,6 +140,7 @@ export default function SocialButtons() {
         <a
           href="https://www.youtube.com/channel/UCSBUh4FMxnG9Wmjio_tJk1w"
           //   className="social-href"
+          target="_blank"
           style={{ backgroundColor: bgIcon[colorMode] }}
         >
           <Box
@@ -151,6 +155,7 @@ export default function SocialButtons() {
         </a>
         <a
           to="#"
+          target="_blank"
           //   className="social-href"
           style={{ backgroundColor: bgIcon[colorMode] }}
         >
