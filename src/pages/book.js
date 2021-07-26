@@ -230,14 +230,14 @@ function Book({ getBook }) {
                               </Box>
                           ))}
                         </TabPanel>
-                        <TabPanel fontSize="xl">
+                        <TabPanel  pl={["10","2"]} fontSize="xl">
                           <Box
                               fontSize="xl"
                               className="content"
                               dangerouslySetInnerHTML={{ __html: data.index }}
                           ></Box>
                         </TabPanel>
-                        <TabPanel fontSize="xl">
+                        <TabPanel  pl={["10","2"]} fontSize="xl">
                           <Box
                               fontSize="xl"
                               className="content"
