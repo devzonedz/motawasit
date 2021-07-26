@@ -43,13 +43,15 @@ function Blog({ getArticles }) {
   };
 
   return (
-    <Box m="7%">
+    <Box
+        pr="10%" pl="10%" mt="100px" mb="100px"
+    >
       <Helmet>
         <title>مدونة المتوسط</title>
       </Helmet>
       {/* <SimpleGrid m="8" columns={[1, 1, 3, 3]} spacing="8"> */}
       {!data && (
-        <Box textAlign="center">
+        <Box mt="100px" textAlign="center">
           <Spinner size="xl" />
         </Box>
       )}
@@ -62,13 +64,14 @@ function Blog({ getArticles }) {
           data.articles.map(article => (
             <Link to={`/singlePost?id=${article.id}`}>
               <Box
-                bg={bg[colorMode]}
-                w="100%"
-                shadow="lg"
-                // p="2"
-                pb="4"
-                m="4"
-                cursor="pointer"
+                  bg={bg[colorMode]}
+                  w="100%"
+                  shadow="lg"
+                  // p="2"
+                  pb="4"
+                  // m="4"
+                  mt="8"
+                  cursor="pointer"
               >
                 <Box>
                   <Skeleton w="100%" isLoaded={loaded}>

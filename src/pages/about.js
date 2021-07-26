@@ -35,7 +35,7 @@ export default function blog() {
           shadow="lg"
           rounded="10px"
           w={['90%', '90%', '60%', '60%']}
-          src={aboutpic}
+          src="https://www.almutawassit.it/almutawassit.png"
         ></Image>
       </Box>
       <Box

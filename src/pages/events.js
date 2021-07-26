@@ -42,7 +42,10 @@ function Blog({ getArticles }) {
   };
 
   return (
-    <Box m="7%">
+    <Box
+        my={{base:"20%", md:"20%", lg:"7%"}}
+        mx ={{base:"12%", md:"10%", lg:"7%"}}
+    >
       <Helmet>
         <title>نشاطات المتوسط</title>
       </Helmet>
@@ -66,7 +69,7 @@ function Blog({ getArticles }) {
                 shadow="lg"
                 // p="2"
                 pb="4"
-                m="4"
+                mt="8"
                 cursor="pointer"
               >
                 <Box>

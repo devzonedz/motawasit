@@ -21,7 +21,7 @@ export default function Books() {
         <title>قريبا من المتوسط</title>
       </Helmet>
       <BooksFilter></BooksFilter>
-      <Box ml="80px" mr={['0', '80px']} mt="100px" mb="100px">
+      <Box mt="100px" mb="100px" pr={["10%",'5%','5%',"3%"]} pl={["10%",'5%','5%',"3%"]}>
         <Further furthercoming={furthercoming} translate={translate}></Further>
       </Box>
     </Box>

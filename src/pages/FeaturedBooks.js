@@ -21,7 +21,7 @@ export default function Books() {
         <title>آخر إصدرات المتوسط</title>
       </Helmet>
       <BooksFilter></BooksFilter>
-      <Box ml="80px" mr={['0', '80px']} mt="160px" mb="100px">
+      <Box mt="160px" mb="100px" pr={["10%",'5%','5%',"3%"]} pl={["10%",'5%','5%',"3%"]}>
         <Box m="8">
           <Heading>{category}</Heading>
         </Box>

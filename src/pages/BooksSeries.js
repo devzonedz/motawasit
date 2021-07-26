@@ -48,7 +48,7 @@ function CatBooks({ getBooksBySerie }) {
     1300: 4,
     1100: 3,
     1000: 2,
-    700: 2,
+    700: 1,
   };
 
   return (
@@ -57,7 +57,7 @@ function CatBooks({ getBooksBySerie }) {
         <title>{serie}</title>
       </Helmet>
       <BooksFilter></BooksFilter>
-      <Box ml="80px" mr={['0', '80px']} mt="160px" mb="100px">
+      <Box mt="160px" mb="100px" pr={["10%",'5%','5%',"3%"]} pl={["10%",'5%','5%',"3%"]}>
         <Box m="8">
           <Heading fontFamily="diodrum-bold !important">{serie}</Heading>
         </Box>

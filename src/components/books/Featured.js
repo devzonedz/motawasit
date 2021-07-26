@@ -40,7 +40,7 @@ function CatBooks({ translate, featured, getBooks }) {
     1300: 4,
     1100: 3,
     1000: 2,
-    700: 2,
+    700: 1,
   };
 
   return (

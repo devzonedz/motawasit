@@ -74,6 +74,7 @@ export default function Navbar(props) {
         display={{ base: show ? 'block' : 'none', md: 'flex' }}
         width={{ base: 'full', md: 'auto' }}
         alignItems="center"
+        textAlign="center"
         justifyContent="flex-end"
         flexGrow={1}
       >

@@ -24,7 +24,7 @@ function Home(props) {
         <title>كتب المتوسط</title>
       </Helmet>
       <BooksFilter></BooksFilter>
-      <Box ml="80px" mr={['0', '80px']} mt="160px" mb="100px">
+      <Box pr={["10%",'5%','5%',"3%"]} pl={["10%",'5%','5%',"3%"]} mt="160px" mb="100px">
         <CatBooks translate={translate}></CatBooks>
       </Box>
     </Box>

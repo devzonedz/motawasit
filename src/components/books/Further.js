@@ -39,11 +39,11 @@ function CatBooks({ translate, furthercoming, getBooks }) {
     1300: 4,
     1100: 3,
     1000: 2,
-    700: 2,
+    700: 1,
   };
 
   return (
-    <Box mt="160px" mb="100px">
+    <Box mt="160px" mb="100px" >
       <Box>
         <Box d="flex" m="4">
           <Link to={`/furthercoming?furthercoming=1&translate=0`}>
@@ -80,7 +80,12 @@ function CatBooks({ translate, furthercoming, getBooks }) {
           {data &&
             Object.values(data).map(book => (
               <Link key={book.id} to={`/book/${book.id}`}>
-                <Box mt="8" pb="4" shadow="lg" bg={bg[colorMode]}>
+                <Box
+                    mr="4"
+                    mt="8"
+                    pb="4"
+                    shadow="lg"
+                    bg={bg[colorMode]}>
                   <LazyLoad once height="350px">
                     <Skeleton w="100%" isLoaded={loaded}>
                       <Image
