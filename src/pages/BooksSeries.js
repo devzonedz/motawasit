@@ -52,13 +52,13 @@ function CatBooks({ getBooksBySerie }) {
   };
 
   return (
-    <Box>
+    <Box   mt="160px" mb="100px">
       <Helmet>
         <title>{serie}</title>
       </Helmet>
       <BooksFilter></BooksFilter>
-      <Box mt="160px" mb="100px" pr={["10%",'5%','5%',"3%"]} pl={["10%",'5%','5%',"3%"]}>
-        <Box m="8">
+      <Box pr={["10%",'5%','5%',"3%"]} pl={["10%",'5%','5%',"3%"]}  mt={["0","170px","170px","170px"]} mb="100px">
+        <Box m="4">
           <Heading fontFamily="diodrum-bold !important">{serie}</Heading>
         </Box>
         {!data && (

@@ -16,12 +16,12 @@ export default function Books() {
   let translate = query.get('translate');
 
   return (
-    <Box>
+    <Box mt="160px" mb="100px">
       <Helmet>
         <title>قريبا من المتوسط</title>
       </Helmet>
       <BooksFilter></BooksFilter>
-      <Box mt="100px" mb="100px" pr={["10%",'5%','5%',"3%"]} pl={["10%",'5%','5%',"3%"]}>
+        <Box  pr={["10%",'5%','5%',"3%"]} pl={["10%",'5%','5%',"3%"]} mt={["0","160px","160px","160px"]} mb="100px">
         <Further furthercoming={furthercoming} translate={translate}></Further>
       </Box>
     </Box>

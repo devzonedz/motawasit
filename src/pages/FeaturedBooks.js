@@ -16,13 +16,13 @@ export default function Books() {
 
   let { category } = useParams();
   return (
-    <Box>
+    <Box mt="160px" mb="100px">
       <Helmet>
         <title>آخر إصدرات المتوسط</title>
       </Helmet>
       <BooksFilter></BooksFilter>
-      <Box mt="160px" mb="100px" pr={["10%",'5%','5%',"3%"]} pl={["10%",'5%','5%',"3%"]}>
-        <Box m="8">
+      <Box  pr={["10%",'5%','5%',"3%"]} pl={["10%",'5%','5%',"3%"]} mt={["0","160px","160px","160px"]} mb="100px">
+        <Box m="4">
           <Heading>{category}</Heading>
         </Box>
         <Featured

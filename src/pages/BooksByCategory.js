@@ -17,16 +17,16 @@ export default function Books() {
 
   //   let { category } = useParams();
   return (
-    <Box>
+    <Box  mt="160px" mb="100px">
       <Helmet>
         <title>{category}</title>
       </Helmet>
       <BooksFilter></BooksFilter>
-      <Box pr={["10%",'5%','5%',"3%"]} pl={["10%",'5%','5%',"3%"]} mt="160px" mb="100px">
-        <Box m="8">
+      <Box pr={["10%",'5%','5%',"3%"]} pl={["10%",'5%','5%',"3%"]}  mt={["0","170px","170px","170px"]} mb="100px">
+        <Box m="4">
           <Heading fontFamily="diodrum-bold !important">{category}</Heading>
         </Box>
-        <Box d="flex" m="4">
+        <Box d="flex" m="2">
           <Link to={`/books_by_category?category=${category}&translate=0`}>
             <Heading
               fontFamily="diodrum-med !important"

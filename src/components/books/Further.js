@@ -43,7 +43,7 @@ function CatBooks({ translate, furthercoming, getBooks }) {
   };
 
   return (
-    <Box mt="160px" mb="100px" >
+    <Box>
       <Box>
         <Box d="flex" m="4">
           <Link to={`/furthercoming?furthercoming=1&translate=0`}>
