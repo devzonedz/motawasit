@@ -35,7 +35,7 @@ const thumbsContainer = {
 export default function Previews(props) {
   const [files, setFiles] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
-    accept: 'application/pdf',
+    accept: '.pdf,.doc,.docx,.odt',
     maxFiles: 1,
     onDrop: async acceptedFiles => {
       await setFiles(
