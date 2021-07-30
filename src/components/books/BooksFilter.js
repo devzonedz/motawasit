@@ -11,7 +11,7 @@ import {
   MenuList,
   MenuItem,
   Heading,
-  SimpleGrid,
+  SimpleGrid, Center, useMediaQuery,
 } from '@chakra-ui/core';
 // import { ChevronDownIcon } from '@chakra-ui/icons';
 import { NavLink, Link } from 'react-router-dom';
@@ -25,6 +25,8 @@ function Navbar({ getSeries, getCat }) {
   const handleToggle = () => setShow(!show);
 
   const { colorMode } = useColorMode();
+
+  const [isSmallerThan420] = useMediaQuery("(max-width:420px)")
 
   const bg = { light: '#f5f2ef', dark: '#1a202c' };
   const filter = { light: '#000000', dark: '#1a202c' };
@@ -146,38 +148,72 @@ function Navbar({ getSeries, getCat }) {
             }}
           ></FaChevronDown>{' '}
         </MenuButton>
-        <MenuList w="100vw" color="white" bg={filter[colorMode]} shadow="xl">
+        <MenuList
+            maxHeight="75vh"
+            w="100vw" color="white" overflowY={{base:'scroll', sm:'scroll'}}  bg={filter[colorMode]} shadow="xl">
           <SimpleGrid
-            pl={['5%', '5%', '20%', '20%']}
-            pr={['5%', '5%', '20%', '20%']}
-            columns={3}
+              pl={['5%', '5%', '15%', '15%']}
+              pr={['5%', '5%', '15%', '15%']}
+              columns={[1,2,3,3,4]}
           >
             {cat &&
-              cat.map(category => (
-                <Link
-                  key={category.id}
-                  style={{ margin: '50px !important' }}
-                  onClick={handleToggle}
-                  to={`/books_by_category?category=${category.key}`}
-                >
-                  <Box m="4">
-                    <MenuItem
-                      _focus={{ bg: 'white', color: 'black' }}
-                      _hover={{ bg: 'white', color: 'black' }}
-                      fontSize="xl"
-                    >
-                      <Box display="flex">
-                        <Heading
-                          fontFamily="diodrum-med !important"
-                          fontSize={['lg', 'lg', '2xl', '2xl']}
+              cat.map(category => {
+                if (isSmallerThan420){
+                  return(
+                      <Center>
+                        <Link
+                            key={category.id}
+                            style={{ margin: '50px !important' }}
+                            onClick={handleToggle}
+                            to={`/books_by_category?category=${category.key}`}
                         >
-                          {category.name}
-                        </Heading>
-                      </Box>
-                    </MenuItem>
-                  </Box>
-                </Link>
-              ))}
+                          <Box m={["0.9","4"]}>
+                            <MenuItem
+                                _focus={{ bg: 'white', color: 'black' }}
+                                _hover={{ bg: 'white', color: 'black' }}
+                                fontSize="xl"
+                            >
+                              <Box display="flex">
+                                <Heading
+                                    fontFamily="diodrum-med !important"
+                                    fontSize={['lg', 'lg', 'xl', 'xl']}
+                                >
+                                  {category.name}
+                                </Heading>
+                              </Box>
+                            </MenuItem>
+                          </Box>
+                        </Link>
+                      </Center>
+                  )
+                }else {
+                  return (
+                        <Link
+                            key={category.id}
+                            style={{ margin: '50px !important' }}
+                            onClick={handleToggle}
+                            to={`/books_by_category?category=${category.key}`}
+                        >
+                          <Box m={["0.9","4"]}>
+                            <MenuItem
+                                _focus={{ bg: 'white', color: 'black' }}
+                                _hover={{ bg: 'white', color: 'black' }}
+                                fontSize="xl"
+                            >
+                              <Box display="flex">
+                                <Heading
+                                    fontFamily="diodrum-med !important"
+                                    fontSize={['lg', 'lg', 'xl', 'xl']}
+                                >
+                                  {category.name}
+                                </Heading>
+                              </Box>
+                            </MenuItem>
+                          </Box>
+                        </Link>
+                  )
+                }
+            })}
           </SimpleGrid>
         </MenuList>
       </Menu>
@@ -210,38 +246,72 @@ function Navbar({ getSeries, getCat }) {
             }}
           ></FaChevronDown>{' '}
         </MenuButton>
-        <MenuList w="100vw" color="white" bg={filter[colorMode]} shadow="xl">
+        <MenuList
+            maxHeight="75vh"
+            w="100vw" color="white" overflowY={{base:'scroll', sm:'scroll'}}  bg={filter[colorMode]} shadow="xl">
           <SimpleGrid
-            pl={['5%', '5%', '20%', '20%']}
-            pr={['5%', '5%', '20%', '20%']}
-            columns={3}
+              pl={['5%', '5%', '15%', '15%']}
+              pr={['5%', '5%', '15%', '15%']}
+              columns={[1,2,3,3,4]}
           >
             {data &&
-              data.map(serie => (
-                <Link
-                  style={{ margin: '50px !important' }}
-                  onClick={handleToggle}
-                  to={`/books_by_series?serie=${serie.name} `}
-                >
-                  <Box m="4">
-                    <MenuItem
-                      _focus={{ bg: 'white', color: 'black' }}
-                      _hover={{ bg: 'white', color: 'black' }}
-                      fontSize="xl"
-                    >
-                      <Box textAlign="right" display="flex">
-                        <Heading
-                          dir="rtl"
-                          fontFamily="diodrum-med !important"
-                          fontSize={['lg', 'lg', '2xl', '2xl']}
+              data.map(serie => {
+                if (isSmallerThan420){
+                  return(
+                      <Center>
+                        <Link
+                            style={{margin: '50px !important'}}
+                            onClick={handleToggle}
+                            to={`/books_by_series?serie=${serie.name} `}
                         >
-                          {serie.name}
-                        </Heading>
-                      </Box>
-                    </MenuItem>
-                  </Box>
-                </Link>
-              ))}
+                          <Box m={["0.9","4"]}>
+                            <MenuItem
+                                _focus={{bg: 'white', color: 'black'}}
+                                _hover={{bg: 'white', color: 'black'}}
+                                fontSize="xl"
+                            >
+                              <Box textAlign="right" display="flex">
+                                <Heading
+                                    dir="rtl"
+                                    fontFamily="diodrum-med !important"
+                                    fontSize={['lg', 'lg', 'xl', 'xl']}
+                                >
+                                  {serie.name}
+                                </Heading>
+                              </Box>
+                            </MenuItem>
+                          </Box>
+                        </Link>
+                      </Center>
+                  )
+                }else {
+                  return (
+                      <Link
+                          style={{margin: '50px !important'}}
+                          onClick={handleToggle}
+                          to={`/books_by_series?serie=${serie.name} `}
+                      >
+                        <Box m={["0.9","4"]}>
+                          <MenuItem
+                              _focus={{bg: 'white', color: 'black'}}
+                              _hover={{bg: 'white', color: 'black'}}
+                              fontSize="xl"
+                          >
+                            <Box textAlign="right" display="flex">
+                              <Heading
+                                  dir="rtl"
+                                  fontFamily="diodrum-med !important"
+                                  fontSize={['lg', 'lg', 'xl', 'xl']}
+                              >
+                                {serie.name}
+                              </Heading>
+                            </Box>
+                          </MenuItem>
+                        </Box>
+                      </Link>
+                  )
+                }
+              })}
           </SimpleGrid>
         </MenuList>
       </Menu>
