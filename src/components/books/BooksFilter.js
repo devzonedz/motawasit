@@ -11,7 +11,7 @@ import {
   MenuList,
   MenuItem,
   Heading,
-  SimpleGrid, Center, useMediaQuery,
+  SimpleGrid, Center, useMediaQuery, Spinner,
 } from '@chakra-ui/core';
 // import { ChevronDownIcon } from '@chakra-ui/icons';
 import { NavLink, Link } from 'react-router-dom';
@@ -149,11 +149,17 @@ function Navbar({ getSeries, getCat }) {
           ></FaChevronDown>{' '}
         </MenuButton>
         <MenuList
-            maxHeight="75vh"
-            w="100vw" color="white" overflowY={{base:'scroll', sm:'scroll'}}  bg={filter[colorMode]} shadow="xl">
+            h="60vh"
+            w="100vw" color="white" overflowY={{base:'scroll', sm:'scroll'}} bg={filter[colorMode]} >
+          {!data &&
+          <Box w="100" mt="50" mb="50" textAlign="center">
+            <Spinner size="xl"/>
+          </Box>
+          }
           <SimpleGrid
               pl={['5%', '5%', '15%', '15%']}
               pr={['5%', '5%', '15%', '15%']}
+              py={['5%', '0%', '0%', '0%']}
               columns={[1,2,3,3,4]}
           >
             {cat &&
@@ -247,11 +253,17 @@ function Navbar({ getSeries, getCat }) {
           ></FaChevronDown>{' '}
         </MenuButton>
         <MenuList
-            maxHeight="75vh"
-            w="100vw" color="white" overflowY={{base:'scroll', sm:'scroll'}}  bg={filter[colorMode]} shadow="xl">
+            h="60vh"
+            w="100vw" color="white" overflowY={{base:'scroll', sm:'scroll'}} bg={filter[colorMode]} >
+          {!data &&
+          <Box w="100" mt="50" mb="50" textAlign="center">
+            <Spinner size="xl"/>
+          </Box>
+          }
           <SimpleGrid
               pl={['5%', '5%', '15%', '15%']}
               pr={['5%', '5%', '15%', '15%']}
+              py={['5%', '0%', '0%', '0%']}
               columns={[1,2,3,3,4]}
           >
             {data &&
