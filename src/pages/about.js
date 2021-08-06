@@ -29,11 +29,13 @@ export default function blog() {
           w="20%"
         ></Divider> */}
       </Heading>
-      <Box d="flex" alignItems={"stretch"} justifyContent="center" m="4">
+      <Box d="flex" justifyContent="center" m="4">
         <Image
+
           loading="lazy"
           shadow="lg"
           rounded="10px"
+          alignSelf="start"
           w={['90%', '90%', '60%', '60%']}
           h={'auto'}
           src="https://www.almutawassit.it/almutawassit.png"
