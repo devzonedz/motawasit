@@ -3,7 +3,7 @@ const axios =require('axios')
 const path = require("path");
 const fs = require("fs");
 const jsdom  = require("jsdom");
-const PORT = process.env.PORT || 5003;
+const PORT = process.env.PORT || 5004;
 
 const app = express();
 const headers = {
@@ -407,7 +407,7 @@ app.get("/singlePost",  (req, res) => {
             .then(result => {
                 return result;
             })
-        const desc = new jsdom.JSDOM(dataR.data.description)
+        const desc = new jsdom.JSDOM(dataR.data.body)
 
         data = data
             .replace(/__TITLE__/g, dataR.data.title)

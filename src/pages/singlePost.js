@@ -335,7 +335,7 @@ function SingleBlog({ getArticle }) {
                   //                   ></Box>
                   //                 </Box>
                   //               </Link>
-                  <Link to={`/singlePost?id=${article.id}`}>
+                  <a href={`/singlePost?id=${article.id}`}>
                     <Box
                       bg="white"
                       w="350px"
@@ -387,7 +387,7 @@ function SingleBlog({ getArticle }) {
                         </Box>
                       </Box>
                     </Box>
-                  </Link>
+                  </a>
                 ))}
               </Carousel>
             </Box>

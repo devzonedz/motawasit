@@ -316,7 +316,7 @@ function Book({ getBook }) {
                     //   itemsToShow={3}
                 >
                   {data.books.map(book => (
-                      <Link key={book.id} to={`/book/${book.id}`}>
+                      <a key={book.id} href={`/book/${book.id}`}>
                         <Box w="350px" mb="4" cursor="pointer">
                           <Image
                               loading="lazy"
@@ -340,7 +340,7 @@ function Book({ getBook }) {
                             {/* <Text fontWeight="bold">€{book.price}</Text> */}
                           </Box>
                         </Box>
-                      </Link>
+                      </a>
                   ))}
                 </Carousel>
               </Box>
