@@ -128,7 +128,7 @@ function App(props) {
         <Route title="blog" exact path="/blog">
           <Blog />
         </Route>
-        <Route title="single-post" exact path="/singlePost">
+        <Route title="single-post" exact path="/singlePost/:id">
           <SinglePost />
         </Route>
         <Route title="in the press" exact path="/inThePress">

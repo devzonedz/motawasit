@@ -375,7 +375,7 @@ function Book({ getBook }) {
                     //   itemsToShow={3}
                 >
                   {data.articles.map(article => (
-                      <Link to={`/singlePost?id=${article.id}`}>
+                      <Link to={`/singlePost/${article.id}`}>
                         <Box
                             bg="white"
 
