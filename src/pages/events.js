@@ -62,7 +62,7 @@ function Blog({ getArticles }) {
       >
         {data &&
           data.articles.map(article => (
-            <Link to={`/singlePost?id=${article.id}`}>
+            <Link to={`/singlePost/${article.id}`}>
               <Box
                 bg={bg[colorMode]}
                 w="100%"

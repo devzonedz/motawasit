@@ -14,7 +14,7 @@ import {
   useColorMode,
   Button,
 } from '@chakra-ui/core';
-import { useLocation, Link } from 'react-router-dom';
+import {useLocation, Link, useParams} from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { getArticle } from '../redux/actions/articleActions';
@@ -35,7 +35,7 @@ function SingleBlog({ getArticle }) {
     setLoaded(true);
   };
   let query = useQuery();
-  let id = query.get('id');
+  let {id} = useParams('id');
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
     async function getData() {
@@ -310,7 +310,7 @@ function SingleBlog({ getArticle }) {
                 // itemsToShow={3}
               >
                 {data.maitres.map(article => (
-                  //               <Link to={`/singlePost?id=${article.id}`}>
+                  //               <Link to={`/singlePost/${article.id}`}>
                   //                 <Box bg="#f5f2ef" shadow="lg" p="2" cursor="pointer">
                   //                   <Box
                   //                     style={{
@@ -335,7 +335,7 @@ function SingleBlog({ getArticle }) {
                   //                   ></Box>
                   //                 </Box>
                   //               </Link>
-                  <a href={`/singlePost?id=${article.id}`}>
+                  <a href={`/singlePost/${article.id}`}>
                     <Box
                       bg="white"
                       w="350px"

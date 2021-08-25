@@ -396,7 +396,7 @@ app.get("/book/:id",  (req, res) => {
 
 
 
-app.get("/singlePost",  (req, res) => {
+app.get("/singlePost/:id",  (req, res) => {
     const filePath = path.resolve(__dirname, "./build", "index.html");
     fs.readFile(filePath, "utf8", async (err, data) => {
         if (err) {
@@ -404,7 +404,7 @@ app.get("/singlePost",  (req, res) => {
         }
 
         const dataR =  await axios
-            .get(`https://elmutawassit.liverily.com/api/articles/${req.query.id}`, { headers })
+            .get(`https://elmutawassit.liverily.com/api/articles/${req.params.id}`, { headers })
             .then(result => {
                 return result;
             })
@@ -417,7 +417,7 @@ app.get("/singlePost",  (req, res) => {
                 return  word.name.en
             }))
             .replace(/__IMAGE__/g, "https://elmutawassit.liverily.com/storage/"+dataR.data.image)
-            .replace(/__URL__/g, "https://almutawassit.it/singlePost=?/"+ dataR.data.id);
+            .replace(/__URL__/g, "https://almutawassit.it/singlePost=?"+ dataR.data.id);
 
         res.send(data)
     });
