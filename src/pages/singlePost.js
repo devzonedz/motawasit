@@ -34,7 +34,6 @@ function SingleBlog({ getArticle }) {
   const imageLoaded = () => {
     setLoaded(true);
   };
-  let query = useQuery();
   let {id} = useParams('id');
   const [data, setData] = React.useState(null);
   React.useEffect(() => {

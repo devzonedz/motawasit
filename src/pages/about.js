@@ -38,7 +38,7 @@ export default function blog() {
           alignSelf="start"
           w={['90%', '90%', '60%', '60%']}
           h={'auto'}
-          src="https://www.almutawassit.it/almutawassit.png"
+          src="https://almutawassit.it/almutawassit.png"
         ></Image>
       </Box>
       <Box
