@@ -192,7 +192,7 @@ app.get("/author/:id", (req, res) => {
             .replace(/__DESCRIPTION__/g, dataR.data.author_bio)
             .replace(/__KEYWORDS__/g,dataR.data.name )
             .replace(/__IMAGE__/g, "https://elmutawassit.liverily.com/storage/"+dataR.data.image)
-            .replace(/__URL__/g, "https://www.almutawassit.it/author/"+ dataR.data.id);
+            .replace(/__URL__/g, "https://almutawassit.it/author/"+ dataR.data.id);
 
         res.send(data)
     });
@@ -387,12 +387,13 @@ app.get("/book/:id",  (req, res) => {
                 return  word.name.en
             }))
             .replace(/__IMAGE__/g, "https://elmutawassit.liverily.com/storage/"+dataR.data.cover)
-            .replace(/__URL__/g, "https://www.almutawassit.it/book/"+ dataR.data.id);
+            .replace(/__URL__/g, "https://almutawassit.it/book/"+ dataR.data.id);
 
         res.send(data)
     });
 
 });
+
 
 
 app.get("/singlePost",  (req, res) => {
@@ -416,12 +417,13 @@ app.get("/singlePost",  (req, res) => {
                 return  word.name.en
             }))
             .replace(/__IMAGE__/g, "https://elmutawassit.liverily.com/storage/"+dataR.data.image)
-            .replace(/__URL__/g, "https://www.almutawassit.it/singlePost=?/"+ dataR.data.id);
+            .replace(/__URL__/g, "http://almutawassit.it/singlePost=?/"+ dataR.data.id);
 
         res.send(data)
     });
 
 });
+
 
 
 
