@@ -417,7 +417,7 @@ app.get("/singlePost",  (req, res) => {
                 return  word.name.en
             }))
             .replace(/__IMAGE__/g, "https://elmutawassit.liverily.com/storage/"+dataR.data.image)
-            .replace(/__URL__/g, "http://almutawassit.it/singlePost=?/"+ dataR.data.id);
+            .replace(/__URL__/g, "https://almutawassit.it/singlePost=?/"+ dataR.data.id);
 
         res.send(data)
     });
