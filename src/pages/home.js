@@ -74,7 +74,7 @@ function Home({ getHome }) {
         {data &&
           data.articles &&
           data.articles.map(article => (
-            <Link key={article.id} to={`/singlePost/${article.id}`}>
+            <Link key={article.id} to={`/singlePost?id=${article.id}`}>
               <Box
                 bg={bg[colorMode]}
                 w="100%"
