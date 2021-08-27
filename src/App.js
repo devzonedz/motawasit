@@ -52,6 +52,7 @@ import theme from './util/theme';
 import './styles/globals.css';
 import './styles/fancyroutes.css';
 import 'react-dropzone-uploader/dist/styles.css';
+import SinglePodcast from "./pages/singlePodcast";
 
 // const TIMEOUT = 300;
 
@@ -131,6 +132,11 @@ function App(props) {
         <Route title="single-post" exact path="/singlePost/:id">
           <SinglePost />
         </Route>
+
+        <Route title="single-post" exact path="/singlePodcast/:id">
+          <SinglePodcast />
+        </Route>
+
         <Route title="in the press" exact path="/inThePress">
           <InThePress />
         </Route>

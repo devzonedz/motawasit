@@ -425,6 +425,34 @@ app.get("/singlePost/:id",  (req, res) => {
 });
 
 
+app.get("/singlePodcast/:id",  (req, res) => {
+    const filePath = path.resolve(__dirname, "./build", "index.html");
+    fs.readFile(filePath, "utf8", async (err, data) => {
+        if (err) {
+            return console.log(err);
+        }
+
+        const dataR =  await axios
+            .get(`https://elmutawassit.liverily.com/api/podcast/${req.params.id}`, { headers })
+            .then(result => {
+                return result;
+            })
+        const desc = new jsdom.JSDOM(dataR.data.podcast.description)
+        data = data
+            .replace(/__TITLE__/g, dataR.data.podcast.title)
+            .replace(/__DESCRIPTION__/g, desc.window.document.querySelector("p").textContent)
+            .replace(/__KEYWORDS__/g, dataR.data.tags.map(word => {
+                return  word.name.en
+            }))
+            .replace(/__IMAGE__/g, "https://elmutawassit.liverily.com/storage/"+dataR.data.podcast.image)
+            .replace(/__URL__/g, "https://almutawassit.it/singlePodcast/"+ dataR.podcast.data.id);
+
+        res.send(data)
+    });
+
+});
+
+
 
 
 app.use(express.static(path.resolve(__dirname, "./build")))

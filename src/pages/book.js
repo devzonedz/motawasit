@@ -76,7 +76,7 @@ function Book({ getBook }) {
           <Grid
               pr={['2%', '2%', '7%', '7%']}
               pl={['2%', '2%', '7%', '7%']}
-              templateColumns={['1fr', '1fr', '0.5fr 2fr', '0.5fr 2fr']}
+              templateColumns={['1fr', '1fr','1fr' ,'35% 65%', '0.5fr 2fr']}
               gap="10px"
           >
             {data && (
@@ -89,7 +89,7 @@ function Book({ getBook }) {
                       <Flex justifyContent="center">
                         <Box m="4">
                           <Skeleton
-                              w={['300px', '300px', '400px', '400px']}
+                              w={['300px', '300px', '400px','400px', '400px']}
                               isLoaded={loaded}
                           >
                             <Image

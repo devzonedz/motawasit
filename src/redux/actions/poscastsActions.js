@@ -38,3 +38,14 @@ export const getVideos = page => async (dispatch, getState) => {
     });
   return data;
 };
+
+
+export const getPodcast = id => async (dispatch, getState) => {
+  const data = await axios
+      .get(`${process.env.REACT_APP_API}/podcast/${id}`, { headers })
+      .then(res => {
+        return res;
+      })
+      .catch(err => {});
+  return data;
+};
