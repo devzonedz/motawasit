@@ -438,14 +438,13 @@ app.get("/singlePodcast/:id",  (req, res) => {
                 return result;
             })
         const desc = new jsdom.JSDOM(dataR.data.podcast.description)
+        console.log(dataR.data.podcast.image)
         data = data
             .replace(/__TITLE__/g, dataR.data.podcast.title)
             .replace(/__DESCRIPTION__/g, desc.window.document.querySelector("p").textContent)
-            .replace(/__KEYWORDS__/g, dataR.data.tags.map(word => {
-                return  word.name.en
-            }))
+            .replace(/__KEYWORDS__/g,  dataR.data.podcast.title)
             .replace(/__IMAGE__/g, "https://elmutawassit.liverily.com/storage/"+dataR.data.podcast.image)
-            .replace(/__URL__/g, "https://almutawassit.it/singlePodcast/"+ dataR.podcast.data.id);
+            .replace(/__URL__/g, "https://almutawassit.it/singlePodcast/"+ dataR.data.podcast.id);
 
         res.send(data)
     });
