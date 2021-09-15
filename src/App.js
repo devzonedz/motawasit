@@ -192,7 +192,7 @@ function App(props) {
       <Footer></Footer>
       <MessengerCustomerChat
           pageId="511490325560386"
-          appId="387957032206747"
+          appId="406218294192351"
       />
     </ChakraProvider>
   );
