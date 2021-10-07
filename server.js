@@ -382,7 +382,8 @@ app.get("/book/:id",  (req, res) => {
         const desc = new jsdom.JSDOM(dataR.data.description)
         data = data
             .replace(/__TITLE__/g, dataR.data.title)
-            .replace(/__DESCRIPTION__/g, desc.window.document.querySelector("p") ? desc.window.document.querySelector("p").textContent : desc.window.document.querySelector("div").textContent)
+            .replace(/__DESCRIPTION__/g,desc.window.document.querySelector("p") ? desc.window.document.querySelector("p").textContent :
+                     (desc.window.document.querySelector("div") ? desc.window.document.querySelector("div").textContent : "" ))
             .replace(/__KEYWORDS__/g, dataR.data.tags.map(word => {
                 return  word.name.en
             }))
@@ -412,7 +413,8 @@ app.get("/singlePost/:id",  (req, res) => {
 
         data = data
             .replace(/__TITLE__/g, dataR.data.title)
-            .replace(/__DESCRIPTION__/g, desc.window.document.querySelector("p") ? desc.window.document.querySelector("p").textContent : desc.window.document.querySelector("div").textContent)
+            .replace(/__DESCRIPTION__/g, desc.window.document.querySelector("p") ? desc.window.document.querySelector("p").textContent :
+                     (desc.window.document.querySelector("div") ? desc.window.document.querySelector("div").textContent : "" ))
             .replace(/__KEYWORDS__/g, dataR.data.tags.map(word => {
                 return  word.name.en
             }))
@@ -441,7 +443,8 @@ app.get("/singlePodcast/:id",  (req, res) => {
         console.log(dataR.data.podcast.image)
         data = data
             .replace(/__TITLE__/g, dataR.data.podcast.title)
-            .replace(/__DESCRIPTION__/g, desc.window.document.querySelector("p") ? desc.window.document.querySelector("p").textContent : desc.window.document.querySelector("div").textContent)
+            .replace(/__DESCRIPTION__/g,desc.window.document.querySelector("p") ? desc.window.document.querySelector("p").textContent :
+                     (desc.window.document.querySelector("div") ? desc.window.document.querySelector("div").textContent : "" ))
             .replace(/__KEYWORDS__/g,  dataR.data.podcast.title)
             .replace(/__IMAGE__/g, "https://admin.almutawassit.it/storage/"+dataR.data.podcast.image)
             .replace(/__URL__/g, "https://almutawassit.it/singlePodcast/"+ dataR.data.podcast.id);
