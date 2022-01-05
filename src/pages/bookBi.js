@@ -75,125 +75,122 @@ function Book({ getBook }) {
   ];
   return (
     <Box mt="100px">
-      {!data && (
-        <Box textAlign="center">
-          <Spinner size="xl" />
-        </Box>
-      )}
-      <Box mt="100px">
-        <Flex
-          direction={['column', 'column', 'column', 'row']}
-          px={['2%', '2%', '5%', '5%']}
-          gap="10px"
-        >
-          {data && (
-            <>
-              <Helmet>
-                <title>{data.title}</title>
-              </Helmet>
-              <Box>
+      <Box mb="2em">
+        {!data && (
+          <Box textAlign="center">
+            <Spinner size="xl" />
+          </Box>
+        )}
+        {data && (
+          <>
+            <Helmet>
+              <title>{data.title}</title>
+            </Helmet>
+            <Flex
+              direction={['column', 'column', 'column', 'row']}
+              px={['2%', '2%', '5%', '5%']}
+              gap="10px"
+            >
+              <Box w={{ base: '100%', lg: '30%' }} maxW="400px" mx="auto">
                 <Box>
-                  <Box>
-                    <Box
-                      m="4"
-                      w={{ base: '100%', lg: '30%' }}
-                      maxW="400px"
+                  <Skeleton isLoaded={loaded}>
+                    <Image
+                      laading="lazy"
+                      onLoad={imageLoaded}
+                      shadow="lg"
                       mx="auto"
-                    >
-                      <Skeleton
-                        w={['300px', '300px', '400px', '400px', '400px']}
-                        isLoaded={loaded}
-                      >
-                        <Image
-                          loading="lazy"
-                          onLoad={imageLoaded}
-                          shadow="lg"
-                          mx="auto"
-                          src={`${process.env.REACT_APP_STORAGE}/${data.cover}`}
-                        ></Image>
-                      </Skeleton>
-                      <a
-                        target="_blank"
-                        href={`${process.env.REACT_APP_SHOP}/book/${data.id}`}
-                      >
-                        <Button
-                          rounded="20px"
-                          mt="4"
-                          w="90%"
-                          colorScheme="red"
-                          fontFamily="diodrum-med !important"
-                        >
-                          لشراء الكتاب المس هنا
-                        </Button>
-                      </a>
-                      <Box mt="4" w="90%">
-                        <GlobalShare />
-                      </Box>
-
-                      <Box w={['300px', '300px', '400px', '400px']}>
-                        {data.podcast && (
-                          <Box
-                            m="4"
-                            fontSize="2xl"
-                            className="content"
-                            dangerouslySetInnerHTML={{ __html: data.podcast }}
-                          />
-                        )}
-                      </Box>
-                      {data.video && (
-                        <AspectRatio ratio={1}>
-                          <Box
-                            fontSize="2xl"
-                            className="content"
-                            dangerouslySetInnerHTML={{ __html: data.video }}
-                          ></Box>
-                        </AspectRatio>
-                      )}
-                    </Box>
-                  </Box>
+                      src={`${process.env.REACT_APP_STORAGE}/${data.cover}`}
+                    />
+                  </Skeleton>
                 </Box>
-              </Box>
-              <Box m="4" w={['370px', '400px', 'auto', 'auto']}>
-                <Heading fontFamily="diodrum-med !important" m="4">
-                  {data.title}
-                </Heading>
-                <Divider></Divider>
-                <Text mr="4" fontSize="2xl" fontFamily="diodrum-med !important">
-                  {data.sub_title}
-                </Text>
-                <Divider></Divider>
-                <Flex>
-                  {data.author.map(author => (
-                    <Link key={author.id} to={`/author/${author.id}`}>
-                      <Text
-                        _hover={{
-                          bg: 'black',
-                          color: 'white',
-                          textDecoration: 'underline',
-                        }}
-                        m="2"
+                <Flex direction="column" align="center" py="1.5em">
+                  <a
+                    target="_blank"
+                    href={`${process.env.REACT_APP_SHOP}/book/${data.id}`}
+                    style={{ width: '100%' }}
+                  >
+                    <Button
+                      rounded="20px"
+                      mt="4"
+                      w="100%"
+                      colorScheme="red"
+                      fontFamily="diodrum-med !important"
+                    >
+                      لشراء الكتاب المس هنا
+                    </Button>
+                  </a>
+                  <Box mt="4" w="90%">
+                    <GlobalShare />
+                  </Box>
+                  {data.podcast && (
+                    <Box>
+                      <iframe
+                        title={data.title}
+                        width="100%"
+                        height="100"
+                        scrolling="no"
+                        frameborder="no"
+                        allow="autoplay"
+                        src={data.podcast}
+                      ></iframe>
+                    </Box>
+                  )}
+                  {data.video && (
+                    <AspectRatio ratio={1}>
+                      <Box
                         fontSize="2xl"
-                        color="gray.500"
-                      >
-                        {author.name}
-                      </Text>
-                    </Link>
-                  ))}
+                        className="content"
+                        dangerouslySetInnerHTML={{ __html: data.video }}
+                      ></Box>
+                    </AspectRatio>
+                  )}
                 </Flex>
-                <Divider></Divider>
-                {data.translate_from && (
-                  <Text m="2" fontSize="2xl">
-                    تُرجم عن:{data.translate_from}
+              </Box>
+              <Box
+                w={{ base: '100%', lg: '70%' }}
+                mr={{ base: '0', lg: '1.5em' }}
+                py="1em"
+              >
+                <Box>
+                  <Heading fontFamily="diodrum-med !important" mb="4">
+                    {data.title}
+                  </Heading>
+                  <Divider />
+                  <Text fontFamily="diodrum-med !important" fontSize="2xl">
+                    {data.sub_title}
                   </Text>
-                )}
-
-                <Box
-                  m="4"
-                  fontSize="2xl"
-                  className="content"
-                  dangerouslySetInnerHTML={{ __html: data.overview }}
-                ></Box>
-                <Divider></Divider>
+                  {data.author.map(author => (
+                    <Box key={author.id} d="inline-block">
+                      <Link key={author.id} to={`/author/${author.id}`}>
+                        <Text
+                          _hover={{
+                            bg: 'black',
+                            color: 'white',
+                            textDecoration: 'underline',
+                          }}
+                          mt="2"
+                          fontSize="2xl"
+                          color="gray.500"
+                        >
+                          {author.name}
+                        </Text>
+                      </Link>
+                    </Box>
+                  ))}
+                  <Divider />
+                  {data.translate_from && (
+                    <Text mt="2" fontSize="2xl">
+                      ترجم عن : {data.translate_from}
+                    </Text>
+                  )}
+                  <Box
+                    my="4"
+                    fontSize="2xl"
+                    className="content"
+                    dangerouslySetInnerHTML={{ __html: data.overview }}
+                  />
+                  <Divider />
+                </Box>
                 {breakPointMd && (
                   <Tabs>
                     <TabList className="booktablist">
@@ -224,9 +221,6 @@ function Book({ getBook }) {
                     <TabPanels>
                       {data.description && (
                         <TabPanel>
-                          {/* <Text fontSize="xl" mt="4">
-                        {data.description}
-                      </Text> */}
                           <Box
                             fontSize="2xl"
                             className="content"
@@ -439,9 +433,9 @@ function Book({ getBook }) {
                   </Accordion>
                 )}
               </Box>
-            </>
-          )}
-        </Flex>
+            </Flex>
+          </>
+        )}
         {data && data.books[0] && (
           <Box
             pr="7%"
@@ -536,15 +530,13 @@ function Book({ getBook }) {
               //   itemsToShow={3}
             >
               {data.articles.map(article => (
-                <Link to={`/singlePost/${article.id}`}>
+                <Link to={`/singlePost/${article.id}`} key={article.id}>
                   <Box
                     bg="white"
-                    // p="2"
-                    pb="4"
-                    m="4"
-                    w={['100', '100', '100', '100', '355px']}
-                    m="0 auto"
+                    maxW="300px"
                     shadow="lg"
+                    pb="4"
+                    m={{ base: '1', md: '4' }}
                     cursor="pointer"
                   >
                     <Box>
@@ -555,7 +547,7 @@ function Book({ getBook }) {
                           //   h="200px"
                           onLoad={imageLoaded}
                           src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
-                        ></Image>
+                        />
                       </Skeleton>
                       <Text
                         m="2"
@@ -569,14 +561,18 @@ function Book({ getBook }) {
                       <Heading
                         fontFamily="diodrum-med !important"
                         m="2"
-                        size="lg"
+                        lineHeight="1.5"
+                        fontSize={{ base: 'md', md: 'lg' }}
                       >
                         {article.title}
                       </Heading>
-                      <Box m="4" fontSize="xl" className="content event-body">
+                      <Box
+                        m="4"
+                        className="content related__content event-body"
+                      >
                         <Box
                           dangerouslySetInnerHTML={{ __html: article.body }}
-                        ></Box>
+                        />
                       </Box>
                     </Box>
                   </Box>

@@ -20,7 +20,7 @@ import Four from './pages/404';
 import Home from './pages/home';
 import About from './pages/about';
 import Blog from './pages/blog';
-import Book from './pages/book';
+import Book from './pages/bookBi';
 import Books from './pages/books';
 import Podcast from './pages/Podcast';
 import Videos from './pages/videos';
@@ -52,7 +52,7 @@ import theme from './util/theme';
 import './styles/globals.css';
 import './styles/fancyroutes.css';
 import 'react-dropzone-uploader/dist/styles.css';
-import SinglePodcast from "./pages/singlePodcast";
+import SinglePodcast from './pages/singlePodcast';
 
 // const TIMEOUT = 300;
 
@@ -190,10 +190,7 @@ function App(props) {
       </Switch>
       <Up></Up>
       <Footer></Footer>
-      <MessengerCustomerChat
-          pageId="511490325560386"
-          appId="406218294192351"
-      />
+      <MessengerCustomerChat pageId="511490325560386" appId="406218294192351" />
     </ChakraProvider>
   );
 }
