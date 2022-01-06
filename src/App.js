@@ -20,7 +20,7 @@ import Four from './pages/404';
 import Home from './pages/home';
 import About from './pages/about';
 import Blog from './pages/blog';
-import Book from './pages/bookBi';
+import Book from './pages/book';
 import Books from './pages/books';
 import Podcast from './pages/Podcast';
 import Videos from './pages/videos';
