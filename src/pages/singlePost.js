@@ -344,7 +344,10 @@ function SingleBlog({ getArticle }) {
                   //                   ></Box>
                   //                 </Box>
                   //               </Link>
-                  <a href={`/singlePost/${article.id}`}>
+                  <a
+                    href={`/singlePost/${article.id}`}
+                    style={{ margin: '0 1em' }}
+                  >
                     <Box
                       bg="white"
                       // p="2"

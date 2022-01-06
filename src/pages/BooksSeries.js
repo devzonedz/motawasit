@@ -52,12 +52,17 @@ function CatBooks({ getBooksBySerie }) {
   };
 
   return (
-    <Box   mt="160px" mb="100px">
+    <Box mt="160px" mb="100px">
       <Helmet>
         <title>{serie}</title>
       </Helmet>
       <BooksFilter></BooksFilter>
-      <Box pr={["10%",'5%','5%',"3%"]} pl={["10%",'5%','5%',"3%"]}  mt={["0","170px","170px","170px"]} mb="100px">
+      <Box
+        pr={['10%', '5%', '5%', '3%']}
+        pl={['10%', '5%', '5%', '3%']}
+        mt={['0', '170px', '170px', '170px']}
+        mb="100px"
+      >
         <Box m="4">
           <Heading fontFamily="diodrum-bold !important">{serie}</Heading>
         </Box>
@@ -77,7 +82,14 @@ function CatBooks({ getBooksBySerie }) {
             data.books.length !== 0 &&
             data.books.map(book => (
               <Link key={book.id} to={`/book/${book.id}`}>
-                <Box mt="8" pb="4" shadow="lg" bg={bg[colorMode]}>
+                <Box
+                  mt="8"
+                  pb="4"
+                  shadow="lg"
+                  bg={bg[colorMode]}
+                  maxW="400px"
+                  mx="auto"
+                >
                   <LazyLoad once height="350px">
                     <Skeleton w="100%" isLoaded={loaded}>
                       <Image
@@ -98,7 +110,7 @@ function CatBooks({ getBooksBySerie }) {
                   <Box
                     m="4"
                     fontSize="xl"
-                    className="content"
+                    className="content books__content"
                     dangerouslySetInnerHTML={{ __html: book.overview }}
                   ></Box>
                 </Box>

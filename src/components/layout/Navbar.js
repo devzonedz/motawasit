@@ -380,7 +380,7 @@ export default function Navbar(props) {
             </Text>
             <Text
               fontFamily="diodrum-bold !important"
-              mt={{ base: 4, md: 0 }}
+              mt={2}
               ml={8}
               display="block"
               fontWeight="bold"
@@ -393,7 +393,7 @@ export default function Navbar(props) {
 
             <Text
               fontFamily="diodrum-bold !important"
-              mt={{ base: 4, md: 0 }}
+              mt={2}
               ml={8}
               display="block"
               fontWeight="bold"
@@ -405,7 +405,7 @@ export default function Navbar(props) {
             </Text>
             <Text
               fontFamily="diodrum-bold !important"
-              mt={{ base: 4, md: 0 }}
+              mt={2}
               ml={8}
               display="block"
               fontWeight="bold"
@@ -418,7 +418,7 @@ export default function Navbar(props) {
 
             <Text
               fontFamily="diodrum-bold !important"
-              mt={{ base: 4, md: 0 }}
+              mt={2}
               ml={8}
               display="block"
               fontWeight="bold"
@@ -431,7 +431,7 @@ export default function Navbar(props) {
 
             <Text
               fontFamily="diodrum-bold !important"
-              mt={{ base: 4, md: 0 }}
+              mt={2}
               ml={8}
               display="block"
               fontWeight="bold"
@@ -444,7 +444,7 @@ export default function Navbar(props) {
 
             <Text
               fontFamily="diodrum-bold !important"
-              mt={{ base: 4, md: 0 }}
+              mt={2}
               ml={8}
               display="block"
               fontWeight="bold"
@@ -457,7 +457,7 @@ export default function Navbar(props) {
 
             <Text
               fontFamily="diodrum-bold !important"
-              mt={{ base: 4, md: 0 }}
+              mt={2}
               ml={8}
               display="block"
               fontWeight="bold"

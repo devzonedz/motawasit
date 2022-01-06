@@ -93,7 +93,14 @@ function CatBooks({ translate, featured, getBooks }) {
           data.books.length !== 0 &&
           data.books.map(book => (
             <Link key={book.id} to={`/book/${book.id}`}>
-              <Box mt="8" pb="4" shadow="lg" bg={bg[colorMode]}>
+              <Box
+                mt="8"
+                pb="4"
+                shadow="lg"
+                bg={bg[colorMode]}
+                maxW="400px"
+                mx="auto"
+              >
                 <LazyLoad once height="350px">
                   <Skeleton w="100%" isLoaded={loaded}>
                     <Image
@@ -118,7 +125,7 @@ function CatBooks({ translate, featured, getBooks }) {
                 <Box
                   m="4"
                   fontSize="xl"
-                  className="content"
+                  className="content books__content"
                   dangerouslySetInnerHTML={{ __html: book.overview }}
                 ></Box>
               </Box>

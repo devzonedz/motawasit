@@ -43,9 +43,7 @@ function Blog({ getArticles }) {
   };
 
   return (
-    <Box
-        pr="10%" pl="10%" mt="100px" mb="100px"
-    >
+    <Box pr="10%" pl="10%" mt="100px" mb="100px">
       <Helmet>
         <title>مدونة المتوسط</title>
       </Helmet>
@@ -64,14 +62,14 @@ function Blog({ getArticles }) {
           data.articles.map(article => (
             <Link to={`/singlePost/${article.id}`}>
               <Box
-                  bg={bg[colorMode]}
-                  w="100%"
-                  shadow="lg"
-                  // p="2"
-                  pb="4"
-                  // m="4"
-                  mt="8"
-                  cursor="pointer"
+                bg={bg[colorMode]}
+                w="100%"
+                shadow="lg"
+                // p="2"
+                pb="4"
+                // m="4"
+                mt="8"
+                cursor="pointer"
               >
                 <Box>
                   <Skeleton w="100%" isLoaded={loaded}>
@@ -102,7 +100,11 @@ function Blog({ getArticles }) {
                   <Heading fontFamily="diodrum-med !important" m="2" size="lg">
                     {article.title}
                   </Heading>
-                  <Box m="4" fontSize="xl" className="content event-body">
+                  <Box
+                    m="4"
+                    fontSize="xl"
+                    className="content books__content event-body"
+                  >
                     <Box
                       dangerouslySetInnerHTML={{ __html: article.body }}
                     ></Box>

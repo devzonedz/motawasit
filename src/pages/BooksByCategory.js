@@ -15,14 +15,24 @@ export default function Books() {
   let category = query.get('category');
   let translate = query.get('translate');
 
+  const activeLink = {
+    background: '#000',
+    color: 'white',
+  };
+
   //   let { category } = useParams();
   return (
-    <Box  mt="160px" mb="100px">
+    <Box mt="160px" mb="100px">
       <Helmet>
         <title>{category}</title>
       </Helmet>
       <BooksFilter></BooksFilter>
-      <Box pr={["10%",'5%','5%',"3%"]} pl={["10%",'5%','5%',"3%"]}  mt={["0","170px","170px","170px"]} mb="100px">
+      <Box
+        pr={['10%', '5%', '5%', '3%']}
+        pl={['10%', '5%', '5%', '3%']}
+        mt={['0', '170px', '170px', '170px']}
+        mb="100px"
+      >
         <Box m="4">
           <Heading fontFamily="diodrum-bold !important">{category}</Heading>
         </Box>
@@ -32,7 +42,11 @@ export default function Books() {
               fontFamily="diodrum-med !important"
               fontWeight="normal"
               size="md"
-              m="2"
+              my="2"
+              pt="1"
+              pb="4"
+              px="5"
+              style={translate === '0' ? activeLink : {}}
             >
               عربي
             </Heading>
@@ -42,16 +56,17 @@ export default function Books() {
               fontFamily="diodrum-med !important"
               fontWeight="normal"
               size="md"
-              m="2"
+              my="2"
+              pt="1"
+              pb="4"
+              px="5"
+              style={translate === '1' ? activeLink : {}}
             >
               مترجم
             </Heading>
           </Link>
         </Box>
-        <SingleCatBooks
-          translate={translate}
-          category={category}
-        ></SingleCatBooks>
+        <SingleCatBooks translate={translate} category={category} />
       </Box>
     </Box>
   );

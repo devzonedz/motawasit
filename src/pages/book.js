@@ -149,7 +149,7 @@ function Book({ getBook }) {
               <Box
                 w={{ base: '100%', lg: '70%' }}
                 mr={{ base: '0', lg: '1.5em' }}
-                py="1em"
+                p="1em"
               >
                 <Box>
                   <Heading fontFamily="diodrum-med !important" mb="4">
@@ -313,7 +313,7 @@ function Book({ getBook }) {
                           </Text>
                           <AccordionIcon mb="-5px" mr="5px" />
                         </AccordionButton>
-                        <AccordionPanel pb={4}>
+                        <AccordionPanel p="0" pb="1em">
                           <Box
                             fontSize="2xl"
                             className="content"

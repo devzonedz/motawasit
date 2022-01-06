@@ -49,8 +49,8 @@ body {
   font-family: 'bahij', 'Cairo', sans-serif !important;
   direction: rtl;
   text-align: right !important;
-    -webkit-font-smoothing: subpixel-antialiased !important; 
-    text-rendering:optimizeLegibility !important;
+  -webkit-font-smoothing: subpixel-antialiased !important;
+  text-rendering: optimizeLegibility !important;
   /* background-color: #f5f2ef; */
   /* overflow-y: hidden !important; */
   /* overflow-x: hidden !important; */
@@ -86,8 +86,8 @@ input {
 } */
 
 .dont-break-out {
-   -webkit-font-smoothing: subpixel-antialiased !important; 
-    text-rendering:optimizeLegibility !important;
+  -webkit-font-smoothing: subpixel-antialiased !important;
+  text-rendering: optimizeLegibility !important;
   /* These are technically the same, but use both */
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -214,6 +214,10 @@ h6 {
 .pagination > li:last-child > a,
 .pagination > li:last-child > span {
   border-radius: unset;
+}
+
+.books__content strong {
+  font-weight: 400;
 }
 
 .event-body {
@@ -497,8 +501,8 @@ div.sticky {
   }
 } */
 
-@media only screen and (max-device-width: 480px){
-  .filterNavTop{
+@media only screen and (max-device-width: 480px) {
+  .filterNavTop {
     margin-top: -91px;
     width: 100%;
     z-index: 99;
@@ -522,14 +526,13 @@ div.sticky {
     height: 100%;
   }
 
-
-  .detail-image{
+  .detail-image {
     width: 100% !important;
   }
 }
 
-@media only screen and (min-device-width: 480px){
-  .filterNavTop{
+@media only screen and (min-device-width: 480px) {
+  .filterNavTop {
     position: fixed;
     width: 100%;
     /*margin-top: -91px;*/
