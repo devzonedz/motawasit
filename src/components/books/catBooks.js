@@ -43,15 +43,24 @@ function CatBooks({ translate, getBooks, name }) {
     700: 1,
   };
 
+  const activeLink = {
+    background: '#000',
+    color: 'white',
+  };
+
   return (
     <Box>
-      <Box d="flex" m="4">
+      <Box d="flex" my="4">
         <Link to={`/books?translate=0`}>
           <Heading
             fontFamily="diodrum-med !important"
             fontWeight="normal"
             size="md"
-            m="2"
+            my="2"
+            py="2"
+            px="4"
+            pb="4"
+            style={translate === '0' ? activeLink : {}}
           >
             عربي
           </Heading>
@@ -61,7 +70,11 @@ function CatBooks({ translate, getBooks, name }) {
             fontFamily="diodrum-med !important"
             fontWeight="normal"
             size="md"
-            m="2"
+            my="2"
+            py="2"
+            px="4"
+            pb="4"
+            style={translate === '1' ? activeLink : {}}
           >
             مترجم
           </Heading>
@@ -93,24 +106,28 @@ function CatBooks({ translate, getBooks, name }) {
                       m="0 auto"
                       shadow="lg"
                       src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
-                    ></Image>
+                    />
                   </Skeleton>
                 </LazyLoad>
                 <Text fontFamily="diodrum-med !important" fontSize="2xl" m="2">
                   {' '}
                   {book?.author[0]?.name}{' '}
                 </Text>
-                <Heading fontFamily="diodrum-bold !important" m="4">
+                <Heading
+                  fontFamily="diodrum-bold !important"
+                  m="4"
+                  fontSize={{ base: 'md', md: '2xl' }}
+                >
                   {' '}
                   {book.title}{' '}
                 </Heading>
 
                 <Box
+                  style={{ fontWeight: '400' }}
                   m="4"
-                  fontSize="xl"
                   className="content"
                   dangerouslySetInnerHTML={{ __html: book.overview }}
-                ></Box>
+                />
               </Box>
             </Link>
           ))}

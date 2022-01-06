@@ -29,7 +29,7 @@ import {
   AccordionPanel,
 } from '@chakra-ui/core';
 import Carousel from 'react-elastic-carousel';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import { getBook } from '../redux/actions/booksActions';

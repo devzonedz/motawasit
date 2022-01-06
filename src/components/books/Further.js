@@ -42,16 +42,24 @@ function CatBooks({ translate, furthercoming, getBooks }) {
     700: 1,
   };
 
+  const activeLink = {
+    background: '#000',
+    color: 'white',
+  };
+
   return (
     <Box>
       <Box>
-        <Box d="flex" m="4">
+        <Box d="flex" my="4">
           <Link to={`/furthercoming?furthercoming=1&translate=0`}>
             <Heading
               fontFamily="diodrum-med !important"
               fontWeight="normal"
               size="md"
-              m="2"
+              pt="1"
+              pb="4"
+              px="5"
+              style={translate === '0' ? activeLink : {}}
             >
               عربي
             </Heading>
@@ -61,7 +69,10 @@ function CatBooks({ translate, furthercoming, getBooks }) {
               fontFamily="diodrum-med !important"
               fontWeight="normal"
               size="md"
-              m="2"
+              pt="1"
+              pb="4"
+              px="5"
+              style={translate === '1' ? activeLink : {}}
             >
               مترجم
             </Heading>
@@ -80,12 +91,7 @@ function CatBooks({ translate, furthercoming, getBooks }) {
           {data &&
             Object.values(data).map(book => (
               <Link key={book.id} to={`/book/${book.id}`}>
-                <Box
-                    mr="4"
-                    mt="8"
-                    pb="4"
-                    shadow="lg"
-                    bg={bg[colorMode]}>
+                <Box mr="4" mt="8" pb="4" shadow="lg" bg={bg[colorMode]}>
                   <LazyLoad once height="350px">
                     <Skeleton w="100%" isLoaded={loaded}>
                       <Image
