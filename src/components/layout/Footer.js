@@ -11,15 +11,22 @@ import {
   FaTwitter,
   FaYoutube,
   FaInstagramSquare,
-  FaGoodreads, FaPinterest,
+  FaGoodreads,
+  FaPinterest,
 } from 'react-icons/fa';
 
 import News from './FooterNewsLetter';
 
 export default function Footer() {
   return (
-    <Box pb="60px" pl="10%" pr="10%" color="white" bg="black">
-      <SimpleGrid mb="100px" p="30px" columns={[1, 1, 3, 3]} spacing="8">
+    <Box pb="60px" px={{ base: '0', md: '10%' }} color="white" bg="black">
+      <SimpleGrid
+        mb="100px"
+        py="30px"
+        px={{ base: '1.5em', md: '30px' }}
+        columns={[1, 1, 3, 3]}
+        spacing="8"
+      >
         <Flex direction="column">
           <Heading fontFamily="diodrum-bold !important" size="md">
             المتوسط
@@ -182,7 +189,7 @@ export default function Footer() {
           <Heading mt="12" fontFamily="diodrum-bold !important" size="md">
             وسائل التواصل الاجتماعي
           </Heading>
-          <Flex mt="4">
+          <Flex mt="6">
             <a
               target="_blank"
               rel="noreferrer"
@@ -193,7 +200,7 @@ export default function Footer() {
                 _hover={{ textDecoration: 'underline' }}
                 fontFamily="diodrum-med !important"
                 fontSize="28px"
-                m="2"
+                ml="3"
               >
                 <FaTwitter></FaTwitter>
               </Text>
@@ -208,7 +215,7 @@ export default function Footer() {
                 _hover={{ textDecoration: 'underline' }}
                 fontFamily="diodrum-med !important"
                 fontSize="28px"
-                m="2"
+                ml="3"
               >
                 <FaFacebook></FaFacebook>
               </Text>
@@ -223,7 +230,7 @@ export default function Footer() {
                 _hover={{ textDecoration: 'underline' }}
                 fontFamily="diodrum-med !important"
                 fontSize="28px"
-                m="2"
+                ml="3"
               >
                 <FaInstagramSquare></FaInstagramSquare>
               </Text>
@@ -239,7 +246,7 @@ export default function Footer() {
                 _hover={{ textDecoration: 'underline' }}
                 fontFamily="diodrum-med !important"
                 fontSize="28px"
-                m="2"
+                ml="3"
               >
                 <FaYoutube></FaYoutube>
               </Text>
@@ -255,23 +262,22 @@ export default function Footer() {
                 _hover={{ textDecoration: 'underline' }}
                 fontFamily="diodrum-med !important"
                 fontSize="28px"
-                m="2"
+                ml="3"
               >
                 <FaGoodreads></FaGoodreads>
               </Text>
             </a>
 
             <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://www.pinterest.it/almutawassit/"
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.pinterest.it/almutawassit/"
             >
               <Text
-                  color="gray.200"
-                  _hover={{ textDecoration: 'underline' }}
-                  fontFamily="diodrum-med !important"
-                  fontSize="28px"
-                  m="2"
+                color="gray.200"
+                _hover={{ textDecoration: 'underline' }}
+                fontFamily="diodrum-med !important"
+                fontSize="28px"
               >
                 <FaPinterest></FaPinterest>
               </Text>
