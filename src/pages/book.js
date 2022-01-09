@@ -316,7 +316,7 @@ function Book({ getBook }) {
                         <AccordionPanel p="0" pb="1em">
                           <Box
                             fontSize="2xl"
-                            className="content"
+                            className="content books__content"
                             style={{ WebkitUserSelect: 'none' }}
                             dangerouslySetInnerHTML={{
                               __html: data.description,

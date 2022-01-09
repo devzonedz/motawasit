@@ -91,7 +91,7 @@ function Home({ getHome }) {
                     w="100%"
                     onLoad={imageLoaded}
                     src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
-                  ></Image>
+                  />
                 </Skeleton>
                 <Text m="4" fontSize="lg" fontFamily="diodrum-med !important">
                   {article.author}
@@ -100,7 +100,11 @@ function Home({ getHome }) {
                   {' '}
                   {article.title}{' '}
                 </Heading>
-                <Box m="4" fontSize="xl" className="content event-body">
+                <Box
+                  m="4"
+                  fontSize="xl"
+                  className="content books__content event-body"
+                >
                   <Box dangerouslySetInnerHTML={{ __html: article.body }}></Box>
                 </Box>
               </Box>
@@ -136,7 +140,7 @@ function Home({ getHome }) {
                 <Box
                   m="4"
                   fontSize="xl"
-                  className="content"
+                  className="content books__content"
                   dangerouslySetInnerHTML={{ __html: book.overview }}
                 ></Box>
               </Box>

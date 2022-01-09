@@ -25,6 +25,7 @@ import {
   Stack,
   useColorModeValue,
   useMediaQuery,
+  useBreakpointValue,
 } from '@chakra-ui/core';
 // import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
@@ -54,11 +55,23 @@ export default function Navbar(props) {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
   const btnRef = React.useRef();
+
+  const isSmallScreen = useBreakpointValue({ base: true, md: false });
+
   return (
     <>
       <Flex
-        className="navbar"
-        style={{ position: 'fixed', width: '100%', zIndex: '99', bottom: 0 }}
+        style={
+          !isSmallScreen
+            ? {
+                position: 'fixed',
+                width: '100%',
+                zIndex: '99',
+                bottom: 0,
+                right: 0,
+              }
+            : {}
+        }
         as="nav"
         align="center"
         justify="space-between"

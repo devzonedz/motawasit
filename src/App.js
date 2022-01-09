@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChakraProvider, CSSReset } from '@chakra-ui/core';
+import { ChakraProvider, CSSReset, useBreakpointValue } from '@chakra-ui/core';
 import { Switch, Route } from 'react-router-dom';
 import nprogress from 'nprogress';
 import MessengerCustomerChat from 'react-messenger-customer-chat';
@@ -47,12 +47,12 @@ import Footer from './components/layout/Footer';
 import Up from './util/Up';
 import SocialButtons from './util/SocialButtons';
 import ScrollToTop from './util/ScrollToTop';
-import theme from './util/theme';
 
 import './styles/globals.css';
 import './styles/fancyroutes.css';
 import 'react-dropzone-uploader/dist/styles.css';
 import SinglePodcast from './pages/singlePodcast';
+import Headroom from 'react-headroom';
 
 // const TIMEOUT = 300;
 
@@ -64,14 +64,21 @@ function App(props) {
       nprogress.start();
     };
   }, []);
-  return (
-    <ChakraProvider theme={theme}>
-      <CSSReset />
-      <TopNavbar></TopNavbar>
 
-      <SocialButtons></SocialButtons>
-      <ScrollToTop></ScrollToTop>
-      <Navbar></Navbar>
+  const isSmallScreen = useBreakpointValue({ base: true, md: false });
+
+  return (
+    <>
+      <CSSReset />
+      {isSmallScreen && (
+        <Headroom style={{ transition: 'all .5s ease-in-out 0s', zIndex: '2' }}>
+          <TopNavbar />
+        </Headroom>
+      )}
+      {!isSmallScreen && <TopNavbar />}
+
+      <SocialButtons />
+      <ScrollToTop />
       <Switch>
         <Route title="index" exact path="/">
           <Index />
@@ -189,9 +196,27 @@ function App(props) {
         </Route>
       </Switch>
       <Up></Up>
+      {isSmallScreen && (
+        <Headroom
+          className="navbar"
+          style={{
+            position: 'fixed',
+            bottom: '0',
+            top: 'unset',
+            left: '0',
+            right: '0',
+            zIndex: '1',
+            transform: 'translate3d(0px, 0px, 0px)',
+            transition: 'all .5s ease-in-out 0s',
+          }}
+        >
+          <Navbar />
+        </Headroom>
+      )}
+      {!isSmallScreen && <Navbar />}
       <Footer></Footer>
       <MessengerCustomerChat pageId="511490325560386" appId="406218294192351" />
-    </ChakraProvider>
+    </>
   );
 }
 

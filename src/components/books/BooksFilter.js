@@ -80,7 +80,6 @@ function Navbar({ getSeries, getCat }) {
   return (
     <Flex
       borderBottom="1px solid #ddd"
-      className={'filterNavTop'}
       as="nav"
       align="center"
       bg={bg[colorMode]}
