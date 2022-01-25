@@ -102,11 +102,10 @@ function SingleBlog({ getArticle }) {
                 <Image
                   loading="lazy"
                   w="100%"
-                  maxW="500px"
                   mx="auto"
                   onLoad={imageLoaded}
                   src={`${process.env.REACT_APP_STORAGE}/${data.image}`}
-                ></Image>
+                />
               </Skeleton>
             </Box>
           </Flex>
@@ -371,7 +370,6 @@ function SingleBlog({ getArticle }) {
                           <Image
                             loading="lazy"
                             w="100%"
-                            // h="200px"
                             onLoad={imageLoaded}
                             src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
                           ></Image>
