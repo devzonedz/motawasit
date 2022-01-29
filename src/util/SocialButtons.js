@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, useColorMode } from '@chakra-ui/react';
+import { Box, Flex, useColorMode } from '@chakra-ui/core';
 import {
   FaFacebook,
   FaTwitter,

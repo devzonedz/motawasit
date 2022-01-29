@@ -9,7 +9,7 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-} from '@chakra-ui/react';
+} from '@chakra-ui/core';
 import React from 'react';
 import { AiFillPlayCircle } from 'react-icons/ai';
 import {Link} from "react-router-dom";

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Box, useBreakpointValue } from '@chakra-ui/react';
+import { Box, useBreakpointValue } from '@chakra-ui/core';
 import { useLocation } from 'react-router-dom';
 // import fx from 'money';
 import { connect } from 'react-redux';

@@ -7,7 +7,7 @@ import {
   Skeleton,
   useColorMode,
   Spinner,
-} from '@chakra-ui/react';
+} from '@chakra-ui/core';
 import { Link, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Masonry from 'react-masonry-css';

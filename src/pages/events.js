@@ -10,7 +10,7 @@ import {
   useColorMode,
   Spinner,
   Text,
-} from '@chakra-ui/react';
+} from '@chakra-ui/core';
 import { Helmet } from 'react-helmet';
 
 import { connect } from 'react-redux';

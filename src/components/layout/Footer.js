@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import {
   FaCcMastercard,

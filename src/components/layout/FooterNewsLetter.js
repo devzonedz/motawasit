@@ -12,7 +12,7 @@ import {
   Input,
   Text,
   useToast,
-} from '@chakra-ui/react';
+} from '@chakra-ui/core';
 import { connect } from 'react-redux';
 import { postNews } from '../../redux/actions/newsletterAction';
 

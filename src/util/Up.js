@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Events, animateScroll as scroll } from 'react-scroll';
 
 import { FaChevronUp } from 'react-icons/fa';
-import { Box, useBreakpointValue } from '@chakra-ui/react';
+import { Box, useBreakpointValue } from '@chakra-ui/core';
 import Headroom from 'react-headroom';
 
 export default function Up() {

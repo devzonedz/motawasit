@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/core';
 import { Helmet } from 'react-helmet';
 
 export default function four() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {  useBreakpointValue } from '@chakra-ui/react';
+import { ChakraProvider, CSSReset, useBreakpointValue } from '@chakra-ui/core';
 import { Switch, Route } from 'react-router-dom';
 import nprogress from 'nprogress';
 import MessengerCustomerChat from 'react-messenger-customer-chat';
@@ -69,6 +69,7 @@ function App(props) {
 
   return (
     <>
+      <CSSReset />
       {isSmallScreen && (
         <Headroom style={{ transition: 'all .5s ease-in-out 0s', zIndex: '2' }}>
           <TopNavbar />

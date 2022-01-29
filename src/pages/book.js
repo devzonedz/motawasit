@@ -27,7 +27,7 @@ import {
   AccordionButton,
   AccordionIcon,
   AccordionPanel,
-} from '@chakra-ui/react';
+} from '@chakra-ui/core';
 import Carousel from 'react-elastic-carousel';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import moment from 'moment';
@@ -122,30 +122,28 @@ function Book({ getBook }) {
                   <Box mt="4" w="90%">
                     <GlobalShare />
                   </Box>
-                  <Box w={['300px', '300px', '400px', '400px']}>
-                    {data.podcast && (
-                      <Box>
-                        <iframe
-                          title={data.title}
-                          width="100%"
-                          height="100"
-                          scrolling="no"
-                          frameborder="no"
-                          allow="autoplay"
-                          src={data.podcast}
-                        />
-                      </Box>
-                    )}
-                    {data.video && (
-                      <AspectRatio ratio={1}>
-                        <Box
-                          fontSize="2xl"
-                          className="content"
-                          dangerouslySetInnerHTML={{ __html: data.video }}
-                        />
-                      </AspectRatio>
-                    )}
-                  </Box>
+                  {data.podcast && (
+                    <Box>
+                      <iframe
+                        title={data.title}
+                        width="100%"
+                        height="100"
+                        scrolling="no"
+                        frameborder="no"
+                        allow="autoplay"
+                        src={data.podcast}
+                      ></iframe>
+                    </Box>
+                  )}
+                  {data.video && (
+                    <AspectRatio ratio={1}>
+                      <Box
+                        fontSize="2xl"
+                        className="content"
+                        dangerouslySetInnerHTML={{ __html: data.video }}
+                      ></Box>
+                    </AspectRatio>
+                  )}
                 </Flex>
               </Box>
               <Box

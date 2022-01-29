@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, SimpleGrid } from '@chakra-ui/react';
+import { Box, SimpleGrid } from '@chakra-ui/core';
 import { connect } from 'react-redux';
 import { getPodcasts } from '../redux/actions/poscastsActions';
 import { Helmet } from 'react-helmet';

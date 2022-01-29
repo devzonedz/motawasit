@@ -8,7 +8,7 @@ import {
   ModalCloseButton,
   useDisclosure,
   useColorMode,
-} from '@chakra-ui/react';
+} from '@chakra-ui/core';
 import React from 'react';
 import { AiFillPlayCircle } from 'react-icons/ai';
 

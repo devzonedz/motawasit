@@ -5,11 +5,10 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
 import { BrowserRouter as Router } from 'react-router-dom';
 import theme from './util/theme';
-import { CSSReset } from '@chakra-ui/react';
 
 import store from './redux/store';
 import App from './App';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/core';
 
 const persistor = persistStore(store);
 

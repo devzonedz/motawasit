@@ -13,7 +13,7 @@ import {
     Skeleton,
     useColorMode,
     Button,
-} from '@chakra-ui/react';
+} from '@chakra-ui/core';
 import {useLocation, Link, useParams} from 'react-router-dom';
 
 import { connect } from 'react-redux';
