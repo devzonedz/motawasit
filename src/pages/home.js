@@ -105,7 +105,7 @@ function Home({ getHome }) {
                   fontSize="xl"
                   className="content books__content event-body"
                 >
-                  <Box dangerouslySetInnerHTML={{ __html: article.body }}></Box>
+                  {/* <Box dangerouslySetInnerHTML={{ __html: article.body }}></Box> */}
                 </Box>
               </Box>
             </Link>
