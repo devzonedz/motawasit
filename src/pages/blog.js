@@ -59,60 +59,67 @@ function Blog({ getArticles }) {
         columnClassName="my-masonry-grid_column"
       >
         {data &&
-          data.articles.map(article => (
-            <Link to={`/singlePost/${article.id}`}>
-              <Box
-                bg={bg[colorMode]}
-                w="100%"
-                shadow="lg"
-                // p="2"
-                pb="4"
-                // m="4"
-                mt="8"
-                cursor="pointer"
-              >
-                <Box>
-                  <Skeleton w="100%" isLoaded={loaded}>
-                    {/* <Box
-                    style={{
-                      background: ` linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('${process.env.REACT_APP_STORAGE}/${article.image}')`,
-                    }}
-                    className="detail-image"
-                    h="200px"
-                  ></Box> */}
-                    <Image
-                      loading="lazy"
-                      w="100%"
-                      onLoad={imageLoaded}
-                      src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
-                    ></Image>
-                  </Skeleton>
-                  <Text
-                    m="2"
-                    mt="4"
-                    fontSize="lg"
-                    fontFamily="diodrum-med !important"
-                  >
-                    {' '}
-                    {article.author}{' '}
-                  </Text>
-                  <Heading fontFamily="diodrum-med !important" m="2" size="lg">
-                    {article.title}
-                  </Heading>
-                  <Box
-                    m="4"
-                    fontSize="xl"
-                    className="content books__content event-body"
-                  >
+          data.articles.map(article => {
+            const articleBody = article.body.split('\n');
+            const body = articleBody[0] + '' + articleBody[1];
+
+            return (
+              <Link to={`/singlePost/${article.id}`}>
+                <Box
+                  bg={bg[colorMode]}
+                  w="100%"
+                  shadow="lg"
+                  // p="2"
+                  pb="4"
+                  // m="4"
+                  mt="8"
+                  cursor="pointer"
+                >
+                  <Box>
+                    <Skeleton w="100%" isLoaded={loaded}>
+                      {/* <Box
+                      style={{
+                        background: ` linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('${process.env.REACT_APP_STORAGE}/${article.image}')`,
+                      }}
+                      className="detail-image"
+                      h="200px"
+                    ></Box> */}
+                      <Image
+                        loading="lazy"
+                        w="100%"
+                        onLoad={imageLoaded}
+                        src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
+                      ></Image>
+                    </Skeleton>
+                    <Text
+                      m="2"
+                      mt="4"
+                      fontSize="lg"
+                      fontFamily="diodrum-med !important"
+                    >
+                      {' '}
+                      {article.author}{' '}
+                    </Text>
+                    <Heading
+                      fontFamily="diodrum-med !important"
+                      m="2"
+                      size="lg"
+                    >
+                      {article.title}
+                    </Heading>
                     <Box
-                      dangerouslySetInnerHTML={{ __html: article.body }}
-                    ></Box>
+                      m="4"
+                      fontSize="xl"
+                      className="content books__content event-body"
+                    >
+                      <Box dangerouslySetInnerHTML={{ __html: body }} />
+                    </Box>
                   </Box>
                 </Box>
-              </Box>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
       </Masonry>
       {/* </SimpleGrid> */}
       {/* <Flex m="8" justifyContent="center">

@@ -73,43 +73,48 @@ function Home({ getHome }) {
       >
         {data &&
           data.articles &&
-          data.articles.map(article => (
-            <Link key={article.id} to={`/singlePost/${article.id}`}>
-              <Box
-                bg={bg[colorMode]}
-                w="100%"
-                shadow="lg"
-                // p="2"
-                pb="4"
-                // m="4"
-                mt="8"
-                cursor="pointer"
-              >
-                <Skeleton w="100%" isLoaded={loaded}>
-                  <Image
-                    loading="lazy"
-                    w="100%"
-                    onLoad={imageLoaded}
-                    src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
-                  />
-                </Skeleton>
-                <Text m="4" fontSize="lg" fontFamily="diodrum-med !important">
-                  {article.author}
-                </Text>
-                <Heading fontFamily="diodrum-bold !important" m="4">
-                  {' '}
-                  {article.title}{' '}
-                </Heading>
+          data.articles.map(article => {
+            const articleBody = article.body.split('\n');
+            const body = articleBody[0] + '' + articleBody[1];
+
+            return (
+              <Link key={article.id} to={`/singlePost/${article.id}`}>
                 <Box
-                  m="4"
-                  fontSize="xl"
-                  className="content books__content event-body"
+                  bg={bg[colorMode]}
+                  w="100%"
+                  shadow="lg"
+                  // p="2"
+                  pb="4"
+                  // m="4"
+                  mt="8"
+                  cursor="pointer"
                 >
-                  {/* <Box dangerouslySetInnerHTML={{ __html: article.body }}></Box> */}
+                  <Skeleton w="100%" isLoaded={loaded}>
+                    <Image
+                      loading="lazy"
+                      w="100%"
+                      onLoad={imageLoaded}
+                      src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
+                    />
+                  </Skeleton>
+                  <Text m="4" fontSize="lg" fontFamily="diodrum-med !important">
+                    {article.author}
+                  </Text>
+                  <Heading fontFamily="diodrum-bold !important" m="4">
+                    {' '}
+                    {article.title}{' '}
+                  </Heading>
+                  <Box
+                    m="4"
+                    fontSize="xl"
+                    className="content books__content event-body"
+                  >
+                    <Box dangerouslySetInnerHTML={{ __html: body }} />
+                  </Box>
                 </Box>
-              </Box>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
       </Masonry>
 
       <Masonry

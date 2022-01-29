@@ -122,28 +122,30 @@ function Book({ getBook }) {
                   <Box mt="4" w="90%">
                     <GlobalShare />
                   </Box>
-                  {data.podcast && (
-                    <Box>
-                      <iframe
-                        title={data.title}
-                        width="100%"
-                        height="100"
-                        scrolling="no"
-                        frameborder="no"
-                        allow="autoplay"
-                        src={data.podcast}
-                      ></iframe>
-                    </Box>
-                  )}
-                  {data.video && (
-                    <AspectRatio ratio={1}>
-                      <Box
-                        fontSize="2xl"
-                        className="content"
-                        dangerouslySetInnerHTML={{ __html: data.video }}
-                      ></Box>
-                    </AspectRatio>
-                  )}
+                  <Box w={['300px', '300px', '400px', '400px']}>
+                    {data.podcast && (
+                      <Box>
+                        <iframe
+                          title={data.title}
+                          width="100%"
+                          height="100"
+                          scrolling="no"
+                          frameborder="no"
+                          allow="autoplay"
+                          src={data.podcast}
+                        ></iframe>
+                      </Box>
+                    )}
+                    {data.video && (
+                      <AspectRatio ratio={1}>
+                        <Box
+                          fontSize="2xl"
+                          className="content"
+                          dangerouslySetInnerHTML={{ __html: data.video }}
+                        ></Box>
+                      </AspectRatio>
+                    )}
+                  </Box>
                 </Flex>
               </Box>
               <Box
