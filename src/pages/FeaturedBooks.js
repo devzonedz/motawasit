@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-import { Box, Heading, useBreakpointValue } from '@chakra-ui/core';
+import { Box, Heading, useBreakpointValue } from '@chakra-ui/react';
 import Featured from '../components/books/Featured';
 import BooksFilter from '../components/books/BooksFilter';
 import { Helmet } from 'react-helmet';

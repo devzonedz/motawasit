@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import { useLocation, Link } from 'react-router-dom';
-import { Box, Heading, useBreakpointValue } from '@chakra-ui/core';
+import { Box, Heading, useBreakpointValue } from '@chakra-ui/react';
 import SingleCatBooks from '../components/books/SingleCatBooks';
 import BooksFilter from '../components/books/BooksFilter';
 import Headroom from 'react-headroom';

@@ -16,7 +16,7 @@ import {
   SimpleGrid,
   Heading,
   useBreakpointValue,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 // import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';

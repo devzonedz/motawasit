@@ -12,7 +12,7 @@ import {
   Input,
   Text,
   useToast,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { FaNewspaper } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { postNews } from '../../redux/actions/newsletterAction';

@@ -11,7 +11,7 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { connect } from 'react-redux';
 import { getVideos } from '../redux/actions/poscastsActions';
 import { Helmet } from 'react-helmet';

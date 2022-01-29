@@ -7,7 +7,7 @@ import {
   Skeleton,
   useColorMode,
   Spinner,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getBooks } from '../../redux/actions/booksActions';

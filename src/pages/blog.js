@@ -11,7 +11,7 @@ import {
   useColorMode,
   Spinner,
   Text,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 
 import { connect } from 'react-redux';
 import { getArticles } from '../redux/actions/articleActions';

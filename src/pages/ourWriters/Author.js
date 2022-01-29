@@ -12,7 +12,7 @@ import {
   useColorMode,
   Skeleton,
   Spinner,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { useParams, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 

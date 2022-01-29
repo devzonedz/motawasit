@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Divider } from '@chakra-ui/core';
+import { Box, Heading, Divider } from '@chakra-ui/react';
 import { Helmet } from 'react-helmet';
 
 export default function standards() {

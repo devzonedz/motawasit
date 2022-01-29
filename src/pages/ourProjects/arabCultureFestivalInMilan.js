@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Box, Heading, Text } from '@chakra-ui/core';
+import { Box, Heading, Text } from '@chakra-ui/react';
 
 export default function publishlist() {
   return (

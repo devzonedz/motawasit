@@ -10,7 +10,7 @@ import {
   Spinner,
   Text,
   useBreakpointValue,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router-dom';
 import LazyLoad from 'react-lazyload';
 

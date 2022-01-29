@@ -14,7 +14,7 @@ import {
   Select,
   Button,
   useToast,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { connect } from 'react-redux';
 
 import { postBook } from '../../redux/actions/booksActions';

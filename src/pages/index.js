@@ -198,7 +198,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Text, SimpleGrid, Flex, Image, Box } from '@chakra-ui/core';
+import { Text, SimpleGrid, Flex, Image, Box } from '@chakra-ui/react';
 import { connect } from 'react-redux';
 import { getImages } from '../redux/actions/indexActions';
 // import '../components/util/changeBg';

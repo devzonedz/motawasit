@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, Heading, Image } from '@chakra-ui/core';
+import { Box, Text, Heading, Image } from '@chakra-ui/react';
 // import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
@@ -31,7 +31,6 @@ export default function blog() {
       </Heading>
       <Box d="flex" justifyContent="center" m="4">
         <Image
-
           loading="lazy"
           shadow="lg"
           rounded="10px"

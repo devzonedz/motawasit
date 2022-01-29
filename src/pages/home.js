@@ -10,7 +10,7 @@ import {
   Skeleton,
   Spinner,
   Text,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 // import fx from 'money';
 import { connect } from 'react-redux';

@@ -27,7 +27,7 @@ import {
   useMediaQuery,
   Spinner,
   useDisclosure,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 // import { ChevronDownIcon } from '@chakra-ui/icons';
 import { NavLink, Link } from 'react-router-dom';
 import { FaChevronDown, FaTimes } from 'react-icons/fa';
