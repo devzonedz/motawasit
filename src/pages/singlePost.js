@@ -151,6 +151,15 @@ function SingleBlog({ getArticle }) {
                   <Heading mb="4" fontFamily="diodrum-med !important" size="md">
                     {data.author}
                   </Heading>
+                  {data.author_optional && (
+                    <Heading
+                      mb="4"
+                      fontFamily="diodrum-med !important"
+                      size="md"
+                    >
+                      {data.author_optional}
+                    </Heading>
+                  )}
                   {data.translator && (
                     <Heading fontFamily="diodrum-med !important" size="sm">
                       ترجمة: {data.translator}

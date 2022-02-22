@@ -50,7 +50,7 @@ function CatBooks({ translate, getBooks, name }) {
 
   return (
     <Box>
-      <Box d="flex" my="4">
+      <Box d="flex">
         <Link to={`/books?translate=0`}>
           <Heading
             fontFamily="diodrum-med !important"
@@ -97,7 +97,7 @@ function CatBooks({ translate, getBooks, name }) {
           data.books.map(book => (
             <Link key={book.id} to={`/book/${book.id}`}>
               <Box
-                mt="8"
+                mb="8"
                 pb="4"
                 shadow="lg"
                 bg={bg[colorMode]}

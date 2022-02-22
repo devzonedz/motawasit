@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 import aboutpic from '../images/about-min.jpg';
 export default function blog() {
   return (
-    <Box mt="100px" mb="100px">
+    <Box mt={{ base: '2em', md: '6em' }} mb="100px">
       <Helmet>
         <title> عن المتوسط</title>
       </Helmet>
@@ -31,7 +31,6 @@ export default function blog() {
       </Heading>
       <Box d="flex" justifyContent="center" m="4">
         <Image
-
           loading="lazy"
           shadow="lg"
           rounded="10px"

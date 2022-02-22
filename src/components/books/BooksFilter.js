@@ -562,7 +562,7 @@ function Navbar({ getSeries, getCat }) {
                     >
                       حسب الصنف
                     </Text>
-                    <AccordionIcon fontSize="25px" mb="-15px" />
+                    <AccordionIcon fontSize="25px" />
                   </AccordionButton>
                   <AccordionPanel
                     pb={4}
@@ -625,7 +625,7 @@ function Navbar({ getSeries, getCat }) {
                     >
                       سلسلات
                     </Text>
-                    <AccordionIcon fontSize="25px" mb="-15px" />
+                    <AccordionIcon fontSize="25px" />
                   </AccordionButton>
                   <AccordionPanel
                     pb={4}

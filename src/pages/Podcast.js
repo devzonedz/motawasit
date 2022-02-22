@@ -21,7 +21,7 @@ function Podcasts({ getPodcasts }) {
   }, []);
 
   return (
-    <Box mt="100px" mb="700px" pl="10%" pr="10%">
+    <Box mt={{ base: '2em', md: '6em' }} mb="700px" pl="10%" pr="10%">
       {data && (
         <Box>
           <Helmet>

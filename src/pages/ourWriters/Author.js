@@ -37,7 +37,7 @@ function Author({ getAuthor }) {
     getData();
   }, [id]);
   return (
-    <Box mt="100px" mb="100px" className="padding">
+    <Box mt={{ base: '2em', md: '6em' }} mb="100px" className="padding">
       {!data && (
         <Box textAlign="center">
           <Spinner size="xl" />
