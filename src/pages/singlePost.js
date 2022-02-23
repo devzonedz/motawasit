@@ -14,7 +14,7 @@ import {
   useColorMode,
   Button,
 } from '@chakra-ui/core';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useParams } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { getArticle } from '../redux/actions/articleActions';
@@ -34,8 +34,7 @@ function SingleBlog({ getArticle }) {
   const imageLoaded = () => {
     setLoaded(true);
   };
-  let query = useQuery();
-  let id = query.get('id');
+  let { id } = useParams('id');
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
     async function getData() {
@@ -98,14 +97,15 @@ function SingleBlog({ getArticle }) {
             </Link> */}
           </Box>
           <Flex justifyContent="center">
-            <Box mb="8" w="85%">
+            <Box mb="8" w={['100%', '85%']}>
               <Skeleton w="100%" isLoaded={loaded}>
                 <Image
                   loading="lazy"
                   w="100%"
+                  mx="auto"
                   onLoad={imageLoaded}
                   src={`${process.env.REACT_APP_STORAGE}/${data.image}`}
-                ></Image>
+                />
               </Skeleton>
             </Box>
           </Flex>
@@ -120,7 +120,8 @@ function SingleBlog({ getArticle }) {
               <Box
                 position="sticky"
                 top="0"
-                display={['none', 'none', 'block', 'block']}
+                display={['block', 'block', 'block', 'block']}
+                textAlign={['center', 'start', 'start', 'start']}
               >
                 <Box mb="8">
                   {/* <Text mb="2" fontSize="xl">
@@ -128,21 +129,37 @@ function SingleBlog({ getArticle }) {
               </Text> */}
                   {/* <Image mt="2" src={``}></Image> */}
                   {data.author_image && (
-                    <Box
+                    //                 <Box
+                    //                   mt="2"
+                    //                   mb="4"
+                    //                   style={{
+                    //                     background: `
+                    // url('${process.env.REACT_APP_STORAGE}/${data.author_image}')`,
+                    //                   }}
+                    //                   className="detail-image"
+                    //                   w="80%"
+                    //                   h="270px"
+                    //                 ></Box>
+                    <img
                       mt="2"
-                      mb="4"
-                      style={{
-                        background: `
-    url('${process.env.REACT_APP_STORAGE}/${data.author_image}')`,
-                      }}
                       className="detail-image"
-                      w="80%"
-                      h="270px"
-                    ></Box>
+                      mb="4"
+                      w="70%"
+                      src={`${process.env.REACT_APP_STORAGE}/${data.author_image}`}
+                    />
                   )}
                   <Heading mb="4" fontFamily="diodrum-med !important" size="md">
                     {data.author}
                   </Heading>
+                  {data.author_optional && (
+                    <Heading
+                      mb="4"
+                      fontFamily="diodrum-med !important"
+                      size="md"
+                    >
+                      {data.author_optional}
+                    </Heading>
+                  )}
                   {data.translator && (
                     <Heading fontFamily="diodrum-med !important" size="sm">
                       ترجمة: {data.translator}
@@ -310,7 +327,7 @@ function SingleBlog({ getArticle }) {
                 // itemsToShow={3}
               >
                 {data.maitres.map(article => (
-                  //               <Link to={`/singlePost?id=${article.id}`}>
+                  //               <Link to={`/singlePost/${article.id}`}>
                   //                 <Box bg="#f5f2ef" shadow="lg" p="2" cursor="pointer">
                   //                   <Box
                   //                     style={{
@@ -335,14 +352,18 @@ function SingleBlog({ getArticle }) {
                   //                   ></Box>
                   //                 </Box>
                   //               </Link>
-                  <Link to={`/singlePost?id=${article.id}`}>
+                  <a
+                    href={`/singlePost/${article.id}`}
+                    style={{ margin: '0 1em' }}
+                  >
                     <Box
                       bg="white"
-                      w="350px"
-                      shadow="lg"
                       // p="2"
                       pb="4"
                       m="4"
+                      w={['100', '100', '100', '100', '355px']}
+                      m="0 auto"
+                      shadow="lg"
                       cursor="pointer"
                     >
                       <Box>
@@ -358,7 +379,6 @@ function SingleBlog({ getArticle }) {
                           <Image
                             loading="lazy"
                             w="100%"
-                            // h="200px"
                             onLoad={imageLoaded}
                             src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
                           ></Image>
@@ -387,7 +407,7 @@ function SingleBlog({ getArticle }) {
                         </Box>
                       </Box>
                     </Box>
-                  </Link>
+                  </a>
                 ))}
               </Carousel>
             </Box>

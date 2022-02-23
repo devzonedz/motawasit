@@ -287,7 +287,7 @@ function Home({ getImages }) {
         overflow="hidden"
       >
         <Helmet>
-          <title>رئيسية المتوسط</title>
+          <title>المتوسط</title>
         </Helmet>
         <a href="/home">
           <Flex

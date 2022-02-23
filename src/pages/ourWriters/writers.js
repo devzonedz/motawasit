@@ -47,7 +47,7 @@ function Writers({ getAuthors }) {
   };
 
   return (
-    <Box className="padding" mt="100px" mb="100px">
+    <Box className="padding" mt={{ base: '2em', md: '6em' }} mb="100px">
       <Helmet>
         <title> كتاب المتوسط</title>
       </Helmet>

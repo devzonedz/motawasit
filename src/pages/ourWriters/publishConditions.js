@@ -60,7 +60,7 @@ function Publishlist({ postBook }) {
   };
 
   return (
-    <Box mt="100px" mb="100px">
+    <Box mt={{ base: 0, md: '6em' }} mb="100px">
       <Helmet>
         <title>انشر مع المتوسط</title>
       </Helmet>

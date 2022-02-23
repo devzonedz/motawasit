@@ -43,8 +43,9 @@ function Blog({ getArticles }) {
 
   return (
     <Box
-        my={{base:"20%", md:"20%", lg:"7%"}}
-        mx ={{base:"12%", md:"10%", lg:"7%"}}
+      mt={{ base: '0', md: '6em' }}
+      mx={{ base: '1em', md: '10%', lg: '7%' }}
+      mb="6em"
     >
       <Helmet>
         <title>نشاطات المتوسط</title>
@@ -62,7 +63,7 @@ function Blog({ getArticles }) {
       >
         {data &&
           data.articles.map(article => (
-            <Link to={`/singlePost?id=${article.id}`}>
+            <Link to={`/singlePost/${article.id}`}>
               <Box
                 bg={bg[colorMode]}
                 w="100%"

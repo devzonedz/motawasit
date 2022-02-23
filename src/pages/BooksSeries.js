@@ -9,6 +9,7 @@ import {
   useColorMode,
   Spinner,
   Text,
+  useBreakpointValue,
 } from '@chakra-ui/core';
 import { Link, useLocation } from 'react-router-dom';
 import LazyLoad from 'react-lazyload';
@@ -18,6 +19,7 @@ import Masonry from 'react-masonry-css';
 
 import { getBooksBySerie } from '../redux/actions/booksActions';
 import BooksFilter from '../components/books/BooksFilter';
+import Headroom from 'react-headroom';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -51,13 +53,34 @@ function CatBooks({ getBooksBySerie }) {
     700: 1,
   };
 
+  const isSmallScreen = useBreakpointValue({ base: true, md: false });
+
   return (
-    <Box   mt="160px" mb="100px">
+    <Box mt={isSmallScreen ? '0' : '70px'} mb="100px">
       <Helmet>
         <title>{serie}</title>
       </Helmet>
-      <BooksFilter></BooksFilter>
-      <Box pr={["10%",'5%','5%',"3%"]} pl={["10%",'5%','5%',"3%"]}  mt={["0","170px","170px","170px"]} mb="100px">
+      {isSmallScreen && (
+        <Headroom
+          className="book-filter"
+          style={{
+            top: '70px',
+            left: '0px',
+            right: '0px',
+            zIndex: '1',
+            transform: 'translate3D(0px, 0px, 0px)',
+            transition: 'all .5s ease-in-out 0s',
+          }}
+        >
+          <BooksFilter />
+        </Headroom>
+      )}
+      {!isSmallScreen && <BooksFilter />}
+      <Box
+        pr={['10%', '5%', '5%', '3%']}
+        pl={['10%', '5%', '5%', '3%']}
+        mb="100px"
+      >
         <Box m="4">
           <Heading fontFamily="diodrum-bold !important">{serie}</Heading>
         </Box>
@@ -77,7 +100,14 @@ function CatBooks({ getBooksBySerie }) {
             data.books.length !== 0 &&
             data.books.map(book => (
               <Link key={book.id} to={`/book/${book.id}`}>
-                <Box mt="8" pb="4" shadow="lg" bg={bg[colorMode]}>
+                <Box
+                  mt="8"
+                  pb="4"
+                  shadow="lg"
+                  bg={bg[colorMode]}
+                  maxW="400px"
+                  mx="auto"
+                >
                   <LazyLoad once height="350px">
                     <Skeleton w="100%" isLoaded={loaded}>
                       <Image
@@ -98,7 +128,7 @@ function CatBooks({ getBooksBySerie }) {
                   <Box
                     m="4"
                     fontSize="xl"
-                    className="content"
+                    className="content books__content"
                     dangerouslySetInnerHTML={{ __html: book.overview }}
                   ></Box>
                 </Box>

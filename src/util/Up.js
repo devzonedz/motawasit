@@ -3,55 +3,64 @@ import React, { Component } from 'react';
 import { Events, animateScroll as scroll } from 'react-scroll';
 
 import { FaChevronUp } from 'react-icons/fa';
+import { Box, useBreakpointValue } from '@chakra-ui/core';
+import Headroom from 'react-headroom';
 
-export default class Up extends Component {
-  constructor(props) {
-    super(props);
-    this.scrollToTop = this.scrollToTop.bind(this);
-  }
-
-  componentDidMount() {
-    Events.scrollEvent.register('begin', function () {
-      //   console.log('begin', arguments);
-    });
-
-    Events.scrollEvent.register('end', function () {
-      //   console.log('end', arguments);
-    });
-  }
-  scrollToTop() {
+export default function Up() {
+  const scrollToTop = () => {
     scroll.scrollToTop();
-  }
+  };
 
-  componentWillUnmount() {
-    Events.scrollEvent.remove('begin');
-    Events.scrollEvent.remove('end');
-  }
-  render() {
-    return (
-      <div
-        style={{
-          backgroundColor: '#151a23',
-          //   marginLeft: 10,
-          //   padding: 5,
-          borderRadius: '50%',
-          //   width: 37,
-          //   height: 37,
-          //   marginTop: 10,
-          position: 'fixed',
-          bottom: 100,
-          left: 20,
-          zIndex: 997,
-          padding: 10,
-          cursor: 'pointer',
-        }}
-      >
-        <FaChevronUp
-          onClick={this.scrollToTop}
-          fontSize="24px"
-          color="white"
-        ></FaChevronUp>
-      </div>
-    );
-  }
+  const isSmallScreen = useBreakpointValue({ base: true, md: false });
+
+  return (
+    <>
+      {isSmallScreen && (
+        <Headroom
+          className="scroll-top"
+          style={{
+            position: 'fixed',
+            width: '100%',
+            zIndex: '90',
+            width: '45px',
+            height: '45px',
+            transform: 'translate3d(0px, 0px, 0px)',
+            transition: 'all .5s ease-in-out 0s',
+            top: 'unset',
+            bottom: '60px',
+            left: '20px',
+            right: 'unset',
+          }}
+        >
+          <Box
+            style={{
+              backgroundColor: '#151a23',
+              borderRadius: '50%',
+              padding: 10,
+              cursor: 'pointer',
+            }}
+          >
+            <FaChevronUp onClick={scrollToTop} fontSize="24px" color="white" />
+          </Box>
+        </Headroom>
+      )}
+      {!isSmallScreen && (
+        <Box
+          style={{
+            backgroundColor: '#151a23',
+            borderRadius: '50%',
+            position: 'fixed',
+            bottom: 80,
+            left: 20,
+            zIndex: 997,
+            padding: 10,
+            cursor: 'pointer',
+          }}
+          mr="auto"
+        >
+          <FaChevronUp onClick={scrollToTop} fontSize="24px" color="white" />
+        </Box>
+      )}
+    </>
+  );
 }

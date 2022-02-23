@@ -38,7 +38,7 @@ function Podcasts({ getVideos }) {
     data && Object.keys(data.articles).map(key => data.articles[key]);
   const books = data && Object.keys(data.books).map(key => data.books[key]);
   return (
-    <Box mt="100px" mb="700px" pl="10%" pr="10%">
+    <Box mt={{ base: '2em', md: '6em' }} mb="700px" pl="10%" pr="10%">
       {data && (
         <Box>
           <Helmet>

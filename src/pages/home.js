@@ -53,7 +53,7 @@ function Home({ getHome }) {
   return (
     <Box pr="10%" pl="10%" mt="100px" mb="100px">
       <Helmet>
-        <title>المتوسط</title>
+        <title>منشورات المتوسط</title>
       </Helmet>
       {!data && (
         <Box textAlign="center">
@@ -73,39 +73,48 @@ function Home({ getHome }) {
       >
         {data &&
           data.articles &&
-          data.articles.map(article => (
-            <Link key={article.id} to={`/singlePost?id=${article.id}`}>
-              <Box
-                bg={bg[colorMode]}
-                w="100%"
-                shadow="lg"
-                // p="2"
-                pb="4"
-                // m="4"
-                mt="8"
-                cursor="pointer"
-              >
-                <Skeleton w="100%" isLoaded={loaded}>
-                  <Image
-                    loading="lazy"
-                    w="100%"
-                    onLoad={imageLoaded}
-                    src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
-                  ></Image>
-                </Skeleton>
-                <Text m="4" fontSize="lg" fontFamily="diodrum-med !important">
-                  {article.author}
-                </Text>
-                <Heading fontFamily="diodrum-bold !important" m="4">
-                  {' '}
-                  {article.title}{' '}
-                </Heading>
-                <Box m="4" fontSize="xl" className="content event-body">
-                  <Box dangerouslySetInnerHTML={{ __html: article.body }}></Box>
+          data.articles.map(article => {
+            const articleBody = article.body.split('\n');
+            const body = articleBody[0] + '' + articleBody[1];
+
+            return (
+              <Link key={article.id} to={`/singlePost/${article.id}`}>
+                <Box
+                  bg={bg[colorMode]}
+                  w="100%"
+                  shadow="lg"
+                  // p="2"
+                  pb="4"
+                  // m="4"
+                  mt="8"
+                  cursor="pointer"
+                >
+                  <Skeleton w="100%" isLoaded={loaded}>
+                    <Image
+                      loading="lazy"
+                      w="100%"
+                      onLoad={imageLoaded}
+                      src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
+                    />
+                  </Skeleton>
+                  <Text m="4" fontSize="lg" fontFamily="diodrum-med !important">
+                    {article.author}
+                  </Text>
+                  <Heading fontFamily="diodrum-bold !important" m="4">
+                    {' '}
+                    {article.title}{' '}
+                  </Heading>
+                  <Box
+                    m="4"
+                    fontSize="xl"
+                    className="content books__content event-body"
+                  >
+                    <Box dangerouslySetInnerHTML={{ __html: body }} />
+                  </Box>
                 </Box>
-              </Box>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
       </Masonry>
 
       <Masonry
@@ -136,7 +145,7 @@ function Home({ getHome }) {
                 <Box
                   m="4"
                   fontSize="xl"
-                  className="content"
+                  className="content books__content"
                   dangerouslySetInnerHTML={{ __html: book.overview }}
                 ></Box>
               </Box>
