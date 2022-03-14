@@ -196,25 +196,35 @@ function Book({ getBook }) {
                 {breakPointMd && (
                   <Tabs>
                     <TabList className="booktablist">
-                      <Tab whiteSpace="nowrap" fontSize="18px">
-                        {' '}
-                        عن الكتاب
-                      </Tab>
-                      <Tab whiteSpace="nowrap" fontSize="18px">
-                        عن المؤلف
-                      </Tab>
-                      <Tab whiteSpace="nowrap" fontSize="18px">
-                        {' '}
-                        فهرس الكتاب
-                      </Tab>
-                      <Tab whiteSpace="nowrap" fontSize="18px">
-                        {' '}
-                        من الكتاب
-                      </Tab>
-                      <Tab whiteSpace="nowrap" fontSize="18px">
-                        {' '}
-                        في الصحافة
-                      </Tab>
+                      {data.description && (
+                        <Tab whiteSpace="nowrap" fontSize="18px">
+                          {' '}
+                          عن الكتاب
+                        </Tab>
+                      )}
+                      {data.author && (
+                        <Tab whiteSpace="nowrap" fontSize="18px">
+                          عن المؤلف
+                        </Tab>
+                      )}
+                      {data.index && (
+                        <Tab whiteSpace="nowrap" fontSize="18px">
+                          {' '}
+                          فهرس الكتاب
+                        </Tab>
+                      )}
+                      {data.from_book && (
+                        <Tab whiteSpace="nowrap" fontSize="18px">
+                          {' '}
+                          من الكتاب
+                        </Tab>
+                      )}
+                      {data.press_external_link && (
+                        <Tab whiteSpace="nowrap" fontSize="18px">
+                          {' '}
+                          في الصحافة
+                        </Tab>
+                      )}
                       <Tab whiteSpace="nowrap" fontSize="18px">
                         معلومات الكتاب
                       </Tab>
