@@ -80,9 +80,10 @@ function Author({ getAuthor }) {
                 opacity="1"
                 borderColor={color[colorMode]}
               ></Divider>
-              <Text fontSize="2xl" m="4">
-                {data.author_bio}
-              </Text>
+                <Box
+                 fontSize="2xl"
+                    dangerouslySetInnerHTML={{ __html: data.author_bio }}
+                ></Box>
               <Heading fontFamily="diodrum-med !important" size="lg" m="4">
                 صدر له/لها في المتوسط
               </Heading>
