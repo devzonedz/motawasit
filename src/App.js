@@ -53,6 +53,7 @@ import './styles/fancyroutes.css';
 import 'react-dropzone-uploader/dist/styles.css';
 import SinglePodcast from './pages/singlePodcast';
 import Headroom from 'react-headroom';
+import Magazine from "./pages/Magazine";
 
 // const TIMEOUT = 300;
 
@@ -115,6 +116,9 @@ function App(props) {
           <Workwithus />
         </Route>
 
+        <Route title="magazine" exact path="/magazine">
+          <Magazine />
+        </Route>
         <Route title="podcast" exact path="/podcast">
           <Podcast />
         </Route>

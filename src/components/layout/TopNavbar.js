@@ -16,6 +16,7 @@ import {
   SimpleGrid,
   Heading,
   useBreakpointValue,
+  Center,
 } from '@chakra-ui/core';
 // import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
@@ -31,11 +32,12 @@ import {
   connectStateResults,
 } from 'react-instantsearch-dom';
 
-import { FaHome, FaSearch } from 'react-icons/fa';
+import { FaFilePdf, FaHome, FaSearch } from 'react-icons/fa';
 import { AiOutlineShop } from 'react-icons/ai';
 import Newsletter from './NewsLetter';
 import hdark from '../../images/hdark.png';
 import hlight from '../../images/hlight.png';
+import { MagazineIcon } from '../MagazineIcon';
 
 const searchClient = algoliasearch(
   process.env.REACT_APP_algoliaAppKey,
@@ -199,6 +201,23 @@ function Navbar({ getSearch }) {
             )}
           </Box>
         </a>
+
+        <Link to="/magazine">
+          <Center
+            cursor="pointer"
+            rounded="5px"
+            bg={bgIcon[colorMode]}
+            color={color[colorMode]}
+            m="3px"
+            p="10px"
+            w="50px"
+            h="50px"
+            fontSize="28px"
+          >
+            <MagazineIcon />
+          </Center>
+        </Link>
+
         <Box fontSize="18px">
           {/* <FaSearch onClick={onOpen}></FaSearch> */}
           <Box
