@@ -53,6 +53,7 @@ import './styles/fancyroutes.css';
 import 'react-dropzone-uploader/dist/styles.css';
 import SinglePodcast from './pages/singlePodcast';
 import Headroom from 'react-headroom';
+import Magazine from "./pages/Magazine";
 
 // const TIMEOUT = 300;
 
@@ -68,155 +69,158 @@ function App(props) {
   const isSmallScreen = useBreakpointValue({ base: true, md: false });
 
   return (
-    <>
-      <CSSReset />
-      {isSmallScreen && (
-        <Headroom style={{ transition: 'all .5s ease-in-out 0s', zIndex: '2' }}>
-          <TopNavbar />
-        </Headroom>
-      )}
-      {!isSmallScreen && <TopNavbar />}
+      <>
+        <CSSReset />
+        {isSmallScreen && (
+            <Headroom style={{ transition: 'all .5s ease-in-out 0s', zIndex: '2' }}>
+              <TopNavbar />
+            </Headroom>
+        )}
+        {!isSmallScreen && <TopNavbar />}
 
-      <SocialButtons />
-      <ScrollToTop />
-      <Switch>
-        <Route title="index" exact path="/">
-          <Index />
-        </Route>
+        <SocialButtons />
+        <ScrollToTop />
+        <Switch>
+          <Route title="index" exact path="/">
+            <Index />
+          </Route>
 
-        <Route title="policy" exact path="/policy">
-          <Policy />
-        </Route>
-        <Route title="buyrights" exact path="/buyrights">
-          <BuyRights />
-        </Route>
-        <Route title="buybooks" exact path="/buybooks">
-          <BuyBooks />
-        </Route>
-        <Route title="dist" exact path="/dist">
-          <Dist />
-        </Route>
-        <Route title="transaprovals" exact path="/transaprovals">
-          <TransAprovals />
-        </Route>
-        <Route title="Terms" exact path="/terms">
-          <Terms />
-        </Route>
-        <Route title="questions" exact path="/questions">
-          <Questions />
-        </Route>
-        <Route title="contact" exact path="/contact">
-          <Contact />
-        </Route>
-        <Route title="contact" exact path="/contactauth">
-          <ContactAuth />
-        </Route>
-        <Route title="workwithus" exact path="/workwithus">
-          <Workwithus />
-        </Route>
+          <Route title="policy" exact path="/policy">
+            <Policy />
+          </Route>
+          <Route title="buyrights" exact path="/buyrights">
+            <BuyRights />
+          </Route>
+          <Route title="buybooks" exact path="/buybooks">
+            <BuyBooks />
+          </Route>
+          <Route title="dist" exact path="/dist">
+            <Dist />
+          </Route>
+          <Route title="transaprovals" exact path="/transaprovals">
+            <TransAprovals />
+          </Route>
+          <Route title="Terms" exact path="/terms">
+            <Terms />
+          </Route>
+          <Route title="questions" exact path="/questions">
+            <Questions />
+          </Route>
+          <Route title="contact" exact path="/contact">
+            <Contact />
+          </Route>
+          <Route title="contact" exact path="/contactauth">
+            <ContactAuth />
+          </Route>
+          <Route title="workwithus" exact path="/workwithus">
+            <Workwithus />
+          </Route>
 
-        <Route title="podcast" exact path="/podcast">
-          <Podcast />
-        </Route>
-        <Route title="videos" exact path="/videos">
-          <Videos />
-        </Route>
-        <Route title="featured" exact path="/featured">
-          <FeaturedBooks />
-        </Route>
-        <Route title="further" exact path="/furthercoming">
-          <FurtherComing />
-        </Route>
-        <Route title="home" exact path="/home">
-          <Home />
-        </Route>
-        <Route title="about" exact path="/about">
-          <About />
-        </Route>
-        <Route title="blog" exact path="/blog">
-          <Blog />
-        </Route>
-        <Route title="single-post" exact path="/singlePost/:id">
-          <SinglePost />
-        </Route>
+          <Route title="magazine" exact path="/magazine">
+            <Magazine />
+          </Route>
+          <Route title="podcast" exact path="/podcast">
+            <Podcast />
+          </Route>
+          <Route title="videos" exact path="/videos">
+            <Videos />
+          </Route>
+          <Route title="featured" exact path="/featured">
+            <FeaturedBooks />
+          </Route>
+          <Route title="further" exact path="/furthercoming">
+            <FurtherComing />
+          </Route>
+          <Route title="home" exact path="/home">
+            <Home />
+          </Route>
+          <Route title="about" exact path="/about">
+            <About />
+          </Route>
+          <Route title="blog" exact path="/blog">
+            <Blog />
+          </Route>
+          <Route title="single-post" exact path="/singlePost/:id">
+            <SinglePost />
+          </Route>
 
-        <Route title="single-post" exact path="/singlePodcast/:id">
-          <SinglePodcast />
-        </Route>
+          <Route title="single-post" exact path="/singlePodcast/:id">
+            <SinglePodcast />
+          </Route>
 
-        <Route title="in the press" exact path="/inThePress">
-          <InThePress />
-        </Route>
-        <Route title="book" exact path="/book/:id">
-          <Book />
-        </Route>
-        <Route title="books" exact path="/books_by_category">
-          <BooksByCategory />
-        </Route>
-        <Route title="books_by_series" exact path="/books_by_series">
-          <BooksSeries />
-        </Route>
-        <Route title="books" exact path="/books">
-          <Books />
-        </Route>
-        <Route title="author" exact path="/author/:id">
-          <Author />
-        </Route>
-        <Route title="events" exact path="/events">
-          <Events />
-        </Route>
-        <Route title="arab culture" exact path="/ourProjects/divineComedy">
-          <DivineComedy />
-        </Route>
-        <Route title="Translation" exact path="/ourProjects/translationForum">
-          <Translation />
-        </Route>
-        <Route
-          title="events"
-          exact
-          path="/ourProjects/arabCultureFestivalInMilan"
-        >
-          <ArabCulture />
-        </Route>
-        <Route title="Stronger" exact path="/ourProjects/literatureIsStronger">
-          <Stronger />
-        </Route>
-        <Route
-          title="publish conditions"
-          exact
-          path="/ourWriters/publishConditions"
-        >
-          <PublishConditions />
-        </Route>
-        <Route title="writers" exact path="/ourWriters/writers">
-          <Writers />
-        </Route>
-        <Route title="404">
-          <Four />
-        </Route>
-      </Switch>
-      <Up></Up>
-      {isSmallScreen && (
-        <Headroom
-          className="navbar"
-          style={{
-            position: 'fixed',
-            bottom: '0',
-            top: 'unset',
-            left: '0',
-            right: '0',
-            zIndex: '1',
-            transform: 'translate3d(0px, 0px, 0px)',
-            transition: 'all .5s ease-in-out 0s',
-          }}
-        >
-          <Navbar />
-        </Headroom>
-      )}
-      {!isSmallScreen && <Navbar />}
-      <Footer></Footer>
-      <MessengerCustomerChat pageId="511490325560386" appId="406218294192351" />
-    </>
+          <Route title="in the press" exact path="/inThePress">
+            <InThePress />
+          </Route>
+          <Route title="book" exact path="/book/:id">
+            <Book />
+          </Route>
+          <Route title="books" exact path="/books_by_category">
+            <BooksByCategory />
+          </Route>
+          <Route title="books_by_series" exact path="/books_by_series">
+            <BooksSeries />
+          </Route>
+          <Route title="books" exact path="/books">
+            <Books />
+          </Route>
+          <Route title="author" exact path="/author/:id">
+            <Author />
+          </Route>
+          <Route title="events" exact path="/events">
+            <Events />
+          </Route>
+          <Route title="arab culture" exact path="/ourProjects/divineComedy">
+            <DivineComedy />
+          </Route>
+          <Route title="Translation" exact path="/ourProjects/translationForum">
+            <Translation />
+          </Route>
+          <Route
+              title="events"
+              exact
+              path="/ourProjects/arabCultureFestivalInMilan"
+          >
+            <ArabCulture />
+          </Route>
+          <Route title="Stronger" exact path="/ourProjects/literatureIsStronger">
+            <Stronger />
+          </Route>
+          <Route
+              title="publish conditions"
+              exact
+              path="/ourWriters/publishConditions"
+          >
+            <PublishConditions />
+          </Route>
+          <Route title="writers" exact path="/ourWriters/writers">
+            <Writers />
+          </Route>
+          <Route title="404">
+            <Four />
+          </Route>
+        </Switch>
+        <Up></Up>
+        {isSmallScreen && (
+            <Headroom
+                className="navbar"
+                style={{
+                  position: 'fixed',
+                  bottom: '0',
+                  top: 'unset',
+                  left: '0',
+                  right: '0',
+                  zIndex: '1',
+                  transform: 'translate3d(0px, 0px, 0px)',
+                  transition: 'all .5s ease-in-out 0s',
+                }}
+            >
+              <Navbar />
+            </Headroom>
+        )}
+        {!isSmallScreen && <Navbar />}
+        <Footer></Footer>
+        <MessengerCustomerChat pageId="511490325560386" appId="406218294192351" />
+      </>
   );
 }
 
