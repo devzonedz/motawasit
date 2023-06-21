@@ -1,6 +1,6 @@
 {
   "name": "motawasit",
-  "version": "1.3.2",
+  "version": "1.4.2",
   "private": true,
   "dependencies": {
     "@chakra-ui/core": "^1.0.0-next.6",
