@@ -6,7 +6,8 @@ import italianMagazine from '../images/food-and-religion-it.jpg';
 import { downloadFile } from '../util/download';
 import { MagazineIcon } from '../components/MagazineIcon';
 
-const magazineEnPdfUrl = '/files/food-and-religion-en.pdf';
+const magazineEnFileUrl = '/files/food-and-religion-en.pdf';
+const magazineItFileUrl = "/files/food-and-religion-it.pdf"
 
 export default function Magazine() {
     return (
@@ -18,7 +19,7 @@ export default function Magazine() {
                 dir="ltr"
             >
                 <VStack align="flex-start" spacing={12}>
-                    <Image src={englishMagazine} alt="Food & Religion English Version" />
+                    <Image src={englishMagazine} alt="Jusur - Food & Religion English Version" />
 
                     <Button
                         bgColor="blackAlpha.900"
@@ -30,13 +31,13 @@ export default function Magazine() {
                             bgColor: "blackAlpha.900"
                         }}
                         w="full"
-                        onClick={() => downloadFile(magazineEnPdfUrl)}
+                        onClick={() => downloadFile(magazineEnFileUrl)}
                     >
                         Download English Version
                     </Button>
                 </VStack>
                 <VStack align="flex-start" spacing={12}>
-                    <Image src={italianMagazine} alt="Food & Religion Italian Version" />
+                    <Image src={italianMagazine} alt="Jusur - Food & Religion Italian Version" />
 
                     <Button
                         bgColor="blackAlpha.900"
@@ -48,7 +49,7 @@ export default function Magazine() {
                             bgColor: "blackAlpha.900"
                         }}
                         w="full"
-                        onClick={() => downloadFile(magazineEnPdfUrl)}
+                        onClick={() => downloadFile(magazineItFileUrl)}
                     >
                         Download Italian Version
                     </Button>
