@@ -25,7 +25,7 @@ export default function Magazine() {
 
   return (
     <Container py={{ base: 14, md: 20, lg: 32 }} maxW="container.lg">
-      <Heading mb={6}>العدد صفر</Heading>
+      <Heading mb={6}>Issue 0</Heading>
 
       <Stack
         direction={{ base: 'column', md: 'row' }}
@@ -46,7 +46,7 @@ export default function Magazine() {
             />
           </Skeleton>
 
-          <Stack direction={{ base: 'column', sm: 'row' }} spacing={2}>
+          <VStack align="stretch" spacing={8}>
             <Button
               leftIcon={<FaDownload />}
               bgColor="blackAlpha.900"
@@ -60,7 +60,7 @@ export default function Magazine() {
               w="full"
               onClick={() => downloadFile(magazineEnFileUrl)}
             >
-              Download English Version
+              Download the PDF
             </Button>
 
             <Box w="full">
@@ -84,7 +84,7 @@ export default function Magazine() {
                 </Button>
               </a>
             </Box>
-          </Stack>
+          </VStack>
         </VStack>
         <VStack align="stretch" spacing={12} flex={1}>
           <Skeleton
@@ -98,7 +98,7 @@ export default function Magazine() {
               onLoad={() => setImagesIsLoading(prev => ({ ...prev, it: true }))}
             />
           </Skeleton>
-          <Stack direction={{ base: 'column', sm: 'row' }} spacing={2}>
+          <VStack align="stretch" spacing={8}>
             <Button
               leftIcon={<FaDownload />}
               bgColor="blackAlpha.900"
@@ -112,7 +112,7 @@ export default function Magazine() {
               w="full"
               onClick={() => downloadFile(magazineItFileUrl)}
             >
-              Download Italian Version
+              Scarica il PDF
             </Button>
 
             <Box w="full">
@@ -136,7 +136,7 @@ export default function Magazine() {
                 </Button>
               </a>
             </Box>
-          </Stack>
+          </VStack>
         </VStack>
       </Stack>
     </Container>
