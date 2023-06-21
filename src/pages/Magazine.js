@@ -21,7 +21,14 @@ export default function Magazine() {
                     <Image src={englishMagazine} alt="Food & Religion English Version" />
 
                     <Button
-                        colorScheme="green"
+                        bgColor="blackAlpha.900"
+                        color="white"
+                        _hover={{
+                            bgColor: "blackAlpha.700"
+                        }}
+                        _active={{
+                            bgColor: "blackAlpha.900"
+                        }}
                         w="full"
                         onClick={() => downloadFile(magazineEnPdfUrl)}
                     >
@@ -32,7 +39,14 @@ export default function Magazine() {
                     <Image src={italianMagazine} alt="Food & Religion Italian Version" />
 
                     <Button
-                        colorScheme="green"
+                        bgColor="blackAlpha.900"
+                        color="white"
+                        _hover={{
+                            bgColor: "blackAlpha.700"
+                        }}
+                        _active={{
+                            bgColor: "blackAlpha.900"
+                        }}
                         w="full"
                         onClick={() => downloadFile(magazineEnPdfUrl)}
                     >
