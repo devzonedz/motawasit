@@ -47,7 +47,7 @@ export default function standards() {
           Italy
         </Text>
         <Divider></Divider>
-        <br />
+        {/*<br />
         <Heading size="lg" m="4">
           {' '}
           هيئة التحرير والنشر
@@ -58,7 +58,7 @@ export default function standards() {
         <Text fontSize="2xl" m="4">
           editor@almutawassit.org
         </Text>
-        <Divider></Divider>
+        <Divider></Divider>*/}
         <br />
         <Heading size="lg" m="4">
           {' '}
