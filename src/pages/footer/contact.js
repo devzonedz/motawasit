@@ -48,18 +48,7 @@ export default function standards() {
         </Text>
         <Divider></Divider>
         <br />
-        <Heading size="lg" m="4">
-          {' '}
-          هيئة التحرير والنشر
-        </Heading>
-        <Text fontSize="2xl" m="4">
-          مدير النشر: خالد بن صالح
-        </Text>
-        <Text fontSize="2xl" m="4">
-          editor@almutawassit.org
-        </Text>
-        <Divider></Divider>
-        <br />
+    
         <Heading size="lg" m="4">
           {' '}
           مشاريع النشر والتبادل الثقافي:{' '}
