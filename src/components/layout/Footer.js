@@ -106,7 +106,7 @@ export default function Footer() {
             قوائم الكتب والكاتالوغات
           </Heading>
 
-          <Link to="/files/list.xls" target="_blank" download>
+          <Link to="https://almutawassit.s3.eu-west-3.amazonaws.com/list.xls" target="_blank" download>
             <Text
               cursor="pointer"
               color="gray.200"
