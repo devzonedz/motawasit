@@ -5,8 +5,6 @@ import {
   FaTwitter,
   FaLinkedin,
   FaPinterest,
-  FaSoundcloud,
-  FaYoutube,
 } from 'react-icons/fa';
 import { IoLogoWhatsapp } from 'react-icons/io';
 
@@ -19,7 +17,7 @@ import {
 } from 'react-share';
 
 export default function SocialButtons() {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
   const [url, setUrl] = React.useState();
   React.useEffect(() => {
     setUrl(window.location.href);

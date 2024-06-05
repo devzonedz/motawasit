@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import { ArrowUpIcon } from '@chakra-ui/icons';
-import { Events, animateScroll as scroll } from 'react-scroll';
+import { animateScroll as scroll } from 'react-scroll';
 
 import { FaChevronUp } from 'react-icons/fa';
 import { Box, useBreakpointValue } from '@chakra-ui/core';

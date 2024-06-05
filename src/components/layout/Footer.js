@@ -2,12 +2,7 @@ import React from 'react';
 import { Box, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import {
-  FaCcMastercard,
-  FaCcVisa,
-  FaCcPaypal,
-  FaCcApplePay,
   FaFacebook,
-  FaSoundcloud,
   FaTwitter,
   FaYoutube,
   FaInstagramSquare,

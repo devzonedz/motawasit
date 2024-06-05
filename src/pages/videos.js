@@ -1,24 +1,13 @@
 import React from 'react';
 import {
   Box,
-  Heading,
   SimpleGrid,
-  Image,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
 } from '@chakra-ui/core';
 import { connect } from 'react-redux';
 import { getVideos } from '../redux/actions/poscastsActions';
 import { Helmet } from 'react-helmet';
 
 import VideoModal from '../components/VideoModal';
-import VideoBookModal from '../components/VideoBookModal';
-import VideoArticleModal from '../components/VideoArticleModal';
 
 function Podcasts({ getVideos }) {
   const [data, setData] = React.useState(null);
