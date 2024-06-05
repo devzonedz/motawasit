@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet';
 import {
   Box,
   Heading,
-  Text,
   Image,
   Grid,
   SimpleGrid,

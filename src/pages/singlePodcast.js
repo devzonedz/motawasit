@@ -12,7 +12,6 @@ import {
   Flex,
   Skeleton,
   useColorMode,
-  Button,
 } from '@chakra-ui/core';
 import { useLocation, Link, useParams } from 'react-router-dom';
 

@@ -26,7 +26,7 @@ function useQuery() {
 }
 
 function SingleBlog({ getArticle }) {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
 
   const bg = { light: '#f5f2ef', dark: '#1a202c' };
   const color = { light: 'black', dark: 'white' };

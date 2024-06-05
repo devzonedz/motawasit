@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChakraProvider, CSSReset, useBreakpointValue } from '@chakra-ui/core';
+import { CSSReset, useBreakpointValue } from '@chakra-ui/core';
 import { Switch, Route } from 'react-router-dom';
 import nprogress from 'nprogress';
 import MessengerCustomerChat from 'react-messenger-customer-chat';

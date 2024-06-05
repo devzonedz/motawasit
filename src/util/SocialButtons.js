@@ -3,18 +3,16 @@ import { Box, Flex, useColorMode } from '@chakra-ui/core';
 import {
   FaFacebook,
   FaTwitter,
-  FaLinkedin,
   FaPinterest,
   FaSoundcloud,
   FaYoutube,
   FaInstagram, FaGoodreads,
 } from 'react-icons/fa';
-import { IoLogoWhatsapp } from 'react-icons/io';
+
 
 export default function SocialButtons() {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
 
-  const bg = { light: '#fff', dark: '#1a202c' };
   const bgIcon = { light: '#000', dark: '#fff' };
   const color = { light: 'white', dark: 'black' };
   return (

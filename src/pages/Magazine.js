@@ -3,7 +3,6 @@ import {
   Button,
   Container,
   Heading,
-  HStack,
   Image,
   Skeleton,
   Stack,
@@ -17,8 +16,7 @@ import { FaDownload, FaEye } from 'react-icons/fa';
 const magazineEnFileUrl = '/files/food-and-religion-en.pdf';
 const magazineItFileUrl = '/files/food-and-religion-it.pdf';
 
-const magazineEnFileUrl1 = '/files/food-and-religion-en.pdf';
-const magazineItFileUrl1 = '/files/food-and-religion-it.pdf';
+
 
 export default function Magazine() {
   const [imagesIsLoading, setImagesIsLoading] = useState({

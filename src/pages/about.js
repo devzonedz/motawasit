@@ -3,7 +3,6 @@ import { Box, Text, Heading, Image } from '@chakra-ui/core';
 // import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import aboutpic from '../images/about-min.jpg';
 export default function blog() {
   return (
     <Box mt={{ base: '2em', md: '6em' }} mb="100px">

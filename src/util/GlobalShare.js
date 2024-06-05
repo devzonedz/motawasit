@@ -5,8 +5,6 @@ import {
   FaTwitter,
   FaLinkedin,
   FaPinterest,
-  FaSoundcloud,
-  FaYoutube,
 } from 'react-icons/fa';
 import { IoLogoWhatsapp } from 'react-icons/io';
 
