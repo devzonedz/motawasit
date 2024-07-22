@@ -10,14 +10,14 @@ export const getAuthors = letter => async (dispatch, getState) => {
   let data;
   if (letter !== undefined && letter !== null) {
     data = await axios
-      .get(`${process.env.REACT_APP_API}/authors?letter=${letter}`, { headers })
+      .get(`${process.env.REACT_APP_API_V2}/authors?letter=${letter}`, { headers })
       .then(res => {
         return res;
       })
       .catch(err => {});
   } else {
     data = await axios
-      .get(`${process.env.REACT_APP_API}/authors`, { headers })
+      .get(`${process.env.REACT_APP_API_V2}/authors`, { headers })
       .then(res => {
         return res;
       })
@@ -28,7 +28,7 @@ export const getAuthors = letter => async (dispatch, getState) => {
 
 export const getAuthor = id => async (dispatch, getState) => {
   let data = await axios
-    .get(`${process.env.REACT_APP_API}/authors/${id}`, { headers })
+    .get(`${process.env.REACT_APP_API_V2}/authors/${id}`, { headers })
     .then(res => {
       return res;
     })

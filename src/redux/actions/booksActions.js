@@ -20,7 +20,7 @@ export const getBooks = (
 
   if (!category && !featured && !translate && !furthercoming) {
     data = await axios
-      .get(`${process.env.REACT_APP_API}/books?website=منشورات المتوسط`, {
+      .get(`${process.env.REACT_APP_API_V2}/books?website=منشورات المتوسط`, {
         headers,
       })
       .then(res => {
@@ -30,7 +30,7 @@ export const getBooks = (
   } else if (!category && featured && !translate && !furthercoming) {
     data = await axios
       .get(
-        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&featured=${featured}`,
+        `${process.env.REACT_APP_API_V2}/books?website=منشورات المتوسط&featured=${featured}`,
         { headers }
       )
       .then(res => {
@@ -40,7 +40,7 @@ export const getBooks = (
   } else if (!category && featured && translate && !furthercoming) {
     data = await axios
       .get(
-        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&featured=${featured}&translate=${translate}`,
+        `${process.env.REACT_APP_API_V2}/books?website=منشورات المتوسط&featured=${featured}&translate=${translate}`,
         { headers }
       )
       .then(res => {
@@ -50,7 +50,7 @@ export const getBooks = (
   } else if (category && !featured && !translate && !furthercoming) {
     data = await axios
       .get(
-        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&category=${category}`,
+        `${process.env.REACT_APP_API_V2}/books?website=منشورات المتوسط&category=${category}`,
         { headers }
       )
       .then(res => {
@@ -60,7 +60,7 @@ export const getBooks = (
   } else if (!category && !featured && !translate && furthercoming) {
     data = await axios
       .get(
-        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&furthercoming=${furthercoming}`,
+        `${process.env.REACT_APP_API_V2}/books?website=منشورات المتوسط&furthercoming=${furthercoming}`,
         { headers }
       )
       .then(res => {
@@ -70,7 +70,7 @@ export const getBooks = (
   } else if (!category && !featured && translate && !furthercoming) {
     data = await axios
       .get(
-        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&translate=${translate}`,
+        `${process.env.REACT_APP_API_V2}/books?website=منشورات المتوسط&translate=${translate}`,
         { headers }
       )
       .then(res => {
@@ -80,7 +80,7 @@ export const getBooks = (
   } else if (category && !featured && translate && !furthercoming) {
     data = await axios
       .get(
-        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&category=${category}&translate=${translate}`,
+        `${process.env.REACT_APP_API_V2}/books?website=منشورات المتوسط&category=${category}&translate=${translate}`,
         { headers }
       )
       .then(res => {
@@ -90,7 +90,7 @@ export const getBooks = (
   } else if (!category && !featured && translate && furthercoming) {
     data = await axios
       .get(
-        `${process.env.REACT_APP_API}/books?website=منشورات المتوسط&furthercoming=${furthercoming}&translate=${translate}`,
+        `${process.env.REACT_APP_API_V2}/books?website=منشورات المتوسط&furthercoming=${furthercoming}&translate=${translate}`,
         { headers }
       )
       .then(res => {
@@ -160,7 +160,7 @@ export const getBooksBySerie = serie => async (dispatch, getState) => {
   let data;
   data = await axios
     .get(
-      `${process.env.REACT_APP_API}/books?serie=${serie}`,
+      `${process.env.REACT_APP_API_V2}/books?serie=${serie}`,
       //   { website: 'المتوسط' },
       { headers }
     )
@@ -175,7 +175,7 @@ export const postBook = payload => async (dispatch, getState) => {
 
   let data;
   data = await axios
-    .post(`${process.env.REACT_APP_API}/uploadFile`, formData, { multipart })
+    .post(`${process.env.REACT_APP_API_V2}/uploadFile`, formData, { multipart })
     .then(res => {
       return res;
     })
@@ -186,7 +186,7 @@ export const postBook = payload => async (dispatch, getState) => {
 export const getBook = id => async (dispatch, getState) => {
   const data = await axios
     .get(
-      `${process.env.REACT_APP_API}/books/${id}`,
+      `${process.env.REACT_APP_API_V2}/books/${id}`,
       //   { website: 'المتوسط' },
       { headers }
     )
