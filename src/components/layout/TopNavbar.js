@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { useState, useCallback } from 'react';
 import {
   Box,
   Flex,
@@ -17,141 +16,55 @@ import {
   Heading,
   useBreakpointValue,
   Center,
+  Spinner,
 } from '@chakra-ui/core';
-// import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSearch } from '../../redux/actions/searchActions';
-
-import algoliasearch from 'algoliasearch/lite';
-import {
-  InstantSearch,
-  Index,
-  connectHits,
-  connectSearchBox,
-  connectStateResults,
-} from 'react-instantsearch-dom';
-
-import { FaFilePdf, FaHome, FaSearch } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import { AiOutlineShop } from 'react-icons/ai';
 import Newsletter from './NewsLetter';
 import hdark from '../../images/hdark.png';
 import hlight from '../../images/hlight.png';
 import { MagazineIcon } from '../MagazineIcon';
+import { debounce } from 'lodash';
 
-const searchClient = algoliasearch(
-  process.env.REACT_APP_algoliaAppKey,
-  process.env.REACT_APP_algoliaAdminKey
-);
-
-function Navbar({ getSearch }) {
+function Navbar({ getSearch, searchResults, isLoading }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
   const { colorMode } = useColorMode();
+  const [searchQuery, setSearchQuery] = useState('');
 
   const bg = { light: '#f5f2ef', dark: '#1a202c' };
   const bgIcon = { light: '#000', dark: '#fff' };
   const color = { light: 'white', dark: 'black' };
 
-  const Books = ({ hits }) => {
-    // console.log(hits);
-    return (
-      <Box>
-        {hits[0] !== undefined && <Heading m="8">كتب</Heading>}
-
-        <SimpleGrid spacing={8} columns={[2, 2, 3, 8]}>
-          {hits &&
-            hits.map(hit => {
-              if (hit.searchable_out_mutab === 1) {
-                return (
-                  <Link
-                    onClick={onClose}
-                    key={hit.objectID}
-                    to={`/book/${hit.id}`}
-                  >
-                    <Image
-                      loading="lazy"
-                      src={`${process.env.REACT_APP_STORAGE}/${hit.cover}`}
-                    />
-                    <Heading size="md" mt="2">
-                      {hit.title}
-                    </Heading>
-                  </Link>
-                );
-              }
-            })}
-        </SimpleGrid>
-      </Box>
-    );
-  };
-  const Authors = ({ hits }) => (
-    <Box>
-      {hits[0] !== undefined && <Heading m="8">كتاب</Heading>}
-
-      <SimpleGrid spacing={8} columns={[2, 2, 3, 8]}>
-        {hits &&
-          hits.map(hit => (
-            <Link onClick={onClose} key={hit.objectID} to={`/author/${hit.id}`}>
-              <Image
-                loading="lazy"
-                src={`${process.env.REACT_APP_STORAGE}/${hit.image}`}
-              />
-              <Heading size="md" mt="2">
-                {hit.name}
-              </Heading>
-            </Link>
-          ))}
-      </SimpleGrid>
-    </Box>
+  // Debounce the search function
+  const debouncedSearch = useCallback(
+    debounce((query) => {
+      if (query.trim()) {
+        getSearch(query);
+      }
+    }, 300),
+    [getSearch]
   );
-  const Articles = ({ hits }) => {
-    console.log(hits);
-    return (
-      <Box>
-        {hits[0] !== undefined && <Heading m="8">مقالات</Heading>}
 
-        <SimpleGrid spacing={8} columns={[2, 2, 3, 8]}>
-          {hits &&
-            hits.map(hit => (
-              <Link onClick={onClose} key={hit.objectID} to={`/book/${hit.id}`}>
-                <Image
-                  loading="lazy"
-                  src={`${process.env.REACT_APP_STORAGE}/${hit.image}`}
-                />
-                <Heading size="md" mt="2">
-                  {hit.title}
-                </Heading>
-              </Link>
-            ))}
-        </SimpleGrid>
-      </Box>
-    );
+  const handleSearchChange = (event) => {
+    const newValue = event.target.value;
+    setSearchQuery(newValue);
+    debouncedSearch(newValue);
   };
-  const CustomSearchBox = ({ currentRefinement, refine }) => (
+
+  const CustomSearchBox = () => (
     <Input
       className="search-box"
       color="black"
       bg="white"
       placeholder=" ابحث عن الكتب,المقالات,الكتاب ..."
       type="search"
-      value={currentRefinement}
-      onChange={event => refine(event.currentTarget.value)}
+      value={searchQuery}
+      onChange={handleSearchChange}
     />
   );
-
-  const BooksHits = connectHits(Books);
-  const BooksResults = connectStateResults(({ searchState }) =>
-    searchState && searchState.query ? <BooksHits /> : null
-  );
-  const AuthorsHits = connectHits(Authors);
-  const AuthorsResults = connectStateResults(({ searchState }) =>
-    searchState && searchState.query ? <AuthorsHits /> : null
-  );
-  const ArticlesHits = connectHits(Articles);
-  const ArticlesResults = connectStateResults(({ searchState }) =>
-    searchState && searchState.query ? <ArticlesHits /> : null
-  );
-  const SearchBox = connectSearchBox(CustomSearchBox);
 
   const navClassName = useBreakpointValue({ base: '', md: 'topNavbar' });
 
@@ -165,15 +78,12 @@ function Navbar({ getSearch }) {
       justify="space-between"
       wrap="wrap"
       padding="0.5rem"
-      //   shadow="lg"
       color={color[colorMode]}
       bg={bg[colorMode]}
     >
       <Box
         ml="8%"
-        // display={{ base: show ? 'block' : 'none', md: 'flex' }}
         d="flex"
-        // width={{ base: 'full', md: 'auto' }}
         alignItems="center"
         justifyContent="flex-end"
         flexGrow={1}
@@ -183,10 +93,8 @@ function Navbar({ getSearch }) {
             cursor="pointer"
             d="flex"
             rounded="5px"
-            // bg={bgIcon[colorMode]}
             color={color[colorMode]}
             m="3px"
-            // p="10px"
             w="50px"
             h="50px"
             fontSize="30px"
@@ -195,14 +103,14 @@ function Navbar({ getSearch }) {
             justifyContent="center"
           >
             {colorMode === 'light' ? (
-              <Image rounded="5px" w="50px" h="50px" src={hdark} />
+              <Image rounded="5px" w="50px" h="50px" src={hdark}></Image>
             ) : (
-              <Image rounded="5px" w="50px" h="50px" src={hlight} />
+              <Image rounded="5px" w="50px" h="50px" src={hlight}></Image>
             )}
           </Box>
         </a>
 
-        <a href="/magazine" target="_blank">
+        <Link to="/magazine">
           <Center
             cursor="pointer"
             rounded="5px"
@@ -216,10 +124,9 @@ function Navbar({ getSearch }) {
           >
             <MagazineIcon />
           </Center>
-        </a>
+        </Link>
 
         <Box fontSize="18px">
-          {/* <FaSearch onClick={onOpen}></FaSearch> */}
           <Box
             rounded="5px"
             onClick={onOpen}
@@ -231,7 +138,7 @@ function Navbar({ getSearch }) {
             h="50px"
             fontSize="28px"
           >
-            <FaSearch />
+            <FaSearch></FaSearch>
           </Box>
           <Drawer
             placement="bottom"
@@ -251,44 +158,76 @@ function Navbar({ getSearch }) {
 
                 <DrawerHeader fontSize="36px">بحث</DrawerHeader>
                 <DrawerBody>
-                  {/* <Input
-                    color="black"
-                    placeholder=" ابحث عن الكتب,المقالات,الكتاب ..."
-                  ></Input>
-                  <Box h="400px">
-                    <Text>هنا ستكون نتيجة البحث</Text>
-                  </Box> */}
-                  <InstantSearch indexName="books" searchClient={searchClient}>
-                    <SearchBox />
-                    <Index indexName="books">
-                      {/* <BooksHits></BooksHits> */}
-                      <BooksResults />
-                    </Index>
-
-                    <Index indexName="articles">
-                      <ArticlesResults />
-                    </Index>
-                    <Index indexName="authors">
-                      <AuthorsResults />
-                    </Index>
-                  </InstantSearch>
+                  <CustomSearchBox />
+                  {isLoading ? (
+                    <Center mt={4}>
+                      <Spinner />
+                    </Center>
+                  ) : (
+                    <Box mt={4}>
+                      {searchResults.books && searchResults.books.length > 0 && (
+                        <Box>
+                          <Heading m="8">كتب</Heading>
+                          <SimpleGrid spacing={8} columns={[2, 2, 3, 8]}>
+                            {searchResults.books.map(book => (
+                              <Link onClick={onClose} key={book.id} to={`/book/${book.id}`}>
+                                <Image
+                                  loading="lazy"
+                                  src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
+                                />
+                                <Heading size="md" mt="2">
+                                  {book.title}
+                                </Heading>
+                              </Link>
+                            ))}
+                          </SimpleGrid>
+                        </Box>
+                      )}
+                      {searchResults.authors && searchResults.authors.length > 0 && (
+                        <Box>
+                          <Heading m="8">كتاب</Heading>
+                          <SimpleGrid spacing={8} columns={[2, 2, 3, 8]}>
+                            {searchResults.authors.map(author => (
+                              <Link onClick={onClose} key={author.id} to={`/author/${author.id}`}>
+                                <Image
+                                  loading="lazy"
+                                  src={`${process.env.REACT_APP_STORAGE}/${author.image}`}
+                                />
+                                <Heading size="md" mt="2">
+                                  {author.name}
+                                </Heading>
+                              </Link>
+                            ))}
+                          </SimpleGrid>
+                        </Box>
+                      )}
+                      {searchResults.articles && searchResults.articles.length > 0 && (
+                        <Box>
+                          <Heading m="8">مقالات</Heading>
+                          <SimpleGrid spacing={8} columns={[2, 2, 3, 8]}>
+                            {searchResults.articles.map(article => (
+                              <Link onClick={onClose} key={article.id} to={`/article/${article.id}`}>
+                                <Image
+                                  loading="lazy"
+                                  src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
+                                />
+                                <Heading size="md" mt="2">
+                                  {article.title}
+                                </Heading>
+                              </Link>
+                            ))}
+                          </SimpleGrid>
+                        </Box>
+                      )}
+                    </Box>
+                  )}
                 </DrawerBody>
               </DrawerContent>
             </DrawerOverlay>
           </Drawer>
         </Box>
-        {/* <Box
-          rounded="5px"
-          bg={bgIcon[colorMode]}
-          color={color[colorMode]}
-          m="3px"
-          p="10px"
-          fontSize="28px"
-        >
-          <FaShoppingCart></FaShoppingCart>
-        </Box> */}
-        <Newsletter />
-        <a target="_blank" rel=" noreferrer" href={process.env.REACT_APP_SHOP}>
+        <Newsletter></Newsletter>
+        <a target="_blank" rel="noreferrer" href={process.env.REACT_APP_SHOP}>
           <Box
             rounded="5px"
             bg={bgIcon[colorMode]}
@@ -299,7 +238,7 @@ function Navbar({ getSearch }) {
             h="50px"
             fontSize="28px"
           >
-            <AiOutlineShop />
+            <AiOutlineShop></AiOutlineShop>
           </Box>
         </a>
       </Box>
@@ -307,8 +246,13 @@ function Navbar({ getSearch }) {
   );
 }
 
-const mapDispatchToProps = dispatch => {
-  return { getSearch: id => dispatch(getSearch(id)) };
+const mapStateToProps = state => ({
+  searchResults: state.search.results,
+  isLoading: state.search.isLoading,
+});
+
+const mapDispatchToProps = {
+  getSearch,
 };
 
-export default connect(null, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

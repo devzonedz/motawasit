@@ -1,7 +1,6 @@
 import React from 'react';
 import Masonry from 'react-masonry-css';
 import { Helmet } from 'react-helmet';
-
 import {
   Heading,
   Box,
@@ -12,19 +11,22 @@ import {
   Text,
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
-// import fx from 'money';
 import { connect } from 'react-redux';
 import { getHome } from '../redux/actions/homeActions';
 
 function Home({ getHome }) {
   const { colorMode } = useColorMode();
-
   const bg = { light: 'white', dark: '#151a23' };
-  const [data, setData] = React.useState(null);
+  const [data, setData] = React.useState({
+    image: {},
+    articles: [],
+    books: []
+  });
   const [loaded, setLoaded] = React.useState(false);
   const imageLoaded = () => {
     setLoaded(true);
   };
+
   React.useEffect(() => {
     async function getData() {
       const res = await getHome();
@@ -36,12 +38,23 @@ function Home({ getHome }) {
     getData();
   }, []);
 
-  const breakpointColumnsObj = {
-    default: 3,
-    1300: 3,
-    1100: 2,
-    1000: 1,
+  // Combine and shuffle articles and books
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
   };
+
+  const combinedItems = React.useMemo(() => {
+    const combined = [
+      ...(data.articles || []).map(item => ({ ...item, type: 'article' })),
+      ...(data.books || []).map(item => ({ ...item, type: 'book' }))
+    ];
+    return shuffleArray(combined);
+  }, [data.articles, data.books]);
+
   const breakpointColumns = {
     default: 4,
     1300: 4,
@@ -60,101 +73,60 @@ function Home({ getHome }) {
           <Spinner size="xl" />
         </Box>
       )}
-      <Text mb="2">{data && data.image.name}</Text>
+      <Text mb="2">{data && data.image && data.image.name}</Text>
       <Image
         loading="lazy"
-        src={`${process.env.REACT_APP_STORAGE}/${data && data.image.image}`}
-      ></Image>
-
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
-        {data &&
-          data.articles &&
-          data.articles.map(article => {
-            const articleBody = article.body.split('\n');
-            const body = articleBody[0] + '' + articleBody[1];
-
-            return (
-              <Link key={article.id} to={`/singlePost/${article.id}`}>
-                <Box
-                  bg={bg[colorMode]}
-                  w="100%"
-                  shadow="lg"
-                  // p="2"
-                  pb="4"
-                  // m="4"
-                  mt="8"
-                  cursor="pointer"
-                >
-                  <Skeleton w="100%" isLoaded={loaded}>
-                    <Image
-                      loading="lazy"
-                      w="100%"
-                      onLoad={imageLoaded}
-                      src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
-                    />
-                  </Skeleton>
-                  <Text m="4" fontSize="lg" fontFamily="diodrum-med !important">
-                    {article.author}
-                  </Text>
-                  <Heading fontFamily="diodrum-bold !important" m="4">
-                    {' '}
-                    {article.title}{' '}
-                  </Heading>
-                  <Box
-                    m="4"
-                    fontSize="xl"
-                    className="content books__content event-body"
-                  >
-                    <Box dangerouslySetInnerHTML={{ __html: body }} />
-                  </Box>
-                </Box>
-              </Link>
-            );
-          })}
-      </Masonry>
+        src={`${process.env.REACT_APP_STORAGE}/${data && data.image && data.image.image}`}
+      />
 
       <Masonry
         breakpointCols={breakpointColumns}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {data &&
-          data.books &&
-          data.books.map(book => (
-            <Link key={book.id} to={`/book/${book.id}`}>
-              <Box mt="8" pb="4" shadow="lg" bg={bg[colorMode]}>
+        {combinedItems.map(item => (
+          <Link key={item.id} to={item.type === 'article' ? `/singlePost/${item.id}` : `/book/${item.id}`}>
+            <Box
+              bg={bg[colorMode]}
+              w="100%"
+              shadow="lg"
+              pb="4"
+              mt="8"
+              cursor="pointer"
+            >
+              <Skeleton w="100%" isLoaded={loaded}>
                 <Image
                   loading="lazy"
-                  mt="2"
                   w="100%"
-                  src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
-                ></Image>
-                <Text fontFamily="diodrum-med !important" m="4">
-                  {' '}
-                  {book?.author[0]?.name}{' '}
-                </Text>
-                <Heading fontFamily="diodrum-bold !important" m="4">
-                  {' '}
-                  {book.title}{' '}
-                </Heading>
-
-                <Box
-                  m="4"
-                  fontSize="xl"
-                  className="content books__content"
-                  dangerouslySetInnerHTML={{ __html: book.overview }}
-                ></Box>
+                  onLoad={imageLoaded}
+                  src={`${process.env.REACT_APP_STORAGE}/${item.type === 'article' ? item.image : item.cover}`}
+                />
+              </Skeleton>
+              <Text m="4" fontSize="lg" fontFamily="diodrum-med !important">
+                {item.type === 'article' ? item.author : (item.author && item.author.length > 0 ? item.author[0].name : 'Unknown Author')}
+              </Text>
+              <Heading fontFamily="diodrum-bold !important" m="4">
+                {item.title}
+              </Heading>
+              <Box
+                m="4"
+                fontSize="xl"
+                className={`content ${item.type === 'article' ? 'event-body' : 'books__content'}`}
+              >
+                {item.type === 'article' ? (
+                  <Box dangerouslySetInnerHTML={{ __html: item.body.split('\n').slice(0, 2).join('') }} />
+                ) : (
+                  <Box dangerouslySetInnerHTML={{ __html: item.overview }} />
+                )}
               </Box>
-            </Link>
-          ))}
+            </Box>
+          </Link>
+        ))}
       </Masonry>
     </Box>
   );
 }
+
 const mapDispatchToProps = dispatch => {
   return { getHome: () => dispatch(getHome()) };
 };

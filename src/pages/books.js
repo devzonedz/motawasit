@@ -1,12 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-
 import { Box, useBreakpointValue } from '@chakra-ui/core';
 import { useLocation } from 'react-router-dom';
-// import fx from 'money';
 import { connect } from 'react-redux';
 import { getBooks } from '../redux/actions/booksActions';
-
 import CatBooks from '../components/books/catBooks';
 import BooksFilter from '../components/books/BooksFilter';
 import Headroom from 'react-headroom';
@@ -15,11 +12,15 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-function Home(props) {
+function Home({ getBooks }) {
   let query = useQuery();
   let translate = query.get('translate');
 
   const isSmallScreen = useBreakpointValue({ base: true, md: false });
+
+  useEffect(() => {
+    getBooks(null, null, translate, null);
+  }, [translate, getBooks]);
 
   return (
     <Box mt={isSmallScreen ? '0' : '70px'} mb="100px">
@@ -38,10 +39,8 @@ function Home(props) {
             transition: 'all .5s ease-in-out 0s',
           }}
         >
-          <BooksFilter />
         </Headroom>
       )}
-      {!isSmallScreen && <BooksFilter />}
       <Box
         pr={['10%', '5%', '5%', '5%']}
         pl={['10%', '5%', '5%', '5%']}
@@ -52,8 +51,9 @@ function Home(props) {
     </Box>
   );
 }
-const mapDispatchToProps = dispatch => {
-  return { getBooks: () => dispatch(getBooks()) };
+
+const mapDispatchToProps = (dispatch) => {
+  return { getBooks: (category, featured, translate, furthercoming) => dispatch(getBooks(category, featured, translate, furthercoming)) };
 };
 
 export default connect(null, mapDispatchToProps)(Home);

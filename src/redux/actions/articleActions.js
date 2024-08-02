@@ -9,7 +9,7 @@ const headers = {
 export const getArticles = page => async (dispatch, getState) => {
   let data;
   data = await axios
-    .get(`${process.env.REACT_APP_API}/articles?page=${page}`, { headers })
+    .get(`${process.env.REACT_APP_API_V2}/articles`, { headers })
     .then(res => {
       return res;
     })
@@ -19,7 +19,7 @@ export const getArticles = page => async (dispatch, getState) => {
 
 export const getArticle = id => async (dispatch, getState) => {
   const data = await axios
-    .get(`${process.env.REACT_APP_API}/articles/${id}`, { headers })
+    .get(`${process.env.REACT_APP_API_V2}/articles/${id}`, { headers })
     .then(res => {
       return res;
     })

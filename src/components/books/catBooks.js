@@ -13,27 +13,36 @@ import { connect } from 'react-redux';
 import { getBooks } from '../../redux/actions/booksActions';
 import Masonry from 'react-masonry-css';
 import LazyLoad from 'react-lazyload';
+import ReactPaginate from 'react-paginate';
 
-function CatBooks({ translate, getBooks, name }) {
+function CatBooks({ getBooks, name }) {
   const { colorMode } = useColorMode();
-
   const bg = { light: 'white', dark: '#151a23' };
 
   const [loaded, setLoaded] = React.useState(false);
+  const [data, setData] = React.useState(null);
+  const [currentPage, setCurrentPage] = React.useState(0);
+  const [lastPage, setLastPage] = React.useState(1);
+
   const imageLoaded = () => {
     setLoaded(true);
   };
-  const [data, setData] = React.useState(null);
+
   React.useEffect(() => {
     async function getData() {
-      const res = await getBooks(null, null, translate, null);
+      const res = await getBooks(null, null, null, null, currentPage + 1);
       if (res) {
         setData(res.data);
+        setLastPage(res.data.meta.last_page);
       }
       console.log(res);
     }
     getData();
-  }, [translate]);
+  }, [currentPage]);
+
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+  };
 
   const breakpointColumns = {
     default: 4,
@@ -43,44 +52,8 @@ function CatBooks({ translate, getBooks, name }) {
     700: 1,
   };
 
-  const activeLink = {
-    background: '#000',
-    color: 'white',
-  };
-
   return (
     <Box>
-      <Box d="flex">
-        <Link to={`/books?translate=0`}>
-          <Heading
-            fontFamily="diodrum-med !important"
-            fontWeight="normal"
-            size="md"
-            my="2"
-            py="2"
-            px="4"
-            pb="4"
-            style={translate === '0' ? activeLink : {}}
-          >
-            عربي
-          </Heading>
-        </Link>
-        <Link to={`/books?translate=1`}>
-          <Heading
-            fontFamily="diodrum-med !important"
-            fontWeight="normal"
-            size="md"
-            my="2"
-            py="2"
-            px="4"
-            pb="4"
-            style={translate === '1' ? activeLink : {}}
-          >
-            مترجم
-          </Heading>
-        </Link>
-      </Box>
-
       {!data && (
         <Box textAlign="center">
           <Spinner size="xl" />
@@ -117,18 +90,15 @@ function CatBooks({ translate, getBooks, name }) {
                   </Skeleton>
                 </LazyLoad>
                 <Text fontFamily="diodrum-med !important" fontSize="2xl" m="2">
-                  {' '}
-                  {book?.author[0]?.name}{' '}
+                  {book?.author[0]?.name}
                 </Text>
                 <Heading
                   fontFamily="diodrum-bold !important"
                   m="4"
                   fontSize={{ base: 'md', md: '2xl' }}
                 >
-                  {' '}
-                  {book.title}{' '}
+                  {book.title}
                 </Heading>
-
                 <Box
                   style={{ fontWeight: '400' }}
                   m="4"
@@ -139,14 +109,30 @@ function CatBooks({ translate, getBooks, name }) {
             </Link>
           ))}
       </Masonry>
+      {data && data.books && data.books.length !== 0 && (
+        <ReactPaginate
+          previousLabel={'السابق'}
+          nextLabel={'التالى'}
+          breakLabel={'...'}
+          breakClassName={'break-me'}
+          pageCount={lastPage}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={handlePageClick}
+          containerClassName={'pagination'}
+          subContainerClassName={'pages pagination'}
+          activeClassName={'active'}
+          forcePage={currentPage}
+        />
+      )}
     </Box>
   );
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    getBooks: (category, featured, furthercoming, translate) =>
-      dispatch(getBooks(category, featured, furthercoming, translate)),
+    getBooks: (category, featured, furthercoming, translate, page) =>
+      dispatch(getBooks(category, featured, furthercoming, translate, page)),
   };
 };
 
