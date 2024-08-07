@@ -94,7 +94,7 @@ function Writers({ getAuthors }) {
                     loading="lazy"
                     onLoad={imageLoaded}
                     w="100%"
-                    src={author.image}
+                    src={`${process.env.REACT_APP_STORAGE}/${author.image}`}
                     fallbackSrc="https://via.placeholder.com/150" // Placeholder image for debugging
                     alt={author.name}
                   />

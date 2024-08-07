@@ -55,20 +55,24 @@ function Navbar({ getSeries, getCat }) {
   useEffect(() => {
     async function getData() {
       const categories = await getCat();
-      if (categories) {
-        console.log(categories);
-        setCat(categories.data);
+      if (Array.isArray(categories)) {
+        setCat(categories);
+      } else {
+        console.error('Expected an array for categories, but got:', categories);
+        setCat([]);
       }
-      const res = await getSeries();
-      if (res && Array.isArray(res.data)) {
-        setData(res.data);
-      }else {
-        console.error('Expected an array, but got:', res.data);
+      
+      const series = await getSeries();
+      if (Array.isArray(series)) {
+        setData(series);
+      } else {
+        console.error('Expected an array for series, but got:', series);
         setData([]);
       }
     }
     getData();
-  }, []);
+  }, [getCat, getSeries]);
+  
 
   const handleToggle = () => setShow(!show);
 
@@ -334,82 +338,53 @@ function Navbar({ getSeries, getCat }) {
               ></FaChevronDown>{' '}
             </MenuButton>
             <MenuList
-              h="60vh"
-              w="100vw"
-              color="white"
-              overflowY={{ base: 'scroll', sm: 'scroll' }}
-              bg={filter[colorMode]}
+  h="60vh"
+  w="100vw"
+  color="white"
+  overflowY={{ base: 'scroll', sm: 'scroll' }}
+  bg={filter[colorMode]}
+>
+  {data.length === 0 ? (
+    <Box w="100%" mt="50" mb="50" textAlign="center">
+      <Spinner size="xl" />
+    </Box>
+  ) : (
+    <SimpleGrid
+      pl={['5%', '5%', '15%', '15%']}
+      pr={['5%', '5%', '15%', '15%']}
+      py={['5%', '0%', '0%', '0%']}
+      columns={[1, 2, 3, 3, 4]}
+    >
+      {data.map(serie => (
+        <Link
+          style={{ margin: '50px !important' }}
+          onClick={handleToggle}
+          to={`/books_by_series?serie=${serie.name}`}
+          key={serie.id}
+        >
+          <Box m={['0.9', '4']}>
+            <MenuItem
+              _focus={{ bg: 'white', color: 'black' }}
+              _hover={{ bg: 'white', color: 'black' }}
+              fontSize="xl"
             >
-              {!data && (
-                <Box w="100" mt="50" mb="50" textAlign="center">
-                  <Spinner size="xl" />
-                </Box>
-              )}
-              <SimpleGrid
-                pl={['5%', '5%', '15%', '15%']}
-                pr={['5%', '5%', '15%', '15%']}
-                py={['5%', '0%', '0%', '0%']}
-                columns={[1, 2, 3, 3, 4]}
-              >
-                {Array.isArray(data) && data.map(serie => {
-                    if (isSmallerThan420) {
-                      return (
-                        <Center>
-                          <Link
-                            style={{ margin: '50px !important' }}
-                            onClick={handleToggle}
-                            to={`/books_by_series?serie=${serie.name} `}
-                          >
-                            <Box m={['0.9', '4']}>
-                              <MenuItem
-                                _focus={{ bg: 'white', color: 'black' }}
-                                _hover={{ bg: 'white', color: 'black' }}
-                                fontSize="xl"
-                              >
-                                <Box textAlign="right" display="flex">
-                                  <Heading
-                                    dir="rtl"
-                                    fontFamily="diodrum-med !important"
-                                    fontSize={['lg', 'lg', 'xl', 'xl']}
-                                  >
-                                    {serie.name}
-                                  </Heading>
-                                </Box>
-                              </MenuItem>
-                            </Box>
-                          </Link>
-                        </Center>
-                      );
-                    } else {
-                      return (
-                        <Link
-                          style={{ margin: '50px !important' }}
-                          onClick={handleToggle}
-                          to={`/books_by_series?serie=${serie.name} `}
-                        >
-                          <Box m={['0.9', '4']}>
-                            <MenuItem
-                              _focus={{ bg: 'white', color: 'black' }}
-                              _hover={{ bg: 'white', color: 'black' }}
-                              fontSize="xl"
-                            >
-                              <Box textAlign="right" display="flex">
-                                <Heading
-                                  dir="rtl"
-                                  fontFamily="diodrum-med !important"
-                                  fontSize={['lg', 'lg', 'xl', 'xl']}
-                                >
-                                  {serie.name}
-                                </Heading>
-                              </Box>
-                            </MenuItem>
-                          </Box>
-                        </Link>
-                      );
-                    }
-                  })}
-              </SimpleGrid>
-            </MenuList>
+              <Box textAlign="right" display="flex">
+                <Heading
+                  dir="rtl"
+                  fontFamily="diodrum-med !important"
+                  fontSize={['lg', 'lg', 'xl', 'xl']}
+                >
+                  {serie.name}
+                </Heading>
+              </Box>
+            </MenuItem>
+          </Box>
+        </Link>
+      ))}
+    </SimpleGrid>
+  )}
+</MenuList>
+
           </Menu>
           {/* <Link>
         <Text

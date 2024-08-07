@@ -8,25 +8,24 @@ import {
   Image,
   Divider,
   Button,
-  Grid,
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  List,
-  ListItem,
   Flex,
   Skeleton,
-  useColorMode,
   Spinner,
   AspectRatio,
+  useColorMode,
   useBreakpointValue,
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionIcon,
   AccordionPanel,
+  List,
+  ListItem,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel
 } from '@chakra-ui/core';
 import Carousel from 'react-elastic-carousel';
 import { useParams, Link } from 'react-router-dom';
@@ -95,7 +94,7 @@ function Book({ getBook }) {
                 <Box>
                   <Skeleton isLoaded={loaded}>
                     <Image
-                      laading="lazy"
+                      loading="lazy"
                       onLoad={imageLoaded}
                       shadow="lg"
                       mx="auto"
@@ -130,7 +129,7 @@ function Book({ getBook }) {
                           width="100%"
                           height="100"
                           scrolling="no"
-                          frameborder="no"
+                          frameBorder="no"
                           allow="autoplay"
                           src={data.podcast}
                         ></iframe>
@@ -161,7 +160,7 @@ function Book({ getBook }) {
                   <Text fontFamily="diodrum-med !important" fontSize="2xl">
                     {data.sub_title}
                   </Text>
-                  {data && data.author && data.author.map(author => (
+                  {data.author && data.author.map(author => (
                     <Box key={author.id} d="inline-block" ml="1em">
                       <Link key={author.id} to={`/author/${author.id}`}>
                         <Text
@@ -198,7 +197,6 @@ function Book({ getBook }) {
                     <TabList className="booktablist">
                       {data.description && (
                         <Tab whiteSpace="nowrap" fontSize="18px">
-                          {' '}
                           عن الكتاب
                         </Tab>
                       )}
@@ -209,19 +207,16 @@ function Book({ getBook }) {
                       )}
                       {data.index && (
                         <Tab whiteSpace="nowrap" fontSize="18px">
-                          {' '}
                           فهرس الكتاب
                         </Tab>
                       )}
                       {data.from_book && (
                         <Tab whiteSpace="nowrap" fontSize="18px">
-                          {' '}
                           من الكتاب
                         </Tab>
                       )}
                       {data.press_external_link && (
                         <Tab whiteSpace="nowrap" fontSize="18px">
-                          {' '}
                           في الصحافة
                         </Tab>
                       )}
@@ -245,16 +240,15 @@ function Book({ getBook }) {
                       )}
                       {data.author && (
                         <TabPanel>
-                          {data && data.author && data.author.map(author => (
+                          {data.author.map(author => (
                             <Box key={author.id}>
                               <Heading size="lg">{author.name}</Heading>
                               <Box
-                                  fontSize="2xl"
-                                  className="content"
-                                  style={{ WebkitUserSelect: 'none' }}
-                                  dangerouslySetInnerHTML={{ __html: author.author_bio }}
+                                fontSize="2xl"
+                                className="content"
+                                style={{ WebkitUserSelect: 'none' }}
+                                dangerouslySetInnerHTML={{ __html: author.author_bio }}
                               ></Box>
-                             
                             </Box>
                           ))}
                         </TabPanel>
@@ -292,343 +286,262 @@ function Book({ getBook }) {
                       )}
                       <TabPanel fontSize="xl">
                         <List mt="4">
-                          <ListItem>الناشر : {data.publisher} </ListItem>
+                          <ListItem>الناشر : {data.publisher}</ListItem>
                           <ListItem>
-                            تاريخ النشر :{' '}
-                            {moment(data.publish_date).format('yyyy/MM/DD')}
+                            عدد الصفحات :{' '}
+                            <Text as="span" color="green.600" fontWeight="bold">
+                              {data.pages}
+                            </Text>
                           </ListItem>
-                          <ListItem>عدد الصفحات : {data.page_number} </ListItem>
-                          <ListItem dir="ltr"> {data.isbn} : ISBN </ListItem>
-                          <ListItem>السعر : {data.price}€</ListItem>
                           <ListItem>
-                            هاشتاغ :{' '}
-                            <Box
-                              d="inline"
-                              className="content"
-                              dangerouslySetInnerHTML={{
-                                __html: data.hashtag,
-                              }}
-                            />
+                            النوع :{' '}
+                            <Text as="span" color="green.600" fontWeight="bold">
+                              {data.type}
+                            </Text>
+                          </ListItem>
+                          <ListItem>ISBN : {data.isbn}</ListItem>
+                          <ListItem>
+                            تاريخ الإصدار : {moment(data.date).format('LL')}
+                          </ListItem>
+                          <ListItem>
+                            ردمك : {data.rdmk ? data.rdmk : 'غير متوفر'}
                           </ListItem>
                         </List>
                       </TabPanel>
                     </TabPanels>
                   </Tabs>
                 )}
-                {!breakPointMd && (
-                  <Accordion allowToggle allowMultiple={true}>
-                    {data.description && (
-                      <AccordionItem>
-                        <AccordionButton
-                          bg="#000"
-                          color="white"
-                          _hover={{ bg: '#000', color: 'white' }}
-                        >
-                          <Text whiteSpace="nowrap" fontSize="1.5em">
-                            عن الكتاب
-                          </Text>
-                          <AccordionIcon mb="-5px" mr="5px" />
-                        </AccordionButton>
-                        <AccordionPanel p="0" pb="1em">
-                          <Box
-                            fontSize="2xl"
-                            className="content books__content"
-                            style={{ WebkitUserSelect: 'none' }}
-                            dangerouslySetInnerHTML={{
-                              __html: data.description,
-                            }}
-                          />
-                        </AccordionPanel>
-                      </AccordionItem>
-                    )}
-                    {data.author && (
-                      <AccordionItem>
-                        <AccordionButton
-                          bg="#000"
-                          color="white"
-                          _hover={{ bg: '#000', color: 'white' }}
-                        >
-                          <Text whiteSpace="nowrap" fontSize="1.5em">
-                            عن المؤلف
-                          </Text>
-                          <AccordionIcon mb="-5px" mr="5px" />
-                        </AccordionButton>
-                        <AccordionPanel pb={4}>
-                          {data&&data.author &&data.author.map(author => (
-                            <Box key={author.id}>
-                              <Heading size="lg">{author.name}</Heading>
-                              <Box
-                                  m={2}
-                                  fontSize="2xl"
-                                  className="content"
-                                  dangerouslySetInnerHTML={{
-                                    __html: author.author_bio,
-                                  }}
-                              />
-                            </Box>
-                          ))}
-                        </AccordionPanel>
-                      </AccordionItem>
-                    )}
-                    {data.index && (
-                      <AccordionItem>
-                        <AccordionButton
-                          bg="#000"
-                          color="white"
-                          _hover={{ bg: '#000', color: 'white' }}
-                        >
-                          <Text whiteSpace="nowrap" fontSize="1.5em">
-                            فهرس الكتاب
-                          </Text>
-                          <AccordionIcon mb="-5px" mr="5px" />
-                        </AccordionButton>
-                        <AccordionPanel pb={4}>
-                          <Box
-                            fontSize="xl"
-                            className="content"
-                            dangerouslySetInnerHTML={{ __html: data.index }}
-                          />
-                        </AccordionPanel>
-                      </AccordionItem>
-                    )}
-                    {data.from_book && (
-                      <AccordionItem>
-                        <AccordionButton
-                          bg="#000"
-                          color="white"
-                          _hover={{ bg: '#000', color: 'white' }}
-                        >
-                          <Text whiteSpace="nowrap" fontSize="1.5em">
-                            من الكتاب
-                          </Text>
-                          <AccordionIcon mb="-5px" mr="5px" />
-                        </AccordionButton>
-                        <AccordionPanel pb={4}>
-                          <Box
-                            fontSize="xl"
-                            className="content"
-                            dangerouslySetInnerHTML={{
-                              __html: data.from_book,
-                            }}
-                          />
-                        </AccordionPanel>
-                      </AccordionItem>
-                    )}
-                    {data.press_external_link && (
-                      <AccordionItem>
-                        <AccordionButton
-                          bg="#000"
-                          color="white"
-                          _hover={{ bg: '#000', color: 'white' }}
-                        >
-                          <Text whiteSpace="nowrap" fontSize="1.5em">
-                            في الصحافة
-                          </Text>
-                          <AccordionIcon mb="-5px" mr="5px" />
-                        </AccordionButton>
-                        <AccordionPanel pb={4}>
-                          <Box
-                            fontSize="xl"
-                            className="content"
-                            dangerouslySetInnerHTML={{
-                              __html: data.press_external_link,
-                            }}
-                          />
-                        </AccordionPanel>
-                      </AccordionItem>
-                    )}
+                <Accordion my="2em" display={!breakPointMd && 'block'}>
+                  {data.description && (
                     <AccordionItem>
-                      <AccordionButton
-                        bg="#000"
-                        color="white"
-                        _hover={{ bg: '#000', color: 'white' }}
-                      >
-                        <Text whiteSpace="nowrap" fontSize="1.5em">
-                          معلومات الكتاب
-                        </Text>
-                        <AccordionIcon mb="-5px" mr="5px" />
+                      <AccordionButton>
+                        <Box
+                          fontSize="18px"
+                          flex="1"
+                          textAlign="right"
+                          fontWeight="bold"
+                        >
+                          عن الكتاب
+                        </Box>
+                        <AccordionIcon />
                       </AccordionButton>
-                      <AccordionPanel fontSize="xl" pb={4}>
-                        <List>
-                          <ListItem>الناشر : {data.publisher} </ListItem>
-                          <ListItem>
-                            تاريخ النشر :{' '}
-                            {moment(data.publish_date).format('yyyy/MM/DD')}
-                          </ListItem>
-                          <ListItem>عدد الصفحات : {data.page_number} </ListItem>
-                          <ListItem dir="ltr"> {data.isbn} : ISBN </ListItem>
-                          <ListItem>السعر : {data.price}€</ListItem>
-                          <ListItem>
-                            هاشتاغ :{' '}
-                            <Box
-                              d="inline"
-                              className="content"
-                              dangerouslySetInnerHTML={{
-                                __html: data.hashtag,
-                              }}
-                            />
-                          </ListItem>
-                        </List>
+                      <AccordionPanel pb={4}>
+                        <Box
+                          fontSize="2xl"
+                          className="content"
+                          style={{ WebkitUserSelect: 'none' }}
+                          dangerouslySetInnerHTML={{
+                            __html: data.description,
+                          }}
+                        />
                       </AccordionPanel>
                     </AccordionItem>
-                  </Accordion>
+                  )}
+                  {data.author && (
+                    <AccordionItem>
+                      <AccordionButton>
+                        <Box
+                          fontSize="18px"
+                          flex="1"
+                          textAlign="right"
+                          fontWeight="bold"
+                        >
+                          عن المؤلف
+                        </Box>
+                        <AccordionIcon />
+                      </AccordionButton>
+                      <AccordionPanel pb={4}>
+                        {data.author.map(author => (
+                          <Box key={author.id}>
+                            <Heading size="lg">{author.name}</Heading>
+                            <Box
+                              fontSize="2xl"
+                              className="content"
+                              style={{ WebkitUserSelect: 'none' }}
+                              dangerouslySetInnerHTML={{ __html: author.author_bio }}
+                            ></Box>
+                          </Box>
+                        ))}
+                      </AccordionPanel>
+                    </AccordionItem>
+                  )}
+                  {data.index && (
+                    <AccordionItem>
+                      <AccordionButton>
+                        <Box
+                          fontSize="18px"
+                          flex="1"
+                          textAlign="right"
+                          fontWeight="bold"
+                        >
+                          فهرس الكتاب
+                        </Box>
+                        <AccordionIcon />
+                      </AccordionButton>
+                      <AccordionPanel pb={4}>
+                        <Box
+                          fontSize="xl"
+                          className="content"
+                          dangerouslySetInnerHTML={{ __html: data.index }}
+                        />
+                      </AccordionPanel>
+                    </AccordionItem>
+                  )}
+                  {data.from_book && (
+                    <AccordionItem>
+                      <AccordionButton>
+                        <Box
+                          fontSize="18px"
+                          flex="1"
+                          textAlign="right"
+                          fontWeight="bold"
+                        >
+                          من الكتاب
+                        </Box>
+                        <AccordionIcon />
+                      </AccordionButton>
+                      <AccordionPanel pb={4}>
+                        <Box
+                          fontSize="xl"
+                          className="content"
+                          dangerouslySetInnerHTML={{
+                            __html: data.from_book,
+                          }}
+                        />
+                      </AccordionPanel>
+                    </AccordionItem>
+                  )}
+                  {data.press_external_link && (
+                    <AccordionItem>
+                      <AccordionButton>
+                        <Box
+                          fontSize="18px"
+                          flex="1"
+                          textAlign="right"
+                          fontWeight="bold"
+                        >
+                          في الصحافة
+                        </Box>
+                        <AccordionIcon />
+                      </AccordionButton>
+                      <AccordionPanel pb={4}>
+                        <Box
+                          fontSize="xl"
+                          className="content"
+                          dangerouslySetInnerHTML={{
+                            __html: data.press_external_link,
+                          }}
+                        />
+                      </AccordionPanel>
+                    </AccordionItem>
+                  )}
+                  <AccordionItem>
+                    <AccordionButton>
+                      <Box
+                        fontSize="18px"
+                        flex="1"
+                        textAlign="right"
+                        fontWeight="bold"
+                      >
+                        معلومات الكتاب
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                    <AccordionPanel pb={4}>
+                      <List mt="4">
+                        <ListItem>الناشر : {data.publisher}</ListItem>
+                        <ListItem>
+                          عدد الصفحات :{' '}
+                          <Text as="span" color="green.600" fontWeight="bold">
+                            {data.pages}
+                          </Text>
+                        </ListItem>
+                        <ListItem>
+                          النوع :{' '}
+                          <Text as="span" color="green.600" fontWeight="bold">
+                            {data.type}
+                          </Text>
+                        </ListItem>
+                        <ListItem>ISBN : {data.isbn}</ListItem>
+                        <ListItem>
+                          تاريخ الإصدار : {moment(data.date).format('LL')}
+                        </ListItem>
+                        <ListItem>
+                          ردمك : {data.rdmk ? data.rdmk : 'غير متوفر'}
+                        </ListItem>
+                      </List>
+                    </AccordionPanel>
+                  </AccordionItem>
+                </Accordion>
+                {data.books && data.books.length > 0 && (
+                  <Box my="2em">
+                    <Heading mb="4" size="lg">
+                      كتب أخرى
+                    </Heading>
+                    <Carousel
+                      showArrows={false}
+                      breakPoints={bookBreakPoints}
+                      isRTL
+                      pagination={false}
+                    >
+                      {data.books.map(book => (
+                        <Link key={book.id} to={`/book/${book.id}`}>
+                          <Box
+                            w="200px"
+                            textAlign="center"
+                            shadow="lg"
+                            p="1em"
+                            bg="white"
+                            color="black"
+                          >
+                            <Image
+                              h="250px"
+                              mx="auto"
+                              src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
+                            />
+                            <Text>{book.title}</Text>
+                          </Box>
+                        </Link>
+                      ))}
+                    </Carousel>
+                  </Box>
+                )}
+                {data.articles && data.articles.length > 0 && (
+                  <Box my="2em">
+                    <Heading mb="4" size="lg">
+                      مقالات ذات صلة
+                    </Heading>
+                    <Carousel showArrows={false} breakPoints={breakPoints} isRTL>
+                      {data.articles.map(article => (
+                        <Link key={article.id} to={`/article/${article.id}`}>
+                          <Box
+                            h="350px"
+                            w="300px"
+                            shadow="lg"
+                            p="1em"
+                            bg="white"
+                            color="black"
+                          >
+                            <Image
+                              h="150px"
+                              w="100%"
+                              mx="auto"
+                              src={`${process.env.REACT_APP_STORAGE}/${article.cover}`}
+                            />
+                            <Text>{article.title}</Text>
+                          </Box>
+                        </Link>
+                      ))}
+                    </Carousel>
+                  </Box>
                 )}
               </Box>
             </Flex>
           </>
-        )}
-        {data && data.books[0] && (
-          <Box
-            pr="7%"
-            pl="3%"
-            // bg={bg[colorMode]}
-            bg="black"
-            borderBottom="1px solid white"
-          >
-            <Box
-              mt="100px"
-              mb="4"
-              // color={color[colorMode]}
-              color="white"
-            >
-              <Heading
-                fontFamily="diodrum-med !important"
-                mr="7%"
-                p="4"
-                size="lg"
-              >
-                كتب ذات صلة
-              </Heading>
-            </Box>
-            <Carousel
-              breakPoints={bookBreakPoints}
-              isRTL={true}
-              style={{
-                //   marginTop: 100,
-
-                paddingBottom: 10,
-              }}
-              //   itemsToScroll={3}
-              //   itemsToShow={3}
-            >
-              {data && data.books && data.books.map(book => (
-                <a key={book.id} href={`/book/${book.id}`}>
-                  <Box w="350px" mb="4" cursor="pointer">
-                    <Image
-                      loading="lazy"
-                      w="225px"
-                      h="350px"
-                      m="0 auto"
-                      shadow="lg"
-                      src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
-                    ></Image>
-                    <Box
-                      fontFamily="diodrum-med !important"
-                      color="white"
-                      mt="4"
-                      textAlign="center"
-                    >
-                      <Text fontWeight="500" fontSize="xl">
-                        {book.title}
-                      </Text>
-                      <Text fontSize="md">{book.sub_title}</Text>
-                      <Text fontSize="sm">{book.author}</Text>
-                      {/* <Text fontWeight="bold">€{book.price}</Text> */}
-                    </Box>
-                  </Box>
-                </a>
-              ))}
-            </Carousel>
-          </Box>
-        )}
-        {data && data.articles[0] && (
-          <Box
-            pr="5%"
-            pl="3%"
-            bg={bg[colorMode]}
-            color="black"
-            borderBottom="1px solid white"
-          >
-            <Box mb="4" color={color[colorMode]}>
-              <Heading
-                fontFamily="diodrum-med !important"
-                mr="7%"
-                p="4"
-                size="lg"
-              >
-                مقالات ذات صلة
-              </Heading>
-            </Box>
-            <Carousel
-              breakPoints={breakPoints}
-              isRTL={true}
-              style={{
-                //   marginTop: 100,
-
-                paddingBottom: 10,
-              }}
-              //   itemsToScroll={3}
-              //   itemsToShow={3}
-            >
-              {data && data.articles && data.articles.map(article => (
-                <Link to={`/singlePost/${article.id}`} key={article.id}>
-                  <Box
-                    bg="white"
-                    maxW="300px"
-                    shadow="lg"
-                    pb="4"
-                    m={{ base: '1', md: '4' }}
-                    cursor="pointer"
-                  >
-                    <Box>
-                      <Skeleton w="100%" isLoaded={loaded}>
-                        <Image
-                          loading="lazy"
-                          w="100%"
-                          //   h="200px"
-                          onLoad={imageLoaded}
-                          src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
-                        />
-                      </Skeleton>
-                      <Text
-                        m="2"
-                        mt="4"
-                        fontSize="lg"
-                        fontFamily="diodrum-med !important"
-                      >
-                        {' '}
-                        {article.author}{' '}
-                      </Text>
-                      <Heading
-                        fontFamily="diodrum-med !important"
-                        m="2"
-                        lineHeight="1.5"
-                        fontSize={{ base: 'md', md: 'lg' }}
-                      >
-                        {article.title}
-                      </Heading>
-                      <Box
-                        m="4"
-                        className="content related__content event-body"
-                      >
-                        <Box
-                          dangerouslySetInnerHTML={{ __html: article.body }}
-                        />
-                      </Box>
-                    </Box>
-                  </Box>
-                </Link>
-              ))}
-            </Carousel>
-          </Box>
         )}
       </Box>
     </Box>
   );
 }
 
-const mapDispatchToProps = dispatch => {
-  return { getBook: id => dispatch(getBook(id)) };
-};
-
-export default connect(null, mapDispatchToProps)(Book);
+export default connect(null, { getBook })(Book);

@@ -15,7 +15,7 @@ import Masonry from 'react-masonry-css';
 import LazyLoad from 'react-lazyload';
 import ReactPaginate from 'react-paginate';
 
-function CatBooks({ getBooks, name }) {
+function CatBooks({translate , getBooks, name }) {
   const { colorMode } = useColorMode();
   const bg = { light: 'white', dark: '#151a23' };
 
@@ -30,7 +30,7 @@ function CatBooks({ getBooks, name }) {
 
   React.useEffect(() => {
     async function getData() {
-      const res = await getBooks(null, null, null, null, currentPage + 1);
+      const res = await getBooks(null, null, translate, null, currentPage + 1);
       if (res) {
         setData(res.data);
         setLastPage(res.data.meta.last_page);
@@ -38,7 +38,7 @@ function CatBooks({ getBooks, name }) {
       console.log(res);
     }
     getData();
-  }, [currentPage]);
+  }, [currentPage , translate]);
 
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
@@ -52,8 +52,44 @@ function CatBooks({ getBooks, name }) {
     700: 1,
   };
 
+
+  const activeLink = {
+    background: '#000',
+    color: 'white',
+  };
+
   return (
     <Box>
+      <Box d="flex">
+        <Link to={`/books?translate=0`}>
+          <Heading
+            fontFamily="diodrum-med !important"
+            fontWeight="normal"
+            size="md"
+            my="2"
+            py="2"
+            px="4"
+            pb="4"
+            style={translate === '0' ? activeLink : {}}
+          >
+            عربي
+          </Heading>
+        </Link>
+        <Link to={`/books?translate=1`}>
+          <Heading
+            fontFamily="diodrum-med !important"
+            fontWeight="normal"
+            size="md"
+            my="2"
+            py="2"
+            px="4"
+            pb="4"
+            style={translate === '1' ? activeLink : {}}
+          >
+            مترجم
+          </Heading>
+        </Link>
+      </Box>
       {!data && (
         <Box textAlign="center">
           <Spinner size="xl" />

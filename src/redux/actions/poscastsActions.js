@@ -10,7 +10,7 @@ export const getPodcasts = page => async (dispatch, getState) => {
   console.log(page);
   let data;
   data = await axios
-    .get(`${process.env.REACT_APP_API}/podcasts?podcasts=audio`, {
+    .get(`${process.env.REACT_APP_API}/podcasts?type=audio`, {
       headers,
     })
     .then(res => {
@@ -26,7 +26,7 @@ export const getVideos = page => async (dispatch, getState) => {
   console.log(page);
   let data;
   data = await axios
-    .get(`${process.env.REACT_APP_API}/podcasts?podcasts=video`, {
+    .get(`${process.env.REACT_APP_API}/podcasts?type=video`, {
       headers,
     })
     .then(res => {
@@ -42,7 +42,7 @@ export const getVideos = page => async (dispatch, getState) => {
 
 export const getPodcast = id => async (dispatch, getState) => {
   const data = await axios
-      .get(`${process.env.REACT_APP_API}/podcast/${id}`, { headers })
+      .get(`${process.env.REACT_APP_API}/podcasts/${id}`, { headers })
       .then(res => {
         return res;
       })

@@ -1,8 +1,6 @@
 import React from 'react';
 import Carousel from 'react-elastic-carousel';
 import { Helmet } from 'react-helmet';
-// import parse from 'html-react-parser';
-
 import {
   Box,
   Image,
@@ -15,10 +13,8 @@ import {
   Button,
 } from '@chakra-ui/core';
 import { useLocation, Link, useParams } from 'react-router-dom';
-
 import { connect } from 'react-redux';
 import { getArticle } from '../redux/actions/articleActions';
-
 import GlobalShare from '../util/GlobalShare';
 
 function useQuery() {
@@ -27,7 +23,6 @@ function useQuery() {
 
 function SingleBlog({ getArticle }) {
   const { colorMode } = useColorMode();
-
   const bg = { light: '#f5f2ef', dark: '#1a202c' };
   const color = { light: 'black', dark: 'white' };
   const [loaded, setLoaded] = React.useState(false);
@@ -36,10 +31,10 @@ function SingleBlog({ getArticle }) {
   };
   let { id } = useParams('id');
   const [data, setData] = React.useState(null);
+
   React.useEffect(() => {
     async function getData() {
       const res = await getArticle(id);
-      console.log(res);
       if (res) {
         setData(res.data);
       }
@@ -53,12 +48,14 @@ function SingleBlog({ getArticle }) {
     { width: 850, itemsToShow: 3 },
     { width: 1900, itemsToShow: 4 },
   ];
+
   const bookBreakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
     { width: 850, itemsToShow: 4, itemsToScroll: 4 },
     { width: 1150, itemsToShow: 4, itemsToScroll: 4 },
   ];
+
   return (
     <Box mt="100px">
       {data && (
@@ -73,28 +70,11 @@ function SingleBlog({ getArticle }) {
             textAlign={['center', 'center', 'right']}
           >
             <Heading fontFamily="diodrum-bold !important" mb="2">
-              {' '}
-              {data.title}{' '}
+              {data.title}
             </Heading>
             <Text fontSize="2xl" fontFamily="diodrum-med !important">
               {data.sub_title}
             </Text>
-            {/* <Link key={data.author_id} to={`/author/${data.author_id}`}>
-              <Text
-                fontFamily="diodrum-med !important"
-                d="inline"
-                _hover={{
-                  bg: 'yellow.300',
-                  color: 'black',
-                  textDecoration: 'underline',
-                }}
-                m="2"
-                fontSize="2xl"
-                color="gray.500"
-              >
-                {data.author}
-              </Text>
-            </Link> */}
           </Box>
           <Flex justifyContent="center">
             <Box mb="8" w={['100%', '85%']}>
@@ -124,22 +104,7 @@ function SingleBlog({ getArticle }) {
                 textAlign={['center', 'start', 'start', 'start']}
               >
                 <Box mb="8">
-                  {/* <Text mb="2" fontSize="xl">
-                بمساهمة صلاح برياني
-              </Text> */}
-                  {/* <Image mt="2" src={``}></Image> */}
                   {data.author_image && (
-                    //                 <Box
-                    //                   mt="2"
-                    //                   mb="4"
-                    //                   style={{
-                    //                     background: `
-                    // url('${process.env.REACT_APP_STORAGE}/${data.author_image}')`,
-                    //                   }}
-                    //                   className="detail-image"
-                    //                   w="80%"
-                    //                   h="270px"
-                    //                 ></Box>
                     <img
                       mt="2"
                       className="detail-image"
@@ -179,7 +144,6 @@ function SingleBlog({ getArticle }) {
                       fontFamily="diodrum-med !important"
                       fontSize="lg"
                       fontWeight="bold"
-                      //   textDecoration="underline"
                     >
                       <a
                         href={`${process.env.REACT_APP_STORAGE}/${data.pdf}`}
@@ -231,19 +195,18 @@ function SingleBlog({ getArticle }) {
             </Box>
           </Grid>
 
-          <GlobalShare></GlobalShare>
-          {data.books[0] && (
+          <GlobalShare />
+
+          {data.books && data.books.length > 0 && (
             <Box
               pr="5%"
               pl="3%"
-              //   bg={bg[colorMode]}
               bg="black"
               borderBottom="1px solid white"
             >
               <Box
                 mt="100px"
                 mb="4"
-                //    color={color[colorMode]}
                 color="white"
               >
                 <Heading
@@ -259,12 +222,8 @@ function SingleBlog({ getArticle }) {
                 breakPoints={bookBreakPoints}
                 isRTL={true}
                 style={{
-                  //   marginTop: 100,
-
                   paddingBottom: 10,
                 }}
-                // itemsToScroll={3}
-                // itemsToShow={3}
               >
                 {data.books.map(book => (
                   <Link key={book.id} to={`/book/${book.id}`}>
@@ -276,7 +235,7 @@ function SingleBlog({ getArticle }) {
                         m="0 auto"
                         shadow="lg"
                         src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
-                      ></Image>
+                      />
                       <Box mt="4" textAlign="center">
                         <Text
                           color="white"
@@ -287,9 +246,6 @@ function SingleBlog({ getArticle }) {
                         >
                           {book.title}
                         </Text>
-                        {/* <Text fontSize="md">{book.sub_title}</Text>
-                        <Text fontSize="sm">{book.author}</Text>
-                        <Text fontWeight="bold">${book.price}</Text> */}
                       </Box>
                     </Box>
                   </Link>
@@ -297,7 +253,8 @@ function SingleBlog({ getArticle }) {
               </Carousel>
             </Box>
           )}
-          {data.maitres[0] && (
+
+          {data.maitres && data.maitres.length > 0 && (
             <Box
               pr="5%"
               pl="3%"
@@ -319,46 +276,17 @@ function SingleBlog({ getArticle }) {
                 breakPoints={breakPoints}
                 isRTL={true}
                 style={{
-                  //   marginTop: 100,
-
                   paddingBottom: 10,
                 }}
-                // itemsToScroll={3}
-                // itemsToShow={3}
               >
                 {data.maitres.map(article => (
-                  //               <Link to={`/singlePost/${article.id}`}>
-                  //                 <Box bg="#f5f2ef" shadow="lg" p="2" cursor="pointer">
-                  //                   <Box
-                  //                     style={{
-                  //                       background: `
-                  // url('${process.env.REACT_APP_STORAGE}/${article.image}')`,
-                  //                     }}
-                  //                     className="detail-image"
-                  //                     h="200px"
-                  //                     w="280px"
-                  //                   ></Box>
-                  //                   <Heading m="2" size="lg">
-                  //                     {article.title}
-                  //                   </Heading>
-                  //                   <Heading> {article.author} </Heading>
-
-                  //                   <Box
-                  //                     fontSize="lg"
-                  //                     className="event-body"
-                  //                     dangerouslySetInnerHTML={{
-                  //                       __html: article.body,
-                  //                     }}
-                  //                   ></Box>
-                  //                 </Box>
-                  //               </Link>
                   <a
+                    key={article.id}
                     href={`/singlePost/${article.id}`}
                     style={{ margin: '0 1em' }}
                   >
                     <Box
                       bg="white"
-                      // p="2"
                       pb="4"
                       m="4"
                       w={['100', '100', '100', '100', '355px']}
@@ -366,45 +294,24 @@ function SingleBlog({ getArticle }) {
                       shadow="lg"
                       cursor="pointer"
                     >
-                      <Box>
-                        <Skeleton w="100%" isLoaded={loaded}>
-                          {/* <Box
-                    style={{
-                      background: ` linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('${process.env.REACT_APP_STORAGE}/${article.image}')`,
-                    }}
-                    className="detail-image"
-                    h="200px"
-                  ></Box> */}
-                          <Image
-                            loading="lazy"
-                            w="100%"
-                            onLoad={imageLoaded}
-                            src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
-                          ></Image>
-                        </Skeleton>
+                      <Box p="2">
+                        <Image
+                          loading="lazy"
+                          w="100%"
+                          h="200px"
+                          src={`${process.env.REACT_APP_STORAGE}/${article.image}`}
+                        />
                         <Text
-                          m="2"
+                          fontFamily="diodrum-med !important"
+                          fontWeight="500"
+                          textAlign="center"
                           mt="4"
-                          fontSize="lg"
-                          fontFamily="diodrum-med !important"
-                        >
-                          {' '}
-                          {article.author}{' '}
-                        </Text>
-                        <Heading
-                          fontFamily="diodrum-med !important"
-                          m="2"
-                          size="lg"
+                          mb="4"
+                          pl="4"
+                          pr="4"
                         >
                           {article.title}
-                        </Heading>
-
-                        <Box m="4" fontSize="xl" className="content event-body">
-                          <Box
-                            dangerouslySetInnerHTML={{ __html: article.body }}
-                          ></Box>
-                        </Box>
+                        </Text>
                       </Box>
                     </Box>
                   </a>
@@ -418,8 +325,4 @@ function SingleBlog({ getArticle }) {
   );
 }
 
-const mapDispatchToProps = dispatch => {
-  return { getArticle: id => dispatch(getArticle(id)) };
-};
-
-export default connect(null, mapDispatchToProps)(SingleBlog);
+export default connect(null, { getArticle })(SingleBlog);

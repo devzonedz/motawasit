@@ -6,26 +6,25 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-export const getSeries = page => async (dispatch, getState) => {
-  let data;
-  data = await axios
-    .get(`${process.env.REACT_APP_API}/series`, { headers })
-    .then(res => {
-      return res;
-    })
-    .catch(err => {});
-  return data;
+export const getSeries = () => async (dispatch, getState) => {
+  try {
+    const res = await axios.get(`${process.env.REACT_APP_API}/series`, { headers });
+    return res.data.series; // Return the series array directly
+  } catch (err) {
+    console.error(err);
+    return []; // Return an empty array in case of an error
+  }
 };
+
 export const getCat = page => async (dispatch, getState) => {
-  let data;
-  data = await axios
-    .get(
+  try {
+    const res = await axios.get(
       `${process.env.REACT_APP_API}/loadCategories?website=منشورات%20المتوسط`,
       { headers }
-    )
-    .then(res => {
-      return res;
-    })
-    .catch(err => {});
-  return data;
+    );
+    return res.data; // Return only the data
+  } catch (err) {
+    console.error(err);
+    return []; // Return an empty array in case of an error
+  }
 };
