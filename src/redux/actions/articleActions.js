@@ -9,7 +9,7 @@ const headers = {
 export const getArticles = page => async (dispatch, getState) => {
   let data;
   data = await axios
-    .get(`${process.env.REACT_APP_API_V2}/articles`, { headers })
+    .get(`${process.env.REACT_APP_API_V2}/articles?page=مدونة المتوسط`, { headers })
     .then(res => {
       return res;
     })

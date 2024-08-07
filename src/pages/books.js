@@ -39,8 +39,10 @@ function Home({ getBooks }) {
             transition: 'all .5s ease-in-out 0s',
           }}
         >
+          <BooksFilter />
         </Headroom>
       )}
+      {!isSmallScreen && <BooksFilter />}
       <Box
         pr={['10%', '5%', '5%', '5%']}
         pl={['10%', '5%', '5%', '5%']}

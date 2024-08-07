@@ -10,7 +10,7 @@ export const getPodcasts = page => async (dispatch, getState) => {
   console.log(page);
   let data;
   data = await axios
-    .get(`${process.env.REACT_APP_API}/podcast?podcast=audio`, {
+    .get(`${process.env.REACT_APP_API}/podcasts?podcasts=audio`, {
       headers,
     })
     .then(res => {
@@ -26,7 +26,7 @@ export const getVideos = page => async (dispatch, getState) => {
   console.log(page);
   let data;
   data = await axios
-    .get(`${process.env.REACT_APP_API}/podcast?podcast=video`, {
+    .get(`${process.env.REACT_APP_API}/podcasts?podcasts=video`, {
       headers,
     })
     .then(res => {

@@ -152,7 +152,7 @@ function SinglePodcast({ getPodcast }) {
           </Grid>
 
           <GlobalShare></GlobalShare>
-          {data.others && (
+          {data && data.others && (
             <Box
               pr="5%"
               pl="3%"
@@ -186,7 +186,7 @@ function SinglePodcast({ getPodcast }) {
                 // itemsToScroll={3}
                 // itemsToShow={3}
               >
-                {data.others.map(other => (
+                {data && data.others.map(other => (
                   <Link key={other.id} to={`/singlePodcast/${other.id}`}>
                     <Box w="350px" mb="4" pb="4" cursor="pointer">
                       <Image

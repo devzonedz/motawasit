@@ -8,8 +8,8 @@ import { getVideos } from '../redux/actions/poscastsActions';
 import { Helmet } from 'react-helmet';
 
 import VideoModal from '../components/VideoModal';
-
-
+import VideoBookModal from '../components/VideoBookModal'
+import VideoArticleModal from '../components/VideoArticleModal'
 function Podcasts({ getVideos }) {
   const [data, setData] = React.useState(null);
 
@@ -22,11 +22,12 @@ function Podcasts({ getVideos }) {
       }
     }
     getData();
-  }, []);
+  }, [getVideos]);
 
-  const artic =
-    data && Object.keys(data.articles).map(key => data.articles[key]);
-  const books = data && Object.keys(data.books).map(key => data.books[key]);
+  const artic = data && data.articles ? Object.keys(data.articles).map(key => data.articles[key]) : [];
+  const books = data && data.books ? Object.keys(data.books).map(key => data.books[key]) : [];
+  const podcasts = data && data.podcasts ? data.podcasts : [];
+
   return (
     <Box mt={{ base: '2em', md: '6em' }} mb="700px" pl="10%" pr="10%">
       {data && (
@@ -34,8 +35,8 @@ function Podcasts({ getVideos }) {
           <Helmet>
             <title>فيديو المتوسط</title>
           </Helmet>
-          {/*
-          <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
+          
+          {/* <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
             {books.length !== 0 &&
               books.map(podcast => (
                 <VideoBookModal podcast={podcast}></VideoBookModal>
@@ -47,15 +48,16 @@ function Podcasts({ getVideos }) {
               artic.map(podcast => (
                 <VideoArticleModal podcast={podcast}></VideoArticleModal>
               ))}
-          </SimpleGrid>
-        */}
+          </SimpleGrid> */}
+         
           <SimpleGrid mt="8" mb="4" columns={[1, 1, 3, 3]} spacing="8">
-            {data.podcasts.length !== 0 &&
-              data.podcasts.map(podcast => (
-                <VideoModal podcast={podcast}></VideoModal>
+            {podcasts.length !== 0 &&
+              podcasts.map(podcast => (
+                <VideoModal key={podcast.id} podcast={podcast}></VideoModal>
               ))}
           </SimpleGrid>
         </Box>
+        
       )}
     </Box>
   );

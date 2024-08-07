@@ -103,7 +103,7 @@ function Home({ getHome }) {
                 />
               </Skeleton>
               <Text m="4" fontSize="lg" fontFamily="diodrum-med !important">
-                {item.type === 'article' ? item.author : (item.author && item.author.length > 0 ? item.author[0].name : 'Unknown Author')}
+                {item.type === 'article' ? item.author : (item.author && item.author.length > 0 ? item.author[0].name : item.author_optional)}
               </Text>
               <Heading fontFamily="diodrum-bold !important" m="4">
                 {item.title}

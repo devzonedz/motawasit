@@ -1,4 +1,5 @@
-import React, { useState, useCallback } from 'react';
+// Navbar.js
+import React, { useCallback } from 'react';
 import {
   Box,
   Flex,
@@ -10,7 +11,6 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Input,
   Image,
   SimpleGrid,
   Heading,
@@ -27,44 +27,21 @@ import Newsletter from './NewsLetter';
 import hdark from '../../images/hdark.png';
 import hlight from '../../images/hlight.png';
 import { MagazineIcon } from '../MagazineIcon';
-import { debounce } from 'lodash';
+import SearchBox from './SearchBox';
 
 function Navbar({ getSearch, searchResults, isLoading }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode } = useColorMode();
-  const [searchQuery, setSearchQuery] = useState('');
 
   const bg = { light: '#f5f2ef', dark: '#1a202c' };
   const bgIcon = { light: '#000', dark: '#fff' };
   const color = { light: 'white', dark: 'black' };
 
-  // Debounce the search function
-  const debouncedSearch = useCallback(
-    debounce((query) => {
-      if (query.trim()) {
-        getSearch(query);
-      }
-    }, 300),
-    [getSearch]
-  );
-
-  const handleSearchChange = (event) => {
-    const newValue = event.target.value;
-    setSearchQuery(newValue);
-    debouncedSearch(newValue);
-  };
-
-  const CustomSearchBox = () => (
-    <Input
-      className="search-box"
-      color="black"
-      bg="white"
-      placeholder=" ابحث عن الكتب,المقالات,الكتاب ..."
-      type="search"
-      value={searchQuery}
-      onChange={handleSearchChange}
-    />
-  );
+  const handleSearch = useCallback((query) => {
+    if (query.trim()) {
+      getSearch(query);
+    }
+  }, [getSearch]);
 
   const navClassName = useBreakpointValue({ base: '', md: 'topNavbar' });
 
@@ -103,9 +80,9 @@ function Navbar({ getSearch, searchResults, isLoading }) {
             justifyContent="center"
           >
             {colorMode === 'light' ? (
-              <Image rounded="5px" w="50px" h="50px" src={hdark}></Image>
+              <Image rounded="5px" w="50px" h="50px" src={hdark} />
             ) : (
-              <Image rounded="5px" w="50px" h="50px" src={hlight}></Image>
+              <Image rounded="5px" w="50px" h="50px" src={hlight} />
             )}
           </Box>
         </a>
@@ -138,7 +115,7 @@ function Navbar({ getSearch, searchResults, isLoading }) {
             h="50px"
             fontSize="28px"
           >
-            <FaSearch></FaSearch>
+            <FaSearch />
           </Box>
           <Drawer
             placement="bottom"
@@ -158,12 +135,12 @@ function Navbar({ getSearch, searchResults, isLoading }) {
 
                 <DrawerHeader fontSize="36px">بحث</DrawerHeader>
                 <DrawerBody>
-                  <CustomSearchBox />
+                  <SearchBox onSearch={handleSearch} isLoading={isLoading} />
                   {isLoading ? (
                     <Center mt={4}>
                       <Spinner />
                     </Center>
-                  ) : (
+                  ) : searchResults ? (
                     <Box mt={4}>
                       {searchResults.books && searchResults.books.length > 0 && (
                         <Box>
@@ -220,13 +197,15 @@ function Navbar({ getSearch, searchResults, isLoading }) {
                         </Box>
                       )}
                     </Box>
+                  ) : (
+                    <Box mt={4}>No results found</Box>
                   )}
                 </DrawerBody>
               </DrawerContent>
             </DrawerOverlay>
           </Drawer>
         </Box>
-        <Newsletter></Newsletter>
+        <Newsletter />
         <a target="_blank" rel="noreferrer" href={process.env.REACT_APP_SHOP}>
           <Box
             rounded="5px"
@@ -238,7 +217,7 @@ function Navbar({ getSearch, searchResults, isLoading }) {
             h="50px"
             fontSize="28px"
           >
-            <AiOutlineShop></AiOutlineShop>
+            <AiOutlineShop />
           </Box>
         </a>
       </Box>

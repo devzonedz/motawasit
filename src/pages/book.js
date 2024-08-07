@@ -161,7 +161,7 @@ function Book({ getBook }) {
                   <Text fontFamily="diodrum-med !important" fontSize="2xl">
                     {data.sub_title}
                   </Text>
-                  {data.author.map(author => (
+                  {data && data.author && data.author.map(author => (
                     <Box key={author.id} d="inline-block" ml="1em">
                       <Link key={author.id} to={`/author/${author.id}`}>
                         <Text
@@ -245,7 +245,7 @@ function Book({ getBook }) {
                       )}
                       {data.author && (
                         <TabPanel>
-                          {data.author.map(author => (
+                          {data && data.author && data.author.map(author => (
                             <Box key={author.id}>
                               <Heading size="lg">{author.name}</Heading>
                               <Box
@@ -354,7 +354,7 @@ function Book({ getBook }) {
                           <AccordionIcon mb="-5px" mr="5px" />
                         </AccordionButton>
                         <AccordionPanel pb={4}>
-                          {data.author.map(author => (
+                          {data&&data.author &&data.author.map(author => (
                             <Box key={author.id}>
                               <Heading size="lg">{author.name}</Heading>
                               <Box
@@ -511,7 +511,7 @@ function Book({ getBook }) {
               //   itemsToScroll={3}
               //   itemsToShow={3}
             >
-              {data.books.map(book => (
+              {data && data.books && data.books.map(book => (
                 <a key={book.id} href={`/book/${book.id}`}>
                   <Box w="350px" mb="4" cursor="pointer">
                     <Image
@@ -570,7 +570,7 @@ function Book({ getBook }) {
               //   itemsToScroll={3}
               //   itemsToShow={3}
             >
-              {data.articles.map(article => (
+              {data && data.articles && data.articles.map(article => (
                 <Link to={`/singlePost/${article.id}`} key={article.id}>
                   <Box
                     bg="white"

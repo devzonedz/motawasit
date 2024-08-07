@@ -43,7 +43,7 @@ function Navbar({ getSeries, getCat }) {
   const { colorMode } = useColorMode();
 
   const [show, setShow] = useState(false);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [cat, setCat] = useState(null);
 
   const bg = { light: '#f5f2ef', dark: '#1a202c' };
@@ -60,8 +60,11 @@ function Navbar({ getSeries, getCat }) {
         setCat(categories.data);
       }
       const res = await getSeries();
-      if (res) {
+      if (res && Array.isArray(res.data)) {
         setData(res.data);
+      }else {
+        console.error('Expected an array, but got:', res.data);
+        setData([]);
       }
     }
     getData();
@@ -348,8 +351,7 @@ function Navbar({ getSeries, getCat }) {
                 py={['5%', '0%', '0%', '0%']}
                 columns={[1, 2, 3, 3, 4]}
               >
-                {data &&
-                  data.map(serie => {
+                {Array.isArray(data) && data.map(serie => {
                     if (isSmallerThan420) {
                       return (
                         <Center>
@@ -639,8 +641,7 @@ function Navbar({ getSeries, getCat }) {
                         <Spinner size="xl" />
                       </Box>
                     )}
-                    {data &&
-                      data.map(serie => {
+                    {Array.isArray(data) && data.map(serie => {
                         return (
                           <Link
                             style={{ margin: '50px !important' }}
