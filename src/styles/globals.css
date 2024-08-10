@@ -57,6 +57,7 @@ body {
   /* scrollbar-width: none;
   position: relative; */
   /* float: left; */
+  min-width: 400px;
 }
 #root {
   overflow-x: hidden !important;
