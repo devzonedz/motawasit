@@ -29,6 +29,8 @@ import hlight from '../../images/hlight.png';
 import { MagazineIcon } from '../MagazineIcon';
 import SearchBox from './SearchBox';
 import { Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react';
+import { FaChevronDown } from "react-icons/fa";
+
 
 function Navbar({ getSearch, searchResults, isLoading }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -241,6 +243,7 @@ function Navbar({ getSearch, searchResults, isLoading }) {
     justifyContent="center"
   >
     {/* <ChevronDownIcon /> */}
+    <FaChevronDown />
   </MenuButton>
   <MenuList bg="black" color="white" border="1px solid #ddd" p="5px" rounded="md">
     <MenuItem
@@ -295,7 +298,7 @@ function Navbar({ getSearch, searchResults, isLoading }) {
     >
       مركز دراسات المتوسط
     </MenuItem>
-    <MenuItem
+    {/* <MenuItem
       as="a"
       href="https://link4.com"
       target="_blank"
@@ -307,7 +310,7 @@ function Navbar({ getSearch, searchResults, isLoading }) {
       _hover={{ bg: "#333", transition: "background-color 0.2s ease" }}
     >
       موتا
-    </MenuItem>
+    </MenuItem> */}
   </MenuList>
 </Menu>
 
