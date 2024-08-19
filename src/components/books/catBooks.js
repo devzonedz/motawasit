@@ -8,14 +8,14 @@ import {
   useColorMode,
   Spinner,
 } from '@chakra-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getBooks } from '../../redux/actions/booksActions';
 import Masonry from 'react-masonry-css';
 import LazyLoad from 'react-lazyload';
 import ReactPaginate from 'react-paginate';
 
-function CatBooks({translate , getBooks, name }) {
+function CatBooks({ translate, getBooks }) {
   const { colorMode } = useColorMode();
   const bg = { light: 'white', dark: '#151a23' };
 
@@ -24,9 +24,17 @@ function CatBooks({translate , getBooks, name }) {
   const [currentPage, setCurrentPage] = React.useState(0);
   const [lastPage, setLastPage] = React.useState(1);
 
-  const imageLoaded = () => {
-    setLoaded(true);
-  };
+  const location = useLocation();
+  const history = useHistory();
+
+  React.useEffect(() => {
+    // Extract page number from URL parameters
+    const queryParams = new URLSearchParams(location.search);
+    const page = queryParams.get('page');
+    if (page) {
+      setCurrentPage(Number(page));
+    }
+  }, [location.search]);
 
   React.useEffect(() => {
     async function getData() {
@@ -35,13 +43,14 @@ function CatBooks({translate , getBooks, name }) {
         setData(res.data);
         setLastPage(res.data.meta.last_page);
       }
-      console.log(res);
     }
     getData();
-  }, [currentPage , translate]);
+  }, [currentPage, translate]);
 
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
+    // Update URL with the current page number
+    history.push(`?translate=${translate}&page=${selected}`);
   };
 
   const breakpointColumns = {
@@ -52,7 +61,6 @@ function CatBooks({translate , getBooks, name }) {
     700: 1,
   };
 
-
   const activeLink = {
     background: '#000',
     color: 'white',
@@ -61,7 +69,7 @@ function CatBooks({translate , getBooks, name }) {
   return (
     <Box>
       <Box d="flex">
-        <Link to={`/books?translate=0`}>
+        <Link to={`/books?translate=0&page=${currentPage}`}>
           <Heading
             fontFamily="diodrum-med !important"
             fontWeight="normal"
@@ -75,7 +83,7 @@ function CatBooks({translate , getBooks, name }) {
             عربي
           </Heading>
         </Link>
-        <Link to={`/books?translate=1`}>
+        <Link to={`/books?translate=1&page=${currentPage}`}>
           <Heading
             fontFamily="diodrum-med !important"
             fontWeight="normal"
@@ -117,7 +125,7 @@ function CatBooks({translate , getBooks, name }) {
                   <Skeleton w="100%" isLoaded={loaded}>
                     <Image
                       loading="lazy"
-                      onLoad={imageLoaded}
+                      onLoad={() => setLoaded(true)}
                       w="100%"
                       m="0 auto"
                       shadow="lg"
