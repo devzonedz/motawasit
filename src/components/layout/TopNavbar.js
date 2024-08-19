@@ -29,7 +29,6 @@ import hlight from '../../images/hlight.png';
 import { MagazineIcon } from '../MagazineIcon';
 import SearchBox from './SearchBox';
 import { Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react';
-import { ChevronDownIcon } from '@chakra-ui/icons'
 
 function Navbar({ getSearch, searchResults, isLoading }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -241,7 +240,7 @@ function Navbar({ getSearch, searchResults, isLoading }) {
     alignItems="center"
     justifyContent="center"
   >
-    <ChevronDownIcon />
+    {/* <ChevronDownIcon /> */}
   </MenuButton>
   <MenuList bg="black" color="white" border="1px solid #ddd" p="5px" rounded="md">
     <MenuItem
