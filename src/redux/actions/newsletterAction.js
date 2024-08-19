@@ -9,7 +9,7 @@ const headers = {
 export const postNews = email => async (dispatch, getState) => {
   let data;
   data = await axios
-    .post(`${process.env.REACT_APP_API}/newsletter`, { email }, { headers })
+    .post(`${process.env.REACT_APP_API}/newsletter/subscribe`, { email }, { headers })
     .then(res => {
       return res;
     })
