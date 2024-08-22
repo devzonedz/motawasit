@@ -8,32 +8,59 @@ import {
   useColorMode,
   Spinner,
 } from '@chakra-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Masonry from 'react-masonry-css';
+import ReactPaginate from 'react-paginate';
+import LazyLoad from 'react-lazyload';
 
 import { getBooks } from '../../redux/actions/booksActions';
-import LazyLoad from 'react-lazyload';
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 function CatBooks({ translate, furthercoming, getBooks }) {
   const { colorMode } = useColorMode();
-
   const bg = { light: 'white', dark: '#151a23' };
+
   const [data, setData] = React.useState(null);
   const [loaded, setLoaded] = React.useState(false);
+  const [currentPage, setCurrentPage] = React.useState(0);
+  const [lastPage, setLastPage] = React.useState(1);
+
+  const query = useQuery();
+  const location = useLocation();
+  const history = useHistory();
+
   const imageLoaded = () => {
     setLoaded(true);
   };
+
+  React.useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const page = queryParams.get('page');
+    if (page) {
+      setCurrentPage(Number(page));
+    }
+  }, [location.search]);
+
   React.useEffect(() => {
     async function getData() {
-      const res = await getBooks(null, null, translate, furthercoming);
+      const res = await getBooks(null, null, translate, furthercoming, currentPage + 1);
       if (res) {
-        console.log(res);
         setData(res.data);
+        setLastPage(res.data.meta.last_page);
       }
     }
     getData();
-  }, [translate]);
+  }, [translate, furthercoming, currentPage]);
+
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+    history.push(`?translate=${translate}&furthercoming=${furthercoming}&page=${selected}`);
+  };
+
   const breakpointColumns = {
     default: 4,
     1300: 4,
@@ -103,7 +130,7 @@ function CatBooks({ translate, furthercoming, getBooks }) {
                         m="0 auto"
                         shadow="lg"
                         src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
-                      ></Image>
+                      />
                     </Skeleton>
                   </LazyLoad>
                   <Text
@@ -111,23 +138,37 @@ function CatBooks({ translate, furthercoming, getBooks }) {
                     fontSize="2xl"
                     m="2"
                   >
-                    {' '}
-                    {book?.author[0]?.name}{' '}
+                    {book?.author[0]?.name}
                   </Text>
                   <Heading fontFamily="diodrum-bold !important" m="4">
-                    {' '}
-                    {book.title}{' '}
+                    {book.title}
                   </Heading>
                   <Box
                     m="4"
                     fontSize="xl"
                     className="content"
                     dangerouslySetInnerHTML={{ __html: book.overview }}
-                  ></Box>
+                  />
                 </Box>
               </Link>
             ))}
         </Masonry>
+        {data && data.books && data.books.length !== 0 && (
+          <ReactPaginate
+            previousLabel={'السابق'}
+            nextLabel={'التالى'}
+            breakLabel={'...'}
+            breakClassName={'break-me'}
+            pageCount={lastPage}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClick}
+            containerClassName={'pagination'}
+            subContainerClassName={'pages pagination'}
+            activeClassName={'active'}
+            forcePage={currentPage}
+          />
+        )}
       </Box>
     </Box>
   );
@@ -135,8 +176,8 @@ function CatBooks({ translate, furthercoming, getBooks }) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getBooks: (category, featured, translate, furthercoming) =>
-      dispatch(getBooks(category, featured, translate, furthercoming)),
+    getBooks: (category, featured, translate, furthercoming, page) =>
+      dispatch(getBooks(category, featured, translate, furthercoming, page)),
   };
 };
 

@@ -91,7 +91,7 @@ function Navbar({ getSearch, searchResults, isLoading }) {
         </Box>
       </a>
   
-      {/* magazine */}
+      {/* magazine
       <Link to="/magazine">
         <Center
           cursor="pointer"
@@ -106,7 +106,7 @@ function Navbar({ getSearch, searchResults, isLoading }) {
         >
           <MagazineIcon />
         </Center>
-      </Link>
+      </Link> */}
   
       {/* search */}
       <Box fontSize="18px">

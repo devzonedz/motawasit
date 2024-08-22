@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-
 import {
   Box,
   Image,
@@ -11,11 +10,11 @@ import {
   Text,
   useBreakpointValue,
 } from '@chakra-ui/core';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import LazyLoad from 'react-lazyload';
-
 import { connect } from 'react-redux';
 import Masonry from 'react-masonry-css';
+import ReactPaginate from 'react-paginate';
 
 import { getBooksBySerie } from '../redux/actions/booksActions';
 import BooksFilter from '../components/books/BooksFilter';
@@ -27,24 +26,47 @@ function useQuery() {
 
 function CatBooks({ getBooksBySerie }) {
   const { colorMode } = useColorMode();
-
   const bg = { light: 'white', dark: '#151a23' };
+
   let query = useQuery();
   let serie = query.get('serie');
+
   const [data, setData] = React.useState(null);
   const [loaded, setLoaded] = React.useState(false);
+  const [currentPage, setCurrentPage] = React.useState(0);
+  const [lastPage, setLastPage] = React.useState(1);
+
+  const location = useLocation();
+  const history = useHistory();
+
   const imageLoaded = () => {
     setLoaded(true);
   };
+
+  React.useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const page = queryParams.get('page');
+    if (page) {
+      setCurrentPage(Number(page));
+    }
+  }, [location.search]);
+
   React.useEffect(() => {
     async function getData() {
-      const res = await getBooksBySerie(serie);
+      const res = await getBooksBySerie(serie, currentPage + 1);
       if (res) {
         setData(res.data);
+        setLastPage(res.data.meta.last_page);
       }
     }
     getData();
-  }, [serie]);
+  }, [serie, currentPage]);
+
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+    history.push(`?serie=${serie}&page=${selected}`);
+  };
+
   const breakpointColumns = {
     default: 4,
     1300: 4,
@@ -117,24 +139,39 @@ function CatBooks({ getBooksBySerie }) {
                         m="0 auto"
                         shadow="lg"
                         src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
-                      ></Image>
+                      />
                     </Skeleton>
                   </LazyLoad>
                   <Heading m="4"> {book.title} </Heading>
                   <Text fontSize="2xl" m="2">
-                    {' '}
-                    {book?.author[0]?.name}{' '}
+                    {book?.author[0]?.name}
                   </Text>
                   <Box
                     m="4"
                     fontSize="xl"
                     className="content books__content"
                     dangerouslySetInnerHTML={{ __html: book.overview }}
-                  ></Box>
+                  />
                 </Box>
               </Link>
             ))}
         </Masonry>
+        {data && data.books && data.books.length !== 0 && (
+          <ReactPaginate
+            previousLabel={'السابق'}
+            nextLabel={'التالى'}
+            breakLabel={'...'}
+            breakClassName={'break-me'}
+            pageCount={lastPage}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClick}
+            containerClassName={'pagination'}
+            subContainerClassName={'pages pagination'}
+            activeClassName={'active'}
+            forcePage={currentPage}
+          />
+        )}
       </Box>
     </Box>
   );
@@ -142,7 +179,7 @@ function CatBooks({ getBooksBySerie }) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getBooksBySerie: serie => dispatch(getBooksBySerie(serie)),
+    getBooksBySerie: (serie, page) => dispatch(getBooksBySerie(serie, page)),
   };
 };
 

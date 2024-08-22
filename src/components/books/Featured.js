@@ -8,32 +8,52 @@ import {
   useColorMode,
   Spinner,
 } from '@chakra-ui/core';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Masonry from 'react-masonry-css';
+import LazyLoad from 'react-lazyload';
+import ReactPaginate from 'react-paginate';
 
 import { getBooks } from '../../redux/actions/booksActions';
-import LazyLoad from 'react-lazyload';
 
-function CatBooks({ translate, featured, getBooks }) {
+function FeaturedBooks({ translate, featured, getBooks }) {
   const { colorMode } = useColorMode();
 
   const bg = { light: 'white', dark: '#151a23' };
 
   const [data, setData] = React.useState(null);
   const [loaded, setLoaded] = React.useState(false);
-  const imageLoaded = () => {
-    setLoaded(true);
-  };
+  const [currentPage, setCurrentPage] = React.useState(0);
+  const [lastPage, setLastPage] = React.useState(1);
+
+  const location = useLocation();
+  const history = useHistory();
+
+  React.useEffect(() => {
+    // Extract page number from URL parameters
+    const queryParams = new URLSearchParams(location.search);
+    const page = queryParams.get('page');
+    if (page) {
+      setCurrentPage(Number(page));
+    }
+  }, [location.search]);
+
   React.useEffect(() => {
     async function getData() {
-      const res = await getBooks(null, featured, translate, null);
+      const res = await getBooks(null, featured, translate, null, currentPage + 1);
       if (res) {
         setData(res.data);
+        setLastPage(res.data.meta.last_page);
       }
     }
     getData();
-  }, [translate]);
+  }, [translate, featured, currentPage]);
+
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+    // Update URL with the current page number
+    history.push(`?featured=1&translate=${translate}&page=${selected}`);
+  };
 
   const breakpointColumns = {
     default: 4,
@@ -51,7 +71,7 @@ function CatBooks({ translate, featured, getBooks }) {
   return (
     <Box>
       <Box d="flex" my="4">
-        <Link to={`/featured?featured=1&translate=0`}>
+        <Link to={`/featured?featured=1&translate=0&page=${currentPage}`}>
           <Heading
             fontFamily="diodrum-med !important"
             fontWeight="normal"
@@ -64,7 +84,7 @@ function CatBooks({ translate, featured, getBooks }) {
             عربي
           </Heading>
         </Link>
-        <Link to={`/featured?featured=1&translate=1`}>
+        <Link to={`/featured?featured=1&translate=1&page=${currentPage}`}>
           <Heading
             fontFamily="diodrum-med !important"
             fontWeight="normal"
@@ -105,7 +125,7 @@ function CatBooks({ translate, featured, getBooks }) {
                   <Skeleton w="100%" isLoaded={loaded}>
                     <Image
                       loading="lazy"
-                      onLoad={imageLoaded}
+                      onLoad={() => setLoaded(true)}
                       w="100%"
                       m="0 auto"
                       shadow="lg"
@@ -114,12 +134,10 @@ function CatBooks({ translate, featured, getBooks }) {
                   </Skeleton>
                 </LazyLoad>
                 <Text fontFamily="diodrum-med !important" fontSize="2xl" m="2">
-                  {' '}
-                  {book?.author[0]?.name}{' '}
+                  {book?.author[0]?.name}
                 </Text>
                 <Heading fontFamily="diodrum-bold !important" m="4">
-                  {' '}
-                  {book.title}{' '}
+                  {book.title}
                 </Heading>
 
                 <Box
@@ -132,15 +150,31 @@ function CatBooks({ translate, featured, getBooks }) {
             </Link>
           ))}
       </Masonry>
+      {data && data.books && data.books.length !== 0 && (
+        <ReactPaginate
+          previousLabel={'السابق'}
+          nextLabel={'التالى'}
+          breakLabel={'...'}
+          breakClassName={'break-me'}
+          pageCount={lastPage}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={handlePageClick}
+          containerClassName={'pagination'}
+          subContainerClassName={'pages pagination'}
+          activeClassName={'active'}
+          forcePage={currentPage}
+        />
+      )}
     </Box>
   );
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    getBooks: (category, featured, translate, furthercoming) =>
-      dispatch(getBooks(category, featured, translate, furthercoming)),
+    getBooks: (category, featured, translate, furthercoming, page) =>
+      dispatch(getBooks(category, featured, translate, furthercoming, page)),
   };
 };
 
-export default connect(null, mapDispatchToProps)(CatBooks);
+export default connect(null, mapDispatchToProps)(FeaturedBooks);

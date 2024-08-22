@@ -8,33 +8,55 @@ import {
   useColorMode,
   Spinner,
 } from '@chakra-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Masonry from 'react-masonry-css';
+import LazyLoad from 'react-lazyload';
+import ReactPaginate from 'react-paginate';
 
 import { getBooks } from '../../redux/actions/booksActions';
-import LazyLoad from 'react-lazyload';
 
 function CatBooks({ category, translate, getBooks }) {
   const { colorMode } = useColorMode();
-
   const bg = { light: 'white', dark: '#151a23' };
 
   const [data, setData] = React.useState(null);
   const [loaded, setLoaded] = React.useState(false);
+  const [currentPage, setCurrentPage] = React.useState(0);
+  const [lastPage, setLastPage] = React.useState(1);
+
+  const location = useLocation();
+  const history = useHistory();
+
   const imageLoaded = () => {
     setLoaded(true);
   };
+
+  React.useEffect(() => {
+    // Extract page number from URL parameters
+    const queryParams = new URLSearchParams(location.search);
+    const page = queryParams.get('page');
+    if (page) {
+      setCurrentPage(Number(page));
+    }
+  }, [location.search]);
+
   React.useEffect(() => {
     async function getData() {
-      const res = await getBooks(category, null, translate, null);
-
+      const res = await getBooks(category, null, translate, null, currentPage + 1);
       if (res) {
         setData(res.data);
+        setLastPage(res.data.meta.last_page);
       }
     }
     getData();
-  }, [category, translate]);
+  }, [category, translate, currentPage]);
+
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+    // Update URL with the current page number
+    history.push(`?category=${category}&translate=${translate}&page=${selected}`);
+  };
 
   const breakpointColumns = {
     default: 4,
@@ -51,7 +73,6 @@ function CatBooks({ category, translate, getBooks }) {
           <Spinner size="xl" />
         </Box>
       )}
-      {/* // <SimpleGrid columns={[1, 2, 3, 5]}> */}
       <Masonry
         breakpointCols={breakpointColumns}
         className="my-masonry-grid"
@@ -79,37 +100,49 @@ function CatBooks({ category, translate, getBooks }) {
                       m="0 auto"
                       shadow="lg"
                       src={`${process.env.REACT_APP_STORAGE}/${book.cover}`}
-                    ></Image>
+                    />
                   </Skeleton>
                 </LazyLoad>
                 <Text fontFamily="diodrum-med !important" fontSize="2xl" m="2">
-                  {' '}
-                  {book?.author[0]?.name}{' '}
+                  {book?.author[0]?.name}
                 </Text>
                 <Heading fontFamily="diodrum-bold !important" m="4">
-                  {' '}
-                  {book.title}{' '}
+                  {book.title}
                 </Heading>
-
                 <Box
                   m="4"
                   fontSize="xl"
                   className="content books__content"
                   dangerouslySetInnerHTML={{ __html: book.overview }}
-                ></Box>
+                />
               </Box>
             </Link>
           ))}
       </Masonry>
-      {/* // </SimpleGrid> */}
+      {data && data.books && data.books.length !== 0 && (
+        <ReactPaginate
+          previousLabel={'السابق'}
+          nextLabel={'التالى'}
+          breakLabel={'...'}
+          breakClassName={'break-me'}
+          pageCount={lastPage}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={handlePageClick}
+          containerClassName={'pagination'}
+          subContainerClassName={'pages pagination'}
+          activeClassName={'active'}
+          forcePage={currentPage}
+        />
+      )}
     </Box>
   );
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    getBooks: (category, featured, translate, further) =>
-      dispatch(getBooks(category, featured, translate, further)),
+    getBooks: (category, featured, translate, further, page) =>
+      dispatch(getBooks(category, featured, translate, further, page)),
   };
 };
 

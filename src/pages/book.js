@@ -35,6 +35,8 @@ import { connect } from 'react-redux';
 import { getBook } from '../redux/actions/booksActions';
 
 import GlobalShare from '../util/GlobalShare';
+import BooksFilter from '../components/books/BooksFilter';
+
 
 function Book({ getBook }) {
   const { colorMode } = useColorMode();
@@ -76,6 +78,8 @@ function Book({ getBook }) {
   return (
     <Box mt={{ base: '2em', md: '6em' }}>
       <Box mb="2em">
+      <BooksFilter />
+
         {!data && (
           <Box textAlign="center">
             <Spinner size="xl" />
@@ -234,16 +238,16 @@ function Book({ getBook }) {
                         </TabPanel>
                       )}
                       {data.author && (
-                        <TabPanel>
-                          {data.author.map(author => (
-                            <Box key={author.id}>
-                              <Heading size="lg">{author.name}</Heading>
-                              <Text m="2" fontSize="2xl">
-                                {author.author_bio}
-                              </Text>
-                            </Box>
-                          ))}
-                        </TabPanel>
+  <TabPanel>
+    {data.author.map(author => (
+      <Box key={author.id}>
+        <Heading size="lg">{author.name}</Heading>
+        <Box m="2" fontSize="2xl" dangerouslySetInnerHTML={{ __html: author.author_bio }} />
+      </Box>
+    ))}
+  </TabPanel>
+)}
+
                       )}
                       {data.index && (
                         <TabPanel fontSize="xl">
