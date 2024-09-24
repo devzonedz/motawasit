@@ -91,7 +91,7 @@ function Navbar({ getSeries, getCat }) {
       overflowX={{ base: 'auto', sm: 'auto' }}
       wrap={['nowrap', 'nowrap', 'wrap', 'wrap']}
       direction={['row', 'row', 'row', 'row']}
-      justifyContent="center" // Centering the items
+      // justifyContent="center" // Centering the items
     >
       {!isLargerThan790 && (
         <IconButton
@@ -105,7 +105,7 @@ function Navbar({ getSeries, getCat }) {
         />
       )}
       {isLargerThan790 && (
-        <Flex>
+        <Flex pr="20" w="100%">
           <NavLink
             activeStyle={{
               fontWeight: 'bold',
