@@ -27,26 +27,20 @@ function Home({ getBooks }) {
       <Helmet>
         <title>كتب المتوسط</title>
       </Helmet>
-      {isSmallScreen && (
-        <Headroom
-          className="book-filter"
-          style={{
-            top: '70px',
-            left: '0px',
-            right: '0px',
-            zIndex: '1',
-            transform: 'translate3D(0px, 0px, 0px)',
-            transition: 'all .5s ease-in-out 0s',
-          }}
-        >
-          <BooksFilter />
-        </Headroom>
-      )}
-      {!isSmallScreen && <BooksFilter />}
+      <Box
+        position={isSmallScreen ? 'static' : 'fixed'}
+        top="70px"  // You can adjust this value to control where the filter starts
+        zIndex="10"
+        width="full"
+      >
+        <BooksFilter />
+      </Box>
+
       <Box
         pr={['10%', '5%', '5%', '5%']}
         pl={['10%', '5%', '5%', '5%']}
         mb="100px"
+        mt="150px"
       >
         <CatBooks translate={translate} />
       </Box>

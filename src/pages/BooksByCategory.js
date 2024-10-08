@@ -54,7 +54,7 @@ export default function Books() {
         <Box m="4">
           <Heading fontFamily="diodrum-bold !important">{category}</Heading>
         </Box>
-        <Box d="flex" m="2">
+        <Box d="flex" m="2" justifyContent="flex-end">
           <Link to={`/books_by_category?category=${category}&translate=0`}>
             <Heading
               fontFamily="diodrum-med !important"

@@ -77,7 +77,7 @@ function CatBooks({ translate, furthercoming, getBooks }) {
   return (
     <Box>
       <Box>
-        <Box d="flex" my="4">
+        <Box d="flex" my="4" justifyContent="flex-end">
           <Link to={`/furthercoming?furthercoming=1&translate=0`}>
             <Heading
               fontFamily="diodrum-med !important"

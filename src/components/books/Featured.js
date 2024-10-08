@@ -70,7 +70,7 @@ function FeaturedBooks({ translate, featured, getBooks }) {
 
   return (
     <Box>
-      <Box d="flex" my="4">
+      <Box d="flex" my="4" justifyContent="flex-end">
         <Link to={`/featured?featured=1&translate=0&page=${currentPage}`}>
           <Heading
             fontFamily="diodrum-med !important"

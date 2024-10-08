@@ -90,8 +90,9 @@ function Navbar({ getSeries, getCat }) {
       bg={bg[colorMode]}
       overflowX={{ base: 'auto', sm: 'auto' }}
       wrap={['nowrap', 'nowrap', 'wrap', 'wrap']}
-      direction={['row', 'row', 'row', 'row']}
+      direction={['row', 'row', 'row', 'row']} 
       // justifyContent="center" // Centering the items
+
     >
       {!isLargerThan790 && (
         <IconButton

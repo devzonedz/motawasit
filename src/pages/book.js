@@ -94,6 +94,7 @@ function Book({ getBook }) {
               direction={['column', 'column', 'column', 'row']}
               px={['2%', '2%', '5%', '5%']}
               gap="10px"
+              mt='6em'
             >
               <Box w={{ base: '100%', lg: '30%' }} maxW="400px" mx="auto">
                 <Box>

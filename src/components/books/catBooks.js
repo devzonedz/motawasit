@@ -68,7 +68,7 @@ function CatBooks({ translate, getBooks }) {
 
   return (
     <Box>
-      <Box d="flex">
+      <Box d="flex" justifyContent="flex-end">
         <Link to={`/books?translate=0&page=${currentPage}`}>
           <Heading
             fontFamily="diodrum-med !important"
@@ -80,8 +80,8 @@ function CatBooks({ translate, getBooks }) {
             pb="4"
             style={translate === '0' ? activeLink : {}}
           >
-            عربي
-          </Heading>
+عربي          
+</Heading>
         </Link>
         <Link to={`/books?translate=1&page=${currentPage}`}>
           <Heading
