@@ -48,6 +48,7 @@ function Book({ getBook }) {
   let { id } = useParams();
   const [data, setData] = React.useState(null);
   const [loaded, setLoaded] = React.useState(false);
+  const isSmallScreen = useBreakpointValue({ base: true, md: false });
   const imageLoaded = () => {
     setLoaded(true);
   };
@@ -78,7 +79,14 @@ function Book({ getBook }) {
   return (
     <Box mt={{ base: '2em', md: '6em' }}>
       <Box mb="2em">
-      <BooksFilter />
+      <Box
+        position={isSmallScreen ? 'static' : 'fixed'}
+        top="70px"  // You can adjust this value to control where the filter starts
+        zIndex="10"
+        width="full"
+      >
+        <BooksFilter />
+      </Box>
 
         {!data && (
           <Box textAlign="center">
@@ -94,7 +102,7 @@ function Book({ getBook }) {
               direction={['column', 'column', 'column', 'row']}
               px={['2%', '2%', '5%', '5%']}
               gap="10px"
-              mt='6em'
+              mt='10em'
             >
               <Box w={{ base: '100%', lg: '30%' }} maxW="400px" mx="auto">
                 <Box>
