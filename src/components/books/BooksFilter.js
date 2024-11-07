@@ -379,7 +379,7 @@ function Navbar({ getSeries, getCat }) {
                           key={serie.id}
                           style={{ margin: '50px !important' }}
                           onClick={handleToggle}
-                          to={`/books_by_series?serie=${serie.key}`}
+                          to={`/books_by_series?serie=${serie.name}`}
                         >
                           <Box m={['0.9', '4']}>
                             <MenuItem
